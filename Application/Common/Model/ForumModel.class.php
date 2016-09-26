@@ -51,6 +51,9 @@ class ForumModel extends kokoModel {
 		$config ['table'] ['tables'] ['collection'] = array (
 				"class" => "\Common\Model\CollectionModel" 
 		);
+		$config ['table'] ['tables'] ['fenlei'] = array (
+				"class" => "\Common\Model\TreeModel" 
+		);
 		parent::__construct ( $name, $tablePrefix, $connection, $config );
 	}
 	public function zan($u){
