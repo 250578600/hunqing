@@ -122,21 +122,21 @@ class UserModel extends MemberModel {
 						"point" => 9 
 				) 
 		);
-//		$config ["ex"]=true;
+		$config ["ex"]=true;
 		$config ["table"] ["tables"] ['ex'] = array (
 				"table" => array (
 						"keys" => array (
 								array (
-										"age tinyint default 0",
 										"height int default 0",
 										"weight int default 0",
-										"birthday varchar(20) not null",
-										"xueli tinyint not null",
-										"nianxin tinyint not null",
+										"birthday varchar(20) ",
+										"xueli tinyint ",
+										"nianxin tinyint ",
 										"interest varchar(1024) default ''" 
 								)
 								 
-						) 
+						),
+						"transpose"=>true 
 				) 
 		);
 		$config ["table"] ["tables"] ['withdraw'] = array (

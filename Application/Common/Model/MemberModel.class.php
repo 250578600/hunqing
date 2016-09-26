@@ -25,10 +25,22 @@ class MemberModel extends KokoModel {
 			array (
 					"username",
 					"",
-					"用户名不能重复",
+					"用户名已注册",
 					0,
 					"unique" 
-			) 
+			) ,array (
+					"telephone",
+					"",
+					"手机号已注册",
+					0,
+					"unique" 
+			) ,array (
+					"email",
+					"",
+					"邮箱已注册",
+					0,
+					"unique" 
+			) ,
 	);
 	public function __construct($name = '', $tablePrefix = '', $connection = '', $config = null) {
 		$table = array (

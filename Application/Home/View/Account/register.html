@@ -22,13 +22,13 @@
 			</div>
 			<div class="top-box" onselectstart="return false;">
 				<img class="logo" src="/Public/home/img/logo.png" />
-				<form action="" method="post" class="top-left">
+				<form action="" method="post" class="top-left" onsubmit="return sub()" id="login">
 					<div class="account input-cha-text">
-						<input type="text" placeholder="ID/邮箱/手机" />
+						<input type="text" placeholder="ID/邮箱/手机" name="key" />
 						<div class="input-cha-text-style"></div>
 					</div>
 					<div class="password input-yj-password">
-						<input type="password" placeholder="密码" />
+						<input type="password" placeholder="密码" name="password" />
 						<div class="input-yj-password-style"></div>
 					</div>
 					<label class="automatic-login">
@@ -397,6 +397,26 @@
 			// if($('.dll-select-val').text() == )
 
 			// console.log(url);
+		}
+
+		function sub(){
+			if($("input[name=id]").val()==''){
+				alert("请输入ID");
+			}else if($("input[name=password]").val().length<6){
+				alert("密码长度至少为6位");
+			}else{
+				$.post(document.URL,$("#login").serialize(),function(e){
+					if(e.state==1){
+						layer.alert("登陆成功");
+						setTimeout(function(){
+							location.href="{:U('Index/index')}";
+						},1000);
+					}else{
+						layer.alert(e.msg);
+					}
+				});
+			}
+			return false;
 		}
 
 	</script>
