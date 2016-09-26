@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>申请代言人</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="/Public/m/css/mui.min.css" />
+		<link rel="stylesheet" href="/Public/m/css/public.css" />
+		<script src="/Public/m/js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="/Public/m/js/mui.min.js" ></script>
+		<script src="/Public/m/js/layout.js"></script>
+		<style type="text/css">
+			body{
+				background-color:#000;
+			}
+			.boss{
+				margin-top:10px;
+				margin-bottom:90px;
+				padding:0 10px;
+			}
+			.detail{
+				position:relative;
+				background-color: #171717;
+				color:#fff;
+				margin-bottom: 20px;
+				border-radius: 5px;
+				height:40px;
+				line-height: 40px;
+			}
+			.che{
+				width:45px;
+				position:absolute;
+				top:0px;
+				left:110px;
+			}
+			.ch{
+				width:45px;
+				position:absolute;
+				top:0px;
+				left:185px;
+			}
+			.xi{
+				float:right;
+				margin-top:8px;
+			}
+			.red{
+				color:#FF0000;
+				padding:0 5px;
+				
+			}
+			.people{
+				display: inline-block;
+				width:100px;
+				float:left;
+			}
+			.lis{
+				height:30px;
+				background-color:#171717 !important;
+				padding-left:5px ;
+				color:#fff;
+				font-size:15px;
+				border:none !important;
+				margin:0 !important;
+				
+			}
+			
+			.de{
+				background-color:#171717;
+				border-radius:5px;
+				color: #fff;
+				margin-bottom:10px;
+				height:80px;
+			}
+			.select{
+				padding:10px 0;
+				height:35px;
+			}
+			.table{
+				table-layout: fixed;
+				width:100%;
+				font-size:14px;
+				overflow:hidden;
+			}
+			
+			.table td img{
+				float:left;
+				width:30px;
+				height:30px;
+			}
+			.we{
+				position: relative;
+				width:100px;
+			}
+			.ti{
+				color: #cacaca;
+				font-size:13px;
+				padding:0 15px;
+			}
+			.next{
+				width:100%;
+				text-align: center;
+				display:block;
+				height:45px;
+				line-height:45px;
+				color:#171717;
+				font-size:18px;
+				background-color:#D6BE80;
+			}
+			.checkbo{
+				float:left;
+				position: relative;
+				display: block;
+				width:14px;
+				height:14px;
+				margin-top:10px;
+				border-radius: 50%;
+				border:1px solid rgb(214, 190, 128);
+			    transition: all .6s ease;
+			    -webkit-transition: all .4s ease;
+			}
+			.checkbo:before{
+				position: absolute;
+			    content: ' ';
+			    display: block;
+			    left: 7px;
+			    top: 4px;
+			    width: 4px;
+			    height: 8px;
+			    -webkit-transform:rotate(30deg);
+			    
+			}
+			.selec{
+				border:1px solid rgb(214, 190, 128);
+			    background-color: rgb(214, 190, 128);
+			}
+			.yuan{
+				position:absolute;
+				left:5px;
+				top:-5px;
+			}
+			.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{
+				color:#D6BE80;
+			}
+			.mui-checkbox input[type=checkbox]:before, .mui-radio input[type=radio]:before {
+				font-size:21px;
+			}
+			.mui-radio input[type=radio]{
+				top:9px;
+				right:19px;
+			}
+			.mui-radio.mui-left input[type=radio] 
+			{  
+				left: 5px;
+			}
+			.woman{
+				width:75px;
+			    clear: none;
+			    float: left;
+			}
+			.man{
+				width:150px;
+				 clear: none;
+			    float: left;
+			}
+			.man input{
+				margin-top: 5px;
+			}
+			.man span{
+				margin-left:25px;
+				margin-top:5px;
+				display: block;
+			}
+			.mui-radio.mui-left label {
+		    	padding-right: 15px;
+		    	padding-left: 28px;
+		    }
+		</style>
+	</head>
+	<body>
+		<div class="boss">
+			<div class="detail">
+				<span class="people"><span class="red">*</span>联系人</span>
+				<input type="text" class="lis layout" layout="w:<100%-120>"/>
+			</div>
+			<div class="detail">
+				<span class="people"><span class="red">*</span>性别</span>
+				
+					<div class="mui-input-row mui-radio mui-left woman sex">
+						<label>女</label>
+						<input name="sex" type="radio" checked="checked">
+					</div>
+					<div class="mui-input-row mui-radio mui-left woman sex">
+						<label>男</label>
+						<input name="sex" type="radio">
+					</div>
+			</div>
+			
+			<div class="detail">
+				<span class="people"><span class="red">*</span>出生日期</span>
+				<input type="text" class="lis layout" layout="w:<100%-120>"/>
+			</div>
+			<div class="detail">
+				<span class="people"><span class="red">*</span>联系电话</span>
+				<input type="text" class="lis layout" layout="w:<100%-120>"/>
+			</div>
+			<div class="detail">
+				<span class="people"><span class="red">*</span>联系地址</span>
+				<input type="text" class="lis layout" layout="w:<100%-120>"/>
+			</div>
+			<div class="de">
+				<div class="select">
+					<span class="people"><span class="red">*</span>账户选择</span>
+				</div>
+				<div class="ta">
+					<table class="table" border="0" cellspacing="0" cellpadding="">
+						<tr>
+							<td>
+								<div class="mui-input-row mui-radio mui-left man pay">
+									<label>
+										<img src="/Public/m/img/weixin.png" />
+										<span>微信</span>
+									</label>
+									<input name="pay" type="radio" checked="checked">
+								</div>
+							</td>
+							<td>
+								<div class="mui-input-row mui-radio mui-left man pay">
+									<label>
+										<img src="/Public/m/img/zhifubao.png" />
+										<span>支付宝</span>
+									</label>
+									<input name="pay" type="radio">
+								</div>
+							</td>
+							<td>
+								<div class="mui-input-row mui-radio mui-left man pay">
+									<label>
+										<img src="/Public/m/img/yinhang.png" />
+										<span>银行卡</span>
+									</label>
+									<input name="pay" type="radio">
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="ti">Tip:该账户为您选择提现到账的账户，请核对。如需更改账户，请在做出申请前修改。</div>
+		</div>
+			</div>
+			<a href="#" class="next">下一步</a>
+		<script>
+		
+			layout(".layout");
+			$('.checkbo').click(function(){
+				if($(this).hasClass('selec')){
+					$(this).removeClass('selec');
+				}
+				else{
+					$(this).addClass('selec');
+				}
+			});
+			
+			var sex = 2; // 1男 ，2女
+			var pay = 1; //1微信，2支付宝，3银行卡
+			
+			$('.sex').click(function(){
+				sex = $(this).index('.sex')==0 ? 2 : 1;
+			});
+			$('.pay').click(function(){
+				pay = $(this).index('.pay')+1;
+			});
+			
+		</script>
+	</body>
+</html>

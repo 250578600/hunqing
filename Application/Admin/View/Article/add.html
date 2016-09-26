@@ -1,0 +1,149 @@
+<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<LINK rel="Bookmark" href="/favicon.ico" >
+<LINK rel="Shortcut Icon" href="/favicon.ico" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/html5.js"></script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/respond.min.js"></script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<!--/meta 作为公共模版分离出去-->
+
+<link href="{$ADMIN_RES_PATH}lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="page-container">
+	<form class="form form-horizontal" id="form" onsubmit="return false">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章标题：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="{$data['title']}" placeholder="" id="title" name="data[title]">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select name="data[category_id]" class="select" id="fenlei">
+					<foreach name="category" item="r" key="k">
+						<option value="{$r.id}" disabled="disabled">{$r.name}</option>
+						<foreach name="r['list']" item="r2" key="k2">
+							<option value="{$r2.id}" {:$data['category_id']==$r2['id']?'selected':''}>&nbsp;&nbsp;&nbsp;&nbsp;{$r2.name}</option>
+						</foreach>
+					</foreach>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">文章关键字：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" name="keywords" id="" placeholder="多个关键字用英文逗号隔开，限10个关键字" value="{$data['keywords']}" class="input-text">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">文章摘要：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<textarea name="description" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="textarealength(this,200)">{$data['description']}</textarea>
+				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">缩略图：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<div class="uploader-thum-container">
+					<div id="fileList" class="uploader-list">
+						<img id="thumb" src="{$data['thumb']}" style="max-height:200px">
+						<input id="thumb2" type="hidden" name="data[thumb]" value="{$data['thumb']}">
+					</div>
+					<div id="filePicker"><div class="webuploader-pick kokoUpload" img="#thumb" input="#thumb2" >选择上传</div></div>
+				</div>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">详细内容：</label>
+			<div class="formControls col-xs-8 col-sm-9"> 
+				<script id="editor" type="text/plain" style="width:100%;height:400px;"></script> 
+				<textarea id="info" style="display:none">{$data['content']}</textarea>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button class="btn btn-primary radius kokoSave" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
+				<button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</button>
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/icheck/jquery.icheck.min.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/jquery.validation/1.14.0/jquery.validate.min.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/jquery.validation/1.14.0/messages_zh.min.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}static/h-ui/js/H-ui.admin.js"></script> 
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/webuploader/0.1.5/webuploader.min.js"></script> 
+<script type="text/javascript" src="/Public/plugin/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="/Public/plugin/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="/Public/koko2.js" ></script>
+<style>
+.spec-name{display:inline-block;width:50px;font-weight:bold}
+.spec-value{display:inline-block;margin-right:30px}
+.spec-value input[type=text]{width:60px}
+.filelist li:hover .file-panel{height:30px}
+</style>
+<script type="text/javascript">
+edit={:$data?1:0};
+$(function(){
+	kokoAPI({save:{'auto-name':true,before:function(){
+		return $.kokoTool.checkEmpty("#title","标题不能为空");
+	},callback:function(e){
+		if(e.state==1){
+			if(parent.document.URL.indexOf('listing')==-1){
+				location.reload();
+			}else{
+				parent.location.reload();
+			}
+		}else{
+			layer.alert(e.msg);
+		}
+		return false;
+	},ajax:"{$ajax.add}"}},"{:U('ajax')}");
+	kokoAPI({upload:{}});
+});
+
+$(function(){
+	var ue = UE.getEditor('editor',{textarea:'content'});
+	setTimeout(function(){
+		var html=$('#info').val();
+		if(html){
+			ue.setContent( html);
+		}
+	},1000);
+});
+</script>
+</body>
+</html>

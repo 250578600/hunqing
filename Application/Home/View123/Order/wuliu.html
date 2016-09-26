@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>查询物流</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="/Public/m/css/public.css" />
+		<script src="/Public/m/js/jquery-1.11.0.js"></script>
+		<script src="/Public/m/js/layout.js"></script>
+		<style type="text/css">
+			html{
+				height: 100%;
+			}
+			body{
+				margin:0;
+				height: 100%;
+				background-color:#000;
+			}
+			a{
+				text-decoration: none;
+			}
+			ul,li{
+				margin:0;
+				padding:0;
+				list-style-type:none;
+			}
+			.state{
+				margin-top:45px;
+				padding:0 10px;
+				background-color:#171717;
+				height:91px;
+			}
+			.state img{
+				float:left;
+				width:70px;
+				display: block;
+				margin-right:16px;
+				margin-top:10px;
+			}
+			.font{
+				float:left;
+				color:#b1b1b1;
+				margin-top:10px;
+			}
+			.font span{
+				color:#d6be80;
+			}
+			.boss{
+				margin-top:20px;
+				background:url(/Public/m/img/wuliubeijing.png)no-repeat;
+				background-size:100% 100%;
+				padding:0 10px;
+				margin-bottom:90px;
+			}
+			.to{
+				overflow-y: scroll;
+				height:100%;
+			}
+			.bor{
+				float:left;
+				width:20px;
+				padding:0 15px;
+				
+			}
+			.circle{
+				width:10px;
+				height:10px;
+				border-radius:50%;
+				background-color:#D6BE80;
+				margin:auto;
+			}
+			.borde{
+				width:1px;
+				height:60px;
+				border-left:1px solid #ddd;
+				margin:auto;
+			}
+			.describe{
+				float:left;
+				border-bottom:1px solid #D6BE80;
+				color:#D6BE80;
+			}
+			.time{
+				font-size:14px;
+				margin-top:10px;
+				margin-bottom:15px;
+			}
+			.tou{
+				margin-top:10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="above">查询物流
+			<div class="bove">返回</div>
+		</div>
+		<div class="state">
+			<img src="/Public/m/img/ding.png" />
+			<ul class="font">
+				<li>物流状态 <span>运输中</span></li>
+				<li>承运来源 顺丰快递</li>
+				<li>运单编号 5612451326</li>
+				<li>官方电话 95533</li>
+			</ul>
+		</div>
+		<div class="boss layout" layout="h:<p.h-200>">
+			<div class="to">
+				<ul class="tou">
+					<li class="border">
+					 	<div class="bor">
+					 		<div class="circle"></div>
+					 		<div class="borde"></div>
+					 	</div>
+					 	<div class="describe layout" layout="w:<100%-60>">
+					 		<div>您的订单开始处理</div>
+					 		<div class="time">2016-05-23 20:32:21</div>
+					 	</div>
+					 	<div style="clear: both;"></div>
+					</li>
+				
+				</ul>
+			</div>
+		</div>
+		<table id="bottom">
+			<tr>
+				<td>
+					<a href="#">
+						<img src="/Public/m/img/che.png" />
+						<div>首页</div>
+					</a>
+				</td>
+				<td>
+					<a href="#">
+						<img src="/Public/m/img/bottom-2.png" />
+						<div>我的订单</div>
+					</a>
+				</td>
+				<td>
+					<a href="#">
+						<img src="/Public/m/img/bottom-3.png" />
+						<div>个人中心</div>
+					</a>
+				</td>
+				<td>
+					<a href="#">
+						<img src="/Public/m/img/bottom-4.png" />
+						<div>我的二维码</div>
+					</a>
+				</td>
+			</tr>
+		</table>
+		<script>
+			layout(".layout");
+		</script>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>退款申请(发货状态)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/tuikuan.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/tuikuan.js"></script>
+</head>
+<body>
+    <div class="main">
+         <div class="templateBox z">
+            <p class="z"><span>*</span>退款金额</p>
+             <input type="text" class="z" placeholder="请输入退款金额（不超过200）">
+         </div>
+        <div class="templateBox z">
+            <p class="z">退款说明</p>
+            <input type="text" class="z" placeholder="选填">
+        </div>
+        <div class="imgBox z">
+
+        </div>
+        <img src="/Public/m/images/pingzheng.png" class="z upBtn" alt="">
+    </div>
+    <a href="" class="ok" >
+        提交申请
+        </a>
+    <input type="file" id="fileImage" onchange="upfile()" accept="image/jpg,image/jpeg,image/png,image/gif" style="display: none">
+
+</body>
+<script>
+    $(".upBtn").click(function(){
+        if($(".imgBox .UpImg").length<3){
+            $("#fileImage").click();
+        }
+    });
+    function upfile() {
+            var file = $('#fileImage')[0].files[0];
+            var reader = new FileReader();
+            if (file.size > 4000000) { // 限制图片大小，不能超过4M
+                alert('图片不能超过4M');
+                return;
+            }
+            reader.onload = (function (theFile) {
+                return function (e) {
+                    var aa='<div class="upImgBox">'
+                            +'<img src="'+e.target.result+'" class="UpImg paAuto" alt=""/>'
+                            +'<img src="/Public/m/images/shanchu.png" class="deleteIcon" alt=""/>'
+                            +'</div>';
+                    $(".imgBox").append(aa);
+                    var objIndex=$(".imgBox .UpImg").length-1;
+                    imgFun(objIndex)
+                }
+            })(file);
+            reader.readAsDataURL(file);
+    }
+
+
+    function imgFun(data){
+        $(".upImgBox").css({
+            height:$(".imgBox").width()*.28
+        });
+
+        var a=$(".upImgBox .UpImg").eq(data);
+       if(a.width()> a.height()|| a.width()== a.height()){
+           $(".upImgBox .UpImg").eq(data).css({
+               width:"95%"
+           });
+       }else {
+           $(".upImgBox .UpImg").eq(data).css({
+               height:"95%"
+           });
+        }
+        $(".deleteIcon").click(function () {
+            $(this).parent().remove();
+        })
+    }
+
+
+</script>
+</html>

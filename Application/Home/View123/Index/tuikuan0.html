@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>退款申请(收货状态)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/tuikuan0.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/tuikuan.js"></script>
+</head>
+<body>
+    <div class="main">
+         <div class="templateBox z">
+            <p class="z"><span>*</span>退款原因</p>
+             <input type="text" class="z yuanyin" placeholder="请选择退款原因" readonly="readonly" >
+             <img src="/Public/m/images/index/bottom.png" class="selectIcon" alt="">
+         </div>
+        <div class="templateBox z">
+            <p class="z"><span>*</span>退款金额</p>
+            <input type="text" class="z" placeholder="选填">
+        </div>
+        <div class="best z">
+             <p class="y">
+                 至多申请<span class="red">190.00</span>（须扣除运费10.00）
+                 <span class="allGreen clickMore">更多详情</span>
+             </p>
+        </div>
+        <div class="templateBox templateBox2 z">
+            <p class="z"><span>*</span>退款说明</p>
+            <input type="text" class="z" placeholder="最多XX字">
+        </div>
+        <div class="imgBox z">
+
+        </div>
+        <img src="/Public/m/images/pingzheng.png" class="z upBtn" alt="">
+    </div>
+    <a href="" class="ok" >
+        提交申请
+        </a>
+    <input type="file" id="fileImage" onchange="upfile()" accept="image/jpg,image/jpeg,image/png,image/gif" style="display: none">
+    <div class="mask none">
+            <div class="tuihuo paAuto">
+                <div class="tuihuoTitle">
+                    退货说明：
+                </div>
+                <div class="tuihuoText">
+                    <p>1、退货须扣除我们支付的邮费10.00元。</p>
+                    <p>2、请您支付退货的运费。</p>
+                    <p>3、请包装好，以保证产品的运输安全，
+                     否则退款将被拒绝。
+                     </p>
+                </div>
+                <img src="/Public/m/images/center/x.png" class="closeMask" alt="">
+            </div>
+    </div>
+    <div class="Mask none">
+        <div class="cancel paAuto">
+            <div class="title allGreen">
+                请选择取消订单的原因
+            </div>
+            <div class="selectBox paAuto">
+                <div class="select cl selectClick">
+                    <div class="z selectState">
+                        <div class="click paAuto">
+
+                        </div>
+                    </div>
+                    <div class="liyou">发错货</div>
+                </div>
+                <div class="select cl">
+                    <div class="z selectState">
+                        <div class="click paAuto">
+
+                        </div>
+                    </div>
+                    <div class="liyou">不喜欢</div>
+                </div>
+                <div class="select cl">
+                    <div class="z selectState">
+                        <div class="click paAuto">
+
+                        </div>
+                    </div>
+                    <div class="liyou">其他原因</div>
+                </div>
+            </div>
+            <div class="yes">
+                确定
+            </div>
+            <div class="no">
+                取消
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(".selectIcon").click(function(){
+        $(".Mask").show();
+    });
+    $(".select").click(function(){
+        $(".select").removeClass("selectClick");
+        $(this).addClass("selectClick");
+    });
+    $(".yes").click(function(){
+        var a=$(".selectClick .liyou").text();
+        $(".yuanyin").val(a);
+        $(".Mask").hide();
+    });
+    $(".no").click(function(){
+        $(".Mask").hide();
+    });
+    $(".clickMore").click(function(){
+        $(".mask").show();
+    });
+    $(".closeMask").click(function(){
+       $(".mask").hide();
+    });
+    $(".mask,.Mask").css({
+        height:$(window).height()
+    });
+    $(".upBtn").click(function(){
+        if($(".imgBox .UpImg").length<3){
+            $("#fileImage").click();
+        }
+    });
+    function upfile() {
+            var file = $('#fileImage')[0].files[0];
+            var reader = new FileReader();
+            if (file.size > 4000000) { // 限制图片大小，不能超过4M
+                alert('图片不能超过4M');
+                return;
+            }
+            reader.onload = (function (theFile) {
+                return function (e) {
+                    var aa='<div class="upImgBox">'
+                            +'<img src="'+e.target.result+'" class="UpImg paAuto" alt=""/>'
+                            +'<img src="/Public/m/images/shanchu.png" class="deleteIcon" alt=""/>'
+                            +'</div>';
+                    $(".imgBox").append(aa);
+                    var objIndex=$(".imgBox .UpImg").length-1;
+                    imgFun(objIndex)
+                }
+            })(file);
+            reader.readAsDataURL(file);
+    }
+
+
+    function imgFun(data){
+        $(".upImgBox").css({
+            height:$(".imgBox").width()*.28
+        });
+
+        var a=$(".upImgBox .UpImg").eq(data);
+       if(a.width()> a.height()|| a.width()== a.height()){
+           $(".upImgBox .UpImg").eq(data).css({
+               width:"95%"
+           });
+       }else {
+           $(".upImgBox .UpImg").eq(data).css({
+               height:"95%"
+           });
+        }
+        $(".deleteIcon").click(function () {
+            $(this).parent().remove();
+        })
+    }
+
+
+</script>
+</html>

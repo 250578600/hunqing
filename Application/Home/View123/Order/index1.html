@@ -1,0 +1,451 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的订单</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<script src="/Public/m/js/jquery-1.11.0.js"></script>
+		<link rel="stylesheet" href="/Public/m/css/public.css" />
+		<script src="/Public/m/js/layout.js"></script>
+		<script src="/Public/plugin/layer/layer.js"></script>
+		<style type="text/css">
+			body{
+				margin:0;
+				background-color:#000;
+			}
+			ul,li{
+				margin:0;
+				padding: 0;
+				list-style-type:none;
+			}
+			a{
+				text-decoration:none;
+			}
+			.whole{
+				height:50px;
+				background-color:#171717;
+				padding:0 10px;
+			}
+			.pull-down{
+				color: #D6BE80;
+				width:50%;
+				float:left;
+			}
+			.gain{
+				width:50%;
+				color:#8f8f8f;
+				float:right;
+				margin-top:15px;
+				text-align:right;
+			}
+			.great{
+			
+				margin-bottom:70px;
+				
+				
+			}
+			.great li{
+				margin-top:10px;
+				margin-bottom:10px;
+				background-color:#171717;
+				padding:0px 15px;
+			}
+			.number{
+				height:40px;
+				line-height:40px;
+				color:#a2a2a2;
+				border-bottom:1px solid #878787;
+			}
+			.number span{
+				color:#D6BE80;
+				float:right;
+			}
+			.ber{
+				height:72px;
+				border-bottom:1px solid #878787;
+				padding:10px 0;
+			}
+			.ber img{
+				display: block;
+				width:70px;
+				height:70px;
+				float:left;
+				margin-right:7px;
+			}
+			.introduce{
+				float:left;
+				color:#D6BE80;
+				margin-top:5px;
+			}
+			.wait{
+				float:right;
+				color:#D6BE80;;
+			}
+			.norms{
+				height:22px;
+			}
+			.no{
+				float:left;
+			}
+			.piece{
+				height:40px;
+				line-height:40px;
+				border-bottom:1px solid #878787;
+				color:#959595;
+				text-align:right;
+			}
+			.retreat{
+				float:right;
+				margin-top:10px;
+			}
+			.retreat div{
+				padding:5px;
+				border-radius:5px;
+				float:left;
+				margin-right:5px;
+			}
+			.tui{
+				border:1px solid #ddd;
+				color:#cacaca;
+			}
+			.dai{
+				background-color:#d6be80;
+				color:#171717;
+				border:1px solid #D6BE80;
+				margin-right:0px !important;
+			}
+			.huo{
+				height:53px;
+				color:#959595;
+			}
+			.panel{
+				margin-top:70px;
+				color:#fff;
+				text-align: center;
+			}
+			.select{
+				background-color:#171717;
+				
+			}
+			.son{
+				background-color:#353535 !important;
+				
+				border-bottom:1px solid #6f6f6f;
+			}
+			.son:last-child{
+				border: none;
+			}
+			.mui-table-view:after{
+				background-color: transparent !important;
+			}
+			.mui-navigate-right:after{
+				color:#D6BE80 !important;
+				font-size:30px !important;
+			}
+			.son p{
+				color:#ececec !important;
+			}
+			.front{
+				position:absolute;
+				left:10px;
+				font-size:18px;
+				top:8px;
+			}
+			.front span{
+				color:#FF0000;
+				margin:0 5px;
+			}
+			a:active{
+				color:#fff !important;
+			}
+			.so{
+				color: #fff;
+				display: block;
+			}
+			.awai{
+				color:#D6BE80;
+				width:50%;
+				position:absolute;
+				top:45px;
+				left:0;
+				display:none;
+			    height: 181px;
+    			overflow: auto;
+			}
+			
+			.awai a{
+				display: block;
+				border-bottom:1px solid #D6BE80;
+				height:40px;
+				line-height:40px;
+				color:#D6BE80;
+				padding:0 10px;
+				background-color:#616161;
+			}
+			.awai a:last-child{
+				border:none;
+			}
+			.pu {
+				position: relative;
+				border-right:1px solid #666;
+				margin-top:5px;
+				height:40px;
+				line-height: 40px;
+			}
+			.pu:after{
+				position: absolute;
+				top: 15px;
+				right: 10px;
+				content: ' ';
+				display: block;
+				width: 0;
+				height: 0;
+				border-left: 7px solid transparent;
+				border-right: 7px solid transparent;
+				border-top: 7px solid #d6be80;
+			}
+			.puUp:after{
+				border-left: 7px solid transparent !important;
+				border-right: 7px solid transparent !important;
+				border-top: 7px solid transparent !important;
+				border-bottom: 7px solid #d6be80 !important;
+				top: 9px !important;
+			}
+			.center{
+				width:120px;
+				height:120px;
+				margin:60px auto;
+				text-align: center;
+				color:#cacaca;
+			}
+			.center img{
+				width: 60px;
+				margin: 0 auto 20px;
+				display: block;
+			}
+			.bo{
+				
+				background:url(/Public/m/img/gouwuche-beijing.png)no-repeat;
+				background-size:100% 100%;
+				height:100%;
+			}
+			.vehicle{
+				display: block;
+				margin:45px auto 0;
+				padding-top:20px;
+				width:90px;
+			}
+			.you{
+				color:#898989;
+				font-size:18px;
+				margin-top:20px;
+				text-align: center;
+			}
+			.brevity{
+				color:#b6b6b6;
+				font-size:15px;
+				margin-top:10px;
+				text-align: center;
+			}
+			.gou{
+				display: block;
+				width:155px;
+				height:40px;
+				line-height:40px;
+				text-align: center;
+				margin:30px auto;
+				color:#D6BE80;
+				border-radius:5px;
+				border:1px solid #D6BE80;
+			}
+			.odd{
+				float:left;
+			    word-break: break-all;
+    			height: 35px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="whole">
+			<div  class="pull-down">
+				<div class="pu">{:isset($_GET['state'])?$state[$_GET['state']]:'全部'}</div>
+			</div>
+			<div class="awai">
+				<a href="{:U('index')}">全部</a>
+				<foreach name="state" item="r" key="k">
+				<a href="{:U('index')}?state={$k}">{$r}</a>
+				</foreach>
+			</div>
+			<a href="{:U('/Home/Center/qrcode')}" class="gain">
+				获取推广二维码>>
+			</a>
+		</div>
+		<if condition="$data['list']">
+		<ul class="great">
+			<foreach name="data['list']" item="r" key="k">
+			<li class="listBox" sn="{$r.order_sn}">
+				<div class="number" onclick="location.href='{:U('detail')}?sn={$r.order_sn}'">
+					<div class="odd layout" layout="w:<100%-80>">
+						<div>订单:{$r.order_sn}</div>
+					</div>
+					<div class="wait">{$state[$r['state']]}</div>
+				</div>
+				<foreach name="r['ex']" item="r2" key="k2">
+				<div class="ber "  onclick="location.href='{:U('detail')}?sn={$r.order_sn}'">
+					<img src="{:$r2['goods']['thumb']}" />
+					<div class="introduce layout" layout="w:<100%-78>">
+						<div class="norms">
+							<div class="no">{:$r2['goods']['title']}</div>
+							<div class="wait">￥{:$r2['goods']['ex'][$r2['goods_ex_id']]['price']}</div>
+							<div style="clear: both;"></div>
+						</div>
+						<div class="norms">
+							<div class="no">规格:{:$r2['goods']['ex'][$r2['goods_ex_id']]['name']}</div>
+							<div class="wait">X{:$r2['num']}</div>
+							<div style="clear: both;"></div>
+						</div>
+					</div>
+					<div style="clear: both;"></div>
+				</div>
+				</foreach>
+				<div class="piece">共{$a}件商品 实付: <span class="wait">￥{$r.sum}</span></div>
+				<div class="huo">
+					<div class="retreat" id="{$r.id}">
+						<div onclick="location.href='{:U('detail')}?sn={$r.order_sn}'">查看详情</div>
+						<if condition="$r['state'] eq 0">
+							<div class="dai" onclick="pay(this)">立即支付</div>
+						<elseif condition="$r[state] eq 2"/>
+							<div class="dai" onclick="shouhuo(this)">确认收货</div>
+						<elseif condition="$r[state] eq 3"/>
+							<div class="dai" onclick="judge(this)">立即评价</div>
+						</if>
+					</div>
+				</div>
+			</li>
+			</foreach>
+		</ul>
+		<else/>
+			<!--<div class="bo layout" layout="h:<p.h-55>">
+				<img  class="vehicle" src="/Public/m/img/gouwuche.png"/>
+				<div class="you">你的购物车是空的</div>
+				<div class="brevity">暂时没有相关数据</div>
+				<a href="#" class="gou">去逛逛</a>
+			</div>-->
+			<div class="center">
+					<img src="/Public/m/img/dan-1.png"class="cen" />
+				<div>没有相关订单!</div>
+			</div>
+		</if>
+
+<include file="index:footer" />
+		<script>
+			layout(".layout");
+			$(".pull-down").click(function(){
+				$(".awai").toggle();
+				if($('.awai').css('display')=='block'){
+					$('.pu').addClass('puUp');
+				}
+				else{
+					$('.pu').removeClass('puUp');
+				}
+			});
+				function pay(a){
+					var sn=$(a).parents(".listBox").attr('sn');
+					$.get("{:U('Pay/pay')}",{sn:sn},function(e){
+						if(e.state==1){
+							location.href=e.url;
+						}else{
+							layer.alert(e.msg);
+						}
+					});
+				}
+				function del(a){
+					var sn=$(a).parents(".listBox").attr('sn');
+					$.post("{:U('ajax')}",{action:'del','where[order_sn]':sn},function(e){
+						if(e.state==1){
+							location.reload();
+						}else{
+							layer.alert(e.msg);
+						}
+					});
+				}
+				function shouhuo(a){
+					var sn=$(a).parents(".listBox").attr('sn');
+					$.post("{:U('ajax')}",{action:'shouhuo',sn:sn},function(e){
+						if(e.state==1){
+							location.reload();
+						}else{
+							layer.alert(e.msg);
+						}
+					});
+				}
+				function judge(a){
+					var sn=$(a).parents(".listBox").attr('sn');
+					layer.prompt({
+						formType:2,
+						title:'请输入您的评价',
+					},function(e){
+						if(e.length){
+							$.post("{:U('ajax')}",{action:'judge',msg:e,sn:sn},function(r){
+								layer.msg(r.msg,function(){
+									if(r.state==1){
+										location.reload();
+									}else{
+										layer.alert(e.msg);
+									}
+								});
+							});
+						}else{
+							layer.alert("请输入内容");
+						}
+					});
+				}
+				function tui(a){
+					var sn=$(a).parents(".listBox").attr('sn');
+					layer.prompt({
+						formType:2,
+						title:'请输入退货理由',
+					},function(e){
+						if(e.length){
+							$.post("{:U('tuihuo')}",{reason:e,sn:sn},function(r){
+								layer.msg(r.msg,function(){
+									if(r.state==1){
+										location.reload();
+									}else{
+										layer.alert(e.msg);
+									}
+								});
+							});
+						}else{
+							layer.alert("请输入内容");
+						}
+					});
+				}
+				function yundan(a){
+					var sn=$(a).parents(".listBox").attr('sn');
+					layer.prompt({
+						formType:2,
+						title:'请输入你退货发出的快递运单号',
+					},function(e){
+						if(e.length){
+							$.post("{:U('yundan')}",{waybill:e,sn:sn},function(r){
+								layer.msg(r.msg,function(){
+									if(r.state==1){
+										location.reload();
+									}else{
+										layer.alert(e.msg);
+									}
+								});
+							});
+						}else{
+							layer.alert("请输入内容");
+						}
+					});
+				}
+				function show(a){
+					layer.alert(a);
+				}
+		</script>
+	</body>
+</html>

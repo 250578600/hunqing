@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>赛事进程 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script src="/Public/plugin/layer/layer.js"></script>
+<script type="text/javascript" src="/Public/koko.js"></script>
+<script type="text/javascript" src="/Public/location.js"></script>
+	<link href="/Public/plugin/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css">
+	<script src="/Public/plugin/datetimepicker/jquery.datetimepicker.js"></script>
+	<script src="/Public/plugin/smartMenu/jquery-smartMenu-min.js"></script>
+    <link href="/Public/plugin/smartMenu/smartMenu.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<style>
+.list-div th {
+line-height: 16px;
+}
+.list-div td {
+background: #FFF;
+padding: 5px 10px;
+}
+.list-div input[type='text'] {
+margin: 5px;
+padding: 0px 4px;
+height: 20px;
+line-height: 20px;
+width: auto;
+border: 1px solid #DDD;
+}
+</style>
+<h1>
+<span class="action-span1"> </span><span id="search_id" class="action-span1">【{$data['title']}】 赛事列表 </span>
+<div style="clear:both"></div>
+</h1>
+<div class="form-div">
+    <select id="project" style="width:200px">
+	<foreach name="data['ex']" item="r" key="k">
+	<option value="{$r['id']}">{$r['subject']}</option>
+	</foreach>
+	</select>
+</div>
+<form id="form" onsubmit="return false">
+<input type="hidden" name="id" value="{:$data['id']}">
+
+
+<foreach name="data['ex']" item="r0" key="k0">
+	<div class="bigBoss bigBoss{$r0['id']}" id="{$r0['id']}" {:$k0!=0?'style="display:none"':''}>
+		<div id="tabbar-div">
+			<p>
+				<php>$kk=0;</php>
+				<foreach name="data['process'][$r0['id']]" item="r" key="k">
+						<span style="line-height: 30px;" class="tabFrom{$r0['id']} {:$kk++ ==0?'tab-front':'tab-back'} Edit" id="general-tab" title="点击鼠标右键可以操作">
+							{$k}
+						</span>
+				</foreach>
+				<span style="float: right;padding: 10px 20px;background: #B3B3B3;color: white;cursor: pointer;" onclick="addStage(this)">添加</span>
+			</p>
+		</div>
+	
+	
+	<!-- 赛事列表 -->
+	<!-- start goods list -->
+	<div id="allPage">
+		<php>$kk=0;</php>
+		<foreach name="data['process'][$r0['id']]" item="r" key="k">
+		<div class="tabTo{$r0['id']}" {:$kk++ ==0?'':'display:none'}>
+			<div class="list-div" id="listDiv">
+			<foreach name="r" item="r2" key="k2">
+			<table class="group" cellpadding="3" cellspacing="1" class="kokoTable" table="{:$table}">
+				<tr align="center">
+				<td colspan="6" style="background:#E7E7E7;" class="gp" title="点击鼠标右键可以操作"><span style="cursor:pointer" class="Edit">{$k2}</span></td>
+				</tr>
+				<tr>
+					<th>比赛时间</th>
+					<th>比赛场地</th>
+					<th>选手</th>
+					<th>比分</th>
+					<th>选手</th>
+					<th onclick="del(this)">删除</th>
+				</tr>
+					<?php foreach($r2 as $k3=>$r3){?>
+					<tr class="data" k3="<?=$k3?>" sss="{$k3}">
+						<td align="center"><input class="date" type="text" readonly  n="date" value="{$r3['date']}"/></td>
+						<td align="center"><input class="field" type="text" n="field" value="{$r3['field']}"/></td>
+						<td align="center"><input class="playerA" type="text" n="playerA" value="{$r3['playerA']}"/></td>
+						<td align="center"><input class="result" type="text" n="result" value="{$r3['result']}"/></td>
+						<td align="center"><input class="playerB" type="text" n="playerB" value="{$r3['playerB']}"/></td>
+						<td align="center"><a href="javascript:void 0" class="del" onclick="delLine(this)">删除</a></td>
+					</tr>
+					<?php }?>
+				<tr>
+					<td colspan="6"  align="center"><span style="background: #E8E8E8;padding: 5px 10px;cursor:pointer" onclick="addLine(this)">添加一行</span></td>
+				</tr>
+			</table>
+				</foreach>
+					<div style="text-align:right">
+						<span style="cursor:pointer" onclick="addGroup(this)">添加新分组</span>
+					</div>
+			</div>
+		</div>
+		</foreach>
+	</div>
+	
+	</div>
+</foreach>
+</form>
+<input id="goods_info_submit" type="submit" value=" 确定 " class="button" style="display: block;margin:0 auto">
+<include file="index/export2"/>
+<include file="index/msg"/>
+<script language="JavaScript">
+$("#project").change(function(){
+	$(".bigBoss").hide();
+	$('.bigBoss'+this.value).show();
+});
+function delLine(e){
+	var line=$(e).parent().parent();
+	if(line.index()==2)line.find("input").val('');
+	else line.remove();
+}
+function addDate(e){
+	e.datetimepicker({step:1});
+}
+addDate($('.date'));
+$(function(){
+	<foreach name="data['ex']" item="r0" key="k0">
+	kokoAPI({tab:{from:'tabFrom{$r0['id']}',to:'tabTo{$r0['id']}',cur:'tab-front',curOld:'tab-back',hover:'css',init:1}});
+	</foreach>
+	showLocation("{$_GET['province']},$_GET['city']}");
+});
+function del(e){
+	var dels=$(e).parents(".group").find(".date .del");
+	for(var i=0;i<dels.length;i++){
+		addLine(dels.eq(i));
+	}
+}
+function addLine(e){
+	var $add=$(e).parent().parent();
+	var tr=$add.prev().clone();
+	var inputs=tr.find("input");
+	inputs.val("");
+	addDate(inputs.eq(0));
+	$add.before(tr);
+	tr.attr("k3",parseInt(tr.prev().attr("k3"))+1);
+}
+function addGroup(e){
+	var index=layer.prompt({
+		title:'请输入新的分组名'
+	},function(text){
+		var $add=$(e).parent();
+		var gp=$add.prev().clone();
+		var dt=gp.find(".data");
+		gp.find(".gp").html(text);
+		addMenu(gp.find(".gp"));
+		for(var i=1;i<dt.length;i++){
+			dt.eq(i).remove();
+		}
+		var inputs=gp.find("input");
+		inputs.val("");
+		$add.before(gp);
+		addDate(inputs.eq(0));
+		layer.close(index);
+	});
+}
+function addStage(e){
+	var boss=$(e).parents(".bigBoss");
+	var index=layer.prompt({
+		title:'请输入新的阶段名'
+	},function(text){
+		var l=boss.find(".tabTo"+boss[0].id).clone().eq(0);
+		var gp=l.find(".group");
+		for(var i=1;i<gp.length;i++)gp.eq(i).remove();
+		var dt=l.find(".data");
+		for(var i=1;i<dt.length;i++)dt.eq(i).remove();
+		boss.find("#allPage").append(l);
+		var inputs=l.find("input");
+		inputs.val("");
+		var tab=$(e).prev().clone();
+		tab.text(text);
+		var tabs=boss.find(".tabFrom"+boss[0].id);
+		tabs.removeClass('tab-front');
+		tabs.addClass('tab-back');
+		tab.removeClass('tab-back');
+		tab.addClass('tab-front');
+		boss.find(".tabTo"+boss[0].id).hide();
+		l.show();
+		$(e).before(tab);
+		boss.find("#tabbar-div").html(boss.find("#tabbar-div").html());
+		layer.close(index);
+		addDate(inputs.eq(0));
+		addMenu(gp.find(".gp"));
+		addMenu(boss.find(".tabFrom"+boss[0].id));
+		kokoAPI({tab:{from:'tabFrom'+boss[0].id,to:'tabTo'+boss[0].id,cur:'tab-front',curOld:'tab-back',hover:'css',init:1}});
+	});
+}
+$menuData=[[{text:"修改",func:function(){
+	var e=$(this);
+	var ly=layer.prompt({
+		title:'输入要修改的内容'
+	},function(text){
+		e.html(text);
+		layer.close(ly);
+	});
+}},{text:"删除",func:function(){
+	var e=$(this);
+	var n=e.index();
+	if(e.parent().hasClass("gp")){
+		var gp=e.parents(".group");
+		if(gp.index()!=0)gp.remove();
+	}else{
+		
+	}
+	
+}},]];
+function addMenu(e){
+	e.smartMenu($menuData);
+}
+addMenu($(".Edit"));
+function check(data){
+	for(var i=0;i<data.length;i++){
+		if(data[i].value=='')return false;
+	}
+	return true;
+}
+
+$("#goods_info_submit").click(function(){
+	var inputs=$(".data input");
+	for(var i=0;i<inputs.length;i++){
+		var p=inputs.eq(i);
+		var pd=p.parents(".data");
+		if(check(pd.find("input"))==false)continue;
+		var boss=p.parents(".bigBoss");
+		var k0=boss.attr('id');
+		var stageNo=p.parents(".tabTo"+boss[0].id).index();
+		var k=$(".tabFrom"+boss[0].id).eq(stageNo).text().trim();
+		var k2=p.parents(".group").find(".gp").text().trim();
+		var k3=p.parents(".data").attr("k3").trim();
+		p.attr("name","data["+k0+"]["+k+"]["+k2+"]["+k3+"]["+p.attr("n")+"]");
+	}
+	$.post(document.URL,$("#form").serialize(),function(e){
+		if(e.state==1){
+			layer.alert("操作成功");
+			setTimeout(function(){
+				location.href="{:U(listing)}";
+			},2000);
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+});
+</script>
+</body>
+</html>

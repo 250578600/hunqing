@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> 管理中心 - 会员列表 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script src="/Public/plugin/layer/layer.js"></script>
+<script type="text/javascript" src="/Public/koko.js"></script>
+	<link href="/Public/plugin/jcDate/css/jcDate.css" rel="stylesheet" type="text/css">
+	<script src="/Public/plugin/jcDate/js/jQuery-jcDate.js"></script>
+
+</head>
+<body>
+<h1>
+<span class="action-span1"><span id="search_id" class="action-span1"> 设置 </span>
+<div style="clear:both"></div>
+</h1>
+<div class="main-div">
+<form onsubmit="return sub()">
+<table width="100%">
+  <tbody><tr>
+    <td class="label">qq客服:</td>
+    <td><input type="text" name="data[qq]" maxlength="60" value="{$data['qq']}"><span class="require-field">*</span></td>
+  </tr>
+  <tr>
+    <td class="label">联系电话:</td>
+    <td><input type="text" id="mobile_phone" name="data[telephone]" maxlength="60" size="40" value="{$data['telephone']}"><span class="require-field">*</span></td>
+  </tr>
+      <td colspan="2" align="center">
+      <input type="submit" value=" 确定 " class="button">
+      <input type="hidden" name="action" value="{:isset($data)?'edit':'add'}">
+      <input type="hidden" name="id" value="{$data['id']}">    </td>
+  </tr>
+</tbody></table>
+
+</form>
+</div>
+
+
+<include file="index/msg"/>
+<script language="JavaScript">
+	function sub(){
+		$.post(document.URL,$(".main-div form").serialize(),function(e){
+			if(e.state==1){
+				layer.alert("操作成功",function(){
+					history.back();
+				});
+			}else{
+				layer.alert(e.msg);
+			}
+		});
+		return false;
+	}
+</script>
+</body>
+</html> 

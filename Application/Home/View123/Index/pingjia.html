@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评价详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/pingjia.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <!--<script src="/Public/m/js/pingjia.js"></script>-->
+    <style>
+        .imgBox{
+            width:100%;
+            margin-top:10px;
+        }
+        .upBtn{
+            width:35%;
+            margin-top:10px;
+        }
+
+        .upImgBox{
+            width: 28%;
+            border: 1px solid #ccc;
+            position: relative;
+            float: left;
+            margin-right: 4%;
+            background-color:#fff;
+        }
+        .UpImg{
+
+            /*display:none;*/
+        }
+        .deleteIcon{
+            position: absolute;
+            right: -8px;
+            top: -8px;
+            width: 15px;
+        }
+
+        .goodsImg{
+            width:100px;
+            height:100px;
+            background-color:#f6ffe5;
+            position: relative;
+            border:1px solid #f5f5f5;
+            margin-top:10px;
+            margin-right:6px;;
+        }
+        .goodsImg{
+
+        }
+        .main textarea{
+            margin: 10px 0;
+            height: 90px;
+            padding: 2px 4px;
+            font-size: 12px;
+        }
+        .upImgBox{
+            width: 48%;
+            border: 1px solid #ccc;
+            position: relative;
+            float: left;
+            margin-right: 1%;
+            margin-left: 1%;
+            background-color:#fff;
+        }
+        .UpImg{
+            clear:  both;
+            /*display:none;*/
+        }
+        .imgBox{
+            width:100%;
+            margin-top:10px;
+        }
+    </style>
+</head>
+<body>
+<div class="main cl">
+     <div class="z goodsImg">
+         <img src="/Public/m/images/all/goods1.png" class="paAuto goods" alt="">
+     </div>
+    <textarea placeholder="请输入您的评价" class="z"></textarea>
+    <div class="imgBox z">
+
+    </div>
+        <img src="/Public/m/images/zuiduo.png" class="upImg" alt="">
+    <input type="file" id="fileImage" onchange="upfile()" accept="image/jpg,image/jpeg,image/png,image/gif" style="display: none">
+
+</div>
+<input type="button" class="ok" value="提交">
+</body>
+<script>
+    var a=$(".goods");
+    if(a.width()> a.height()|| a.width()== a.height()){
+        $(".goodsImg .goods").css({
+            width:"95%"
+        });
+    }else {
+        $(".goodsImg .goods").css({
+            height:"95%"
+        });
+    }
+    $(".main textarea").css({
+       width:$(window).width()-12-106
+    });
+
+    $(".upImg").click(function(){
+        if($(".main .goods").length<=4){
+            $("#fileImage").click();
+        }
+    });
+
+    function upfile() {
+            var file = $('#fileImage')[0].files[0];
+            var reader = new FileReader();
+            if (file.size > 4000000) { // 限制图片大小，不能超过4M
+                alert('图片不能超过4M');
+                return;
+            }
+            reader.onload = (function (theFile) {
+                return function (e) {
+                    var aa='<div class="upImgBox">'
+                            +'<img src="'+e.target.result+'" class="goods paAuto" alt=""/>'
+                            +'<img src="/Public/m/images/shanchu.png" class="deleteIcon" alt=""/>'
+                            +'</div>';
+                    $(".imgBox").append(aa);
+                   var  objIndex=$(".imgBox .goods").length-1;
+                    imgFun(objIndex)
+                }
+            })(file);
+            reader.readAsDataURL(file);
+    }
+
+    function imgFun(data){
+        $(".upImgBox").css({
+            height:$(".imgBox").width() *.5-6
+        });
+
+        var a=$(".upImgBox .goods").eq(data);
+        console.log(a.width());
+        console.log(a.height());
+        if(a.width()> a.height()|| a.width()== a.height()){
+            $(".upImgBox .goods").eq(data).css({
+                width:"95%"
+            });
+        }else {
+            $(".upImgBox .goods").eq(data).css({
+                height:"95%"
+            });
+        }
+        $(".deleteIcon").click(function () {
+            $(this).parent().remove();
+        })
+    }
+</script>
+</html>

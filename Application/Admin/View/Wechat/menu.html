@@ -1,0 +1,166 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/html5.js"></script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/respond.min.js"></script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>菜单管理</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 微信管理 <span class="c-gray en">&gt;</span>菜单管理<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+	<div class="cl pd-5 bg-1 bk-gray"> <span class="l"> <a class="btn btn-primary radius" href="javascript:;"  onclick="add1()"><i class="Hui-iconfont">&#xe600;</i> 添加菜单</a> </span>  </div>
+	<table class="table table-border table-bordered table-hover table-bg">
+		<thead>
+			<tr>
+				<th scope="col" colspan="9">菜单列表</th>
+			</tr>
+			<tr class="text-c">
+				<th width="200">菜单名</th>
+				<th width="200">子菜单名</th>
+				<th width="40">菜单类型</th>
+				<th width="200">链接或关键词</th>
+				<th width="70">操作</th>
+			</tr>
+		</thead>
+		<tbody class="tabTo">
+			<foreach name="data['button']" item="r" key="k">
+			<tr class="text-c koko" id='koko{:$k+1}' n="{:$k+1}" >
+				<td><input type='text' class='name' value="{$r.name}"></td>
+				<td></td>
+				<td><select><option value="view" {:$r['type']=='view'?'selected':''}>链接</option><option value="click" {:$r['type']=='click'?'selected':''}>事件</option></select></td>
+				<td class='valuep'><if condition="!isset($r['sub_button'])"><input type='text' class='value' value="{$r.value}"></if></td>
+				<td class="f-14">
+				<a href="javascript:void 0;"  class="ml-5" style="text-decoration:none" onclick='add2(this)'>添加子菜单</a>
+				<a href="javascript:void 0;"  class="ml-5" style="text-decoration:none" onclick='del1(this)'>删除</a>
+				</td>
+			</tr>
+			<foreach name="r['sub_button']" item="r2" key="k2">
+				<tr class="text-c koko2_{:$k+1}" id='{:$k2+1}'  p='{:$k+1}'>
+					<td></td>
+					<td><input type='text' class='name' value="{$r2.name}"></td>
+					<td><select><option value="view" {:$r2['type']=='view'?'selected':''}>链接</option><option value="click" {:$r2['type']=='click'?'selected':''}>事件</option></select></td>
+					<td><input type='text' class='value' value="{$r2.value}"></td>
+					<td class="f-14">
+					<a href="javascript:void 0;"  class="ml-5"  onclick='del2(this)' style="text-decoration:none">删除</a>
+					</td>
+				</tr>
+			</foreach>
+			</foreach>
+		</tbody>
+	</table>
+	<div style="text-align:center;padding-top:20px"><a class="btn btn-primary radius" id="goods_info_submit" href="javascript:;">保存</a></div>
+</div>
+<style>
+input[type=text]{width:100%;height:25px}
+a{cursor:pointer}
+</style>
+
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}static/h-ui/js/H-ui.admin.js"></script> 
+
+	<script>
+function add2(a){
+	var id=$(a).parents('.koko').attr("n");
+	var cls="koko2_"+id;
+	var len=$("."+cls).length;
+	if(len>=5)return;
+	var html="<tr id='koko2' class='text-c "+cls+"' p='"+id+"'><td></td><td><input type='text' class='name'></td><td><select><option value='view'>链接</option><option value='click'>事件</option></select></td><td><input type='text' class='value'></td><td><a onclick='del2(this)'>删除本行</a></td></tr>";
+	$(a).parents('.koko').find(".value").remove();
+	if(len==0)$(a).parents('.koko').after(html);
+	else $("."+cls).eq(len-1).after(html);
+	$("#koko2").attr("id",len+1);
+}
+function del1(a){
+	var cls="koko2_"+$(a).parents('tr').attr("n");
+	$(a).parents('tr').remove();
+	$("."+cls).remove();
+	
+}
+function del2(a){
+	var p=$(a).parents("tr").attr("p");
+	if($(".koko2_"+p).length==1){
+		$("#koko"+p).find(".valuep").html("<input type='text' class='value'>");
+		console.log(p);
+	}
+	$(a).parent().parent().remove();
+}
+function add1(){
+	var len=$(".koko").length;
+	if(len>=3)return;
+	$(".tabTo").append("<tr id='koko' class='text-c koko'><td><input type='text'  class='name'></td><td></td><td><select><option value='view'>链接</option><option value='click'>事件</option></select></td><td class='valuep'><input type='text' class='value'></td><td><a onclick='add2(this)'>添加子菜单</a><a style='margin-left:10px'   onclick='del1(this)'>删除</a></td></tr>");
+	$("#koko").attr("n",len+1);
+	$("#koko").attr("id","koko"+(len+1));
+}
+	
+$("#goods_info_submit").click(function(){
+	var list=$(".tabTo .koko");
+	var obj={};
+	for(var i=0;i<list.length;i++){
+		var l=list.eq(i);
+		var n=l.find(".name").val();
+		obj["data["+i+"][name]"]=n;
+		if($(".koko2_"+l.attr("n")).length==0){
+			var v=l.find(".value").val();
+			var t=l.find("select").val();
+			if(t=='view'&&v.startsWith("http")==false){
+				layer.alert(n+"的链接输入错误:"+v);
+				return;
+			}else if(v==''){
+				layer.alert(n+"的输入值未填写");
+				return;
+			}
+			obj["data["+i+"][value]"]=v;
+			obj["data["+i+"][type]"]=t;
+		}else{
+			var str="data["+i+"][sub_button]";
+			var list2=$(".koko2_"+l.attr("n"));
+			for(var j=0;j<list2.length;j++){
+				l2=list2.eq(j);
+				var n2=l2.find(".name").val();
+				var t2=l2.find("select").val();
+				var v2=l2.find(".value").val();
+				if(t2=='view'&&v2.startsWith("http")==false){
+					layer.alert(n2+"的链接输入错误:"+v2);
+					return;
+				}else if(v2==''){
+					layer.alert(n2+"的输入值未填写");
+					return;
+				}
+				obj[str+"["+j+"][type]"]=t2;
+				obj[str+"["+j+"][name]"]=n2;
+				obj[str+"["+j+"][value]"]=v2;
+			}
+		}
+	}
+	$.post(document.URL,obj,function(e){
+		if(e.state==1){
+			layer.alert("操作成功");
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+});
+	</script>
+</body>
+</html>

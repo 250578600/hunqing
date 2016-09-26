@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账户明细</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/accountDetails.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/accountDetails.js"></script>
+</head>
+<body>
+     <div class="main cl">
+     	<foreach name="data" item="r0" key="k0">
+			<foreach name="r0" item="r" key="k">
+         <div class="liseTemplate cl">
+                <p class="z moonTemplate">
+                    <span>{$k}</span>月
+                </p>
+                <foreach name="r" item="r2" key="k2">
+                <div class="z contentTemplate">
+                    <div class="z time">
+                        <div>{$r2.date}</div>
+                        <div>{$r2.time}</div>
+                    </div>
+                    <div class="z style">
+                        <img src="/Public/m/images/all/user{:$r2['type']+1}.png" alt="">
+                        <span>{$type[$r2['type']]}</span>
+                    </div>
+                    <div class="z moneySum">
+                            {$r2.money}
+                    </div>
+                    <div class="y myMoney">
+                            {$r2.msg}
+                    </div>
+                </div>
+                </foreach>
+            </div>
+         </foreach>
+         </foreach>
+     </div>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加地址</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="/Public/m/css/public.css" />
+		<link rel="stylesheet" href="/Public/m/css/com.css">
+		<link rel="stylesheet" href="/Public/m/css/ng.css" />
+		<script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="/Public/m/js/ng.js" ></script>
+		<style type="text/css">
+			body{
+				background-color:#fff;
+				color:#808080;
+			}
+			.grid{
+				height:44px;
+				line-height:44px;
+				padding:0 12px;
+				border-bottom:1px solid #e6e6e6;
+			}
+			.person{
+				width:60px;
+			}
+			.area{
+				float:left;
+				width:60px;
+			}
+			.are{
+				
+				position:relative;
+			}
+			.import{
+				border:none;
+				color:#b6d957;
+				text-shadow: 0px 0px 0px #808080;
+				-webkit-text-fill-color: transparent;
+				height:43px;
+			}
+			.import input::-webkit-input-placeholder{
+				color: #B2B2B2  !important; 
+				text-shadow: none;
+				-webkit-text-fill-color: initial;
+			}
+			.district{
+				position: absolute;
+				top:10;
+				right:12px;
+				color:#B3B3B3;
+				width:58px;
+				display: block;
+			}
+			.arrows{
+				position: absolute;
+				content: "";
+		        width: 10px;
+		        height: 10px;
+		        border: 1px solid #999;
+		        border-width: 0 1px 1px 0;
+		        right:0px;
+		        top:15px;
+		        -webkit-transform: rotate(-45deg);
+		        transform: rotate(-45deg);
+			}
+			.minute{
+				padding:12px;
+				border-bottom:1px solid #E6E6E6;
+			}
+			.minute textarea{
+				border:none;
+				height:70px;
+				color:#b6d957;
+				outline:none;
+				text-shadow: 0px 0px 0px #808080;
+				-webkit-text-fill-color: transparent;
+				margin:0;
+				padding: 0;
+			}
+			.minute textarea::-webkit-input-placeholder{
+				color:#b3b3b3;
+				text-shadow: none;
+				-webkit-text-fill-color: initial;
+			}
+			.checkbox{
+				float:left;
+				position: relative;
+				width:15px;
+				height:16px;
+				background-color:#999;
+			    transition: all .6s ease;
+			    -webkit-transition: all .4s ease;
+			}
+			.checkbox:before{
+				position: absolute;
+			    content: ' ';
+			    display: block;
+			    left: 4px;
+			    top: 2px;
+			    width: 4px;
+			    height: 8px;
+			    -webkit-transform: rotate(30deg);
+			    border-right: 2px solid #fff;
+			    border-bottom: 2px solid #fff;
+			}
+			.select{
+				background-color:#B6D957;
+			}
+			.setting{
+				font-size:12px;
+				float:left;
+				margin-left:12px;
+				
+			}
+			.set{
+				float:left;
+				margin-top:10px;
+				margin-left:12px;
+			}
+			.region{
+				padding-right:65px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="grid">
+			<div class="person">收货人</div>
+			<input class="import layout" layout="{flex:1}"/>
+		</div>
+		<div class="grid">
+			<div class="person">联系电话</div>
+			<input class="import layout" layout="{flex:1}"/>
+		</div>
+		<div class="grid are">
+			<div class="area">所在地区</div>
+			<div class="region layout" layout="{flex:1}">所在地区所在地区所在地区所在地区所在地区所在地区所在地区</div>
+			<a href="#" class="district">
+				请选择<div class="arrows"></div>
+			</a>
+		</div>
+		<div class="grid are">
+			<div class="area">街道</div>
+			<div class="region layout" layout="{flex:1}"></div>
+			<a href="#" class="district">
+				请选择<div class="arrows"></div>
+			</a>
+		</div>
+		<div class="minute">
+			<div class="">详细地址；</div>
+			<textarea class="layout" layout="{flex:1}" placeholder="街道、小区等"></textarea>
+		</div>
+		<div class="set">
+			<label class="checkbox"></label>
+			<span class="setting">设为默认地址</span>
+		</div>
+		<a href="#" class="new">保存并使用</a>
+		<script>
+			ng.layout('layout');
+			$('.set').click(function(){
+				if($('.checkbox').hasClass('select')){
+					$('.checkbox').removeClass('select');
+				}
+			else{
+				$('.checkbox').addClass('select');
+			}
+		});
+		</script>
+	</body>
+</html>

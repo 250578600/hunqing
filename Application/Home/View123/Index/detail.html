@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+     <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/swiper.min.css">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/goods.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/swiper.jquery.min.js"></script>
+     <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/goods.js"></script>
+		<script type="text/javascript" src="/Public/koko.js?id=9" ></script>
+</head>
+<body>
+<style>
+.swiper-slide img{width:100%;height:100%}
+.goodsDetailText img{max-width:100%}
+</style>
+<div class="main">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        	<foreach name="data['imgs']" item="r" key="k">
+            <div class="swiper-slide">
+                <img src="{$r.src}" alt="">
+            </div>
+            </foreach>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next" style="display:none;"></div>
+        <div class="swiper-button-prev" style="display:none;"></div>
+    </div>
+     <div class="goodsName ellipsis">
+         {$data.title}
+     </div>
+    <!--有vip和vip价格2个样式-->
+    <div class="priceBox pw cl vip">
+        <div class="z priceBoxY">
+            <div class="vipPrice">会员价 {:$data['price_']}元</div>
+            <div class="price">原价 {$data.price}元</div>
+            <div class="freight">运费：{$freight}</div>
+        </div>
+        <div class="y priceBoxR">
+            已售：{$data.sales}件
+        </div>
+    </div>
+    <div class="favorable">
+        <span class="allGreen">满{:F('baoyou_sum')}元包邮</span>（除西藏、内蒙、新疆、甘肃外）
+    </div>
+    <div class="goodsDetail">
+        <div class="goodsDetailSelect cl">
+              <div class="z selectBtnOne selectBtnClick">
+                商品详情
+              </div>
+              <div class="z selectBtnTwo">
+                  买家评价
+              </div>
+        </div>
+        <div class="oneBox ">
+            <div class="goodsDetailText">
+                {$data.info}
+            </div>
+            <video class="video" width="100%" height="100%" x-webkit-airplay="true" webkit-playsinline="true" controls="" preload="none" poster="/Public/m/images/index/index.png" src="{$data.video}" style="width: 100%; height: auto;">
+            </video>
+            <div class="detail">
+        	<foreach name="data['imgs2']" item="r" key="k">
+                <img src="{$r.src}" alt="">
+            </foreach>
+            </div>
+        </div>
+        <div class="twoBox none">
+        	<foreach name="judge['list']" item="r" key="k">
+            <div class="evaluateTemplate cl">
+                <img src="{$r.user.thumb}" class="z headImg" alt="">
+                <p class="z userName">{$r.user.nickname}</p>
+                <p class="z evaluate">{$r.msg}</p>
+                <p class="z time">{:date('Y.m.d',$r['create_time'])}</p>
+            </div>
+            </foreach>
+        </div>
+    </div>
+
+</div>
+<footer class="cl">
+  <div class="z car" onclick="location.href='{:U('/Home/Cart')}'">
+    <img class="" src="/Public/m/images/all/shopping_gray.png" alt="">
+    <p class="z">购物车</p></div>
+  <div class="z addCar kokoAddCart">加入购物车</div>
+  <div class="z buy">立即购买</div>
+  </footer>
+<img src="/Public/m/images/index/hint.png" class="none bugGoods" alt="">
+</body>
+<script>
+$(function(){
+	kokoAPI({addCart:{}});
+});
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            slidesPerView: 1,
+            paginationClickable: true,
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: 2500,
+            autoplayDisableOnInteraction: false,
+            loop: true
+        });
+        $(".buy").click(function(){
+			location.href="{:U('Cart/confirm')}?id={$data.id}";
+		});
+</script>
+</html>

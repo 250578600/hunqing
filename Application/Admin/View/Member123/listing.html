@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> 管理中心 - 会员列表 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script src="/Public/plugin/layer/layer.js"></script>
+<script type="text/javascript" src="/Public/koko.js"></script>
+<script type="text/javascript" src="/Public/location.js"></script>
+
+</head>
+<body>
+
+<h1>
+<!-- 
+<span class="action-span"><a href="{:U('add')}">添加会员</a></span> -->
+<span class="action-span1"><a href="index.php?act=main"> 管理中心</a> </span><span id="search_id" class="action-span1"> - 会员列表 </span>
+<div style="clear:both"></div>
+</h1>
+<div class="form-div">
+	<form>
+		<img src="/admin/images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+		
+		<input type="text" name="keyword" value="{$_GET['keyword']}" placeholder="用户ID/手机号/会员昵称" />
+		会员类型    <select name="g" id="city">
+      <option value="">请选择...</option>
+      <option value="2" {:'2'===$_GET['g']?'selected': ''}>会员</option>
+      <option value="3" {:'3'===$_GET['g']?'selected': ''}>经销商</option>
+	  </select>
+		<input type="submit" value=" 搜索 " />
+	</form>
+</div>
+	<!-- start users list -->
+	<div class="list-div" id="listDiv">
+				<!--用户列表部分-->
+		<table cellpadding="3" cellspacing="1">
+			<tr>
+				<th>
+					<input onclick='$("input:checkbox").attr("checked",this.checked)' type="checkbox">
+					<a>ID</a>
+					<img src="/admin/images/sort_desc.gif">				</th>
+				<th><a>会员昵称</a></th>
+				<th><a>姓名</a></th>
+				<th><a>手机</a></th>
+				<th>性别</th>
+				<th>注册日期</th>
+				<th>可使用资金</th>
+				<th>身份</th>
+				<th>上线昵称</th>
+				<th>下线</th>
+				<th>操作</th>
+			</tr>
+			<foreach name="data['list']" item="r" key="k">
+			<tr>
+				<td>
+					<input id="{$r['id']}" type="checkbox" value="24" notice="0" />
+					{$r[id]}	</td>
+				<td class="first-cell">
+					<span style="margin-bottom: 2px; line-height: 14px; display: block;">{:$r['nickname']}</span>
+				</td>
+				<td><span>{$r['name']}</span></td>
+				<td><span>{$r['telephone']}</span></td>
+				<td>{$sex[$r['sex']]}</td>
+				<td align="center">{:date('Y-m-d H:i:s',$r['time_register'])}</td>
+				<td align="center">{$r['balance']}</td>
+				<td align="center">{:$shenfen[$r['groupid']]}</td>
+				<td align="center">{:$r['shang']['nickname']}</td>
+				<td align="center" onclick="go({$r.id},0)">{$r['xia0']}</td>
+				<td align="center">
+					<a href="javascript:del({$r['id']})" title="移除">
+						<img src="/admin/images/icon_drop.gif" border="0" height="16" width="16" />
+					</a>
+					<if condition="$r['groupid'] lt 3">
+					<a style="margin-left:10px" href="javascript:set({$r.id},3)">设为经销商</a>
+					<else/>
+					<a style="margin-left:10px" href="javascript:set({$r.id},2)">取消经销商</a>
+					</if>
+				</td>
+			</tr>
+			</foreach>
+			<tr>
+				<td colspan="2">
+					<input type="hidden" name="act" value="batch_remove" />
+					<input type="submit" id="btnSubmit" value="删除会员"  class="button" />
+				</td>
+				<td align="right" nowrap="true" colspan="14">     
+            <div id="turn-page">
+        总计  <span id="totalRecords">{$data['pagesInfo']['total']}</span>
+        个记录分为 <span id="totalPages">{$data['pagesInfo']['pages_total']}</span>
+        页当前第 <span id="pageCurrent">{$data['pagesInfo']['now']}</span>
+        页，每页 {$data['pagesInfo']['gap']}条
+        <span id="page-link">
+          <a href="{$data['pagesInfo']['url']['first']}">第一页</a>
+          <a href="{$data['pagesInfo']['url']['up']}">上一页</a>
+          <a href="{$data['pagesInfo']['url']['down']}">下一页</a>
+          <a href="{$data['pagesInfo']['url']['last']}">最末页</a>
+          <select id="gotoPage" onchange="location.href=this.value">
+			<for start="1" end="$data['pagesInfo']['pages_total']" comparison="elt">
+				<option value="{:U('listing').'?p='.$i}">{$i}</option>
+			</for>
+		 </select>
+        </span>
+      </div>
+</td>
+			</tr>
+		</table>
+			</div>
+
+<div id="area" style="display:none">
+	<div style="">
+	<select id="1loc_province"></select>
+	<select class="city" id="1loc_city"></select>
+	</div>
+</div>
+
+ <div id="footer">
+</div>
+<include file="index/msg"/>
+<script language="JavaScript">
+$("#btnSubmit").click(function(){
+	del();
+});
+$("#send").click(function(){
+	send();
+});
+function del(id){
+	if(!id){
+		ids=[];
+		list=$("tr input:checkbox");
+		for(var i=0;i<list.length;i++){
+			if(list[i].checked){
+				ids[ids.length]=list[i].id;
+			}
+		}
+		id=ids.join(",");
+	}
+	if(!id){
+		layer.alert("您的选择为空");
+		return;
+	}
+	$.post("{:U('ajax')}",{action:'del',id:id},function(e){
+		if(e.state==1){
+			location.reload();
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+}
+function send(id){
+	if(!id){
+		ids=[];
+		list=$("tr input:checkbox");
+		for(var i=0;i<list.length;i++){
+			if(list[i].checked){
+				ids[ids.length]=list[i].id;
+			}
+		}
+		id=ids.join(",");
+	}
+	if(!id){
+		layer.alert("您的选择为空");
+		return;
+	}
+	location.href="{:U('msg')}?ids="+id;
+}
+function set(id,gp){
+	var obj={action:"edit",'data[groupid]':gp,where:id};
+	zzzz(obj);
+}
+function zzzz(obj){
+	$.post("{:U('ajax')}",obj,function(e){
+		if(e.state==1){
+			location.reload();
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+}
+function setTop(id){
+	$.post("{:U('ajax')}",{action:"setShang",id:id},function(e){
+		if(e.state==1){
+			location.reload();
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+}
+function go(id,a){
+	location.href="{:U('xia')}?id="+id+"&type="+a;
+}
+</script>
+</body>
+</html> 

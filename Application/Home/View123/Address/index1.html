@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>收货地址</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="/Public/m/css/public.css" />
+		<script src="/Public/m/js/jquery-1.11.0.js"></script>
+		<script src="/Public/plugin/layer/layer.js"></script>
+		<style type="text/css">
+			body{
+				margin:0;
+				background-color:#000;
+			}
+			ul,li{
+				margin: 0;
+				padding: 0;
+				list-style-type:none;
+			}
+			a{
+				text-decoration:none;
+			}
+			.message{
+				background-color:#171717;
+				padding:10px;
+				color:#D6BE80;
+			}
+			.location{
+				background-color:#171717;
+				padding:0 10px;
+				border-top: 1px solid #3b3b3b;
+				height:70px;
+			}
+			.name{
+				height:33px;
+			}
+			.name div{
+				float:left;
+			}
+			.name span{
+				float: right;
+			}
+			.loca{
+				margin-top:15px;
+			}
+			.often{
+				color: #eb4f38;
+			}
+			.checkbox{
+				float:left;
+				position: relative;
+				display: block;
+				width:20px;
+				height:20px;
+				border-radius: 50%;
+				border:1px solid rgba(235,79,56,1);
+			    background-color: white;
+			    transition: all .6s ease;
+			    -webkit-transition: all .4s ease;
+			}
+			.checkbox:before{
+				position: absolute;
+			    content: ' ';
+			    display: block;
+			    left: 7px;
+			    top: 4px;
+			    width: 4px;
+			    height: 8px;
+			    -webkit-transform: rotate(30deg);
+			    border-right: 2px solid white;
+			    border-bottom: 2px solid white;
+			    
+			}
+			.select{
+				border:1px solid rgba(235,79,56,1);
+			    background-color: rgba(235,79,56,1);
+			}
+			.select:before{
+				
+			    
+			}
+			.often{
+				margin-top: 18px;
+			}
+			.often div{
+				float:left;
+				margin-left:10px;
+				margin-top:3px;
+			}
+			.compile{
+				float:right;
+				color: #afafaf;
+				margin-top:3px;
+			}
+			.bian{
+				padding:10px 0 10px 25px;
+				background:url(/Public/m/img/bianji.png)left 6px no-repeat;
+				background-size:22px;
+				cursor: pointer;
+			}
+			.remove{
+				padding:10px 0 10px 25px;
+				background:url(/Public/m/img/sanchu.png)left 6px no-repeat;
+				background-size:22px;
+				cursor: pointer;
+				
+			}
+			.bottom{
+				position: fixed;
+				width:100%;
+				bottom: 0;
+				height:45px;
+				line-height:45px;
+				text-align: center;
+				font-size:17px;
+				background-color:#D6BE80;
+				color:#171717;
+				cursor: pointer;
+			}
+			</style>
+	</head>
+	<body>
+		<foreach name="data" item="r" key="k">
+		<div>
+		<div class="message" id="{$r.id}">
+			<div class="name">
+				<div>{$r.name}</div>
+				<span >{$r.telephone}</span>
+				<div style="clear: both;"></div>
+			</div>
+			<div >{$r.province_}{$r.city_}{$r.county_}{$r.address}</div>
+		</div>
+		<div class="location">
+			<div class="often">
+				<label class="checkbox {:$r['selected']?'select':''}" id="{$r.id}"></label>
+				<div>常用地址</div>
+			</div>
+			<span class="compile">
+				<span class="bian" onclick="location.href='{:U('add')}?id={$r.id}'">编辑
+				</span>
+				<span class="remove" id="{$r.id}">删除</span>
+			</span>
+		</div>
+		</div>
+		</foreach>
+		<div class="bottom" onclick="location.href='{:U('add')}'">添加新地址</div>
+	</body>
+	<script type="text/javascript">
+		$('.checkbox').click(function(){
+			if($(this).hasClass('select')){
+				$(this).removeClass('select');
+			}
+			else{
+				$(this).addClass('select');
+			}
+		});
+		
+		$('.remove').click(function(){
+			$.post("{:U('ajax')}",{action:'del',where:this.id},function(e){
+				if(e.state==1){
+					location.reload();
+				}else{
+					layer.alert(e.msg);
+				}
+			});
+		});
+		
+		$('.checkbox').click(function(){
+			$.post("{:U('ajax')}",{action:'setDefault',where:this.id},function(e){
+				if(e.state==1){
+					location.reload();
+				}else{
+					layer.alert(e.msg);
+				}
+			});
+		});
+
+		<if condition = "isset($_GET['url'])" >
+		$(".message").click(function(){
+			var a=decodeURIComponent('{$_GET['url']}');
+			location.href=a+(a.indexOf("?")==-1?'?':'&')+'addr_id='+this.id;
+		});
+		</if>
+	</script>
+</html>

@@ -1,0 +1,193 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/html5.js"></script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/respond.min.js"></script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/Public/plugin/jquery-ui/jquery-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>权限管理</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 权限管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+	<div class="cl pd-5 bg-1 bk-gray"> <span class="l"> <a  class="btn btn-danger radius kokoDel" selStr="td .checkbox"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加权限')"><i class="Hui-iconfont">&#xe600;</i> 添加权限</a> </span> <span class="r">共有数据：<strong>{$data.pagesInfo.total}</strong> 条</span> </div>
+	<table class="table table-border table-bordered table-hover table-bg">
+		<thead>
+			<tr>
+				<th scope="col" colspan="16">权限管理</th>
+			</tr>
+			<tr class="text-c">
+				<th width="25"><input type="checkbox" value="" name=""></th>
+				<th width="40">ID</th>
+				<th width="100">权限名</th>
+				<th width="100">作用对象</th>
+				<th width="300">描述</th>
+				<th width="70">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<foreach name="data['list']" item="r" key="k">
+			<tr class="text-c">
+				<td><input type="checkbox" value="" name="" id="{$r.id}" class="checkbox"></td>
+				<td>{$r.id}</td>
+				<td>{$r.name}</td>
+				<td>{:$info[$r['target']][0]}</td>
+				<td>{$r.description}</td>
+				<td class="f-14">
+				<a title="编辑" href="javascript:;" onclick="admin_role_add('权限编辑',{$r.id})" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+				<a title="删除" href="javascript:;"  class="ml-5 kokoDel" id="{$r.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+				</td>
+			</tr>
+			</foreach>
+		</tbody>
+	</table>
+<include file="Index::page"/>
+</div>
+<style>
+label,input[type=check]{cursor:pointer}
+.ui-tabs-tab{background:gray;}
+.ui-tabs-tab a{color:white}
+.ui-state-active{background:#98D9FF}
+</style>
+<div id="quan" style="display:none">
+<div style="height:100%">
+		<form id="tijiao" style="height:100%">
+	<div style="width:100%;height:20%;text-align:center;overflow:hidden;">
+		<div style="margin:5px">权限名称<input type="text" name="data[name]" id="name" class="input-text" style="width:500px"></div>
+		<div style="margin:5px">权限描述<input type="text" name="data[description]" id="description" class="input-text" style="width:500px"></div>
+		<div style="margin:5px">作用对象<span style="width:500px;display:inline-block;text-align: left;">
+		<foreach name="info" item="r" key="k">
+		<label><input type='radio' name="data[target]" class="target target{$k}" value="{$k}" p='{:json($r[1])}' style="margin-left:20px">{$r[0]}</label>
+		</foreach></span></div>
+		<a style="margin:5px" class="btn-primary btn kokoSave" ajax="{$ajax.add}" form="#tijiao">提交</a>
+		<input type="hidden" name="id" id="action_id" value="">
+	</div>
+	<div id="tabs">
+		<ul>
+			<php>$a=1;</php>
+			<foreach name="info" item="r" key="k">
+			<li><a href="#tabs-{:$a++}">{$r[0]}控制器</a></li>
+			<li><a href="#tabs-{:$a++}">{$r[0]}模型</a></li>
+			</foreach>
+		</ul>
+		<php>$a=0;</php>
+			<?php foreach($modules as $mk=>$mv)  foreach($mv as $lk=>$lv) { ?>
+		<div class="tabs {$lk}" id="tabs-{:++$a}" style="width:100%;height:80%;overflow-y:auto;padding:0" m="{$mk}" l="{$lk}">
+			<foreach name="lv" item="r" key="k">
+			<div style="margin:20px 10px">
+				<php>$id=rand(1,999999);</php>
+				<div style="background:#E6E6E6"><label for="a{$id}" class="layer" v="{$k0}">{$k}</label><input id="a{$id}" type="checkbox" class="class-title"></div>
+				<div style="border:1px solid #eee">
+				<foreach name="r" item="r2" key="k2">
+					<php>$id=rand(1,999999);</php>
+					<span style="width:24%;display:inline-block"><label for="a{$id}">{$r2}</label><input name="data[power][{$lk}][{$k}][{$r2}]" class="checkbox" t="{$lk}" f="{$r2}" type="checkbox" value="1" id="a{$id}"></span>
+				</foreach>
+				</div>
+			</div>
+			</foreach>
+		</div>
+		<?php }?>
+	</div>
+		</form>
+</div>
+</div>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}static/h-ui/js/H-ui.admin.js"></script> 
+<script type="text/javascript" src="/Public/koko2.js" ></script>
+<script type="text/javascript" src="/Public/plugin/jquery-ui/jquery-ui.min.js" ></script>
+<script type="text/javascript">
+data={:json($data['list'])};
+$(function(){
+	new kokoAPI({del:{ajax:'{$ajax.del}'}},'{:U("ajax")}');
+});
+/*管理员-角色-添加*/
+var html=$("#quan").html();
+function admin_role_add(title,id){
+	$("#quan").html('');
+	layer_show_html(title,html,'80%','90%');
+	$( "#tabs" ).tabs();
+	$(".class-title").click(function(){
+		var a=$(this).parent().parent().find('.checkbox');
+		var v=this.checked;
+		a.each(function(){
+			this.checked=v;
+		});
+	});
+	if(id!=null){
+		$(".target").each(function(){this.disabled=true;});
+		$("#ajax").val('{$ajax.edit}');
+		$("#action_id").val(id);
+		$("#name").val(data[id].name);
+		$("#description").val(data[id].description);
+		$(".target"+data[id].target)[0].checked=true;
+		for(var t in data[id].power){
+			var type=data[id].power[t];
+			var z=$("."+t+" .layer");
+			for(var i in type){
+			z.each(function(){
+				var a=$(this);
+				if(a.html()==i){
+					var b=a.parent().next().find('input');
+					if(b.length==Object.keys(type[i]).length){
+						a.next()[0].checked=true;
+					}
+					b.each(function(){
+						if(typeof type[i][$(this).attr('f')] != 'undefined'){
+							this.checked=true;
+						}
+					});
+					return false;
+				}
+			});
+		}
+		}
+	}
+	new kokoAPI({save:{'auto-name':false}},'{:U("ajax")}');
+	$(".target").click(function(){
+		var p=JSON.parse($(this).attr("p"));
+		$(".tabs").each(function(){
+			var $a=$(this);
+			$a.find("input").each(function(){this.disabled=true;});
+			var found=0;
+			for(var i in p){
+				var pi=p[i].split("/");
+				if($a.attr("m")==pi[0] && $a.attr("l")==pi[1]){
+					$a.find("input").each(function(){this.disabled=false;});
+					found=1;
+				}
+			}
+		});
+	});
+}
+function sub(){
+	$.post(document.URL,$("#tijiao").serialize(),function(e){
+		if(e.state==1){
+			layer.alert(e.msg,function(){location.reload()});
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+}
+</script>
+</body>
+</html>

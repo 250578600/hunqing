@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script src="/Public/jquery-1.9.1.min.js"></script>
+<script src="/Public/koko2.js"></script>
+<foreach name="data" item="r" key="k">
+<div>
+<span>{$r.name} {$r.telephone} {$r.province_} {$r.city_} {$r.county_} {$r.address} </span>
+<button class="kokoDel" ajax="{$ajax.del}" id="{$r.id}">删除</button>
+<button class="kokoSwitcher {:$r['default']==1?'on':'off'}" key="default" id="{$r.id}">{:$r['default']==0?'设为默认':'默认'}</button>
+</div>
+</foreach>
+<script>
+kokoAPI({del:{},switcher:{setDefault:true,on:'on',off:'off','html-off':'设为默认','html-on':'on',ajax:'{$ajax.switcher}',callback:function(){alert();}}},'{:U("ajax")}');
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="/Public/home/css/public.css" />
+		<link rel="stylesheet" href="/Public/home/login/css/popup_login.css" />
+	</head>
+	<body>
+		<div id='popup-login-box' onselectstart="return false;">
+			<form action="" method="post">
+				<img id="login-children-close" src="/Public/home/login/img/close.png" />
+				<div id="login-children-title">登录绅士名媛</div>
+				<!--onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')"-->
+				<input id="login-children-account" type="text" name="telephone" placeholder="ID/邮箱/手机" style="margin-top: 35px;" />
+				<input id="login-children-password" type="password" placeholder="密码" name="password" />
+				<div style="height: 56px; margin: 0 48px;">
+					<label id="login-children-gou"><input type="checkbox" />自动登录</label>
+					<a href="" id="login-children-zh">忘记密码？</a>
+				</div>
+				<input id="login-children-login" type="button" onclick="sub()" value="立即登录"/>
+			</form>
+			<div id="login-children-restsLogin">
+				<span>其他登录</span>
+				<a href="" class="login-children-loginIco">
+					<img src="/Public/home/img/ico_QQ.png" />
+				</a>
+				<a href="" class="login-children-loginIco">
+					<img src="/Public/home/img/ico_WX.png"/>
+				</a>
+				<a href="" class="login-children-loginIco">
+					<img src="/Public/home/img/ico_SH.png"/>
+				</a>
+				<a id="login-children-register" href="">免费注册</a>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	function sub(){
+		if($("input[name=telephone]").val()==''){
+			alert("请输入号码");
+		}else if($("input[name=password]").val().length<6){
+			alert("密码长度至少为6位");
+		}else{
+			$.post(document.URL,$("form").serialize(),function(e){
+				if(e.state==1){
+					layer.alert("登陆成功");
+					setTimeout(function(){
+						location.href="{:U('Index/index')}";
+					},1000);
+				}else{
+					layer.alert(e.msg);
+				}
+			});
+		}
+		return false;
+	}
+</script>

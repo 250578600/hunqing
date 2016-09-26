@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  <head>
+    <title>
+       添加新商品
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/admin/styles/general.css" rel="stylesheet" type="text/css"/>
+    <link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/Public/koko.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/Public/plugin/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/Public/plugin/ueditor/ueditor.all.min.js"> </script>
+	
+	<script src="/Public/location.js"></script>
+	
+	<link href="/Public/plugin/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css">
+	<script src="/Public/plugin/datetimepicker/jquery.datetimepicker.js"></script>
+	
+	<script src="/Public/plugin/layer/layer.js"></script>
+    <script language="JavaScript">
+	$(function(){
+		kokoAPI({tab:{cur:'tab-front',curOld:'tab-back',hover:'css'},upload:{url:'upload'}});
+		kokoAPI({upload:{url:'upload2',click:"kokoUpload2"}});
+		kokoAPI({upload:{url:'upload',click:"oldThumb"}});
+		var ue = UE.getEditor('editor');
+		setTimeout(function(){
+			ue.execCommand('insertHtml', $('#info').html());
+		},1000);
+	});
+    </script>
+	<style>
+	.date table{border-collapse:collapse;border-spacing:0;border-left:1px solid #888;border-top:1px solid #888;background:#efefef;}
+	.date th{border-right:1px solid #888;border-bottom:1px solid #888;padding:5px 15px;font-weight:bold;background:#ccc;}
+	.date td{border-right:1px solid #888;border-bottom:1px solid #888;padding:0}
+	.project-add{padding-top:10px}
+	.project-add span{padding: 6px;background: #D7D7D7;cursor:pointer}
+#tabbody-div input[type='text']{
+	min-width:120px;
+}
+	</style>
+  </head>
+  
+  <body>
+    <h1>
+      <span class="action-span">
+        <a href="{:U('listing')}">
+          商品列表
+        </a>
+      </span>
+      <span class="action-span1">
+        <a href="/">
+          管理中心
+        </a>
+      </span>
+      <span id="search_id" class="action-span1">
+        - 添加新商品
+      </span>
+      <div style="clear:both">
+      </div>
+    </h1>
+    <!-- start goods form -->
+    <div class="tab-div">
+      <!-- tab bar -->
+      <div id="tabbar-div">
+        <p>
+          <span class="tabFrom tab-front" id="general-tab">
+            通用信息
+          </span>
+          <span class="tabFrom tab-back" id="detail-tab">
+      商品详情
+          </span>
+        </p>
+      </div>
+      <!-- tab body -->
+      <div id="tabbody-div">
+        <form id="form" onsubmit="return false">
+		<input type="hidden" name="action" value="{:$data?'edit':'add'}">
+		<input type="hidden" name="id" value="{:$data['id']}">
+          <table class="tabTo" width="100%" id="general-table" align="center">
+            <tr>
+              <td class="label">
+                标题：
+              </td>
+              <td>
+                <input type="text" name="title" value="{$data['title']}" style="float:left;;" size="60" />
+                <span class="require-field">*</span>
+              </td>
+            </tr> 
+            <tr>
+              <td class="label">
+                原价：
+              </td>
+              <td>
+                <input type="text" name="price" class="price" value="{$data['price']}" style="float:left;" size="20" />
+                <span class="require-field">*</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">
+                会员价：
+              </td>
+              <td>
+                <input type="text" class="price_huiyuan" value="{:$data['price']*0.85}" disabled style="float:left;" size="20" />
+                <span class="require-field">*</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">
+                经销商价：
+              </td>
+              <td>
+                <input type="text" class="price_jing"  value="{:$data['price']*0.5}" disabled style="float:left;" size="20" />
+                <span class="require-field">*</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">
+               标签：
+              </td>
+              <td>
+                <input type="text" name="tag" value="{$data['tag']}" style="float:left;" size="60" />
+                <span class="require-field">*</span>
+              </td>
+            </tr> 
+			<tr>
+              <td class="label">
+               分类：
+              </td>
+              <td>
+                <select id="fenlei" name="fenlei" style="width:200px;">
+					<foreach name="type" item="r" key="k">
+					<option value="{$r['id']}" {:$lei['parent_id']==$r['id']||$data['fenlei_id']==$r['id']?'selected': ''}>{$r['name']}</option>
+					</foreach>
+				</select>
+                <select name="fenlei_id" id="fenlei_id" style="width:200px;">
+					<foreach name="type[$lei['parent_id']]['list']" item="r" key="k">
+					<option value="{$r['id']}" {:$data['fenlei_id']==$r['id']?'selected': ''}>{$r['name']}</option>
+					</foreach>
+				</select>
+                <span class="require-field">*</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">
+                缩略图：
+              </td>
+              <td>
+				<img src="{$data['thumb']}" id="thumb" style="width:180px;height:120px;">
+                <input type="hidden" name="thumb" value="{$data['thumb']}" style="float:left;" />
+                <span class="require-field">*</span>
+				<a class="kokoUpload" img="#thumb" input="input[name=thumb]" style="cursor:pointer">立即上传</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="label">
+                视频：
+              </td>
+              <td>
+				<img src="{$data['video']}" id="video" style="width:180px;height:120px;display:none">
+                <input type="text" name="video" value="{$data['video']}" style="float:left;" size=70/>
+                <span class="require-field">*</span>
+				<a class="kokoUpload" img="#video" input="input[name=video]" style="cursor:pointer">立即上传</a>
+              </td>
+            </tr>
+		     <tr>
+              <td class="label">
+             产品banner图片：
+              </td>
+              <td>
+              <div id="container">
+              <span class="model">
+				<img src=""  style="width:150px;height:100px;"/>
+                <input type="hidden" name="imgs[src][]" value="" style="float:left;" />
+               </span>
+               <foreach name="data['imgs']" item="r" key="k">
+                  <span class="model">
+				<img src="{$r['src']}" style="width:150px;height:100px;"/>
+                <input type="hidden" name="imgs[src][]" value="{$r['src']}" style="float:left;" />
+            	   </span>
+               </foreach>
+                <span class="require-field" id="insert">*</span>
+              </div>
+				<a class="kokoUpload2" model="model" num="5" container="#container" insertBefore="#insert" style="cursor:pointer">立即上传</a>
+              </td>
+            </tr>
+		     <tr>
+              <td class="label">
+             产品详情图片：
+              </td>
+              <td>
+              <div id="container2">
+              <span class="model2">
+				<img src=""  style="width:150px;height:100px;"/>
+                <input type="hidden" name="imgs2[src][]" value="" style="float:left;" />
+               </span>
+               <foreach name="data['imgs2']" item="r" key="k">
+                  <span class="model2">
+				<img src="{$r['src']}" style="width:150px;height:100px;"/>
+                <input type="hidden" name="imgs2[src][]" value="{$r['src']}" style="float:left;" />
+            	   </span>
+               </foreach>
+                <span class="require-field" id="insert2">*</span>
+              </div>
+				<a class="kokoUpload2" model="model2" num="5" container="#container2" insertBefore="#insert2" style="cursor:pointer">立即上传</a>
+              </td>
+            </tr>
+		<tr>
+              <!-- td class="label">
+                库存、价格：
+              </td>
+              <td>
+               <div id="priceStock" style="display:inline-block;width:440px;">
+				<foreach name="data['ex']" item="r" key="k">
+				<div>
+				<span class="title">{$r.name}</span>
+				价格:<input type="text" name="ex[price][]" value="{$data['ex'][$k]['price']}" style="min-width:80px;width:80px"/>
+				库存:<input type="text" name="ex[stock][]" value="{$data['ex'][$k]['stock']}"  style="min-width:80px;width:80px"/>
+				缩略图:<img src="{$r['thumb']}" class="oldThumb uploadThumb" id="oldThumb{$r.id}" img="#oldThumb{$r.id}" input="#oldInput{$r.id}" src="{$data['ex'][$k]['thumb']}" style="width:40px;height:40px;"/>
+				<input type="hidden" name="ex[thumb][]"  id="oldInput{$r.id}" value="{$data['ex'][$k]['thumb']}"/>
+				<input type="hidden" name="ex[goods_id][]" value="{$data['id']}"/>
+				<input type="hidden" name="ex[name][]" value="{$r.name}"/>
+				</div>
+				</foreach>
+              </div>
+              <span onclick="addGuige(this)">添加</span>
+              </td> -->
+            </tr>
+          </table>
+		  <table class="tabTo" width="100%" id="detail-table" style="display:none">
+			<tr>
+			<td><script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+			<div style="display:none" id="info">{$data['info']}</div>
+			</td>
+			</tr>
+		</table>
+		  <div class="button-div">
+		<if condition="isset($_GET['show'])==false">
+        <input id="goods_info_submit" type="submit" value="保存 " class="button">
+        <input id="goods_info_reset" type="reset" value=" 重置 " class="button">
+        </if>
+       </div>
+        </form>
+      </div>
+	  
+<include file="index/msg"/>
+    </div>
+    <div style="display:none">
+				<div id="model">
+				<span class="title"></span>
+				价格:<input type="text" name="ex[price][]" value="" style="min-width:80px;width:80px"/>
+				库存:<input type="text" name="ex[stock][]" value=""  style="min-width:80px;width:80px"/>
+				缩略图:<img src=""  id="oldThumb{$r.id}" img="#oldThumb{$r.id}" input="#oldInput{$r.id}" src="" style="width:40px;height:40px;"/>
+				<input type="hidden" name="ex[thumb][]"  id="oldInput" />
+				<input type="hidden" name="ex[goods_id][]" value="{$data['id']}"/>
+				<input type="hidden" class="name" name="ex[name][]" value=""/>
+				</div>
+	</div>
+	<script>
+function addGuige(e){
+	layer.prompt({
+		  title: '输入规格名称',
+		  formType: 0 //prompt风格，支持0-2
+		}, function(text){
+			if(text!=''){
+				var a=$("#model").clone();
+				a.attr("id","");
+				a.find('.title').html(text);
+				$(e).prev().append(a);
+				layer.closeAll();
+				var x=(new Date()).getTime();
+				var b="oldThumb"+x;
+				a.find("img").addClass(b);
+				a.find(".name").val(text);
+				a.find("img").attr("img","#oldThumb"+x);
+				a.find("img").attr("input","#inputThumb"+x);
+				a.find("img").attr("id","oldThumb"+x);
+				a.find("#oldInput").attr("id","inputThumb"+x);
+				kokoAPI({upload:{url:'upload',click:b}});
+			}
+	});
+}
+$("#fenlei_id").change(function(){
+	if(this.value!={:BDS_ID}){
+		$("#kucun").hide();
+	}else{
+		$("#kucun").show();
+	}
+});
+$("#priceStock input").change(function(){
+	if(isNaN(this.value))this.value='';
+});
+$('.Date').datetimepicker({format:"Y-m-d",step:1});
+$(".project-add span").click(function(){
+	var a=$(this).parent().prev().find(".line").eq(0).clone();
+	a.find('input:text').val('');
+	a.find('.hiddenID').val('');
+	$(this).parent().prev().append(a);
+});
+$("#goods_info_submit").click(function(){
+	$.post(document.URL,$("#form").serialize(),function(e){
+		if(e.state==1){
+			layer.alert("操作成功");
+			setTimeout(function(){
+				location.href=document.referrer;
+			},2000);
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+});
+type={:json_encode($type)};
+$("#fenlei").change(function(){
+	var a=type[this.value];
+	var str=[];
+	if(a.children){
+		for(var i in a.list){
+			str[str.length]='<option value="'+a.list[i]['id']+'">'+a.list[i]['name']+'</option>';
+		}
+	}
+	$("#fenlei_id").html(str.join());
+});
+$(".price").change(function(){
+	$(".price_huiyuan").val(parseFloat(this.value)*85/100);
+	$(".price_jing").val(parseFloat(this.value)*0.5);
+});
+	</script>
+
+  </body>
+
+</html>

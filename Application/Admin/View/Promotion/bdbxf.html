@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>商品列表 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script src="/Public/plugin/layer/layer.js"></script>
+<script type="text/javascript" src="/Public/koko.js"></script>
+<script type="text/javascript" src="/Public/location.js"></script>
+</head>
+<body>
+<style>
+lable{cursor:pointer}
+</style>
+<h1>
+<span class="action-span1"> </span><span id="search_id" class="action-span1"> 商品列表 </span>
+<div style="clear:both"></div>
+</h1>
+<!-- 赛事搜索 -->
+<!-- $Id: goods_search.htm 16790 2009-11-10 08:56:15Z wangleisvn $ -->
+<div class="form-div">
+  <form>
+    <img src="/admin/images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+        <!-- 分类 -->
+    <select name="fenlei_id"><option value="">所有分类</option>
+	<foreach name="fenlei" item="r" key="k">
+	<option value="{$r['id']}" {:$r['id']. '' ===$_GET['fenlei_id']?'selected': ''}>{$r['name']}</option>
+	</foreach>
+	</select>
+    <select name="brand_id"><option value="">所有品牌</option>
+	<foreach name="brand" item="r" key="k">
+	<option value="{$r['id']}" {:$r['id']. '' ===$_GET['brand_id']?'selected': ''}>{$r['name']}</option>
+	</foreach>
+	</select>
+    <select name="switcher"><option value="">所有状态</option>
+	<option value="1" {:'1' ===$_GET['switcher']?'selected': ''}>开</option>
+	<option value="0" {:'0' ===$_GET['switcher']?'selected': ''}>关</option>
+	</select>
+	
+        <!-- 关键字 -->
+    关键字 <input type="text" name="keyword" size="15" value="{$_GET['keyword']}" />
+    <input type="submit" value=" 搜索 " class="button" />
+  </form>
+</div>
+
+
+<!-- 赛事列表 -->
+  <!-- start goods list -->
+  <div class="list-div" id="listDiv">
+<table cellpadding="3" cellspacing="1" class="kokoTable" table="{:$table}">
+  <tr>
+    <th>
+      <input onclick='$(".cbs").attr("checked",this.checked)' type="checkbox" />
+      <a>编号</a><img src="/admin/images/sort_desc.gif"/>    </th>
+	<th><a>标题</a></th>
+	<th><a>品牌</a></th>
+	<th><a>分类</a></th>
+	<th><a>活动开关</a></th>
+	<th><a>冰点币数量</a></th>
+	<th><a>销售限制</a></th>
+	<th><a>已销售</a></th>
+  </tr>
+	<foreach name="data['list']" item="r" key="k">
+    <tr class="kokoId" id="{$r[id]}">
+    <td><input type="checkbox" class="cbs" name="checkboxes[]" value="{$r['id']}" />{$r['id']}</td>
+	<td class="first-cell" style=""><span>{$r['title']}</span></td>
+	<td class="first-cell" style="">{$brand[$r['brand_id']]['name']}</td>
+	<td class="first-cell" style="">{$fenlei[$r['fenlei_id']]['name']}</td>
+    <td align="center"><img cur="{:$r['bdb_switcher']==1?'on':'off'}" on="/admin/images/yes.gif" off="/admin/images/no.gif" class="kokoSwitcher" key="bdb_switcher" callback="jia"/></td>
+	<td class="first-cell" ><span class="kokoEdit" name="bdb" style="">{$r['bdb']}</span></td>
+	<td class="first-cell" ><span  class="kokoEdit" name="bdb_num" style="">{$r['bdb_num']}</span></td>
+	<td class="first-cell" style="">{$r['bdb_sales']}</span></td>
+  </tr>
+  </foreach>
+  </table>
+<!-- end goods list -->
+
+<!-- 分页 -->
+<table id="page-table" cellspacing="0">
+  <tr>
+  				<td colspan="2">
+  				<form>
+					<span class="zhou"><input type="checkbox" name="days[0]" {:isset($days[0])&&$days[0]==1?"checked":''} value="1" id="z0" /><label for="z0">周日</label></span>
+					<span class="zhou"><input type="checkbox" name="days[1]" {:isset($days[1])&&$days[1]==1?"checked":''} value="1" id="z1" /><label for="z1">周一</label></span>
+					<span class="zhou"><input type="checkbox" name="days[2]" {:isset($days[2])&&$days[2]==1?"checked":''} value="1" id="z2" /><label for="z2">周二</label></span>
+					<span class="zhou"><input type="checkbox" name="days[3]" {:isset($days[3])&&$days[3]==1?"checked":''} value="1" id="z3" /><label for="z3">周三</label></span>
+					<span class="zhou"><input type="checkbox" name="days[4]" {:isset($days[4])&&$days[4]==1?"checked":''} value="1" id="z4" /><label for="z4">周四</label></span>
+					<span class="zhou"><input type="checkbox" name="days[5]" {:isset($days[5])&&$days[5]==1?"checked":''} value="1" id="z5" /><label for="z5">周五</label></span>
+					<span class="zhou"><input type="checkbox" name="days[6]" {:isset($days[6])&&$days[6]==1?"checked":''} value="1" id="z6" /><label for="z6">周六</label></span>
+				</form>
+				</td>
+    <td align="right" nowrap="true">
+            <div id="turn-page">
+        总计  <span id="totalRecords">{$data['pagesInfo']['total']}</span>
+        个记录分为 <span id="totalPages">{$data['pagesInfo']['pages_total']}</span>
+        页当前第 <span id="pageCurrent">{$data['pagesInfo']['now']}</span>
+        页，每页 {$data['pagesInfo']['gap']}条
+        <span id="page-link">
+          <a href="{$data['pagesInfo']['url']['first']}">第一页</a>
+          <a href="{$data['pagesInfo']['url']['up']}">上一页</a>
+          <a href="{$data['pagesInfo']['url']['down']}">下一页</a>
+          <a href="{$data['pagesInfo']['url']['last']}">最末页</a>
+          <select id="gotoPage" onchange="location.href=this.value">
+			<for start="1" end="$data['pagesInfo']['pages_total']" comparison="elt">
+				<option value="{:U('listing').'?p='.$i}">{$i}</option>
+			</for>
+		 </select>
+        </span>
+      </div>
+    </td>
+  </tr>
+</table>
+
+</div>
+
+<div>
+
+
+<include file="index/export2"/>
+<include file="index/msg"/>
+<script language="JavaScript">
+$(function(){
+	kokoAPI({edit:{url:'{:U("/Admin/Goods/ajax")}'},switch:{}});
+});
+
+function jia(this_){
+	$.ajaxSetup({async:false});
+	$ret=true;
+	$.post("{:U('/admin/goods/ajax')}",{id:this_.parents(".kokoId").attr("id"),action:'switcher',key:$(this_).attr("key"),value:$(this_).attr("cur")=='on'?'1':'0'},function(e){
+		if(e.state==1){
+			layer.msg("操作成功");
+			this_.src=$(this_).attr($(this_).attr("cur"));
+		}else{
+			layer.alert(e.msg);
+			$ret=false;
+		}
+	});
+	$.ajaxSetup({async:true});
+	return $ret;
+}
+$(".zhou input").change(function(){
+	$.post(document.URL,$(this).parents('form').serialize(),function(e){
+		layer.msg(e.msg);
+	}); 
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> 管理中心 - 会员列表 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script src="/Public/plugin/layer/layer.js"></script>
+<script type="text/javascript" src="/Public/koko.js"></script>
+	<link href="/Public/plugin/jcDate/css/jcDate.css" rel="stylesheet" type="text/css">
+	<script src="/Public/plugin/jcDate/js/jQuery-jcDate.js"></script>
+
+</head>
+<body>
+<h1>
+<span class="action-span1"><span id="search_id" class="action-span1"> 设置 </span>
+<div style="clear:both"></div>
+</h1>
+<div class="main-div">
+<form onsubmit="return sub()">
+<table width="100%">
+  <tbody>
+  <tr>
+    <td class="label">分销佣金:</td>
+    <td>
+    <input type="number" class="fenxiao" name="distribution[0][balance]" maxlength="60" size="40" value="{$distribution[0]['balance']}">%
+    <input type="hidden" name="distribution[0][balance_all]" value="{$distribution[0]['balance_all']}">
+    <span class="require-field">*</span></td>
+  </tr>
+
+  <tr>
+      <td colspan="2" align="center">
+      <input type="submit" value=" 确定 " class="button">
+      <input type="hidden" name="action" value="{:isset($data)?'edit':'add'}">
+  </tr>
+</tbody></table>
+
+</form>
+</div>
+
+
+<include file="index/msg"/>
+<script language="JavaScript">
+	fx=$(".fenxiao");
+	fx.change(function(){
+		$(this).next().val(this.value);
+	});
+	setInterval(function(){
+		fx.each(function(i,a){
+			a=$(a);
+			var b=parseFloat(a.val());
+			if(b>=100)a.val(0);
+		});
+	},200);
+	function sub(){
+		$.post(document.URL,$(".main-div form").serialize(),function(e){
+			if(e.state==1){
+				layer.alert("操作成功",function(){
+					history.back();
+				});
+			}else{
+				layer.alert(e.msg);
+			}
+		});
+		return false;
+	}
+</script>
+</body>
+</html> 

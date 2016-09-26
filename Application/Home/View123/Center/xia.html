@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的推广</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/people.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/people.js"></script>
+    <script src="/Public/koko.js"></script>
+</head>
+<body>
+<div class="main">
+        <div class="mainTitle cl">
+            <a class="z tabFrom aClick">
+                    会员
+                <span>({:count($data[0])})</span>
+            </a>
+            <a class="z tabFrom">
+                经销商
+                <span>({:count($data[1])})</span>
+            </a>
+        </div>
+    <div class="mainContent cl tabTo">
+    	<foreach name="data[0]" item="r" key="k">
+        <div class="template">
+            <div class="headBox pr">
+                <img src="{$r.thumb}" class="paAuto" alt="">
+            </div>
+            <p class="name ellipsis">{$r.nickname} </p>
+            <p class="time">{:date('Y.m.d',$r['time_register'])}</p>
+            <p class="time">共消费{$r.bao}包</p>
+        </div>
+        </foreach>
+    </div>
+    <div class="mainContent cl tabTo" style="display:none">
+    	<foreach name="data[1]" item="r" key="k">
+        <div class="template">
+            <div class="headBox pr">
+                <img src="{$r.thumb}" class="paAuto" alt="">
+            </div>
+            <p class="name ellipsis">{$r.nickname} </p>
+            <p class="time">{:date('Y.m.d',$r['time_register'])}</p>
+        </div>
+        </foreach>
+    </div>
+</div>
+<script>
+kokoAPI({tab:{cur:'aClick'}});
+</script>
+</body>
+</html>

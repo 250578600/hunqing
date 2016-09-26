@@ -1,0 +1,21 @@
+<form id="exporter" method="post" action="{:U('admin/index/export')}" target="_blank" onsubmit="return exporter_sub()">
+  <select name="type" id="selAction">
+    <option value="id in ({$ids})">导出本页数据</option>
+    <option value="{$where}">导出已选择条件数据</option>
+    <option value="1">导出所有数据</option>
+  </select>
+  <input type="hidden" name="export_data" value="{$export_data}">
+  <input type="submit" value="导出商品信息" id="btnSubmit2" name="btnSubmit2" class="button"/>
+</div>
+</form>
+
+<script>
+function exporter_sub(){
+	var d=$("#exporter input[name=data]").val();
+	if(d==''){
+		alert("你没有设置导出数据");
+		return false;
+	}
+	return true;
+}
+</script>

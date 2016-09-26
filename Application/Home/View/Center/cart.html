@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script src="/Public/jquery-1.9.1.min.js"></script>
+<script src="/Public/koko2.js"></script>
+<foreach name="data" item="r" key="k">
+<div><input type='checkbox'  {:$r['state']==1?'checked':''} id='{$r.id}' key='state' class="kokoSwitcher {:$r['state']==1?'on':'off'}">{$r.goods.title} X {$r.num} <input type='number' value="{$r.num}"/><span class="xiugai" id="{$r.id}">修改</span> <span class="kokoDel" id="{$r.id}">删除</span></div>
+</foreach>
+<script>
+delAjax='{$ajax.del}';
+switcherAjax='{$ajax.switcher}';
+kokoAPI({'del':{ajax:delAjax},switcher:{ajax:switcherAjax,on:'on',off:'off',callback(e){
+	alert(e);return false;
+	
+}}},'{:U('ajax')}');
+function addCart(data){
+	$.post("{:U('ajax')}",data,function(e){
+		if(e.state==1){
+		}else{
+		}
+		alert(e.msg);
+	})
+}
+ajax='{$ajax.add}';
+$(".xiugai").click(function(){
+	var a=$(this);
+	var data={'data[num]':a.prev().val(),'data[id]':this.id,ajax:ajax};
+	addCart(data);
+});
+</script>
+</body>
+</html>

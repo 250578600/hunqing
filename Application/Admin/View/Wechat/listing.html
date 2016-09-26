@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>公告列表 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script src="/Public/plugin/layer/layer.js"></script>
+<script type="text/javascript" src="/Public/koko.js"></script>
+<script type="text/javascript" src="/Public/location.js"></script>
+</head>
+<body>
+<h1>
+<span class="action-span"><a href="{:U('add')}">添加新公告</a></span>
+<span class="action-span1"> </span><span id="search_id" class="action-span1">公告列表 </span>
+<div style="clear:both"></div>
+</h1>
+<!-- 公告搜索 -->
+<!-- $Id: goods_search.htm 16790 2009-11-10 08:56:15Z wangleisvn $ -->
+<div class="form-div">
+  <form>
+    <img src="/admin/images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+    关键字 <input type="text" name="keyword" size="15" value="{$_GET['keyword']}" />
+    <input type="submit" value=" 搜索 " class="button" />
+  </form>
+</div>
+
+
+<!-- 公告列表 -->
+  <!-- start goods list -->
+  <div class="list-div" id="listDiv">
+<table cellpadding="3" cellspacing="1" class="kokoTable" table="{:$table}">
+  <tr>
+    <th>
+      <input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox" />
+      <a>编号</a><img src="/admin/images/sort_desc.gif"/>    </th>
+	<th><a>标题</a></th>
+    <th><a>发布日期</a></th>
+    <th>操作</th>
+  </tr>
+	<foreach name="data['list']" item="r" key="k">
+    <tr class="kokoId" id="{$r[id]}">
+    <td><input type="checkbox" name="checkboxes[]" value="{$r['id']}" />{:$k+1}</td>
+	<td class="first-cell" style=""><span class="kokoEdit" name="title">{$r['title']}</span></td>
+    <td align="center">{:date('Y-m-d H:i:s',$r['create_time'])}</td>
+    <!-- 
+    <td align="center"><img cur="{:$r['refined']==1?'on':'off'}" on="/admin/images/yes.gif" off="/admin/images/no.gif" class="kokoSwitcher" key="refined" callback="jia"/></td>
+    <td align="center"><img cur="{:$r['hot']==1?'on':'off'}" on="/admin/images/yes.gif" off="/admin/images/no.gif" class="kokoSwitcher" key="hot" callback="jia"/></td>
+    <td align="center"><img cur="{:$r['banner_show']==1?'on':'off'}" on="/admin/images/yes.gif" off="/admin/images/no.gif" class="kokoSwitcher" key="banner_show" callback="jia"/></td>
+	 --> <!--   <td align="center"><span>100</span></td>
+         <td align="center"><a href="goods_tag.php?act=list&goods_id=233" >标签</a></td>-->
+    <td align="center">
+      <a href="{:U('gonggaoAdd').'?id='.$r['id']}" title="编辑"><img src="/admin/images/icon_edit.gif" width="16" height="16" border="0" /></a>
+      <a href="javascript:del({$r['id']});" title="删除"><img src="/admin/images/icon_trash.gif" width="16" height="16" border="0" /></a>
+      <!-- <img src="/admin/images/empty.gif" width="16" height="16" border="0" />
+      <a href=""><img src="/admin/images/comment_icon.png" border="0" width="21" height="18" /></a> -->
+    </td>
+  </tr>
+  </foreach>
+  </table>
+<!-- end goods list -->
+
+<!-- 分页 -->
+<table id="page-table" cellspacing="0">
+  <tr>
+    <td align="right" nowrap="true">
+            <div id="turn-page">
+        总计  <span id="totalRecords">{$data['pagesInfo']['total']}</span>
+        个记录分为 <span id="totalPages">{$data['pagesInfo']['pages_total']}</span>
+        页当前第 <span id="pageCurrent">{$data['pagesInfo']['now']}</span>
+        页，每页 {$data['pagesInfo']['gap']}条
+        <span id="page-link">
+          <a href="{$data['pagesInfo']['url']['first']}">第一页</a>
+          <a href="{$data['pagesInfo']['url']['up']}">上一页</a>
+          <a href="{$data['pagesInfo']['url']['down']}">下一页</a>
+          <a href="{$data['pagesInfo']['url']['last']}">最末页</a>
+          <select id="gotoPage" onchange="location.href=this.value">
+			<for start="1" end="$data['pagesInfo']['pages_total']" comparison="elt">
+				<option value="{:U('listing').'?p='.$i}">{$i}</option>
+			</for>
+		 </select>
+        </span>
+      </div>
+    </td>
+  </tr>
+</table>
+
+</div>
+
+<div>
+
+
+<include file="index/export2"/>
+<include file="index/msg"/>
+<script language="JavaScript">
+$(function(){
+	kokoAPI({edit:{url:'{:U("/Admin/index/ajax")}'},switch:{}});
+	showLocation("{$_GET['province']},$_GET['city']}");
+});
+function del(id){
+	$.post("{:U('/admin/goods/ajax')}",{action:'gonggaoDel','id':id},function(e){
+		if(e.state==1){
+			location.reload();
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+}
+function jia(this_){
+	$.ajaxSetup({async:false});
+	$ret=true;
+	$.post("{:U('/admin/goods/ajax')}",{id:this_.parents(".kokoId").attr("id"),action:'switcher',key:$(this_).attr("key"),value:$(this_).attr("cur")=='on'?'1':'0'},function(e){
+		if(e.state==1){
+			layer.msg("操作成功");
+		}else{
+			layer.alert(e.msg);
+			$ret=false;
+		}
+	});
+	$.ajaxSetup({async:true});
+	return $ret;
+}
+</script>
+</body>
+</html>

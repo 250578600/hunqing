@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>业绩</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/results.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/results.js"></script>
+</head>
+<body>
+<div class="main">
+        <div class="mainTop">
+                <div class="mainTopContent cl">
+                    <div class="z logoBox">
+                        <img src="/Public/m/images/center/qian.png" alt="">
+                        <div class="zi">累计业绩</div>
+                    </div>
+                    <div class="z money">
+                        <div class="z ellipsis">
+                            {$sales}
+                        </div>
+                        <span class="z">元</span>
+                    </div>
+                </div>
+                <div class="mainTopBottom">
+                    我经销商的会员消费金额  <span>{$sales_all}</span>元
+                </div>
+        </div>
+        <div class="listTitle cl">
+            <div>
+                昵称
+            </div>
+            <div>
+                身份
+            </div>
+            <div class="xiaofei">
+                消费金额
+            </div>
+            <div class="ticheng">
+                提成
+            </div>
+        </div>
+        <div class="listAll cl">
+        	<foreach name="data" item="r" key="k">
+            <div class="listTemplate cl">
+                <div class="ellipsis">{$r.nickname}</div>
+                <div class="{:$r['groupid']==3?'stateTwo':'stateOne'}">{$shenfen[$r['groupid']]}</div>
+                <div class="textC"><span>{$r.xiaofei}</span>元</div>
+                <div class="textR"><span>{:$r['xiaofei']*($r['groupid']==3?10:30)/100}</span>元</div>
+            </div>
+            </foreach>
+        </div>
+
+</div>
+</body>
+</html>

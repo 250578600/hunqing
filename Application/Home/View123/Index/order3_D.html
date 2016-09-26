@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单详情—待发货</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/order3_D.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/order3_D.js"></script>
+</head>
+<body>
+    <div class="main">
+            <div class="state allGreen">
+                待发货
+            </div>
+        <div class="orderTemplate vip cl">
+            <div class="goodsTemplate cl">
+                <div class="z goodsImg pr">
+                    <img src="/Public/m/images/all/goods1.png" alt="" class="paAuto">
+                </div>
+                <div class="z goodsName">
+                    私颜高品质卫生巾熟睡4片
+                </div>
+                <div class="y goodsPrice">
+                    <div class="vipPrice">
+                        <img src="/Public/m/images/all/v.png" alt="">
+                        <span>9999.99</span>
+                    </div>
+                    <div class="price">
+                        原<span>9999.99</span>
+                    </div>
+                    <div class="number">
+                        x<span>10</span>
+                    </div>
+                </div>
+                <a href="tuikuan.html" class="y cancelBtn">
+                    退款
+                </a>
+                 <div class="y hint none">
+                     <!--订单关闭-->
+                 </div>
+            </div>
+            <div class="goodsTemplate cl">
+                <div class="z goodsImg pr">
+                    <img src="/Public/m/images/all/goods1.png" alt="" class="paAuto">
+                </div>
+                <div class="z goodsName">
+                    私颜高品质卫生巾熟睡4片
+                </div>
+                <div class="y goodsPrice">
+                    <div class="vipPrice">
+                        <img src="/Public/m/images/all/v.png" alt="">
+                        <span>9999.99</span>
+                    </div>
+                    <div class="price">
+                        原<span>9999.99</span>
+                    </div>
+                    <div class="number">
+                        x<span>10</span>
+                    </div>
+                </div>
+                <a href="tuikuan.html" class="y cancelBtn">
+                    退款
+                </a>
+                <!--<div class="y hint none">-->
+                    <!--订单关闭-->
+                <!--</div>-->
+            </div>
+            <div class="conclusionTemplate cl">
+                 合计:<span class="money">￥<span >110.00</span></span>（含运费:￥<span class="postage">10.00</span>）
+            </div>
+        </div>
+        <div class="orderBox">
+            <div class="orderNum">
+                订单编号:<span>1102145456</span>
+            </div>
+            <div class="orderTime">
+                下单时间:<span>2022-1-11 24:22:11</span>
+            </div>
+        </div>
+        <div class="orderAddres cl">
+            <div class="z name">
+                收件人:<span>张三</span>
+            </div>
+            <div class="z phone">
+                <span>12333333333</span>
+            </div>
+            <div class="z addres">
+                收货地址:<span>四川省成都市成华区建设路街道建设路2号1栋2单元</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="moneyMask none">
+        <div class="moneyBox">
+            <div class="moneyTitle cl">
+                    付款详情
+            </div>
+            <img src="/Public/m/images/center/x.png" class="closeMoney" alt="">
+            <div class="payStyle cl">
+                <div class="payStyleTitle">
+                    付款方式
+                </div>
+                <div class="styleTemplate z">
+                    <img src="/Public/m/images/qian3.png" class="z fangshi" alt="">
+                    <p class="z">微信支付</p>
+                    <img src="/Public/m/images/all/choose2_green.png" class="y xuan" alt="">
+                </div>
+                <div class="styleTemplate z">
+                    <!--如果钱包金额足够支付显示下面的-->
+                    <img src="/Public/m/images/qian2.png" class="z fangshi" alt="">
+                    <p class="z">钱包支付</p>
+                    <!--如果钱包金额不足显示下面的-->
+                    <!--<img src="/Public/m/images/qian1.png"  class="z fangshi buzu" alt="">-->
+                    <!--<p class="z" style="color:#b2b2b2">钱包支付(余额不足）</p>-->
+                    <img src="/Public/m/images/all/choose2_gray.png" class="y xuan" alt="">
+                </div>
+                <div class="moneySum z">
+                    <p class="z">付款金额</p>
+                    <p class="y">200:00</p>
+                </div>
+                <input type="button" class="z payConfirm" value="去付款">
+            </div>
+        </div>
+
+    </div>
+    <div class="footer">
+        <input type="button" class="y payBtn" value="付款">
+    </div>
+
+</body>
+<script>
+    $(function(){
+       $(".styleTemplate").click(function(){
+           if($(this).find(".fangshi").hasClass("buzu")){
+
+           }else {
+               $(".styleTemplate").find(".xuan").attr("src","/Public/m/images/all/choose2_gray.png");
+               $(this).find(".xuan").attr("src","/Public/m/images/all/choose2_green.png");
+           }
+       });
+    });
+</script>
+</html>

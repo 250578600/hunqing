@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  <head>
+    <title>
+       添加新商品
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/admin/styles/general.css" rel="stylesheet" type="text/css"/>
+    <link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/Public/koko.js"></script>
+	
+	<script src="/Public/plugin/layer/layer.js"></script>
+	<script src="/Public/plugin/smartMenu/jquery-smartMenu-min.js"></script>
+    <link href="/Public/plugin/smartMenu/smartMenu.css" rel="stylesheet" type="text/css" />
+	<style>
+	#tabbody-div td{text-align:center}
+	</style>
+  </head>
+  
+  <body>
+    <!-- start goods form -->
+    <div class="tab-div">
+      <!-- tab bar -->
+      <!-- tab body -->
+      <div id="tabbody-div">
+        <form id="form" onsubmit="return false">
+		<input type="hidden" name="action" value="{:is_numeric($data['id'])?'edit':'add'}">
+		<input type="hidden" name="id" value="{:$data['id']}">
+		<input type="hidden" name="goods_id" value="{:$data['saishi']['id']}">
+          <table class="tabTo" width="100%" id="general-table" align="center">
+			<tr>
+				<th>一级菜单名称</th>
+				<th>二级级菜单名称</th>
+				<th>链接</th>
+				<th onclick="add1()">添加一级菜单</th>
+			</tr>
+			<foreach name="data['button']" item="r" key="k">
+			<tr id='koko{:$k+1}' n="{:$k+1}" class='koko'>
+			<td><input type='text'  class='name' value="{$r.name}"></td>
+			<td></td>
+			<td class='urlp'><if condition="!isset($r['sub_button'])"><input type='text' class='url' value="{$r.url}"></if></td>
+			<td><span onclick='add2(this)'>添加二级菜单</span>
+				<span style='margin-left:10px'   onclick='del1(this)'>删除一级菜单</span></td>
+			</tr>
+			
+			<foreach name="r['sub_button']" item="r2" key="k2">
+				<tr id='{:$k2+1}' class='koko2_{:$k+1}' p='{:$k2+1}'>
+				<td></td>
+				<td><input type='text' class='name' value="{$r2.name}"></td>
+				<td><input type='text' class='url' value="{$r2.url}"></td>
+				<td onclick='del2(this)'>删除本行</td>
+				</tr>
+			</foreach>
+			</foreach>
+          </table>
+		  <div class="button-div">
+        <input id="goods_info_submit" type="submit" value=" 确定 " class="button">
+        <input id="goods_info_reset" type="reset" value=" 重置 " class="button">
+        
+       </div>
+        </form>
+      </div>
+	  
+    </div>
+
+	<script>
+function add2(a){
+	var id=$(a).parents('.koko').attr("n");
+	var cls="koko2_"+id;
+	var len=$("."+cls).length;
+	if(len>=5)return;
+	var html="<tr id='koko2' class='"+cls+"' p='"+id+"'><td></td><td><input type='text' class='name'></td><td><input type='text' class='url'></td><td onclick='del2(this)'>删除本行</td></tr>";
+	$(a).parents('.koko').find(".url").remove();
+	if(len==0)$(a).parents('.koko').after(html);
+	else $("."+cls).eq(len-1).after(html);
+	$("#koko2").attr("id",len+1);
+}
+function del1(a){
+	var cls="koko2_"+$(a).parents('tr').attr("n");
+	$(a).parents('tr').remove();
+	$("."+cls).remove();
+	
+}
+function del2(a){
+	var cls=$(a).parents("tr").attr("class");
+	var id=0;
+	if($("."+cls).length==1){
+		id="#koko"+$(a).parents("tr").attr("p");
+	}
+	$(a).parent().remove();
+	if(id!=0){
+		$(id).find(".urlp").html("<input type='text' class='url'>");
+	}
+}
+function add1(){
+	var len=$(".koko").length;
+	if(len>=3)return;
+	$(".tabTo").append("<tr id='koko' class='koko'><td><input type='text'  class='name'></td><td></td><td class='urlp'><input type='text' class='url'></td><td><span onclick='add2(this)'>添加二级菜单</span><span style='margin-left:10px'   onclick='del1(this)'>删除一级菜单</span></td></tr>");
+	$("#koko").attr("n",len+1);
+	$("#koko").attr("id","koko"+(len+1));
+}
+	
+$("#goods_info_submit").click(function(){
+	var list=$(".tabTo .koko");
+	var obj={};
+	for(var i=0;i<list.length;i++){
+		var l=list.eq(i);
+		obj["data["+i+"][name]"]=l.find(".name").val();
+		if($(".koko2_"+l.attr("n")).length==0){
+			obj["data["+i+"][url]"]=l.find(".url").val();
+			obj["data["+i+"][type]"]="view";
+		}else{
+			var str="data["+i+"][sub_button]";
+			var list2=$(".koko2_"+l.attr("n"));
+			for(var j=0;j<list2.length;j++){
+				l2=list2.eq(j);
+				obj[str+"["+j+"][type]"]="view";
+				obj[str+"["+j+"][name]"]=l2.find(".name").val();
+				obj[str+"["+j+"][url]"]=l2.find(".url").val();
+			}
+		}
+	}
+	$.post(document.URL,obj,function(e){
+		if(e.state==1){
+			layer.alert("操作成功");
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+});
+	</script>
+
+  </body>
+
+</html>

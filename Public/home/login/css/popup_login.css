@@ -1,0 +1,149 @@
+body{
+	background-color: #fff !important;
+}
+#popup-login-box{
+	position: fixed;
+	left: 0;
+	right: 0;
+	margin: 40px auto 0;
+	width: 415px;
+	height: 415px;
+	background-color: #fff;
+	border-radius: 6px;
+	-moz-box-shadow: 1px 1px 6px rgba(0,0,0,.2);
+	-webkit-box-shadow: 1px 1px 6px rgba(0,0,0,.2);
+	box-shadow: 1px 1px 6px rgba(0,0,0,.2);
+}
+#popup-login-box a{
+	display: block;
+	text-decoration: none;
+}
+#login-children-close{
+	display: block;
+	position: absolute;
+	right: 18px;
+	top: 18px;
+	width: 14px;
+	height: 14px;
+	cursor: pointer;
+}
+#login-children-title{
+	margin: 10px 15px 0;
+	height: 50px;
+	line-height: 50px;
+	color: #f2499d;
+	border-bottom: 2px solid #f2499d;
+	font-size: 20px;
+	padding-left: 30px;
+}
+#login-children-account, #login-children-password{
+	display: block;
+	margin: 18px 48px 0;
+	border: 1px solid #999;
+	border-radius: 3px;
+	width: 320px;
+	height: 44px;
+	line-height: 44px;
+	font-size: 16px;
+	padding-left: 10px;
+	background-color: transparent;
+	
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.750);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	
+}
+#login-children-account:focus, #login-children-password:focus{
+	border-color: #f2499d;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(242, 73, 157, .5);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(242, 73, 157, .5);
+}
+#login-children-account::-ms-input-placeholder, #login-children-password::-ms-input-placeholder{
+	color: #999;
+	font-size: 16px;
+}
+#login-children-account::-moz-placeholder, #login-children-password::-moz-placeholder{
+	color: #999;
+	font-size: 16px;
+}
+#login-children-account::-webkit-input-placeholder, #login-children-password::-webkit-input-placeholder{
+	color: #999;
+	font-size: 16px;
+}
+#login-children-gou{
+	display: block;
+	float: left;
+	color: #666;
+	font-size: 14px;
+	height: 14px;
+	line-height: 14px;
+	cursor: pointer;
+	margin-top: 20px;
+}
+#login-children-gou input{
+	display: block;
+	float: left;
+	margin: 0 5px 0 0;
+}
+#login-children-zh{
+	text-decoration: underline !important;
+	float: right;
+	font-size: 14px;
+	color: #2e8ae5;
+	margin-top: 20px;
+	height: 14px;
+	line-height: 14px;
+}
+#login-children-login{
+	display: block;
+	border: none;
+	font-size: 18px;
+	font-weight: 600;
+	color: #fff;
+	background-color: #f2499d;
+	margin: 0 48px;
+	border-radius: 5px;
+	width: 320px;
+	height: 42px;
+	line-height: 42px;
+	text-align: center;
+	cursor: pointer;
+}
+#login-children-restsLogin{
+	height: 60px;
+	border-top: 1px solid #f5f5f5;
+	margin-top: 56px ;
+	
+}
+#login-children-restsLogin span{
+	display: block;
+	float: left;
+	margin: 20px 0 0 48px;
+	font-size: 14px;
+	color: #666;
+	height: 22px;
+	line-height: 22px;
+}
+#login-children-restsLogin .login-children-loginIco{
+	display: block;
+	float: left;
+	width: 22px;
+	height: 22px;
+	margin: 20px 0 0 5px;
+}
+#login-children-restsLogin img{
+	display: block;
+	width: 22px;
+	height: 22px;
+}
+#login-children-register{
+	float: right;
+	color: #2E8AE5;
+	font-size: 14px;
+	height: 22px;
+	line-height: 22px;
+	margin: 20px 48px 0 0;
+}

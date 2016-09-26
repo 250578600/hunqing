@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账户安全</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/wanshan.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/wanshan.js"></script>
+</head>
+<body>
+      <div class="main">
+          <div class="phone cl" onclick="location.href='{:U('phone')}'">
+              <img src="/Public/m/images/center/zhifushouji.png" class="z icon"  alt="">
+              <span class="z">认证手机</span>
+              <img src="/Public/m/images/index/right.png" class="y rightArrow" alt="">
+              <span class="y phoneNum">{$user['telephone']}</span>
+          </div>
+          <if condition="$user['groupid'] eq 3">
+          <div class="mima cl" onclick="location.href='{:U('password')}'">
+              <img src="/Public/m/images/center/zhifumima.png" class="z icon"  alt="">
+              <span class="z">支付密码</span>
+              <img src="/Public/m/images/index/right.png" class="y rightArrow" alt="">
+              <span class="y phoneNum"></span>
+          </div>
+          </if>
+      </div>
+</body>
+</html>

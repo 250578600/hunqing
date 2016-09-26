@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册/登录</title> <!--展示页，没有登录就 进入这个页面-->
+		<link rel="stylesheet" href="/Public/home/css/public.css" />
+		<link rel="stylesheet" href="/Public/home/login/css/show_login.css" />
+	</head>
+	<body>
+		<div class="main-box">
+			<div class="banner">
+				<img src="/Public/home/login/img/bg1.png" />
+				<div class="banner-point">
+					<div>
+						<span class="banner-select dll-transition"></span>
+						<span class="dll-transition"></span>
+						<span class="dll-transition"></span>
+						<span class="dll-transition"></span>
+					</div>
+				</div>
+				<div class="blur"></div>
+			</div>
+			<div class="top-box" onselectstart="return false;">
+				<img class="logo" src="/Public/home/img/logo.png" />
+				<form action="" method="post" class="top-left">
+					<div class="account input-cha-text">
+						<input type="text" placeholder="ID/邮箱/手机" />
+						<div class="input-cha-text-style"></div>
+					</div>
+					<div class="password input-yj-password">
+						<input type="password" placeholder="密码" />
+						<div class="input-yj-password-style"></div>
+					</div>
+					<label class="automatic-login">
+						<input type="checkbox" name="" />
+						<div>自动登录</div>
+					</label>
+					<input type="submit" class="login-but dll-transition" value="登录" />
+					<a href="" class="forget-password">忘记密码？</a>
+					<div class="rests-login">
+						<div>其他登录</div>
+						<a href="">
+							<img src="/Public/home/img/ico_QQ.png" />
+						</a>
+						<a href="">
+							<img src="/Public/home/img/ico_WX.png" />
+						</a>
+						<a href="">
+							<img src="/Public/home/img/ico_SH.png" />
+						</a>
+					</div>
+				</form>
+			</div>
+			<!--415-->
+		<form method="post" action="{:U(ACTION_NAME)}?step=2" onsubmit="return check()">
+			<div class="poput-register-box" onselectstart="return false;"> <!--注册框-->
+				<input type="hidden" name="id" />
+				<div class="register-title"></div>
+				<div class="register-list-box">
+					<div class="register-list">
+						<div class="register-list-txt">性别：</div>
+						<label class="select-sex">
+							<input type="radio" name="sex" class="dll-input" checked="checked" value="1" />
+							<div>男</div>
+						</label>
+						<label class="select-sex" style="margin-left: 15px;">
+							<input type="radio" name="sex" class="dll-input" value="0" />
+							<div>女</div>
+						</label>
+					</div>
+					<!-- dll-select-val-select -->
+					<div class="register-list">
+						<div class="register-list-txt">生日：</div>
+						<div class="dll-select">
+							<div class="dll-select-val">选择&nbsp;年</div>
+							<div class="dll-select-down select-year">
+								<div>
+									<span>90后:</span>
+									<a class="dll-select-click">1990</a>
+									<a class="dll-select-click">1991</a>
+									<a class="dll-select-click">1992</a>
+									<a class="dll-select-click">1993</a>
+									<a class="dll-select-click">1994</a>
+									<a class="dll-select-click">1995</a>
+									<a class="dll-select-click">1996</a>
+									<a class="dll-select-click">1997</a>
+									<a class="dll-select-click">1998</a>
+									<a class="dll-select-click">1999</a>
+								</div>
+							</div>
+						</div>
+						<div class="dll-select">
+							<div class="dll-select-val">选择&nbsp;月</div>
+							<div class="dll-select-down select-month">
+								<div class="dll-select-click">1</div>
+								<div class="dll-select-click">2</div>
+								<div class="dll-select-click">3</div>
+								<div class="dll-select-click">4</div>
+								<div class="dll-select-click">5</div>
+								<div class="dll-select-click">6</div>
+								<div class="dll-select-click">7</div>
+								<div class="dll-select-click">8</div>
+								<div class="dll-select-click">9</div>
+								<div class="dll-select-click">10</div>
+								<div class="dll-select-click">11</div>
+								<div class="dll-select-click">12</div>
+							</div>
+						</div>
+						<div class="dll-select" style="margin-right: 0;">
+							<div class="dll-select-val">选择&nbsp;日</div>
+							<div class="dll-select-down select-day">
+								<div class="dll-select-click">1</div>
+								<div class="dll-select-click">2</div>
+								<div class="dll-select-click">3</div>
+								<div class="dll-select-click">4</div>
+								<div class="dll-select-click">5</div>
+								<div class="dll-select-click">6</div>
+								<div class="dll-select-click">7</div>
+								<div class="dll-select-click">8</div>
+								<div class="dll-select-click">9</div>
+								<div class="dll-select-click">10</div>
+							</div>
+						</div>
+					</div>
+					<div class="register-list">
+						<div class="register-list-txt">地区：</div>
+						<div class="dll-select">
+							<div class="dll-select-val">选择&nbsp;省</div>
+							<div class="dll-select-down select-province">
+								<div class="province-public">
+									<div class="dll-select-click">四川</div>
+									<div class="dll-select-click">重庆</div>
+								</div>
+								<div class="province-all">
+									<div class="dll-select-click">北京</div>
+									<div class="dll-select-click">河北</div>
+									<div class="dll-select-click">河南</div>
+									<div class="dll-select-click">北京</div>
+									<div class="dll-select-click">河北</div>
+									<div class="dll-select-click">河南</div>
+								</div>
+								<div class="province-other">
+									<div class="dll-select-click">澳门</div>
+									<div class="dll-select-click">香港</div>
+									<div class="dll-select-click">台湾</div>
+									<div class="dll-select-click">国外</div>
+								</div>
+							</div>
+						</div>
+						<div class="dll-select">
+							<div class="dll-select-val">选择&nbsp;市</div>
+							<div class="dll-select-down select-city">
+								<div class="dll-select-click">成都</div>
+								<div class="dll-select-click">达州</div>
+								<div class="dll-select-click">成都</div>
+								<div class="dll-select-click">达州</div>
+							</div>
+						</div>
+						<div class="dll-select" style="margin-right: 0;">
+							<div class="dll-select-val">选择&nbsp;区</div>
+							<div class="dll-select-down select-qu">
+								<div class="dll-select-click">高新区</div>
+								<div class="dll-select-click">金牛区</div>
+								<div class="dll-select-click">成华区</div>
+							</div>
+						</div>
+					</div>
+					<div class="register-list">
+						<div class="register-list-txt">婚姻：</div>
+						<label class="marriage-set">
+							<input type="radio" name="marriage" class="dll-input" checked="checked" value="1" />
+							<div>未婚</div>
+						</label>
+						<label class="marriage-set">
+							<input type="radio" name="marriage" class="dll-input" value="2" />
+							<div>离异</div>
+						</label>
+						<label class="marriage-set">
+							<input type="radio" name="marriage" class="dll-input" value="0" />
+							<div>丧偶</div>
+						</label>
+					</div>
+				</div>
+				<input type="submit" id="sub" value="免费注册" class="register-but dll-transition" />
+			</div>
+		</form>
+			<div class="picture-show"> <!--照片墙-->
+				<div class="picture-show-title">
+					<div>20万绅士名媛的选择</div>
+				</div>
+				<div class="picture-box">
+					
+					<div class="picture-box-style" style="padding-right: 1px;">
+						<div class="picture-style picture-style1">
+							<img src="/Public/home/login/img/bg4.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+					</div>
+					<div class="picture-box-style">
+						<div class="picture-style picture-style3" style="margin-right: 1px;">
+							<img src="/Public/home/login/img/bg3.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+						<div class="picture-style picture-style3">
+							<img src="/Public/home/login/img/bg3.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+						<div class="picture-style picture-style2" style="margin-top: 1px;">
+							<img src="/Public/home/login/img/bg1.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="picture-box-style" style="margin-right: 1px;">
+						<div class="picture-style picture-style1">
+							<img src="/Public/home/login/img/bg4.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+					</div>
+					<div class="picture-box-style">
+						<div class="picture-style picture-style2" style="margin-bottom: 1px;">
+							<img src="/Public/home/login/img/bg1.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+						<div class="picture-style picture-style3" style="margin-right: 1px;">
+							<img src="/Public/home/login/img/bg3.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+						<div class="picture-style picture-style3">
+							<img src="/Public/home/login/img/bg3.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="picture-box-style" style="margin-top: 1px;">
+						<div class="picture-style picture-style3" style="margin-right: 1px;">
+							<img src="/Public/home/login/img/bg3.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+						<div class="picture-style picture-style3">
+							<img src="/Public/home/login/img/bg3.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+						<div class="picture-style picture-style2" style="margin-top: 1px;">
+							<img src="/Public/home/login/img/bg1.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+					</div>
+					<div class="picture-box-style" style="margin-top: 1px; width: 297px;">
+						<div class="picture-style picture-style1">
+							<img src="/Public/home/login/img/bg4.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="picture-box-style" style="margin-left: 1px; margin-top: 1px;">
+						<div class="picture-style picture-style2" style="width: 298px; margin-bottom: 1px;">
+							<img src="/Public/home/login/img/bg1.png" />
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+						<div class="picture-style picture-style3" style="margin-right: 1px;">
+							<img src="/Public/home/login/img/bg3.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+						<div class="picture-style picture-style3" style="width: 149px;">
+							<img src="/Public/home/login/img/bg3.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+					</div>
+					<div class="picture-box-style" style="margin-top: 1px; width: 297px; margin-left: 1px;">
+						<div class="picture-style picture-style1">
+							<img src="/Public/home/login/img/bg4.png"/>
+							<div>
+								<span>26岁</span>
+								<span>成都</span>
+								<span>本科</span>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div> <!--照片墙 结束-->
+			<a class="zs-box zs-box1">
+				<img src="/Public/home/login/img/bg2.png" />
+			</a>
+			<a class="zs-box zs-box2">
+				<img src="/Public/home/login/img/bg3.png" />
+			</a>
+			<a class="zs-box zs-box3">
+				<img src="/Public/home/login/img/bg4.png" />
+				<div class="zs-point">
+					<div>
+						<span class="dll-transition zs-point-select"></span>
+						<span class="dll-transition"></span>
+						<span class="dll-transition"></span>
+					</div>
+				</div>
+			</a>
+		</div>
+		
+		<!--在这里输出 footer-->
+		
+	</body>
+	<script src="/Public/home/js/jquery-1.11.0.js"></script>
+	<script src="/Public/home/js/public.js"></script>
+	<script src="/Public/home/js/dll_select.js"></script>
+	<script> 
+		$(document).ready(function(){ //设置banner 点
+			$('.banner-point').show();
+			var banner = $('.banner-point div');
+			banner.css('width',banner.find('span').length*40-20 + 'px');
+			
+			$('.zs-point').show();
+			banner = $('.zs-point div');
+			banner.css('width',banner.find('span').length*40-20 + 'px');
+		});
+		$('.banner-point span').click(function(){
+			$('.banner-point span').removeClass('banner-select');
+			$(this).addClass('banner-select');
+		});
+		$('.zs-point span').click(function(){
+			$('.zs-point span').removeClass('zs-point-select');
+			$(this).addClass('zs-point-select');
+		});
+
+		function check(){
+			var b = $('input[name=sex]:checked').val();
+			var arr=new Array();
+			for (var a=0;a<6;a++) {
+				arr[a] = $('.dll-select-val').eq(a).text();
+			};
+			var s = $('input[name=marriage]:checked').val();
+			var url = b+','+arr+','+s;
+
+			location.href = "{:U('Account/register')}?step=2&data="+url;
+
+			// if($('.dll-select-val').text() == )
+
+			// console.log(url);
+		}
+
+	</script>
+</html>

@@ -1,0 +1,491 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>立即购买</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="/Public/m/css/public.css" />
+		<script src="/Public/jquery-1.8.3.min.js"></script>
+		<script src="/Public/m/js/layout.js"></script>
+		<script src="/Public/location.js"></script>
+		<script src="/Public/koko.js"></script>
+		<link rel="stylesheet" href="/Public/m/css/mui.min.css" />
+		<script type="text/javascript" src="/Public/m/js/mui.min.js" ></script>
+		<script type="text/javascript" src="/Public/plugin/layer/layer.js" ></script>
+		<style type="text/css">
+			*{
+				box-sizing: border-box;
+				-webkit-appearance: none;
+			}
+			body{
+				margin:0;
+				background-color:#000;
+			}
+			ul,li{
+				margin: 0;
+				padding: 0;
+				list-style-type:none;
+			}
+			a{
+				text-decoration:none;
+			}
+			input{
+				font-size:15px;
+			}
+			.picture{
+				display: block;
+				width:100%;
+			}
+			.plu{
+				background-color:#171717;
+				height:70px;
+				padding:0 10px;
+			}
+			.plus{
+				
+				height:42px;
+			}
+			.nei{
+				color:#D6BE80;
+				margin-top:13px;
+				float:left;
+			}
+			.melody{
+			    float: right;
+			    margin-top: 10px;
+			    margin-right: 3px;
+			}
+			.jia{
+			    float: left;
+			    width: 24px;
+			    height: 24px;
+			    line-height: 24px;
+			    text-align: center;
+			    color: #171717;
+			    background-color: #D6BE80;
+			    font-size: 20px;
+			}
+			.melody input{
+				float: left;
+			    display: block;
+			    width: 24px !important;
+			    height: 24px;
+			    text-align: center;
+			    border: none;
+			    margin:0 1px;
+			    color:#171717;
+			    border-radius: 0 !important;
+			    background-color:#D6BE80;
+			    border: 1px solid #D6BE80;
+			}
+			.jian{
+				float: left;
+			    width: 24px;
+			    height: 24px;
+			    line-height: 24px;
+			    text-align: center;
+			    color: #171717;
+			    background-color: #d6be80;
+			    font-size: 22px;
+			}
+			.remain{
+				float: right;
+				color:#929090;
+			}
+			.total{
+				color:#9a9a9a;
+				padding:10px;
+			}
+			.xua{
+				color:#D6BE80;
+				background-color:#171717;
+				padding:10px;
+				border-bottom:1px solid #707070;
+			}
+			.bottomBox{
+				color:#D6BE80;
+				background-color:#171717;
+				padding:0 10px;
+				padding-bottom:5px;
+				margin-top:20px;
+			}
+			.relation{
+				padding-top:10px;
+			}
+			.detail{
+				padding:5px 0;
+			}
+			.people{
+				display: inline-block;
+				width:80px;
+			}
+			.people span{
+				color:#ff0000;
+			}
+			.lis{
+				height:30px;
+				border-radius:5px;
+				border:1px solid #D6BE80;
+				background-color:#171717;
+				padding-left:5px;
+				color:#D6BE80;
+			}
+			.qu{
+				display: inline-block;
+				/*width:50px;*/
+				height:20px;
+				color:#D6BE80;
+				border:1px solid #D6BE80;
+				border-radius: 5px;
+				background-color:#171717;
+				color
+			}
+			.li{
+				height:50px;
+				border-radius:5px;
+				border:1px solid #D6BE80;
+				background-color:#171717;
+				padding-left:5px;
+				color:#D6BE80;
+			}
+			.bou{
+				height:115px;
+				padding:5px 0;
+				float:left;
+			}
+			.peo{
+				width:90px;
+				float:left;
+				color:#D6BE80;
+				margin-top:16px;
+			}
+			.peo span{
+				color:#ff0000;
+			}
+			.jost div{
+				border:1px solid #D6BE80;
+				border-radius:5px;
+				color:#D6BE80;
+				padding:0 10px;
+				height:30px;
+				overflow: hidden;
+				text-align: center;
+				line-height:30px;
+				margin-bottom:8px;
+				font-size: 14px;
+			}
+			.major{
+				float:left;
+			}
+			.majorSelect{
+				background-color: #d6be80 !important;
+				color: black !important;
+			}
+			.family{
+				float:right;
+			}
+			.inform{
+				color:#909090;
+				font-size:14px;
+			}
+			.width{
+				color:#D6BE80;
+				height:65px;
+				margin:5px 0;
+			}
+			.width span{
+				color:#FF0000;
+				
+			}
+			.peop{
+				float:left;
+				margin-top:20px;
+				width:90px;
+			}
+			.tex{
+				padding:5px;
+				border:1px solid #D6BE80;
+				border-radius:5px;
+				color:#D6BE80;
+				height:50px;
+				background-color:#171717;
+				font-size:16px;
+			}
+			.buy{
+				margin:10px 0;
+				height:45px;
+				text-align: center;
+				line-height:45px;
+				background-color:#D6BE80;
+				border-radius:5px;
+				color:#171717;
+			}
+				
+			.message{
+				position:relative;
+				padding:10px 30px 14px;
+				color:#c3ad75;
+				border-bottom:1px dashed #c3ad75;
+				background:url(/Public/m/img/liangjiedingweitu.png)8px 39px no-repeat;
+				background-size:13px;
+				background-color:#171717;
+				margin:10px 0;
+			}
+			.name{
+				margin-bottom:7px;
+				height:21px;
+			}
+			.mae{
+				float:left;
+			}
+			.number{
+				float:left;
+				margin-left:40px;
+				color: #c3ad75 !important;
+			}
+			.mo{
+				
+				float:left;
+				margin-left:20px;
+				color:#fff;
+				padding:0 7px;
+				background-color:#16c460;
+				font-size: 14px;
+			}
+			.site{
+				font-size:16px;
+				line-height:22px;
+				min-height:22px;
+			}
+			.commodity{
+				height:40px;
+				line-height: 40px;
+				padding-left:10px;
+				color:#c3ad75;
+				font-size:16px;
+			}
+			.table{
+				background-color:#171717;
+				padding:10px 15px;
+				color:#c3ad75;
+				font-size:14px;
+			}
+			.table img{
+				float:left;
+				width:65px;
+				display: block;
+			}
+			.font{
+				margin-top:13px;
+				float:left;
+				width:165px;
+				margin-left:5px;
+				line-height:20px;
+			}
+			.right{
+				margin-top:13px;
+				float:right;
+				text-align:right;
+				line-height:20px;
+			}
+			.bottom{
+				background-color:#171717;
+				color:#fff;
+				height:50px;
+				line-height:50px;
+				position:absolute;
+				bottom:0;
+				width:100%;
+			}
+			.bottom div{
+				float:right;
+			}
+			.should{
+				font-size:13px;
+			}
+			.money{
+				color:#c3ad75;
+				margin-left:10px;
+			}
+			.refer{
+				background-color:#c3ad75;
+				padding:0 15px;
+				margin-left:15px;
+			}
+			.way{
+				line-height:45px;
+				background-color:#171717;
+				color:#c3ad75;
+			}
+			.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{
+				color:#16c460 !important;
+				
+			}
+			.mui-radio input[type=radio]:before{
+				font-size: 26px !important;
+			}
+			.mui-radio input[type=radio]{
+				top:9px !important;
+			}
+			.arrows{
+				position:absolute;
+				top:17px;
+				right:10px;
+				font-size:25px;
+			}
+			
+		</style>
+	</head>
+	<body>
+	<form>
+		<img class="picture" src="{$data.thumb}"/>
+		<div class="plu">
+			<div class="plus">
+				<div class="nei">{$data.title}</div>
+				<div class="melody">
+					<div class="jian">-</div>
+					<input class="in" type="text" name="num" id="nnnn" value="1" onchange="change()" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+					
+					<div class="jia">+</div>
+				</div>
+			</div>
+			<div class="remain">仓库剩余<stock>{$data['ex'][$_GET['ex']]['stock']}</stock>件</div>
+		</div>
+		<!--<div class="total">购物车总计</div>
+		<div class="xua">已经选:<num></num>份  共计:￥<sum></sum>元</div>
+		<div class="bottomBox">
+			<div class="relation">联系信息</div>
+			<div class="detail">
+				<div class="people"><span>*</span>联系人</div>
+				<input type="text" class="name lis layout" name="name" id="name" layout="w:<100%-95>"/>
+			</div>
+			<div class="detail">
+				<div class="people"><span>*</span>联系电话</div>
+				<input type="text" class="phone lis layout" name="telephone"  id="telephone" layout="w:<100%-95>"/>
+			</div>
+			<div class="detail">
+				<div class="people"><span>*</span>联系地址</div>
+				<select class="qu" name="province" id="loc_province">
+				</select>
+				<select class="qu" name="city" id="loc_city">
+				</select>
+				<select class="qu" name="county" id="loc_county">
+				</select>
+			</div>
+			<div class="width">
+				<div class="peop"><span>*</span>详细地址</div>
+				<textarea class="tex layout" name="address" id="address" layout="w:<100%-110>">{$addr.address}</textarea>
+			</div>
+			-->
+		<div class="bottomBox">
+			<div class="size"> 
+				<div class="peo"><span>*</span>尺寸规格</div>
+				<div class="bou layout" layout="w:<100%-93>">
+					<div class="major jost">
+						<foreach name="data['ex']" item="r" key="k">
+						<div class="{:$k==$_GET['ex']?'majorSelect':''}" style="display: inline-block;margin: 4px 10px;"  id="{$r.id}" src="{$r.thumb}" price="{$r.price}" stock="{$r.stock}" ><span style="display: inline-block;overflow: hidden;">{$r.name}</span></div>
+						</foreach>
+						
+					</div>
+					<div style="clear: both;"></div>
+					<div class="inform">Tips:如您所在地有尚腾服务商,将由服务商与您联系发货事宜。</div>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+			<!--</div>-->
+			<div class="message">
+			 <if condition="$addr">
+				<div class="name">
+					<div class="mae">{$addr.name}</div>
+					<div class="number">{$addr.telephone}</div>
+					<if condition="$addr.selected">
+					<div class="mo">默认</div>
+					</if>
+				</div>
+				<div class="site">{$addr.province_}{$addr.city_}{$addr.county_}{$addr.address}</div>
+				<else/>
+				<div class="name">
+					请添加收货地址
+				</div>
+				</if>
+				<div class="arrows">></div>
+			</div>
+		<div class="commodity">支付方式</div>
+		<div class="way">
+			<div class="mui-input-row mui-radio mui-left woman">
+				<label>微信支付</label>
+				<input class="" name="pay_type" checked value="xingye" type="radio"/>
+			</div>
+			<div class="mui-input-row mui-radio mui-left woman">
+				<label>银行卡支付</label>
+				<input class="" name="pay_type" value="xingye_bank" type="radio"/>
+				<input type="hidden" name="redirect_type" value="gp_pay"/>
+			</div>
+		</div>
+			<div class="width">
+				<div class="peop">备注</div>
+				<textarea class="tex layout" name="msg" layout="w:<100%-110>"></textarea>
+			</div>
+			<!-- 
+			-->
+				
+				<div class="buy">立即购买</div>
+		</div>
+		<input type="hidden" name="id" value="{$data.id}">
+		<input type="hidden" name="ex" id="ex" value="{$_GET['ex']}">
+		</form>
+		<script>
+			layout(".layout");
+			$(function(){
+				$('.jian').on('touchend',function(){
+					var _txt=$(this).next();
+					if(_txt.val()>1){
+						_txt.val(parseInt(_txt.val())-1);
+					}
+					price();
+					change(_txt);
+					return false;
+				});
+				$('.jia').on('touchend',function(){
+					var _txt=$(this).prev();
+					_txt.val(parseInt(_txt.val())+1);
+					price();
+					change(_txt);
+					return false;
+				});
+				$('.in').on('touchend',function(){
+					change(this);
+					return false;
+				});
+			});
+			$('.jost div').click(function(){
+				$('.jost div').removeClass('majorSelect');
+				$(this).addClass('majorSelect');
+				setTotal();
+				$("#ex").val(this.id);
+			});
+			function setTotal(){
+				$this=$(".majorSelect");
+				var a= parseInt($("#nnnn").val());
+				var b =parseFloat($this.attr('price'));
+				$("sum").html(a*b);
+				$("num").html(a);
+				$("stock").html($this.attr('stock'));
+			}
+			setTotal();
+			tools=new kokoTools();
+			$(".buy").click(function(){
+				$.post("{:U('/Home/Pay')}",$("form").serialize(),function(e){
+					if(e.state==1){
+						location.href=e.url;
+					}else{
+						layer.msg(e.msg);
+					}
+				});
+			});
+			$(".arrows").click(function(){
+				location.href="{:U('/Home/Address')}?url="+encodeURIComponent(document.URL);
+			});
+		</script>
+	</body>
+</html>

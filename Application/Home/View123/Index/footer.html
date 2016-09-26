@@ -1,0 +1,14 @@
+<footer class="cl">
+  <a href="{:U('/Home/Index')}">
+    <img src="/Public/m/images/all/home_{:CONTROLLER_NAME=='Index'&&ACTION_NAME=='index'?'green':'gray'}.png" alt="">
+    <p class="{:CONTROLLER_NAME=='Index'&&ACTION_NAME=='index'?'allGreen':''}">首页</p></a>
+  <a href="{:U('/Home/Cart')}">
+    <img src="/Public/m/images/all/shopping_{:CONTROLLER_NAME=='Cart'?'green':'gray'}.png" alt="">
+    <p class="{:CONTROLLER_NAME=='Cart'?'allGreen':''}">购物车</p></a>
+  <a href="{:U('/Home/Index/lei')}">
+    <img src="/Public/m/images/all/category_{:ACTION_NAME=='lei'?'green':'gray'}.png" alt="">
+    <p class="{:ACTION_NAME=='lei'?'allGreen':''}">产品分类</p></a>
+  <a href="{:U('/Home/Center')}">
+    <img src="/Public/m/images/all/mine_{:CONTROLLER_NAME=='Center'?'green':'gray'}.png" alt="">
+    <p class="{:CONTROLLER_NAME=='Center'?'allGreen':''}">个人中心</p></a>
+</footer>

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> 管理中心 - 下线列表 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script src="/Public/plugin/layer/layer.js"></script>
+<script type="text/javascript" src="/Public/koko.js"></script>
+<link href="/Public/plugin/jcDate/css/jcDate.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/plugin/jcDate/js/jQuery-jcDate.js"></script>
+
+</head>
+<body>
+
+<h1>
+<!-- 
+<span class="action-span"><a href="{:U('add')}">添加会员</a></span> -->
+<span class="action-span1"><a href="index.php?act=main"> 管理中心</a> </span><span id="search_id" class="action-span1"> - {:isset($xiao['name'])?$xiao['name']:$xiao['nickname']}的下线列表 </span>
+<div style="clear:both"></div>
+</h1>
+<div class="form-div">
+	<form>
+		选择时间：从<input name="from" type="text" class="jcDate" value="{$_GET['from']}" readonly style="background:white;min-width:100px">
+		到<input name="to" type="text" class="jcDate" readonly value="{$_GET['to']}" style="background:white;min-width:100px">
+		    下线类型    <select name="g" id="city">
+      <option value="">请选择...</option>
+      <option value="2" {:'2'===$_GET['g']?'selected': ''}>会员</option>
+      <option value="3" {:'3'===$_GET['g']?'selected': ''}>经销商</option>
+	  </select>
+	  <input type="hidden" name="id" value="{$_GET['id']}"></input>
+		<input type="submit" value=" 搜索 " />
+	</form>
+</div>
+	<!-- start users list -->
+	<div class="list-div" id="listDiv">
+				<!--用户列表部分-->
+		<table cellpadding="3" cellspacing="1">
+			<tr>
+				<th>
+					<input onclick='$("input:checkbox").attr("checked",this.checked)' type="checkbox">
+					<a>ID</a>
+					<img src="/admin/images/sort_desc.gif">				</th>
+				<th><a>会员昵称</a></th>
+				<th><a>姓名</a></th>
+				<th>身份</th>
+				<th><a>直购金额</a></th>
+				<th><a>会员购总金额</a></th>
+			</tr>
+			<php>$yong=0;</php>
+			<foreach name="data['list']" item="r" key="k">
+			<tr>
+				<td>
+					<input id="{$r['id']}" type="checkbox" value="24" notice="0" />
+					{$r[id]}	</td>
+				<td class="first-cell">
+					<span style="margin-bottom: 2px; line-height: 14px; display: block;">{:$r['nickname']}</span>
+				</td>
+				<td><span>{$r['name']}</span></td>
+				<td align="center">{:$shenfen[$r['groupid']]}</td>
+				<td><span>{:$r['xiao2']+$r['xiao3']}</span></td>
+				<td><span>{$r['xiao']}</span></td>
+			</tr>
+			<php>$yong+=$r['xiao2']*3/10+$r['xiao3']*0.1;</php>
+			</foreach>
+			<tr>
+				<td colspan="2">
+				应拿佣金:{$yong}
+				</td>
+				<td align="right" nowrap="true" colspan="14">     
+            <div id="turn-page">
+        总计  <span id="totalRecords">{$data['pagesInfo']['total']}</span>
+        个记录分为 <span id="totalPages">{$data['pagesInfo']['pages_total']}</span>
+        页当前第 <span id="pageCurrent">{$data['pagesInfo']['now']}</span>
+        页，每页 {$data['pagesInfo']['gap']}条
+        <span id="page-link">
+          <a href="{$data['pagesInfo']['url']['first']}">第一页</a>
+          <a href="{$data['pagesInfo']['url']['up']}">上一页</a>
+          <a href="{$data['pagesInfo']['url']['down']}">下一页</a>
+          <a href="{$data['pagesInfo']['url']['last']}">最末页</a>
+          <select id="gotoPage" onchange="location.href=this.value">
+			<for start="1" end="$data['pagesInfo']['pages_total']" comparison="elt">
+				<option value="{:U('listing').'?p='.$i}">{$i}</option>
+			</for>
+		 </select>
+        </span>
+      </div>
+</td>
+			</tr>
+		</table>
+			</div>
+
+ <div id="footer">
+</div>
+<script>
+
+$(function (){
+	$(".jcDate").jcDate({					       
+			IcoClass : "jcDateIco",
+			Event : "click",
+			Speed : 100,
+			Left : 0,
+			Top : 28,
+			format : "-",
+			Timeout : 100
+	});
+});
+</script>
+</body>
+</html> 

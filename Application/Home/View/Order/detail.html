@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script src="/Public/jquery-1.9.1.min.js"></script>
+<script src="/Public/koko2.js"></script>
+{$data.order_sn}<br>
+{:date('Y-m-d H:i:s',$data['create_time'])}<br>
+{:date('Y-m-d H:i:s',$data['handle_time'])}<br>
+{$data.stateName}<br>
+{$data.payType}<br>
+<button onclick="pay('{$data.order_sn}')">立即支付</button><br>
+<button onclick="del()">删除</button><br>
+<button onclick="tui()">退货退款</button><br>
+<button onclick="shouhuo()">确认收货</button><br>
+<button onclick="judge()">确认评价</button><br>
+<form id="judge">
+<foreach name="data['ex']" item="r" key="k">
+<if condition="$data['state'] eq 3 and $r['judge'] eq 0">
+<div>{$r.title} <textarea name="data[msgs][{$r.id}][msg]"></textarea>
+<select name="data[msgs][{$r.id}][stars]">
+<option>5</option>
+<option>4</option>
+<option>3</option>
+<option>2</option>
+<option>1</option>
+</select></div>
+<a class="judge" exid="{$r.id}" sn="{$data.order_sn}"> 评价</a><br>
+</if>
+</foreach>
+</form>
+<script>
+function pay(sn){
+	$.post("{:U('/Home/Pay')}?sn="+sn,{},function(e){
+		if(e.state==1){
+			location.href=e.url;
+		}
+	});
+}
+function del(){
+	var ajax="{$ajax.del}";
+	$.post("{:U('ajax')}",{ajax:ajax},function(e){
+		if(e.state==1){
+			location.href=e.url;
+		}
+	});
+}
+function tui(){
+	var ajax="{$ajax.add}";
+	var data={ajax:ajax,data:{request:'不想要了',money:89}};
+	vv=$.kokoTool.toUrlData(data);
+	$.post("{:U('ajax')}",$.kokoTool.toUrlData(data),function(e){
+		
+	});
+}
+function shouhuo(){
+	var ajax="{$ajax.shouhuo}";
+	$.post("{:U('ajax')}",{ajax:ajax},function(e){
+		
+	});
+}
+function judge(){
+	var d=$("#judge").serializeArray();
+	var ajax="{$ajax.judge}";
+	var data={ajax:ajax};
+	var msgs={};
+	for(var i in d){
+		data[d[i]['name']]=d[i]['value'];
+	}
+	console.log(data);
+	vv=$.kokoTool.toUrlData(data);
+	$.post("{:U('ajax')}",$.kokoTool.toUrlData(data),function(e){
+		
+	});
+}
+</script>
+
+</body>
+</html>

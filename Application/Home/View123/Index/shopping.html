@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="/Public/m/css/public.css" />
+		<link rel="stylesheet" href="/Public/m/css/com.css">
+		<link rel="stylesheet" href="/Public/m/css/ng.css" />
+		<script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="/Public/m/js/ng.js" ></script>
+		<style type="text/css">
+			.site{
+				background-color:#fbfff2;
+				padding:0 12px;
+				color:#808080;
+				border-bottom:1px solid #ddd;
+				height:96px;
+			}
+			
+			.code{
+				font-size:14px;
+				padding-top:8px;
+			}
+			.name{
+				margin-right:20px;
+			}
+			.location{
+				margin-top:3px;
+				font-size:13px;
+				line-height:18px;
+				height:26px;
+				overflow:auto;
+			}
+			.rest{
+				float:right;
+				color:#b3b3b3;
+				font-size:12px;
+				padding-top:6px;
+			}
+			.single{
+				margin-top:8px;
+				padding:12px;
+				color:#808080;
+				background-color:#fff;
+				border-top:1px solid #e6e6e6;
+				border-bottom:1px solid #e6e6e6;
+			}
+			.article{
+				font-size:13px;
+				border-bottom:1px dashed #e3e3e3;
+				padding-bottom:12px;
+			}
+			.res{
+				font-size:12px;
+				margin-top:8px;
+			}
+			.count{
+				float: right;
+				color:#b6d957;
+			}
+			.quantity{
+				float:right;
+				margin-right:20px;
+				color:#b6d957;
+			}
+			.figure{
+				float:left;
+			}
+			.sum{
+				overflow: hidden;
+				font-size:12px;
+			}
+			.fare{
+				margin-top:8px;
+			}
+			.must{
+				font-size:13px;
+				border-top:1px dashed #e3e3e3;
+				overflow: hidden;
+				margin-top:10px;
+				padding-top:10px;
+			}
+			.input{
+				border:none;
+				padding: 0 5px;
+			}
+			.fonts{
+				font-size:13px;
+			}
+			.way{
+				border-top:1px solid #e6e6e6;
+				border-bottom:1px solid #e6e6e6;
+				background-color:#fff;
+				padding:0 12px;
+				font-size:12px;
+				color:#808080;
+				margin-top:8px;
+				margin-bottom:70px;
+			}
+			.way li{
+				height:40px;
+				line-height: 40px;
+				border-bottom: 1px dashed #e3e3e3;
+			}
+			.way li:last-child{
+				border-bottom:none;
+			}
+			.way img{
+				margin-top:7px;
+				float: left;
+				width:25px;
+				height:25px;
+				display:block;
+			}
+			.checkbox{
+				float:right;
+				position: relative;
+				margin-right:6px;
+				width:16px;
+				height:16px;
+				margin-top:10px;
+				border-radius: 50%;
+				background-color:#999;
+			    transition: all .6s ease;
+			    -webkit-transition: all .4s ease;
+			}
+			.checkbox:before{
+				position: absolute;
+			    content: ' ';
+			    display: block;
+			    left: 5px;
+			    top: 3px;
+			    width: 4px;
+			    height: 7px;
+			    -webkit-transform: rotate(30deg);
+			    border-right: 2px solid #f5f5f5;
+			    border-bottom: 2px solid #f5f5f5;
+			}
+			.select{
+			    background-color: #b6d957;
+			}
+			.select:before{
+				position: absolute;
+			    content: ' ';
+			    display: block;
+			    left: 5px;
+			    top: 3px;
+			    width: 4px;
+			    height: 7px;
+			    -webkit-transform: rotate(30deg);
+			    border-right: 2px solid #f5f5f5;
+			    border-bottom: 2px solid #f5f5f5;
+			    
+			}
+			.wei{
+				float:left;
+				margin-left:10px;
+			}
+			.refer{
+				position:fixed;
+				width:100%;
+				height:50px;
+				line-height:50px;
+				bottom:0;
+				color:#fff;
+				font-size:15px;
+				text-align: center;
+				background-color:#b6d957;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="site">
+			<div class="code">
+				<span class="name">张三</span>
+				<span class="number">13880406957</span>
+			</div>
+			<div class="location">四川省成都市成华区建设路街道建设路2号1栋2单元</div>
+			<div class="rest">其他地址</div>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="single">
+			<div class="article">购买清单</div>
+			<div style="padding-top:2px">
+				<div class="res">
+					<span>私颜高品质绵柔卫生巾</span>
+					<span class="count">x<span>10</span></span>
+					<span class="quantity">18.00</span>
+				</div>
+				<div class="res">
+					<span>私颜高品质绵柔卫生巾</span>
+					<span class="count">x<span>10</span></span>
+					<span class="quantity">18.00</span>
+				</div>
+			</div>
+		</div>
+		<div class="single">
+			<div class="sum">
+				<div class="figure">商品金额</div>
+				<div class="count">18.00</div>
+			</div>
+			<div class="sum fare">
+				<div class="figure">运费</div>
+				<div class="count">00.00</div>
+			</div>
+			<div class="must">
+				<div class="figure">应付金额</div>
+				<div class="count">180.00</div>
+			</div>
+		</div>
+		<div class="single fonts">
+			备注 :
+			<input class="input layout" placeholder="选填"  layout="{flex:1}" />
+		</div>
+		<ul class="way">
+			<li>
+				<img src="/Public/m/images/index/weixin.png" />
+				<div class="wei">微信支付</div>
+				<div class="checkbox"></div>
+			</li>
+			<li>
+				<img src="/Public/m/images/index/wallet_green.png" />
+				<div class="wei">微信支付</div>
+				<div class="checkbox"></div>
+			</li>
+		</ul>
+		<div class="refer ">提交订单</div>
+		<script>
+			ng.layout('layout')
+			$('.way li').click(function(){
+				$('.way li').find('.checkbox').removeClass('select');
+				$(this).find('.checkbox').addClass('select');
+			});
+		</script>
+	</body>
+</html>

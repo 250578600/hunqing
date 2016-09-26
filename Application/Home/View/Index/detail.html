@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+详情页
+<input type="hidden" id="goods_ex_id" value="<?php $ex=current($data['ex']);echo $ex['id']?>">
+<button id="add">加入购物车</button>
+<button id="collect">{:$collect?'取消收藏':'加入收藏'}</button>
+<script src="/Public/jquery-1.9.1.min.js"></script>
+<script src="/Public/koko2.js"></script>
+<script>
+
+function addCart(data){
+	$.post("{:U('ajax')}",data,function(e){
+		if(e.state==1){
+		}else{
+		}
+		alert(e.msg);
+	})
+}
+gid={:$_GET['id']};
+ajax='{$ajax.add}';
+$("#add").click(function(){
+	var data={'data[num]':1,'data[goods_id]':gid,ajax:ajax};
+	if($("#goods_ex_id").length){
+		var ex_id=$("#goods_ex_id").val();
+		if(ex_id!=''){
+			data['data[goods_ex_id]']=ex_id;
+		}
+	}
+	addCart(data);
+});
+
+$("#collect").click(function(){
+	$.post("{:U('ajax')}",{ajax:'{$ajax.collect}'},function(e){
+		alert(e.msg);
+	});
+	});
+</script>
+</body>
+</html>

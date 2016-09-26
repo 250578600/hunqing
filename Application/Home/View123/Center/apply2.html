@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>申请代言人</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="/Public/m/css/public.css"/>
+		<script src="/Public/m/js/jquery-1.11.0.js"></script>
+		<script src="/Public/m/js/layout.js"></script>
+		
+		<style type="text/css">
+			body{
+				margin: 0;
+				background-color:#000;
+			}
+			.write{
+				margin-top:10px;
+				padding:0 10px;
+			}
+			.write div{
+				height:40px;
+				line-height:40px;
+				background-color:#171717;
+				color:#fff;
+				margin-bottom:20px;
+			}
+			.start {
+				width: 110px;
+				display: inline-block;
+			}
+			.start span{
+				color:#FF0000;
+				padding:0 5px;
+			}
+			.write input{
+				color:#c7c7c7;
+				height:33px;
+				font-size:16px;
+				background-color: #171717;
+				border:none;
+			}
+			input::-webkit-input-placeholder{
+				color:#c7c7c7;
+			}
+			#deal{
+				position:fixed;
+				bottom:0;
+				width:100%;
+				height:45px;
+				line-height: 45px;
+				text-align: center;
+				background-color:#D6BE80;
+				color:#171717;
+				font-size:18px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="write">
+			<div class="mess">
+				<div class="start"><span>*</span>开户名</div>
+				<input type="text" placeholder="" class="name layout" layout="w:<100%-125>"  onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))" />
+			</div>
+			<div class="mess">
+				<div class="start"><span>*</span>银行卡号</div>
+				<input type="text" placeholder="" class="han layout" layout="w:<100%-125>" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')"  name="amount" />
+			</div>
+			<div class="mess">
+				<div class="start"><span>*</span>银行卡号</div>
+				<input type="text" placeholder="二次填写确保卡号无误" class="ka layout" layout="w:<100%-125>"   onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')"  name="amount" />
+			</div>
+		</div>
+		<div id="deal">提交申请</div>
+		<script>
+			layout(".layout");
+			$("#deal").click(function(){
+				if($(".name").val()==""){
+					alert("开户名不能为空");
+					return false;
+				}
+				if($(".han").val()==""){
+					alert("银行卡号不能为空");
+					return false;
+				}
+				if($(".han").val().length!=19){
+					alert("银行卡号不正确");
+					return false;
+				}
+				var t=$(".han").val();
+				var k=$(".ka").val();
+				if(t==k){
+					alert("操作成功");
+				}
+				else{
+					alert("银行卡号不正确");
+				}
+//				var t=$("input").val();
+//				$(".name").each(function(){
+//					if(t==""){
+//						alert("开户名不能为空");
+//					}
+//				});
+			})
+			
+		</script>
+	</body>
+</html>

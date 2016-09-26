@@ -1,0 +1,2 @@
+jquery.nstSlider.js
+http://www.html580.com/11322/demo

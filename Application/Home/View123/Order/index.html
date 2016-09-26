@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单-{:isset($_GET['state'])?$state[$_GET['state']]:'全部'}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/orderOne.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/orderOne.js"></script>
+</head>
+<body>
+ <header style="height:40px">
+ <div class="nav cl">
+  <a href="{:U('index')}" class="{:!isset($_GET['state'])?'aClick':''}">全部</a>
+  				<foreach name="state" item="r" key="k">
+  				<if condition="$k lt 4">
+				<a href="{:U('index')}?state={$k}" class="{:isset($_GET['state'])&&$_GET['state']==$k?'aClick':''}">{$r}</a>
+  				</if>
+				</foreach>
+ </header>
+ <div class="orderMain">
+ 	<foreach name="data['list']" item="r" key="k">
+     <div class="orderTemplate vip cl" sn="{$r.order_sn}">
+         <div class="orderTemplateTitle cl" onclick="location.href='{:U('detail')}?sn={$r.order_sn}'">
+             <div class="z">
+                 {:date('Y-m-d H:i:s',$r['create_time'])}
+             </div>
+             <div class="y allGreen orderState">
+                {$state[$r['state']]}
+             </div>
+         </div>
+         <php>$a=0;</php>
+         <foreach name="r['ex']" item="r2" key="k2">
+         <php>$a+=$r2['num'];</php>
+         <div class="goodsTemplate cl">
+             <div class="z goodsImg pr">
+                 <img src="{$r2.thumb}" alt="" class="paAuto">
+             </div>
+             <div class="z goodsName">
+                 {$r2.title}
+             </div>
+             <div class="y goodsPrice">
+                 <div class="vipPrice">
+                     <img src="/Public/m/images/all/v.png" alt="">
+                     <span>{$r2.goods.price_}</span>
+                 </div>
+                 <div class="price">
+                     原<span>{$r2.goods.price}</span>
+                 </div>
+                 <div class="number">
+                     x<span>{$r2.num}</span>
+                 </div>
+             </div>
+         </div>
+         </foreach>
+         <div class="conclusionTemplate cl">
+             共<span class="sum">{$a}</span>件商品   合计:<span class="money">￥<span >{$r['sum']}</span></span>（含运费:￥<span class="postage">{$r['freight']}</span>）
+         </div>
+         <input type="button" class="y payBtn" value="查看详情" onclick="pay(this)" style="    width: 80px;">
+     </div>
+</foreach>
+
+
+ </div>
+<include file="Index:footer"/>
+</body>
+<script>
+function pay(a){$(a).parents(".orderTemplate").find(".orderTemplateTitle").click();return;
+	var sn=$(a).parents(".orderTemplate").attr('sn');
+	$.get("{:U('Pay/pay')}",{sn:sn},function(e){
+		if(e.state==1){
+			location.href=e.url;
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+}
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title></title> <!-- 页面头部 -->
+		<link rel="stylesheet" href="/Public/home/css/public.css" />
+		<link rel="stylesheet" href="/Public/home/login/css/bind_QQ.css" />
+	</head>
+	<body>
+		
+		<!--此处输出 header-->
+		<include file="Index:_header"/>
+		
+		<div class="bg-box">
+			<img class="bg" src="/Public/home/img/bg.png"/>
+			<div class="float-box register-box">
+				<div class="register-title">如果您还没注册绅士名媛</div>
+				<div class="register-prompt">请创建您的征婚资料，<br />下次可直接用QQ账号登录绅士名媛。</div>
+				<a href="{:U('register')}" class="register-but">立即创建</a>
+			</div>
+			<div class="float-box bind-box">
+				<div class="bind-title">绑定QQ号</div>
+				<div class="bind-prompt">如果您已经注册过伸士名媛，请绑定您的QQ账号。</div>
+				<input class="account" type="text" placeholder="绅士名媛账号" name="nickname" value="" />
+				<input class="password" type="password" placeholder="密码" name="password" value="" />
+				<input type="submit" class="bind-but" value="立即绑定" />
+			</div>
+		</div>
+	</body>
+</html>

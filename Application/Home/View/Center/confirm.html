@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script src="/Public/jquery-1.9.1.min.js"></script>
+<button id="btn">提交</button>
+<script>
+$("#btn").click(function(){
+	var data={};
+	if({:isset($_GET['buy'])?1:0}){
+		data.buy="{$_GET['buy']}";
+		data.num={:isset($_GET['num'])?1:0};
+	}
+	$.post("{:U('/Home/Order/create')}",data,function(e){
+		if(e.state==1){
+			location.href=e.url;
+		}
+	});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/html5.js"></script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/respond.min.js"></script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>产品列表</title>
+</head>
+<body class="pos-r">
+		<div class="mt-20">
+			<table class="table table-border table-bordered table-bg table-hover table-sort">
+				<tr><td colspan="19">订单编号:{$data.order_sn}</td></tr>
+				<tr><td>商品总金额:{$data.sum}</td><td>运费:{$data.freight}</td><td>总计:{$data.total}</td></tr>
+				<tr><td>订单状态:{$data.stateName}</td></tr>
+				<tr><td>生成时间:{:date('Y-m-d H:i:s',$data['create_time'])}</td><td>付款时间:{:date('Y-m-d H:i:s',$data['pay_time'])}</td><td>收货时间:{:date('Y-m-d H:i:s',$data['shouhuo_time'])}</td><td>完成时间:{:date('Y-m-d H:i:s',$r['over_time'])}</td></tr>
+				<tr><td>收货地址:{$data.province_} {$data.city_} {$data.county_} {$data.address}</td></tr>
+				<tr><td>联系方式:{$data.name} {$data.telephone}</td></tr>
+			</table>
+			<table class="table table-border table-bordered table-bg table-hover table-sort">
+				<thead>
+					<tr class="text-c">
+						<th width="40"><input name="" type="checkbox" value=""></th>
+						<th width="40">ID</th>
+						<th width="60">缩略图</th>
+						<th width="100">产品名称</th>
+						<th width="100">单价</th>
+						<th width="100">数量</th>
+					</tr>
+				</thead>
+				<tbody>
+					<foreach name="data['ex']" item="r" key="k">
+					<tr class="text-c va-m">
+						<td><input name="" type="checkbox" value=""></td>
+						<td>{$r.id}</td>
+						<td><a href="javascript:;"><img width="60" class="product-thumb" src="{$r.thumb}"></a></td>
+						<td class="text-l">{$r.title}</td>
+						<td><span class="price">{$r.price}</span>元</td>
+						<td class="text-l">{$r.num}</td>
+					</tr>
+					</foreach>
+				</tbody>
+			</table>
+<include file="Index::page"/>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/layer/2.1/layer.js"></script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}static/h-ui/js/H-ui.admin.js"></script> 
+<script type="text/javascript" src="/Public/koko2.js" ></script>
+<script type="text/javascript">
+$(function(){
+	new kokoAPI({switcher:{on:"label-success",off:"label-defaunt",'html-on':'已上架','html-off':'已下架',ajax:'{$ajax.switcher}'},del:{ajax:"{$ajax.del}"}},'{:U("ajax")}');
+});
+var setting = {
+	view: {
+		dblClickExpand: false,
+		showLine: false,
+		selectedMulti: false
+	},
+	data: {
+		simpleData: {
+			enable:true,
+			idKey: "id",
+			pIdKey: "pId",
+			rootPId: ""
+		}
+	},
+	callback: {
+		beforeClick: function(treeId, treeNode) {
+			var zTree = $.fn.zTree.getZTreeObj("tree");
+			if (treeNode.isParent) {
+				zTree.expandNode(treeNode);
+				return false;
+			} else {
+				demoIframe.attr("src",treeNode.file + ".html");
+				return true;
+			}
+		}
+	}
+};
+
+var code;
+		
+function showCode(str) {
+	if (!code) code = $("#code");
+	code.empty();
+	code.append("<li>"+str+"</li>");
+}
+
+/*图片-添加*/
+function product_add(title,url){
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url
+	});
+	layer.full(index);
+}
+/*图片-查看*/
+function product_show(title,url,id){
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url
+	});
+	layer.full(index);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>规格列表 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script src="/Public/plugin/layer/layer.js"></script>
+<script type="text/javascript" src="/Public/koko.js"></script>
+<script type="text/javascript" src="/Public/location.js"></script>
+</head>
+<body>
+
+<h1>
+<span class="action-span"><a href="javascript:add()">添加规格</a></span>
+<span class="action-span1"> </span><span id="search_id" class="action-span1"> 规格列表 </span>
+<div style="clear:both"></div>
+</h1>
+
+<!-- 商品列表 -->
+  <!-- start goods list -->
+  <div class="list-div" id="listDiv">
+<table cellpadding="3" cellspacing="1" class="kokoTable" table="{:$table}">
+  <tr>
+    <th>
+      <input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox" />
+      <a>编号</a><img src="/admin/images/sort_desc.gif"/>    </th>
+	<th><a>分类名称</a></th>
+    <th>操作</th>
+  </tr>
+	<foreach name="data['list']" item="r" key="k">
+    <tr class="kokoId" id="{$r[id]}">
+    <td><input type="checkbox" name="checkboxes[]" value="{$r['id']}" />{$r['id']}</td>
+	<td class="first-cell" style=""><span class="kokoEdit" name="name" onclick="location.href='{:U('pe')}?id={$r.id}'">{$r['name']}</span></td>
+    <td align="center">
+      <a href="javascript:del({$r['id']});" title="删除"><img src="/admin/images/icon_trash.gif" width="16" height="16" border="0" /></a>
+    </td>
+  </tr>
+  </foreach>
+  </table>
+<!-- end goods list -->
+
+
+</div>
+
+<div>
+
+<!--  include file="index/msg"/ > -->
+<script language="JavaScript">
+function add(id){
+	if(typeof id=='undefined')id=0;
+	layer.prompt({
+		title:'请输入分类名称'
+	},function(name){
+		$.post(document.URL,{action:'insert',parent_id:id,name:name},function(e){
+			if(e.state==1){
+				layer.msg("操作成功");
+				setTimeout(function(){
+					location.reload();
+				},1000);
+			}else{
+				layer.alert(e.msg);
+			}
+		});
+	});
+//	
+}
+function del(id){
+	$.post("{:U('/admin/goods/ajax')}",{action:'del','where':id},function(e){
+		if(e.state==1){
+			location.reload();
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+}
+</script>
+</body>
+</html>

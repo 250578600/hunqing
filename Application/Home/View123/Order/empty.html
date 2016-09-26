@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的订单</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<script src="/Public/m/js/jquery-1.11.0.js"></script>
+		<link rel="stylesheet" href="/Public/m/css/public.css" />
+		<script src="/Public/m/js/layout.js"></script>
+		<style type="text/css">
+			html{
+				height:100%;
+			}
+			body{
+				height:100%;
+			}
+			.bo{
+				background:url(/Public/m/img/gouwuche-beijing.png)no-repeat;
+				background-size:100% 100%;
+				height:100%;
+			}
+			.whole{
+				height:50px;
+				background-color:#171717;
+				padding:0 10px;
+			}
+			.pull-down{
+				color: #D6BE80;
+				width:50%;
+				float:left;
+			}
+			.gain{
+				display: block;
+				width:50%;
+				color:#8f8f8f;
+				float:right;
+				margin-top:12px;
+				text-align:right;
+			}
+			.awai{
+				color:#D6BE80;
+				width:50%;
+				position:absolute;
+				top:45px;
+				left:0;
+				display:none;
+			}
+			
+			.awai a{
+				display: block;
+				border-bottom:1px solid #D6BE80;
+				height:40px;
+				line-height:40px;
+				color:#D6BE80;
+				padding:0 10px;
+				background-color:#616161;
+			}
+			.awai a:last-child{
+				border:none;
+			}
+			.pu {
+				position: relative;
+				border-right:1px solid #666;
+				margin-top:5px;
+				height:40px;
+				line-height: 40px;
+			}
+			.pu:after{
+				position: absolute;
+				top: 15px;
+				right: 10px;
+				content: ' ';
+				display: block;
+				width: 0;
+				height: 0;
+				border-left: 7px solid transparent;
+				border-right: 7px solid transparent;
+				border-top: 7px solid #d6be80;
+			}
+			.puUp:after{
+				border-left: 7px solid transparent !important;
+				border-right: 7px solid transparent !important;
+				border-top: 7px solid transparent !important;
+				border-bottom: 7px solid #d6be80 !important;
+				top: 9px !important;
+			}
+			.center{
+				width:120px;
+				height:120px;
+				margin:60px auto;
+				text-align: center;
+				color:#cacaca;
+			}
+			.center img{
+				width: 60px;
+				margin: 0 auto 20px;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bo">
+			<div class="whole">
+				<div  class="pull-down">
+					<div class="pu">全部</div>
+				</div>
+				<div class="awai">
+					<a href="#">待付款</a>
+					<a href="#">待发货</a>
+					<a href="#">待收货</a>
+					<a href="#">待评价</a>
+				</div>
+				<a href="#" class="gain">
+					获取推广二维码>>
+				</a>
+			</div>
+			<div class="center">
+					<img src="/Public/m/img/dan-1.png"class="cen" />
+				<div>没有相关订单！</div>
+			</div>
+		</div>
+
+		<table id="bottom">
+			<tr>
+				<td>
+					<a href="#">
+						<img src="/Public/m/img/che.png" />
+						<div>首页</div>
+					</a>
+				</td>
+				<td>
+					<a href="#">
+						<img src="/Public/m/img/bottom-2.png" />
+						<div>我的订单</div>
+					</a>
+				</td>
+				<td>
+					<a href="#">
+						<img src="/Public/m/img/bottom-3.png" />
+						<div>个人中心</div>
+					</a>
+				</td>
+				<td>
+					<a href="#">
+						<img src="/Public/m/img/bottom-4.png" />
+						<div>我的二维码</div>
+					</a>
+				</td>
+				
+			</tr>
+		</table>
+		<script>
+			layout(".layout");
+			$(".pull-down").click(function(){
+				$(".awai").toggle();
+				if($('.awai').css('display')=='block'){
+					$('.pu').addClass('puUp');
+				}
+				else{
+					$('.pu').removeClass('puUp');
+				}
+			});
+		</script>
+	</body>
+</html>

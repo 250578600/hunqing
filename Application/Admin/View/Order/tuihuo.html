@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/html5.js"></script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/respond.min.js"></script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>用户管理</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 订单管理 <span class="c-gray en">&gt;</span> 订单列表<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+<form>
+	<div class="text-c"> 日期范围：
+		<input type="text" name="from" value="{$_GET['from']}" onfocus="WdatePicker({maxDate:'{:date('Y')+10}{:date("-m-d")}'})" id="datemin" class="input-text Wdate" style="width:120px;">
+		-
+		<input type="text" name="to" value="{$_GET['to']}" onfocus="WdatePicker({minDate:'1990-01-01'})" id="datemax" class="input-text Wdate" style="width:120px;">
+		退货状态
+		<select name="state" class="input-text" style="width:150px">
+				<option value=''>全部</option>
+			<foreach name="state" item="r" key="k">
+				<option value='{$k}' {:$_GET['state'] === ''.$k?'selected':''}>{$r}</option>
+			</foreach>
+		</select>
+		<button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜订单</button>
+	</div>
+</form>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> 
+	<span class="l">
+	<a href="javascript:;" class="btn btn-danger radius kokoDel" selStr="td .checkbox"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> 
+	</span> <span class="r">共有数据：<strong>{$data.pagesInfo.total}</strong> 条</span> </div>
+	<div class="mt-20">
+	<table class="table table-border table-bordered table-hover table-bg table-sort">
+		<thead>
+			<tr class="text-c">
+				<th width="25"><input type="checkbox" name="" value=""></th>
+				<th width="40">订单编号</th>
+				<th width="50">用户id</th>
+				<th width="40">退货状态</th>
+				<th width="70">生成时间</th>
+				<th width="70">处理时间</th>
+				<th width="130">申请理由</th>
+				<th width="130">处理回应</th>
+				<th width="60">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<foreach name="data['list']" item="r" key="k">
+			<tr class="text-c">
+				<td><input type="checkbox" value="1" name="" id="{$r.id}" class="checkbox"></td>
+				<td onclick="member_show('{$r.order.order_sn}','{:U('detail')}',900,600)">{$r.order.order_sn}</td>
+				<td>{$r.order.user_id}</td>
+				<td>{$state[$r['state']]}</td>
+				<td>{:date('Y-m-d H:i:s',$r['create_time'])}</td>
+				<td>{:date('Y-m-d H:i:s',$r['handle_time'])}</td>
+				<td>{$r.request}</td>
+				<td>{$r.response}</td>
+				<td>
+				<if condition="$r['state']==0">
+				<a class="kokoAgree" id="{$r.id}">同意</a>
+				<a class="kokoAgree" id="{$r.id}" dis=1 msg="请输入拒绝理由">拒绝</a>
+				</if>
+			    <a title="删除"  class="ml-5 kokoDel" id="{$r.id}" style="text-decoration:none">
+			    <i class="Hui-iconfont">&#xe6e2;</i>
+			    </a>
+			    </td>
+			</tr>
+			</foreach>
+		</tbody>
+	</table>
+<include file="Index::page"/>
+	</div>
+</div>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/layer/2.1/layer.js"></script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/laypage/1.2/laypage.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/My97DatePicker/WdatePicker.js"></script>  
+<script type="text/javascript" src="{$ADMIN_RES_PATH}static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}static/h-ui/js/H-ui.admin.js"></script> 
+<script type="text/javascript" src="/Public/koko2.js" ></script>
+<script type="text/javascript">
+$(function(){
+	new kokoAPI({switcher:{off:"label-success",on:"label-defaunt",'html-off':'已启用','html-on':'已停用',ajax:'{$ajax.switcher}'},del:{ajax:"{$ajax.del}"},agree:{ajax:"{$ajax.agree}"}},'{:U("ajax")}');
+});
+/*用户-添加*/
+function member_add(title,url,w,h){
+	layer_show(title,url,w,h);
+}
+/*用户-查看*/
+function member_show(title,url,w,h){
+	layer_show(title,url,w,h);
+}
+</script> 
+</body>
+</html>

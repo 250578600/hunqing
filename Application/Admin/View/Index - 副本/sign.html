@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/Public/m/admin/css/gg.css">
+    <link rel="stylesheet" href="/Public/m/admin/css/personage_data.css">
+    <script src="/Public/jquery-1.8.3.min.js"></script>
+    <script src="/Public/plugin/layer/layer.js"></script>
+    <title>个人信息</title>
+</head>
+<body>
+<div class="top">个人信息</div>
+<div class="main">
+    <div class="head_box">
+        <b>头像</b>
+        <p class="data">
+            <b class="head" style='background: url("{$data['thumb']}") no-repeat center;background-size: 100% 100%;'></b>
+        </p>
+    </div>
+    <div class="nickname">
+        <b>昵称</b>
+        <p class="data"><span>{$data['nickname']}</span></p>
+    </div>
+    <div class="name">
+        <b>姓名</b>
+        <p class="data"><span>{$data['name']}</span></p>
+    </div>
+    <div class="sex">
+        <b>性别</b>
+        <p class="data"><span>{$sex[$data['sex']]}</span></p>
+    </div>
+    <div class="age">
+        <b>年龄</b>
+        <p class="data"><span>{$data['sex']}</span></p>
+    </div>
+    <div class="height">
+        <b>身高</b>
+        <p class="data"><span>{$data['height']}CM</span></p>
+    </div>
+    <div class="weight">
+        <b>体重</b>
+        <p class="data"><span>{$data['weight']}KG</span></p>
+    </div>
+    <div class="id_card">
+        <b>身份证号码</b>
+        <p class="data"><span>{$data['shenfen']}</span></p>
+    </div>
+    <div class="id_card_img">
+        <b>身份证图片</b>
+        <p class="data">
+            <a href="javascript:shenfen()" class="img" style='background: url("{$data['shenfen_img']}") no-repeat center;background-size: 100% 100%;'></a>
+        </p>
+    </div>
+    <div class="item">
+        <b>报名的项目</b>
+        <p class="data">
+        <foreach name="sign" item="r" key="k">
+        <span>{:$k!=0?'、':''}{$project[$r['project_id']]}</span>
+        </foreach>
+        </p>
+    </div>
+</div>
+<script>
+function shenfen(){
+	layer.open({
+		  type: 1,
+		  skin: 'layui-layer-demo', //样式类名
+		  shift: 2,
+		  title:'身份证',
+		  offset :['0px','0px'],
+		  shadeClose: true, //开启遮罩关闭
+		  content: '<img style="width:100%" src="{$data['shenfen_img']}">'
+		});
+}
+</script>
+</body>
+</html>

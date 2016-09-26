@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>卫生巾</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/public.css" />
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/index.js"></script>
+    <style type="text/css">
+    	.main{
+		    padding-bottom: 59px;
+		    position: absolute;
+		    top:0;
+		    left:0;
+		}
+		.marBottom{
+			margin-top: 0;
+		}
+		.pageHomeImg{
+		    width:100%;
+		}
+		.mainContent{
+		    width:100%;
+		    box-sizing:border-box;
+		    padding-left:6px;
+		    border-top:1px solid #d9d9d9;
+		    border-bottom:1px solid #d9d9d9;
+		    background-color:#fff;
+		}
+		.sortPrice{
+		    width: 50%;
+		    height:40px;
+		    line-height:40px;
+		}
+		.sortSale{
+		    width: 50%;
+		    height:40px;
+		    line-height:40px;
+		}
+		.sortPriceTop{
+		    margin-left: 10px;
+		    width: 7px;
+		    margin-top: 12px;
+		}
+		.sortPriceBottom{
+		    margin-left: -7px;
+		    width: 7px;
+		    margin-top: 23px;
+		}
+		.sortSaleTop{
+		    margin-left: 10px;
+		    width: 7px;
+		    margin-top: 12px;
+		}
+		.sortSaleBottom{
+		    margin-left: -7px;
+		    width: 7px;
+		    margin-top: 23px;
+		}
+		.goodsList{
+		    width: 100%;
+		}
+		.goodsTemplate{
+		    width:48%;
+		    border:1px solid #d9d9d9;
+		    float: left;
+		    margin-bottom:9px;
+		}
+		.goodsTemplate:nth-child(even){
+		    margin-left:2%;
+		}
+		.goodsImgBox{
+		    width: 100%;
+		    background-color:#f6ffe5;
+		    overflow: hidden;
+		    position: relative;
+		}
+		
+		.goodsImgBox .goodsImg{
+		    width:70%;
+		    display:block;
+		}
+		.goodsName{
+		    color: #262626;
+		    font-size: 13px;
+		    line-height:20px;
+		    /*max-height:40px;*/
+		    width:100%;
+		    padding:0px 5px;
+		    margin-top:10px;
+		    margin-bottom:5px;
+		    overflow: hidden;
+		}
+		.goodsPrice{
+		    padding:0 5px 10px;
+		}
+		
+		.vipPrice{
+		    display:none;
+		    float: left;
+		}
+		.price{
+		    color:#b6d957;
+		    float:left;
+		    font-size:13px;
+		    text-decoration:none;
+		}
+		
+		.vip .vipPrice{
+		    display: block;
+		    float: left;
+		    color:#b6d957;
+		}
+		.vip .price{
+		    font-size:12px;
+		    color:#ccc;
+		    float: right;
+		    text-decoration:line-through;
+		}
+		.ye{
+		    position: absolute;
+		    right: 5px;
+		    top: 5px;
+		    width: 40px;
+		    z-index: 2;
+		}
+		.yeText{
+		    color: #fff;
+		    position: absolute;
+		    right: 7px;
+		    top: 5px;
+		    width: 40px;
+		    z-index: 2;
+		    text-align: center;
+		    line-height: 20px;
+		}
+		.vipPrice img{
+			display: inline-block;
+			width:10px;
+			height:10px;
+		}
+    </style>
+</head>
+<body>
+      <div class=" main cl">
+          <div class="mainContent marTop marBottom cl" data-sort="0">
+              <div class="sortPrice z">
+                  <p class="allGreen z">价格</p>
+                  <img class="z sortPriceTop" src="/Public/m/images/index/arrowGT.png" alt="">
+                  <img class="z sortPriceBottom" src="/Public/m/images/index/arrowHB.png" alt="">
+              </div>
+              <div class="sortSale z">
+                  <p class="allGreen z">销量排序</p>
+                  <img class="z sortSaleTop" src="/Public/m/images/index/arrowHT.png" alt="">
+                  <img class="z sortSaleBottom" src="/Public/m/images/index/arrowHB.png" alt="">
+              </div>
+              <div class="goodsList cl">
+                  <div class="goodsTemplate vip">
+                      <div class="pr goodsImgBox">
+                          <img src="/Public/m/images/all/shuye.png" class="ye" alt="">
+                          <div class="yeText">特</div>
+                          <img class="paAuto goodsImg"  src="/Public/m/images/all/goods2.png"  alt="">
+                      </div>
+                      <div class="goodsName">
+                          私颜高品质卫生巾 熟睡4片
+                      </div>
+                      <div class="goodsPrice cl">
+                          <span class="vipPrice">
+                          	<img src="/Public/m/images/index/v.png/">
+                          	<span>16.83</span></span>
+                          <span class="price">原<span>19.83</span></span>
+                      </div>
+                  </div>
+                  <div class="goodsTemplate vip">
+                      <div class="goodsImgBox pr">
+                          <img class="paAuto goodsImg" src="/Public/m/images/all/goods1.png" alt="">
+                      </div>
+                      <div class="goodsName">
+                          私颜高品质卫生巾 日用7片
+                      </div>
+                      <div class="goodsPrice cl">
+                          <span class="vipPrice">￥<span>19.83</span></span>
+                      </div>
+                  </div>
+					<div class="goodsTemplate vip">
+                      <div class="pr goodsImgBox">
+                          <img src="/Public/m/images/all/shuye.png" class="ye" alt="">
+                          <div class="yeText">特</div>
+                          <img class="paAuto goodsImg"  src="/Public/m/images/all/goods2.png"  alt="">
+                      </div>
+                      <div class="goodsName">
+                          私颜高品质卫生巾 熟睡4片
+                      </div>
+                      <div class="goodsPrice cl">
+                          <span class="vipPrice">
+                          	<img src="/Public/m/images/index/v.png/">
+                          	<span>16.83</span></span>
+                          <span class="price">原<span>19.83</span></span>
+                      </div>
+                  </div>
+                  <div class="goodsTemplate vip">
+                      <div class="goodsImgBox pr">
+                          <img class="paAuto goodsImg" src="/Public/m/images/all/goods1.png" alt="">
+                      </div>
+                      <div class="goodsName">
+                          私颜高品质卫生巾 日用7片
+                      </div>
+                      <div class="goodsPrice cl">
+                          <span class="vipPrice">￥<span>19.83</span></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+<footer class="cl">
+
+</footer>
+</body>
+<script>
+    addFooter(0)
+</script>
+</html>

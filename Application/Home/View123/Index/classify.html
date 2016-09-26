@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>产品分类</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="/Public/m/css/com.css">
+		<link rel="stylesheet" href="/Public/m/css/public.css" />
+		<link rel="stylesheet" href="/Public/m/css/ng.css" />
+		<script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="/Public/m/js/ng.js" ></script>
+		<style type="text/css">
+			.whole{
+				position:relative;
+				display: block;
+				color:#808080;
+				height:40px;
+				padding:0 12px;
+				line-height:40px;
+				background-color:#fff;
+				margin-bottom:8px;
+				border-bottom:1px solid #e6e6e6;
+			}
+			.whole:last-child{
+				border-top:1px solid #e6e6e6;
+			}
+			.arrows{
+				position: absolute;
+				content: "";
+		        width: 10px;
+		        height: 10px;
+		        border: 1px solid #999;
+		        border-width: 0 1px 1px 0;
+		        right:12px;
+		        top:15px;
+		        -webkit-transform: rotate(-45deg);
+		        transform: rotate(-45deg);
+			}
+			.examine{
+				background-color:#FFF;
+				border-top:1px solid #e6e6e6;
+				border-bottom:1px solid #e6e6e6;
+				margin-bottom:8px;
+			}
+			.check{
+				float:right;
+				font-size:12px;
+			}
+			.head{
+				overflow: hidden;
+				margin:10px 0;
+				padding: 0 12px;
+			}
+			.table{
+				width:100%;
+				font-size:12px;
+				table-layout: fixed;
+				padding-bottom:8px;
+			}
+			.table td{
+				height:44px;
+				text-align: center;
+				background-color:#fafafa;
+				margin:0 !important;
+				border-right:4px solid #fff;
+				border-bottom:4px solid #fff;
+			}
+			.table tr td:last-child{
+				border-right:none !important;
+			}
+			.select{
+				color:#B6D957;
+				background-color:#f6fee6 !important;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#" class="whole">
+			全部商品
+			<div class="arrows"></div>
+		</a>
+		<a href="#" class="whole">
+			全部商品
+			<div class="arrows"></div>
+		</a>
+		<div class="examine">
+			<div class="head">
+				私颜高品质头饰
+				<div class="check">查看全部</div>
+			</div>
+			<table class="table" border="0" cellspacing="4" cellpadding="0">
+				<tr>
+					<td>头绳</td>
+					<td>头发卡</td>
+				</tr>
+				<tr>
+					<td>发箍</td>
+					<td>发带</td>
+				</tr>
+			</table>
+		</div>
+		<div class="examine">
+			<div class="head">
+				私颜高品质头饰
+				<div class="check">查看全部</div>
+			</div>
+			<table class="table" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>头绳</td>
+					<td>头发卡</td>
+				</tr>
+				<tr>
+					<td>发箍</td>
+					<td>发带</td>
+				</tr>
+			</table>
+		</div>
+		<script>
+			$('.table td').click(function(){
+				if($(this).hasClass('select')){
+					$(this).removeClass('select');
+				}
+				else{
+				$(this).addClass('select');
+				}
+			});
+		</script>
+	</body>
+</html>

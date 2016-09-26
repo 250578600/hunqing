@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>私颜商城</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/search.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/search.js"></script>
+</head>
+<body>
+      <div class=" main cl" style="width: 100%;">
+          <div class="mainContent marTop marBottom cl" data-sort="{:$o-1}">
+              <div class="sortPrice z">
+                  <p class="allGreen z">价格</p>
+                  <img class="z sortPriceTop" src="/Public/m/images/index/arrow{:$o==1?'GT':'HT'}.png" alt="">
+                  <img class="z sortPriceBottom" src="/Public/m/images/index/arrow{:$o==2?'GB':'HB'}.png" alt="">
+              </div>
+              <div class="sortSale z">
+                  <p class="allGreen z">销量排序</p>
+                  <img class="z sortSaleTop" src="/Public/m/images/index/arrow{:$o==3?'GT':'HT'}.png" alt="">
+                  <img class="z sortSaleBottom" src="/Public/m/images/index/arrow{:$o==4?'GB':'HB'}.png" alt="">
+              </div>
+              <div class="goodsList cl">
+              <foreach name="data['list']" item="r" key="k">
+                  <div class="goodsTemplate {:$user['groupid']==2?'vip':''}" onclick="location.href='{:U('detail')}?id={$r.id}'">
+                      <div class="pr goodsImgBox">
+                      <if condition="$r['tag']">
+                          <img src="/Public/m/images/all/shuye.png" class="ye" alt="">
+                          <div class="yeText">
+                              {$r.tag}
+                          </div>
+                      </if>
+                          <img class="paAuto goodsImg"  src="{$r.thumb}"  alt="">
+                      </div>
+                      <div class="goodsName">
+                          {$r.title}
+                      </div>
+                      <div class="goodsPrice cl">
+                          <span class="vipPrice">会员价<span>{:$r['price']*0.85}</span></span>
+                          <span class="price">原价<span>{$r.price}</span></span>
+                      </div>
+                  </div>
+               </foreach>
+              </div>
+          </div>
+      </div>
+<include file="Index:footer"/>
+
+</body>
+<script>
+$(".sortPrice,.sortSale").click(function(){
+	var a=this;
+	setTimeout(function(){
+		location.href="{:U('search')}?type={$_GET['type']}&order="+(parseInt($(a).parent().attr('data-sort'))+1);
+	},100);
+});
+</script>
+</html>

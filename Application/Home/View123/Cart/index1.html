@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="/Public/m/css/public.css"/>
+		<script src="/Public/m/js/jquery-1.11.0.js"></script>
+		<script src="/Public/m/js/layout.js"></script>
+		<script src="/Public/plugin/layer/layer.js"></script>
+		<style type="text/css">
+			html{
+				height:100%;
+			}
+			body{
+				margin:0;
+				background-color:#000;
+				height:100%;
+			}
+			ul,li{
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+			}
+			.top{
+				line-height:50px;
+				height:50px;
+				font-size:18px;
+				background-color:#D6BE80;
+				color:#171717;
+				padding:0 10px;
+			}
+			.omit{
+				float:right;
+				margin-top:10px;
+				width:100px;
+				border-radius:5px;
+				color:#767676;
+				border:1px solid #7f7f7f;
+				background-color:#d6be80;
+				height:30px;
+				font-size:18px;
+			}
+			.multi{
+				background-color:#171717;
+				padding:0 10px;
+			}
+			.multi li{
+				border-bottom:1px solid #373737;
+			}
+			.money{
+				padding-top:20px;
+				padding-bottom:10px;
+				background-color:#171717;
+			}
+			.money img{
+				width:90px;
+			}
+			.list {
+				float:right;
+				font-size:17px;
+			}
+			.yellow{
+				color:#D6BE80;
+				margin-bottom:5px;
+				font-size:18px;
+			}
+			.mo{
+				float:right;
+			}
+			.chu{
+				color:#b4b1b1;
+			}
+			.cu{
+				float:right;
+				color:#b4b1b1;
+			}
+			.melody{
+			    float: right;
+			    margin-top:30px;
+			}
+			.jia{
+			    float: left;
+			    width: 26px;
+			    height: 24px;
+			    line-height: 26px;
+			    text-align: center;
+			    color: #171717;
+			    font-size: 24px;
+			    color:#D6BE80;
+			    border:1px solid #D6BE80;
+			}
+			.melody input{
+				float: left;
+			    display: block;
+			    width: 29px;
+			    height: 22px;
+			    text-align: center;
+			    border: none;
+			    margin:0 1px;
+			    color:#fff;
+			    background-color:#171717 ;
+			    border:1px solid #D6BE80;
+			}
+			.jian{
+				float: left;
+			    width: 26px;
+			    height: 24px;
+			    line-height: 24px;
+			    text-align: center;
+			    color: #d8d8d8;
+			    border:1px solid #D6BE80;
+			}
+			.he{
+				padding:25px 10px 20px;
+				background-color:#171717;
+				color:#ececec;
+				text-align: right;
+			}		
+			.ye{
+				color:#D6BE80;
+			}
+			.close{
+				padding:0 10px;
+				margin-top: 20px;
+				height:50px;
+				margin-bottom:70px;
+			}
+			.quan{
+				margin-top:10px;
+				float:left;
+				color:#c1c1c1;
+			}
+			.figure{
+				float:right;
+				width:80px;
+				height:40px;
+				background-color:#D6BE80;
+				color:#171717;
+				border-radius: 5px;
+				font-size:18px;
+				border:0;
+			}
+			.fig{
+				float:right;
+				
+			}
+			.total{
+				color:#ececec;
+				margin-right:20px;
+				line-height:22px;
+			}
+			.total span{
+				color:#D6BE80;
+			}
+			.no{
+				color:#c1c1c1;
+			}
+			.checkbox{
+				float:left;
+				position: relative;
+				top:40px;
+				display: block;
+				margin-right:10px;
+				width:20px;
+				height:20px;
+				margin-top:10px;
+				border-radius: 50%;
+				border:1px solid white;
+			    transition: all .6s ease;
+			    -webkit-transition: all .4s ease;
+			}
+			.select{
+				border:1px solid rgb(22, 196, 96) !important;
+			    background-color: rgb(22, 196, 96);
+			}
+			.select:before{
+				position: absolute;
+			    content: ' ';
+			    display: block;
+			    left: 7px;
+			    top: 4px;
+			    width: 4px;
+			    height: 8px;
+			    -webkit-transform: rotate(30deg);
+			    border-right: 2px solid white;
+			    border-bottom: 2px solid white;
+			    
+			}
+			.checkboxs{
+				float:left;
+				position: relative;
+				display: block;
+				width:20px;
+				height:20px;
+				margin-top:10px;
+				border-radius: 50%;
+				border:1px solid white;
+			    transition: all .6s ease;
+			    -webkit-transition: all .4s ease;
+			}
+			.bo{
+				background:url(/Public/m/img/gouwuche-beijing.png)no-repeat;
+				background-size:100% 100%;
+				height:100%;
+			}
+			.vehicle{
+				display: block;
+				margin:45px auto 0;
+				padding-top:20px;
+				width:90px;
+			}
+			.you{
+				color:#898989;
+				font-size:18px;
+				margin-top:20px;
+				text-align: center;
+			}
+			.brevity{
+				color:#b6b6b6;
+				font-size:15px;
+				margin-top:10px;
+				text-align: center;
+			}
+			.gou{
+				display: block;
+				width:155px;
+				height:40px;
+				line-height:40px;
+				text-align: center;
+				margin:30px auto;
+				color:#D6BE80;
+				border-radius:5px;
+				border:1px solid #D6BE80;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="top">
+			购物车(<num></num>)
+			<button class="omit">删除</button>
+		</div>
+		<if condition="$data['list']">
+			<ul class="multi">
+				<foreach name="data['list']" item="r" key="k">
+				<li>
+					<label class="checkbox {:$r['state']?'select':''}" id="{$r.id}" ></label>
+					<div class="money">
+					<img src="/Public/m/img/ding.png" />
+					<div class="list layout" layout="w:<100%-130>">
+						<div class="yellow">{$r.goods.title}<span class="mo">￥{$r['goods']['ex'][$r['goods_ex_id']]['price']}</span></div>
+						<div class="">
+							<span class="chu">尺寸规格:{$r['goods']['ex'][$r['goods_ex_id']]['name']}</span> 
+							<span class="cu">X{$r.num}</span> 
+						</div>
+						<div class="melody">
+							<div class="jian">-</div>
+							<input type name class="in" id="{$r.id}" price="{$r['goods']['ex'][$r['goods_ex_id']]['price']}" value="{$r.num}" onchange="change(this)" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+							<div class="jia">+</div>
+						</div>
+					</div>
+					<div style="clear: both;"></div>
+				</li>
+				</foreach>
+			</ul>
+		
+			<div class="he">
+				共计<num></num>件商品 合计: <span class="ye">￥XXX</span>
+			</div>
+			<div class="close">
+				<label class="checkboxs" ></label>
+				
+				<button class="figure">结算</button>
+				<div class="fig">
+					<div  class="total"> 合计 <span>￥XXX</span></div>
+					<div class="no">不含运费</div>
+				</div>
+			</div>
+		<else/>
+			<div class="bo layout" layout="h:<p.h-150>">
+				<img  class="vehicle" src="/Public/m/img/gouwuche.png"/>
+				<div class="you">你的购物车是空的</div>
+				<div class="brevity">暂时没有相关数据</div>
+				<a href="#" class="gou">去逛逛</a>
+			</div>
+		</if>
+<include file="index:footer" />
+		<script>
+			$('.checkbox').click(function(){
+				if($(this).hasClass('select')){
+					$(this).removeClass('select');
+					$('.checkboxs').removeClass('select');
+				}
+				else{
+					$(this).addClass('select');
+					var checkboxs = true;
+					$('.checkbox').each(function(index,obj){
+						var checkbox = $(obj);
+						if(!checkbox.hasClass('select'))
+						checkboxs = false;
+					});
+					if(checkboxs) $('.checkboxs').addClass('select');
+				}
+				price();
+				state(this);
+			});
+			
+			
+			
+			$('.checkboxs').click(function(){
+				if($(this).hasClass('select')){
+					$(this).removeClass('select');
+					$('.checkbox').removeClass('select');
+				}
+				else{
+					$(this).addClass('select');
+					$('.checkbox').addClass('select');
+				}
+				price();
+				state();
+			});
+//			$('.omit').click(function(){
+//				if(".che")
+//				$(".checkbox").hide();
+//			});
+			
+			layout(".layout");
+			$(function(){
+				$('.jian').on('touchend',function(){
+					var _txt=$(this).next();
+					if(_txt.val()>1){
+						_txt.val(parseInt(_txt.val())-1);
+					}
+					price();
+					change(_txt);
+					return false;
+				});
+				$('.jia').on('touchend',function(){
+					var _txt=$(this).prev();
+					_txt.val(parseInt(_txt.val())+1);
+					price();
+					change(_txt);
+					return false;
+				});
+				$('.in').on('touchend',function(){
+					change(this);
+					return false;
+				});
+			});
+			$(".omit").click(function(){
+				var ids=[];
+				$(".multi li .checkbox").each(function(){
+					var e=$(this);
+					if(e.hasClass("select")){
+						ids[ids.length]=this.id;
+					}
+				});
+				$.post("{:U('ajax')}",{action:'del','where':ids.join(",")},function(e){
+					if(e.state==1){
+						location.reload();
+					}else{
+						layer.alert(e.msg);
+					}
+				});
+			});
+			function price(){
+				var price_=0;
+				var num_=0;
+				$(".multi li").each(function(){
+					var e=$(this);
+					if(e.find(".checkbox").hasClass("select")){
+						var a=parseInt(e.find(".in").val());
+						var b=parseFloat(e.find(".in").attr('price'));
+						price_+=a*b;
+						num_++;
+					}
+				});
+				$(".total span").html("￥"+price_);
+				$(".ye").html("￥"+price_);
+				$("num").html(num_);
+				console.log(num_+","+price_);
+			}
+			price();
+			function change(a){
+				a=a[0];
+				if(parseInt(a.value)>0){
+					$.post("{:U('ajax')}",{action:'edit',where:a.id,'data[num]':a.value},function(e){
+						if(e.state==1){
+							layer.msg(e.msg);
+						}else{
+							layer.alert(e.msg);
+						}
+					});
+				}else{
+					a.value=1;
+				}
+			}
+			function state(a){
+				if(typeof a =='undefined'){
+					a=$(".multi li .checkbox");
+				}else{
+					a=$(a);
+				}
+				a.each(function(){
+					$.post("{:U('ajax')}",{action:'edit','where':this.id,'data[state]':($(this).hasClass("select")?1:0)},function(e){
+					});
+				});
+			}
+			$(".figure").click(function(){
+				var ids=[];
+				$(".multi li .checkbox").each(function(){
+					var e=$(this);
+					if(e.hasClass("select")){
+						ids[ids.length]=this.id;
+					}
+				});
+				if(ids.length){
+					location.href="{:U('confirm')}";
+				}else{
+					layer.alert('请选择要购买的商品');
+				}
+			});
+		</script>
+	</body>
+</html>

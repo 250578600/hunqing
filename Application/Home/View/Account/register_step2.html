@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>完整注册</title>
+		<link rel="stylesheet" href="/Public/home/css/public.css" />
+		<link rel="stylesheet" href="/Public/home/login/css/full-register.css" />
+		<style type="text/css">
+			.none{display: none;}
+		</style>
+	</head>
+	<body>
+		<div class="top-box">
+			<div>
+				<img class="logo" src="/Public/home/img/logo.png"/>
+				<a class="login-but" href="">登陆</a>
+			</div>
+		</div>
+		<div class="bg">
+			<img src="/Public/home/login/img/bg.png" />
+		</div>
+	<form method="post" action="" onsubmit="return sub()">
+		<div class="content-box">
+			<div class="list-box" onselectstart="return false;">
+				
+				<div class="list">
+					<div class="list-title">性别:</div>
+					<label class="select-sex">
+						<input type="radio" name="sex" class="dll-input" checked="checked" value="1">
+						<div>男</div>
+					</label>
+					<label class="select-sex">
+						<input type="radio" name="sex" class="dll-input" value="2">
+						<div>女</div>
+					</label>
+					<div class="prompt prompt1">*注册后不可更改</div>
+				</div>
+				
+				<div class="list">
+					<input type="hidden" name="ex[birthday]" id="birthday">
+					<div class="list-title">生日</div>
+					<div class="dll-select">
+						<div class="dll-select-val after1">请选择</div>
+						<div class="dll-select-down select-year">
+							<div>
+								<span>90后:</span>
+								<a class="dll-select-click">1990</a>
+								<a class="dll-select-click">1991</a>
+								<a class="dll-select-click">1992</a>
+								<a class="dll-select-click">1993</a>
+								<a class="dll-select-click">1994</a>
+								<a class="dll-select-click">1995</a>
+								<a class="dll-select-click">1996</a>
+								<a class="dll-select-click">1997</a>
+								<a class="dll-select-click">1998</a>
+								<a class="dll-select-click">1999</a>
+							</div>
+						</div>
+					</div>
+					<div class="dll-select">
+						<div class="dll-select-val after2">请选择</div>
+						<div class="dll-select-down select-month">
+							<div class="dll-select-click">1</div>
+							<div class="dll-select-click">2</div>
+							<div class="dll-select-click">3</div>
+							<div class="dll-select-click">4</div>
+							<div class="dll-select-click">5</div>
+							<div class="dll-select-click">6</div>
+							<div class="dll-select-click">7</div>
+							<div class="dll-select-click">8</div>
+							<div class="dll-select-click">9</div>
+							<div class="dll-select-click">10</div>
+							<div class="dll-select-click">11</div>
+							<div class="dll-select-click">12</div>
+						</div>
+					</div>
+					<div class="dll-select" style="margin-right: 0;">
+						<div class="dll-select-val after3">请选择</div>
+						<div class="dll-select-down select-day">
+							<div class="dll-select-click">1</div>
+							<div class="dll-select-click">2</div>
+							<div class="dll-select-click">3</div>
+							<div class="dll-select-click">4</div>
+							<div class="dll-select-click">5</div>
+							<div class="dll-select-click">6</div>
+							<div class="dll-select-click">7</div>
+							<div class="dll-select-click">8</div>
+							<div class="dll-select-click">9</div>
+							<div class="dll-select-click">10</div>
+						</div>
+					</div>
+					<div class="prompt prompt2">*注册后不可更改</div>
+				</div>
+				
+				<div class="list">
+					<div class="list-title">工作地区</div>
+					<div class="dll-select">
+						<div class="dll-select-val after4">选择</div>
+						<div class="dll-select-down select-province">
+							<div class="province-public">
+								<div class="dll-select-click">四川</div>
+								<div class="dll-select-click">重庆</div>
+							</div>
+							<div class="province-all">
+								<div class="dll-select-click">北京</div>
+								<div class="dll-select-click">河北</div>
+								<div class="dll-select-click">河南</div>
+								<div class="dll-select-click">北京</div>
+								<div class="dll-select-click">河北</div>
+								<div class="dll-select-click">河南</div>
+							</div>
+							<div class="province-other">
+								<div class="dll-select-click">澳门</div>
+								<div class="dll-select-click">香港</div>
+								<div class="dll-select-click">台湾</div>
+								<div class="dll-select-click">国外</div>
+							</div>
+						</div>
+					</div>
+					<div class="dll-select">
+						<div class="dll-select-val after5">选择</div>
+						<div class="dll-select-down select-city">
+							<div class="dll-select-click">成都</div>
+							<div class="dll-select-click">达州</div>
+							<div class="dll-select-click">成都</div>
+							<div class="dll-select-click">达州</div>
+						</div>
+					</div>
+					<div class="dll-select" style="margin-right: 0;">
+						<div class="dll-select-val after6">选择</div>
+						<div class="dll-select-down select-qu">
+							<div class="dll-select-click">高新区</div>
+							<div class="dll-select-click">金牛区</div>
+							<div class="dll-select-click">成华区</div>
+						</div>
+					</div>
+					<div class="prompt prompt3 none">请选择工作地区</div>
+				</div>
+				
+				<div class="list">
+					<div class="list-title">婚姻状况</div>
+					<label class="select-marriage" style="margin-left: 0;">
+						<input type="radio" name="marriage" class="dll-input" checked="checked" style="margin-left: 0;" value="1">
+						<div>未婚</div>
+					</label>
+					<label class="select-marriage">
+						<input type="radio" name="marriage" class="dll-input" value="2">
+						<div>离异</div>
+					</label>
+					<label class="select-marriage">
+						<input type="radio" name="marriage" class="dll-input" value="0">
+						<div>丧偶</div>
+					</label>
+				</div>
+				
+				<div class="list">
+					<div class="list-title">身高</div>
+					<select class="select-height" name="ex[height]">
+						<option value="0">请选择</option>
+						<foreach name='height' item="r" key="k">
+						<option value="{$k}">{$r}</option>
+						</foreach>
+					</select>
+					<div class="prompt prompt4 none">请选择身高</div>
+				</div>
+				
+				<div class="list">
+					<div class="list-title">学历</div>
+					<select class="select-xueli" name="ex[xueli]">
+						<option value="0">请选择</option>
+						<foreach name='xueli' item="r" key="k">
+						<option value="{$k}">{$r}</option>
+						</foreach>
+					</select>
+					<div class="prompt prompt5 none">请选择学历</div>
+				</div>
+				
+				<div class="list">
+					<div class="list-title">年薪</div>
+					<select class="select-nianxin" name="ex[nianxin]">
+						<option value="0">请选择</option>
+						<foreach name='nianxin' item="r" key="k">
+						<option value="{$k}">{$r}</option>
+						</foreach>
+					</select>
+					<div class="prompt prompt6 none">请选择年薪</div>
+				</div>
+				
+				<div class="list">
+					<div class="list-title">手机号</div>
+					<div class="telphone input-cha-text">
+						<input type="text" name="telephone" value="">
+						<div class="input-cha-text-style" style="display: none;"></div>
+					</div>
+					<div class='prompt prompt7 none cc'>手机不能为空</div>
+					<div class="prompt prompt7 none dd">该手机号已注册，请直接<a href="">登录</a></div>
+				</div>
+				
+				<div class="list">
+					<div class="list-title">验证码</div>
+					<div class="yzm input-cha-text">
+						<input type="text" name="telephone_code" value="">
+						<div class="input-cha-text-style" style="display: none;"></div>
+					</div>
+					<div class="prompt prompt8 none">请输入验证码</div>
+				</div>
+				
+				<div class="list">
+					<div class="list-title">创建密码</div>
+					<div class="password input-yj-password">
+						<input type="password" name="password" value="">
+						<div class="input-yj-password-style" style="display: none;"></div>
+					</div>
+					<div class="prompt prompt9 none">请输入密码</div>
+				</div>
+				
+				<div class="list">
+					<div class="list-title">确认密码</div>
+					<div class="password2 input-yj-password">
+						<input type="password" name="" value="">
+						<div class="input-yj-password-style" style="display: none;"></div>
+					</div>
+					<div class="prompt prompt10 none">2次密码不相同</div>
+				</div>
+				
+				<div class="list">
+					<div class="list-title">昵称</div>
+					<div class="nick input-cha-text">
+						<input type="text" name="nickname" value="">
+						<div class="input-cha-text-style" style="display: none;"></div>
+					</div>
+					<div class="prompt prompt11 none">请输入昵称</div>
+				</div>
+				
+			</div>
+			<div class="fw-box">
+				<label class="ty-box">
+					<input type="checkbox" />
+					<div>已阅读和同意珍爱网的<a style="color: #f2499d;">《服务条款》</a>和<a style="color: #f2499d;">《信息保护政策》</a></div>
+					<div style="padding-left: 22px;">并同意将本人提供之信息由伸士名媛提供线上/线下服务使用</div>
+				</label>
+				<div class="register-but"  id="sub">免费注册</div>
+			</div>
+		</div>
+	</form>
+		
+	</body>
+	<script src="/Public/home/js/jquery-1.11.0.js"></script>
+	<script src="/Public/home/js/public.js"></script>
+	<script src="/Public/home/js/dll_select.js"></script>
+</html>
+<script>
+	/*function sub(){
+		// alert(1);
+		var b = $('input[name=sex]:checked').val();
+		var arr=new Array();
+		for (var a=0;a<6;a++) {
+			arr[a] = $('.dll-select-val').eq(a).text();
+		};
+		var s = $('input[name=marriage]:checked').val();
+		// var url = b+','+arr+','+s;
+		var heig = $('.select-height option:checked').text();
+		var xl = $('.select-xueli option:checked').text();
+		var nx = $('.select-nianxin option:checked').text();
+		var val_t = $('input[type=text]').val();
+		var val_p = $('input[type=password]').val();
+
+		var ph = $('input[name=phone]').val();
+		var ph = $('input[name=]').val();
+
+		var url = b+','+arr+','+s+','+heig+','+xl+','+nx+','+val_t+','+val_p;
+		//console.log(url);
+
+		// var get_t = $('.dll-select-val').text();
+		// if(get_t == '选择'){
+		// 	alert(1);
+		// }
+
+		// if(val_t == null || val_t == ''){
+		// 	$('input[type=text]').parent().next().removeClass('none');
+		// 	if(val_p == null || val_p == ''){
+		// 		$('input[type=password]').parent().next().removeClass('none');
+		// 	}
+		// }
+	}*/
+	$("#sub").click(function(){
+		$("#birthday").val($(".after1").text()+'-'+$(".after2").text()+'-'+$(".after3").text());
+		$.post(document.URL,$("form").serialize(),function(e){
+			if(e.state==1){
+				alert(e.msg);
+			}else{
+				alert(e.msg);
+			}
+		});
+	})
+
+</script>

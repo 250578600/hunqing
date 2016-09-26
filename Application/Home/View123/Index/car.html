@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>购物车</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <link rel="stylesheet" href="/Public/m/css/swiper.min.css">
+	    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+	    <link rel="stylesheet" href="/Public/m/css/com.css">
+	    <link rel="stylesheet" href="/Public/m/css/car.css">
+	    <link rel="stylesheet" href="/Public/m/css/ng.css" />
+	    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+	    <script src="/Public/m/js/swiper.jquery.min.js"></script>
+	    <script src="/Public/m/js/com.js"></script>
+	    <script src="/Public/m/js/car.js"></script>
+	    <script src="/Public/m/js/ng.js" ></script>
+	    <style type="text/css">
+	    	body{
+	    		font-size:13px;
+	    		background-color:#fff;
+	    	}
+	    	ul,li{
+	    		list-style-type: none;
+	    		padding:0;
+	    		margin:0;
+	    	}
+	    	.option{
+	    		background-color:#f5f5f5;
+	    		padding:0 12px;
+	    		overflow: hidden;
+	    		height:40px;
+	    		line-height:40px;
+	    		color:#808080;
+	    	}
+	    	.checkbox{
+				position: relative;
+				margin-right:10px;
+				width:20px;
+				height:20px;
+				margin-top:26px;
+				border-radius: 50%;
+				background-color:#999;
+			    transition: all .6s ease;
+			    -webkit-transition: all .4s ease;
+			}
+			.checkboxs{
+				float:left;
+				position: relative;
+				margin-right:6px;
+				width:20px;
+				height:20px;
+				margin-top:10px;
+				border-radius: 50%;
+				background-color:#999;
+			    transition: all .6s ease;
+			    -webkit-transition: all .4s ease;
+			}
+			.checkbox:before,.checkboxs:before{
+				position: absolute;
+			    content: ' ';
+			    display: block;
+			    left: 7px;
+			    top: 4px;
+			    width: 4px;
+			    height: 8px;
+			    -webkit-transform: rotate(30deg);
+			    border-right: 2px solid #f5f5f5;
+			    border-bottom: 2px solid #f5f5f5;
+			}
+			.select{
+			    background-color: #b6d957;
+			}
+			.select:before{
+				position: absolute;
+			    content: ' ';
+			    display: block;
+			    left: 7px;
+			    top: 4px;
+			    width: 4px;
+			    height: 8px;
+			    -webkit-transform: rotate(30deg);
+			    border-right: 2px solid #f5f5f5;
+			    border-bottom: 2px solid #f5f5f5;
+			    
+			}
+	    	.cancel{
+	    		float: right;
+	    		margin-top:4px;
+	    		color:#b6d957;
+	    		border:1px solid #b6d957;
+	    		border-radius:4px;
+	    		height:32px;
+	    		line-height:32px;
+	    		padding:0 8px;
+	    	}
+	    	.lump{
+	    		padding: 25px 12px;
+	    		border-bottom:1px solid #ddd;
+	    	}
+	    	.lump:last-child{
+	    		border-bottom:none !important;
+	    	}
+	    	.picture img{
+	    		display: block;
+	    		width:100%;
+	    		height:100%;
+	    	}
+	    	.picture{
+	    		width:80px;
+	    		height:80px;
+	    		border:1px solid #e6e6e6;
+	    		border-radius:4px;
+	    	}
+	    	.referral{
+	    		color:#808080;
+	    		height:36px;
+	    		overflow:hidden;
+	    		line-height:18px;
+	    	}
+	    	.cost{
+	    		overflow: hidden;
+	    		margin-top:11px;
+	    	}
+	    	.keep{
+	    		margin-left:7px;
+	    	}
+	    	.price{
+	    		float:left;
+	    		line-height:14px;
+	    	}
+	    	.member{
+	    		color:#b6d957;
+	    		font-size:12px;
+	    		
+	    	}
+	    	.member span{
+	    		font-size:13px;
+	    	}
+	    	.original{
+	    		font-size:12px;
+	    		color:#999;
+	    		text-decoration:line-through;
+	    	}
+	    	.melody{
+			    float: right;
+			    color:#808080;
+			    background-color:#E6E6E6;
+			    border-radius:4px;
+			}
+			.jia{
+			    float: left;
+			    width: 26px;
+			    height: 26px;
+			    line-height: 24px;
+			    text-align: center;
+			    font-size: 24px;
+			}
+			.melody input{
+				float: left;
+			    display: block;
+			    width: 29px;
+			    height: 26px;
+			    text-align: center;
+			    border: none;
+			    margin:0 1px;
+			    color:#808080;
+			    background-color:#fff ;
+			    border:1px solid #E6E6E6;
+			}
+			.jian{
+				float: left;
+			    width: 26px;
+			    height: 26px;
+			    color:#b3b3b3;
+			    line-height:24px;
+			    text-align: center;
+			    font-size:32px;
+			}
+			.close{
+				position:fixed;
+				bottom:50px;
+				width:100%;
+				border-top:1px solid #E6E6E6;
+				overflow: hidden;
+			}
+			.font{
+				float:left;
+				width:65%;
+				height:50px;
+				line-height:50px;
+				text-align: center;
+				color:#808080;
+				font-size:15px;
+			}
+			.account{
+				float:left;
+				width:35%;
+				height:50px;
+				line-height:50px;
+				color:#fff;
+				background-color:#b6d957;
+				text-align: center;
+			}
+			.not{
+				font-size:12px;
+				color:#999;
+				margin-left:10px;
+			}
+			.total{
+				color:#b6d957;
+			}
+			.wicket{
+				display:none;
+				position: fixed;
+				top:0;
+				width:100%;
+				height:100%;
+				background:rgba(0, 0, 0, 0.5);
+				z-index: 2;
+			}
+			.chunk{
+				width: 100%;
+			    position: absolute;
+			    top: 50%;
+			    left: 0;
+			    margin: -65px 0 0;
+			    height: 130px;
+			}
+			.bulk{
+				border-radius:4px;
+				margin:0 50px;
+				background-color:#fff;
+			}
+			.inquiry{
+				padding:30px 0;
+				text-align: center;
+				font-size:14px;
+			}
+			.ask{
+				overflow:hidden;
+				border-top:1px solid #E6E6E6;
+				font-size:15px;
+			}
+			.ask li{
+				height:44px;
+				line-height:44px;
+				float:left;
+				width:50%;
+				text-align: center;
+			}
+			.confirm{
+				background-color:#b6d957;
+				color:#fff;
+				border-bottom-left-radius: 4px;
+			}
+			.abolish{
+				border-left:1px solid #E6E6E6;
+			}
+			.boss{
+				margin-bottom:100px;
+			}
+			.member img{
+				display: inline-block;
+				width:12px;
+				height:12px;
+			}
+	    </style>
+	</head>
+	<body>
+		<div class="main">
+		      <div class="carNull none">
+		          <img src="/Public/m/images/all/nullCar.png"  alt="">
+		          <p>购物车空空如也哦</p>
+		      </div>
+		      <div class="carHave">
+					<div class="option">
+						<div class="checkboxs"></div>
+						全选
+						<div class="cancel">删除</div>
+					</div>
+					<div class="boss">
+						<div class="lump">
+							<div class="checkbox "></div>
+							<div class="picture">
+								<img src="/Public/m/images/all/goods1.png"/>
+							</div>
+							<div class="layout keep" layout="{flex:1}">
+								<div class="referral">私颜高品质卫生巾私颜高品质卫生巾私颜高品质卫生巾私颜高品质卫生巾私颜高品质卫生巾私卫生巾私颜高品质卫生巾私颜卫生巾私颜高品质卫生巾私颜颜高品质卫生巾</div>
+								<div class="cost">
+									<div class="price">
+										<div class="member">
+											<img src="/Public/m/images/index/v.png" />
+											<span>18.00</span></div>
+										<div class="original">原</div>
+									</div>
+									<div class="melody">
+										<div class="jian">-</div>
+										<input name class="in" value="1"  onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+										<div class="jia">+</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="lump">
+							<div class="checkbox "></div>
+							<div class="picture">
+								<img src="/Public/m/images/all/goods1.png"/>
+							</div>
+							<div class="layout keep" layout="{flex:1}">
+								<div class="referral">私颜高品质卫生巾私颜高品质卫生巾私颜高品质卫生巾私颜高品质卫生巾私颜高品质卫生巾私卫生巾私颜高品质卫生巾私颜卫生巾私颜高品质卫生巾私颜颜高品质卫生巾</div>
+								<div class="cost">
+									<div class="price">
+										<div class="member">
+											<img src="/Public/m/images/index/v.png" />
+											<span>18.00</span></div>
+										<div class="original">原</div>
+									</div>
+									<div class="melody">
+										<div class="jian">-</div>
+										<input name class="in" value="1" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+										<div class="jia">+</div>
+									</div>
+								</div>
+							</div>
+						</div>
+			      	<div class="close">
+				      	<div class="font">
+			      			合计: 
+			      			<span class="total">360.00</span>
+			      			<span class="not">不含运费</span>
+				      	</div>
+				      	<div class="account">结算</div>
+				    </div>
+			    </div>
+			    <div class="close">
+			      	<div class="font">
+		      			合计: 
+		      			<span class="total">360.00</span>
+		      			<span class="not">不含运费</span>
+			      	</div>
+			      	<div class="account">结算</div>
+			    </div>
+			    <div class="wicket">
+					<div class="chunk">
+						<div class="bulk">
+							<div class="inquiry">确定删除这2件商品吗？</div>
+							<ul class="ask">
+								<li class="confirm">确定</li>
+								<li class="abolish">取消</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+		    </div>
+		</div>
+	<footer class="cl"></footer>
+	</body>
+	<script>
+	    addFooter(1);
+	    ng.layout('layout');
+	    $('.checkbox').click(function(){
+			if($(this).hasClass('select')){
+				$(this).removeClass('select');
+				$('.checkboxs').removeClass('select');
+			}
+			else{
+				$(this).addClass('select');
+				var checkboxs = true;
+				$('.checkbox').each(function(index,obj){
+					var checkbox = $(obj);
+					if(!checkbox.hasClass('select'))
+					checkboxs = false;
+				});
+				if(checkboxs) $('.checkboxs').addClass('select');
+			}
+		});
+		
+		$('.checkboxs').click(function(){
+			if($(this).hasClass('select')){
+				$(this).removeClass('select');
+				$('.checkbox').removeClass('select');
+			}
+			else{
+				$(this).addClass('select');
+				$('.checkbox').addClass('select');
+			}
+		});
+		
+		$(".cancel").click(function(){
+			$('.wicket').show();
+		});
+		$('.confirm').click(function(){
+			if($(".checkbox").hasClass("select")){
+				$(".select").parent().remove();
+				$('.wicket').hide();
+				return
+			}
+		});
+		$('.abolish').click(function(){
+			$('.wicket').hide();
+		});
+		$(function(){
+			$('.jian').on('touchend',function(){
+				var _txt=$(this).next();
+				if(_txt.val()>1){
+					_txt.val(parseInt(_txt.val())-1);
+				}
+				return false;
+			});
+			$('.jia').on('touchend',function(){
+				var _txt=$(this).prev();
+				_txt.val(parseInt(_txt.val())+1);
+				return false;
+			});
+		});
+	</script>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>管理员资料</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/Public/plugin/layer/layer.js"></script>
+
+</head>
+<body>
+<body>
+<div class="main-div">
+<form onsubmit="return sub();">
+<table width="100%">
+  <tbody><tr>
+    <td class="label">用户名</td>
+    <td>
+      <input type="text" disabled maxlength="20" value="admin" size="34"><span class="require-field">*</span></td>
+  </tr>
+     <tr>
+    <td class="label">
+        <img src="/admin/images/notice.gif" width="16" height="16" border="0" alt="输入密码才可以修改资料">旧密码</td>
+    <td>
+      <input type="password" name="password" size="34"><span class="require-field">*</span>      <br><span class="notice-span" style="display:block" id="passwordNotic">输入密码才可以修改资料，手机号和邮箱可用于找回密码</span></td>
+  </tr>
+  <tr>
+    <td class="label">手机号</td>
+    <td>
+      <input type="text" name="telephone" maxlength="32" size="34"><span class="require-field">*</span></td>
+  </tr>
+  <tr>
+    <td class="label">邮箱</td>
+    <td>
+      <input type="text" name="email" maxlength="32" size="34"><span class="require-field">*</span></td>
+  </tr>
+           <tr>
+    <td colspan="2" align="center">
+      <input type="submit" value=" 确定 " class="button">&nbsp;&nbsp;&nbsp;
+      <input type="reset" value=" 重置 " class="button">
+      <input type="hidden" name="edit" value="1">
+  </tr>
+</tbody></table>
+</form>
+</div>
+<script>
+function sub(){
+	if($("input[name=password]").val().length<6){
+		alert("密码长度至少为6位");
+return false;
+	}
+	if(/^1[3-9][0-9]{9}$/.test($("input[name=telephone]").val())==false){
+		alert("手机号格式错误");
+return false;
+	}
+	if($("input[name=email]").val().indexOf('@')==-1){
+		alert("邮箱格式错误");
+return false;
+	}
+	$.post(document.URL,$("form").serialize(),function(e){
+		if(e.state==1){
+			layer.alert("操作成功");
+			setTimeout(function(){
+				location.href="{:U('main')}";
+			},1000);
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+	
+return false;
+}
+</script>
+</body>
+</html>
+
+

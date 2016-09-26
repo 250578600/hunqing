@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>管理员登录</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/Public/plugin/layer/layer.js"></script>
+
+</head>
+<body style="background:url(/admin/images/login_bg.png) repeat-x;padding:0px;">
+<div style="width:1210px;height:768px;margin:0 auto;background:url(/admin/images/login_dl.png) no-repeat; " >
+<form onsubmit="return sub()">
+  <table cellspacing="0" cellpadding="0" style=" padding-top:295px; " align="center" class="login_dl">
+  <tr>
+<td class="dl">
+      <table cellspacing="0" cellpadding="0" width="100%">
+      <tr>
+        <td class="dl_1" width="22%">用户名</td>
+        <td><input type="text" name="key" class="text_input1"/></td>
+      </tr>
+      <tr>
+        <td class="dl_2">密　码</td>
+        <td><input type="password" name="password"  class="text_input1"/></td>
+      </tr>
+           <tr class="low_height">
+        <td>&nbsp;</td>
+        <td><input type="checkbox" value="1" name="remember" id="remember" /><label for="remember" >保存登录信息。</label></td></tr>
+      <tr>
+      	<td colspan="2" align="center"><input type="submit" value="登&nbsp;录" class="button2" /></td>
+      </tr>
+      <tr class="low_height1">
+        <td colspan="2" align="right">&raquo; <a href="/" >返回首页</a> &raquo; <a href="{:U('forget')}">您忘记了密码吗?</a> &raquo; <a style="color: red;" href="/admin/register">立即注册</a></td>
+      </tr>
+      </table>
+    </td>
+  </tr>
+  </table>
+</form>
+</div>
+<script>
+function sub(){
+	if($("input[name=username]").val()==''){
+		alert("请输入用户名");
+	}else if($("input[name=password]").val().length<6){
+		alert("密码长度至少为6位");
+	}else{
+		$.post(document.URL,$("form").serialize(),function(e){
+			if(e.state==1){
+				layer.alert("登陆成功");
+				setTimeout(function(){
+					location.href="../";
+				},1000);
+			}else{
+				layer.alert(e.msg);
+			}
+		});
+	}
+return false;
+}
+</script>
+</body>
+</html>
+
+

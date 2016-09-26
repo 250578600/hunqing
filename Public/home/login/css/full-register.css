@@ -1,0 +1,433 @@
+body{
+	min-width: 1000px;
+	overflow-x: hidden;
+}
+a{
+	display: block;
+	text-decoration: none;
+}
+img{
+	display: block;
+}
+.top-box{
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 80px;
+	background-color: #333;
+	padding-top: 15px;
+}
+.top-box>div{
+	width: 1000px;
+	height: 80px;
+	margin: 0 auto;
+}
+.logo{
+	float: left;
+	width: 175px;
+	height: 50px;
+}
+.login-but{
+	float: right;
+	background-color: #fff;
+	color: #f2499d;
+	border: 1px solid #f2499d;
+	width: 140px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 20px;
+	border-radius: 5px;
+}
+.bg{
+	position: relative;
+	z-index: 1;
+	width: 1000px;
+	height: 1000px;
+	margin: 80px auto 0;
+}
+.bg img{
+	position: absolute;
+	display: block;
+	left: -460px;
+	top: 0;
+	width: 1920px;
+	height: 1000px;
+}
+.content-box{
+	position: absolute;
+	z-index: 3;
+	width: 1000px;
+	height: 1000px;
+	left: 0;
+	top: 80px;
+	right: 0;
+	margin: 0 auto;
+	background-color: rgba(255,255,255,.8);
+}
+.list-box{
+	position: relative;
+	width: 1000px;
+	padding-left: 250px;
+}
+.list{
+	height: 30px;
+	margin-top: 25px;
+}
+.list-title{
+	float: left;
+	margin-right: 10px;
+	width: 50px;
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+	font-size: 12px;
+	color: #666;
+	
+}
+.select-sex {
+    display: block;
+    float: left;
+    margin-left: 20px;
+    margin-top: 3px;
+    cursor: pointer;
+}
+.select-sex input {
+    margin-right: 10px;
+    margin-top: 6px !important;
+}
+.dll-input{
+	display: block;
+    float: left;
+	width: 12px !important;
+    height: 12px !important;
+}
+.dll-input:after{
+	left: 2px !important;
+	top: 2px !important;
+	width: 6px !important;
+	height: 6px !important;
+}
+.select-sex div{
+    float: left;
+    padding-left: 27px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    color: #666;
+    background: url(/Public/home/img/boy.png) left top no-repeat;
+}
+.select-sex:nth-child(3) div {
+    height: 24px;
+    line-height: 24px;
+    background: url(/Public/home/img/girl.png) left top no-repeat;
+}
+.dll-select{
+    float: left;
+    width: 85px;
+    margin-right: 10px;
+}
+.dll-select-val-select .dll-select-val{
+	border-radius: 0;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+.dll-select-val{
+	border-radius: 4px;
+	border: 1px solid #cdc9c5;
+	box-shadow: .5px 1px .5px #cdc9c5 inset;
+	background-color: rgba(228,223,218,.3);
+	width: 85px;
+	color: #666;
+	font-size: 12px;
+	text-align: left;
+	padding-left: 12px;
+}
+.select-year{
+    left: -111px;
+    top: 29px;
+    width: 465px;
+    min-height: 100px;
+    max-height: 232px;
+    overflow-y: scroll;
+    padding: 10px 0;
+}
+.select-year>div{
+    overflow: hidden;
+}
+.select-year span{
+    display: block;
+    float: left;
+    margin-left: 10px;
+    font-size: 16px;
+    color: #F2499D;
+}
+.select-year *{
+    height: 28px;
+    line-height: 28px;
+}
+.select-year span{
+    display: block;
+    float: left;
+    margin-left: 10px;
+    font-size: 16px;
+    color: #F2499D;
+}
+.select-year a{
+    display: block;
+    float: left;
+    margin-left: 10px;
+    font-size: 12px;
+    color: #666;
+    cursor: pointer;
+}
+.select-month, .select-day{
+    left: 0;
+    top: 29px;
+    width: 85px;
+    height: 150px;
+    border: 1px solid #f2499d;
+    padding: 5px 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.select-month div, .select-day div{
+    position: relative;
+    color: #666;
+    font-size: 12px;
+    height: 26px;
+    line-height: 26px;
+    cursor: pointer;
+    padding-left: 12px;
+}
+.select-month div:hover:after, .select-day div:hover:after{
+    width: 100%;
+}
+.select-month div:after, .select-day div:after{
+    content: ' ';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    border-bottom: 1px solid #f2499d;
+    -moz-transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+.after1:after, .after2:after, .after3:after, .after4:after, .after5:after, .after6:after{
+	display: block;
+	position: absolute;
+	right: 5px;
+	top: 0;
+	height: 29px;
+	line-height: 29px;
+	color: #666;
+	font-size: 12px;
+}
+.after1:after{
+	content: '年';
+}
+.after2:after{
+	content: '月';
+}
+.after3:after{
+	content: '日';
+}
+.after4:after{
+	content: '省';
+}
+.after5:after{
+	content: '市';
+}
+.after6:after{
+	content: '区';
+}
+.select-province{
+    left: -111px;
+    top: 29px;
+    width: 555px;
+    min-height: 100px;
+    max-height: 232px;
+    overflow-y: scroll;
+    padding: 0 10px;
+}
+.province-public, .province-all, .province-other{
+    font-size: 12px;
+    color: #666;
+}
+.province-all{
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.province-public div, .province-all div, .province-other div{
+    float: left;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+.province-public:after, .province-all:after, .province-other:after{
+    content: ' ';
+    display: block;
+    clear: both;
+}
+.select-city, .select-qu{
+    left: 0;
+    top: 29px;
+    width: 85px;
+    height: 150px;
+    border: 1px solid #f2499d;
+    padding: 5px 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.select-city div, .select-qu div{
+    position: relative;
+    color: #666;
+    font-size: 12px;
+    height: 26px;
+    line-height: 26px;
+    cursor: pointer;
+    padding-left: 12px;
+}
+.select-city div:after, .select-qu div:after{
+    content: ' ';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    border-bottom: 1px solid #f2499d;
+    -moz-transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+.select-city div:hover:after, .select-qu div:hover:after{
+    width: 100%;
+}
+.select-marriage{
+	display: block;
+    float: left;
+    height: 22px;
+    margin-left: 35px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+.select-marriage input{
+	margin-top: 6px;
+}
+.select-marriage div{
+	float: left;
+	height: 22px;
+	line-height: 22px;
+	color: #666;
+	font-size: 12px;
+	padding-left: 8px;
+}
+.select-height, .select-xueli, .select-nianxin{
+	display: block;
+	float: left;
+	width: 277px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #cdccc8;
+	outline: none;
+	border-radius: 3px;
+	background-color: transparent;
+}
+.telphone input, .yzm input, .nick input{
+	display: block;
+	width: 167px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #cdccc8;
+	background-color: transparent;
+	outline: none;
+	border-radius: 3px;
+	padding-left: 5px;
+}
+.input-cha-text, .input-yj-password{
+	float: left;
+}
+.input-cha-text-style, .input-yj-password-style{
+	top: 7px;
+}
+.password input, .password2 input{
+	display: block;
+	width: 277px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #cdccc8;
+	background-color: transparent;
+	outline: none;
+	border-radius: 3px;
+	padding-left: 5px;
+}
+.nick input{
+	width: 277px;
+}
+.fw-box{
+	width: 425px;
+	height: 130px;
+	margin: 45px auto 0;
+	
+}
+.ty-box{
+	display: block;
+	width: 350px;
+	font-size: 12px;
+	color: #666;
+	cursor: pointer;
+}
+.ty-box:after{
+	content: ' ';
+	display: block;
+	clear: both;
+}
+.ty-box a{
+	display: inline-block;
+}
+.ty-box input{
+	display: block;
+	float: left;
+	width: 12px;
+	height: 12px;
+	padding: 0;
+	margin: 9px 10px 0 0;
+}
+.ty-box div{
+	float: left;
+	height: 30px;
+	line-height: 30px;
+}
+.register-but{
+	color: #fff5fa;
+	background-color: #e64490;
+	width: 300px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 2px;
+	margin-top: 30px;
+	margin-left: 24px;
+}
+.prompt{
+	float: right;
+	width: 90px;
+	margin: 7px 255px 0 0;
+	color: #999;
+	font-size: 12px;
+	white-space: nowrap;
+}
+.prompt3, .prompt4, .prompt5, .prompt6, .prompt7, .prompt8, .prompt9, .prompt10, .prompt11{
+	float: left;
+	color: #ff4b21;
+	margin: 7px 0 0 75px;
+}
+.prompt7 a{
+	display: inline-block;
+	text-decoration: none;
+	color: #2e8ae5;
+}

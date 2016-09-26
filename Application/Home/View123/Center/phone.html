@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定手机号码</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/phone.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/phone.js"></script>
+    <script src="/Public/koko.js"></script>
+</head>
+<body>
+<form>
+<div class="main">
+    <div class="have paAuto">
+        <div class="haveTemplate cl">
+            <img class="z shoujiIcon" src="/Public/m/images/center/shoujiyanz.png" alt="">
+            <input type="text" name="telephone" id="telephone" class="z" placeholder="手机号码">
+        </div>
+        <div class="haveTemplate cl">
+            <img class="z" src="/Public/m/images/center/yanzhengma.png" alt="">
+            <input type="text" name="code" id="code" class="z yanzhengma" placeholder="验证码">
+            <input type="button" class="btn" id="sender" value="点击获取验证码">
+        </div>
+        <input type="button" class="ok" value="确定">
+    </div>
+</div>
+</form>
+      <script>
+      kokoAPI({smsCode:{}})
+      $t=new kokoTools();
+      $(".ok").click(function(){
+    	$t.checkTel("#telephone")&&
+    	$t.checkEmpty("#code","验证码不能为空")&&
+      	$.post(document.url,$("form").serialize(),function(e){
+          	if(e.state==1){
+          		layer.alert(e.msg,function(){
+          			location.href=document.referrer;
+          			setTimeout(function(){
+              			location.reload();
+              			},2000);
+          		});
+          	}else{
+          		layer.alert(e.msg);
+          	}
+          });
+      });
+      </script>
+</body>
+</html>

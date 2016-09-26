@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>申请提现</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="/Public/m/css/public.css" />
+		<script src="/Public/jquery-1.8.3.min.js"></script>
+		<script src="/Public/plugin/layer/layer.js"></script>
+		<script src="/Public/koko.js"></script>
+		<style type="text/css">
+			ul,li{
+				margin: 0;
+				padding: 0;
+				list-style-type:none;
+			}
+			a{
+				text-decoration:none;
+			}
+			.to{
+				width: 100%;
+				height:100px;
+				background: url(/Public/m/img/beijin.png) no-repeat;
+				background-size:100% ;
+				background-color:#000;
+				margin-top:20px;
+			}
+			.to img{
+				float:left;
+				display:block;
+				width:80px;
+				height:80px;
+				border-radius: 50%;
+				margin:0 20px;
+			}
+			.name{
+				color:#fff;
+			}
+			.name li{
+				line-height:19px;
+			}
+			.name li:nth-child(1){
+				padding-top: 3px;
+			}
+			.name li a{
+				color:#fff;
+			}
+			.cash{
+				padding:20px 10px;
+				background-color:#171717;
+				color:#fff;
+				margin-bottom: 20px;
+			}
+			.sum{
+				margin-bottom:10px;
+			}
+			.acc{
+				width:185px;
+				border-radius:5px;
+				height:30px;
+				background-color:#171717;
+				border:1px solid #fff;
+				color:#fff;
+				padding-left:5px;
+				font-size:16px;
+			}
+			.hint{
+				color:#ababab;
+				margin:10px 0px 10px 100px;
+				line-height:20px;
+				font-size:14px;
+				padding-right:15px;
+			}
+			.submit{
+				margin:auto;
+				width:270px;
+				height:33px;
+				background-color:#D6BE80;
+				color:#000;
+				border-radius:5px;
+				text-align: center;
+				line-height:33px;
+				cursor: pointer;
+				font-size:17px;
+			}
+			.table{
+				table-layout: fixed;
+				width:100%;
+			}
+			.table td{
+				padding:5px 0;
+				color:#D6BE80;
+				border-top:1px solid #D6BE80;
+				border-bottom:1px solid #D6BE80;
+				height:30px;
+				text-align: center;
+				font-size:14px;
+			}
+			.bo{
+				margin-bottom:70px;
+			}
+			.news{
+				margin-bottom:10px;
+			}
+			.news span{
+				display:inline-block;
+				width:100px;
+			}
+			.below td{
+				border-top:0;
+			}
+			
+			.drop-down{
+				height:35px;
+				line-height:30px;
+			    margin: 5px 10%;
+    			width: 81.6%;
+    			font-size:16px;
+			}
+			.line{
+				line-height: 30px;
+			    margin: 5px 10%;
+			    width: 80%;
+				font-size:16px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="to">
+			<img src="{$user.thumb}"  onclick="location.href='{:U('ziliao')}'"/>
+			<ul class="name">
+				<li>用户名 : {$user.nickname}</li>
+				<li>ID : {$user.id}</li>
+				<li>会员 :{:$user['groupid']==1?'我还不是代言人':'代言人'} </li>
+				<if condition="$user['groupid'] eq 1">
+				<li><a href="{:U('apply')}">点击链接成为会员</a></li>
+				</if>
+			</ul>
+		</div>
+		<form onsubmit="return false">
+		<div class="cash">
+			<div class="sum">提现信息</div>
+			<!--<div class="news">
+				<span>微信账号:</span>
+				<input id="alipay" class="acc" name="data[account]" type="text" />
+			</div>
+			<div class="news">
+				<span>提现人姓名:</span>
+				<input id="name" class="acc" name="data[name]" type="text" />
+			</div>
+			<div class="news">
+				<span>提现金额:</span>
+				<input id="money" class="acc" name="data[money]" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')"  size="15" type="text" />
+			</div>
+			<div class="news">
+				<span>银行卡号:</span>
+				<input readonly="readonly" id="money" class="acc" name="data[money]" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')"  size="15" type="text" />
+			</div>-->
+			
+			<div id="fram">
+
+			<select name="type" class="drop-down">
+				<option value="wechat">微信账号</option>
+				<option value="bank">银行卡号</option>
+			</select>
+			<input class="line" type="text" name="" readonly id="name" value="" placeholder="提现人姓名">
+			<input class="line" type="text" name="" readonly value="" id="tel" placeholder="联系电话">
+			<div class="frame1">
+				<input class="line" type="text" name="" readonly id="wechat" value="" placeholder="微信帐号" >
+			</div>
+			<div class="frame2" style="display: none;">
+				<input class="line" type="text" name="" readonly id="bank" value="" placeholder="银行卡号">
+				<input class="line" type="text" name="" readonly id="bank_name" value="" placeholder="银行名称">
+				<input class="line" type="text" name="" readonly id="bank_address" value="" placeholder="开户行地址">
+			</div>
+			
+			<input class="line" type="number" name="" id="money" placeholder="提现金额">
+		</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<div class="hint">*每笔提现银联将收取1块钱手续费，请合理安排提现。</div>
+			<div class="submit" onclick="sub()">确认提交</div>
+			<input type="hidden" name="action" value="add"/>
+			<input type="hidden" name="db" value="tixian"/>
+		</div>
+		</form>
+		<div class="bo">
+			<table class="table" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>编号</td>
+					<td>金额</td>
+					<td>状态</td>
+				</tr>
+				<foreach name="data['list']" item="r" key="k">
+					<tr class="below">
+						<td>{$r.id}</td>
+						<td>{$r.money}元</td>
+						<td>{$state[$r['state']]}
+						<if condition="$r['state'] eq 2">
+							<a onclick="layer.alert('{$r.reason}')" style="color:#f33;font-size:12px"><div>(查看原因)</div></a>
+						</if>
+						</td>
+					</tr>
+				</foreach>
+			</table>
+		</div>
+
+<include file="index:footer" />
+		<script>
+		
+		function sub(){
+			t=new kokoTools();
+			if(
+					t.checkEmpty("#name","提现人姓名不能为空")&&
+					t.checkEmpty("#alipay","支付宝账号不能为空")
+			){
+				var m=t.checkEmpty("#money","提现金额不能为空");
+				if(m){
+					m=parseFloat(m);
+					if(m==0){
+						layer.alert("请输入提现金额");
+						return;
+					}
+					if(m<={$user.balance}){
+						$.post("{:U('ajax')}",$("form").serialize(),function(e){
+							if(e.state==1){
+								layer.alert(e.msg,function(){
+									location.reload();
+								});
+							}else{
+								layer.alert(e.msg);
+							}
+						});
+					}else{
+						layer.alert("您的金额不足");
+					}
+				}
+			}
+
+		}
+		
+		
+		
+			$('.drop-down').change(function(){
+				if($(this).val()=='wechat'){
+					$(".frame1").css("display","block");
+					$(".frame2").css("display","none");
+					$(".frame3").css("display","none");
+				}
+				else if($(this).val()=='alipay'){
+					$(".frame3").css("display","block");
+					$(".frame2").css("display","none");
+					$(".frame1").css("display","none");
+				}
+				else{
+					$(".frame2").css("display","block");
+					$(".frame3").css("display","none");
+					$(".frame1").css("display","none");
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>下单</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="/Public/m/css/public.css" />
+		<link rel="stylesheet" href="/Public/m/css/com.css">
+		<link rel="stylesheet" href="/Public/m/css/ng.css" />
+		<script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="/Public/m/js/ng.js" ></script>
+		<script src="/Public/plugin/layer.m/layer.js"></script>
+		<style type="text/css">
+			.site{
+				background-color:#fbfff2;
+				padding:0 12px;
+				border-bottom:1px solid #ddd;
+				height:90px;
+				text-align: center;
+				position: relative;
+			}
+			.click{
+				display: block;
+				width:140px;
+				height:24px;
+			    position: absolute;
+			    top: 50%;
+			    left:50%;
+			    margin: -12px -65px 0;
+				
+			}
+			.add{
+				float: left;
+				display: block;
+				width:20px;
+				height:20px;
+				margin-right:5px;
+			}
+			.plus{
+				float:left;
+				font-size:14px;
+				color:#808080;
+			}
+			.single{
+				margin-top:8px;
+				padding:12px;
+				color:#808080;
+				background-color:#fff;
+				border-top:1px solid #e6e6e6;
+				border-bottom:1px solid #e6e6e6;
+				padding-bottom: 20px;
+			}
+			.article{
+				font-size:13px;
+				border-bottom:1px dashed #e3e3e3;
+				padding-bottom:12px;
+			}
+			.res{
+				font-size:12px;
+				margin-top:8px;
+			}
+			.count{
+				float: right;
+				color:#b6d957;
+			}
+			.quantity{
+				float:right;
+				margin-right:20px;
+				color:#b6d957;
+			}
+			.figure{
+				float:left;
+			}
+			.melody{
+			    float: right;
+			    color:#808080;
+			    background-color:#E6E6E6;
+			    border-radius:4px;
+			}
+			.jia{
+			    float: left;
+			    width: 26px;
+			    height: 26px;
+			    line-height: 24px;
+			    text-align: center;
+			    font-size: 24px;
+			}
+			.melody input{
+				float: left;
+			    display: block;
+			    width: 29px;
+			    height: 26px;
+			    text-align: center;
+			    border: none;
+			    margin:0 1px;
+			    color:#808080;
+			    background-color:#fff ;
+			    border:1px solid #E6E6E6;
+			}
+			.jian{
+				float: left;
+			    width: 26px;
+			    height: 26px;
+			    color:#b3b3b3;
+			    line-height:24px;
+			    text-align: center;
+			    font-size:32px;
+			}
+			.sum{
+				overflow: hidden;
+				font-size:12px;
+			}
+			.fare{
+				margin-top:8px;
+			}
+			.must{
+				font-size:13px;
+				border-top:1px dashed #e3e3e3;
+				overflow: hidden;
+				margin-top:10px;
+				padding-top:10px;
+			}
+			.input{
+				border:none;
+				padding: 0 5px;
+			}
+			.fonts{
+				font-size:13px;
+			}
+			.gou{
+				float:left;
+				font-size:13px;
+				margin-top:4px;
+			}
+			.way{
+				border-top:1px solid #e6e6e6;
+				border-bottom:1px solid #e6e6e6;
+				background-color:#fff;
+				padding:0 12px;
+				font-size:12px;
+				color:#808080;
+				margin-top:8px;
+				margin-bottom:70px;
+			}
+			.way li{
+				height:40px;
+				line-height: 40px;
+				border-bottom: 1px dashed #e3e3e3;
+			}
+			.way li:last-child{
+				border-bottom:none;
+			}
+			.way img{
+				margin-top:7px;
+				float: left;
+				width:25px;
+				height:25px;
+				display:block;
+			}
+			.checkbox{
+				float:right;
+				position: relative;
+				margin-right:6px;
+				width:16px;
+				height:16px;
+				margin-top:10px;
+				border-radius: 50%;
+				background-color:#999;
+			    transition: all .6s ease;
+			    -webkit-transition: all .4s ease;
+			}
+			.checkbox:before{
+				position: absolute;
+			    content: ' ';
+			    display: block;
+			    left: 5px;
+			    top: 3px;
+			    width: 4px;
+			    height: 7px;
+			    -webkit-transform: rotate(30deg);
+			    border-right: 2px solid #f5f5f5;
+			    border-bottom: 2px solid #f5f5f5;
+			}
+			.select{
+			    background-color: #b6d957;
+			}
+			.select:before{
+				position: absolute;
+			    content: ' ';
+			    display: block;
+			    left: 5px;
+			    top: 3px;
+			    width: 4px;
+			    height: 7px;
+			    -webkit-transform: rotate(30deg);
+			    border-right: 2px solid #f5f5f5;
+			    border-bottom: 2px solid #f5f5f5;
+			    
+			}
+			.wei{
+				float:left;
+				margin-left:10px;
+			}
+			.refer{
+				position:fixed;
+				width:100%;
+				height:50px;
+				line-height:50px;
+				bottom:0;
+				color:#fff;
+				font-size:15px;
+				text-align: center;
+				background-color:#b6d957;
+			}
+			.ge{
+				padding:4px 12px !important;
+			}
+						.xinxi{
+				font-size:13px;
+				color:#808080;
+			}
+			.user{
+				width:100%;
+				line-height: 30px;
+				font-size: 13px;
+			}
+			.moreAddres{
+				width: 100%;
+				font-size: 12px;
+				margin-top: 16px;
+			}
+			.moreAddres img{
+				width: 15px;
+				margin: 5px;
+			}
+			.moreAddres span{
+				color:#b2b2b2;
+			}
+			.site2{
+				background-color:#fbfff2;
+				padding:0 12px;
+				border-bottom:1px solid #ddd;
+				min-height:80px;
+				padding-bottom:10px;;
+				text-align: center;
+				position: relative;
+			}
+			.click2{
+				display: block;
+				text-align:left;
+			}
+		</style>
+	</head>
+	<body>
+		<form>
+		<if condition="$addr">
+		<div class="site2" >
+			<div  class="click2">
+				 <div class="xinxi cl">
+					 <div class="user">
+						 <span class="name">{$addr.name}</span>
+						 <span class="phone">{$addr.telephone}</span>
+					 </div>
+					 <div class="addres">
+						{$addr.province_}{$addr.city_}{$addr.county_}{$addr.address}
+					 </div>
+					 <div class="moreAddres cl" onclick="location.href='{:U('/Home/Address')}?url='+encodeURIComponent(document.URL)">
+						 <img src="/Public/m/images/index/bottom.png" class="y" alt="">
+						 <span class="y">更多地址</span>
+					 </div>
+				 </div>
+			</div>
+		</div>
+		<input type="hidden" name="addr_id" value="{$addr.id}"/>
+		<else/>
+		<div class="site">
+			<a href="javascript:location.href='{:U('/Home/Address')}?url='+encodeURIComponent(document.URL)" class="click">
+				<img class="add" src="/Public/m/images/index/jiahao.png" />
+				<span class="plus">点此添加收货地址</span>
+			</a>
+		</div>
+		
+		</if>
+		<div class="single">
+			<div class="article">购买清单</div>
+			<div style="padding-top:2px">
+		<foreach name="data" item="r" key="k">
+				<div class="res" price="{$r.goods.price}">
+					<span>{$r.goods.title}</span>
+					<div>
+					<span class="count">x<span class="num">{$r.num}</span></span>
+					<span class="quantity" style="color:gray;text-decoration: line-through;">￥{$r.goods.price}</span>
+					<span class="quantity hahahah" id="{$r.goods.price}">￥{$r.goods.price_}</span>
+					</div>
+				</div>
+		</foreach>
+			</div>
+		</div>
+		<if condition="$cart eq 0">
+		<div class="single ge">
+			<div class="gou">购买数量</div>
+			<div class="melody">
+				<div class="jian">-</div>
+				<input type="text" name="num" class="in" value="{$data[0]['num']}" onchange="price();" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+				<div class="jia">+</div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+		<input type="hidden" name="id" value="{$data[0]['goods_id']}"/>
+		</if>
+		<div class="single">
+			<div class="sum">
+				<div class="figure">商品金额</div>
+				<div class="count all"></div>
+			</div>
+			<div class="sum fare">
+				<div class="figure">运费</div>
+				<div class="count freight">{$freight}</div>
+			</div>
+			<div class="must">
+				<div class="figure">应付金额</div>
+				<div class="count total"></div>
+			</div>
+		</div>
+		<div class="single fonts">
+			备注 :
+			<input class="input layout" placeholder="选填" name="msg" layout="{flex:1}" />
+		</div>
+		<ul class="way">
+			<li>
+				<img src="/Public/m/images/index/weixin.png" />
+				<div class="wei">微信支付</div>
+				<div class="checkbox select"></div>
+			</li>
+			<li>
+				<img src="/Public/m/images/index/wallet_green.png" />
+				<div class="wei">余额支付</div>
+				<div class="checkbox"></div>
+			</li>
+		</ul>
+		<input type="hidden" name="pay_type" id="pay_type" value="weixin">
+		</form>
+		<div class="refer ">提交订单</div>
+		<script>
+			ng.layout('layout');
+			$('.way li').click(function(){
+					$('.way li').find('.checkbox').removeClass('select');
+					$(this).find('.checkbox').addClass('select');
+			});
+			$(function(){
+				$('.jian').on('touchend',function(){
+					var _txt=$(this).next();
+					if(_txt.val()>1){
+						_txt.val(parseInt(_txt.val())-1);
+					}
+					price();
+					return false;
+				});
+				$('.jia').on('touchend',function(){
+					var _txt=$(this).prev();
+					_txt.val(parseInt(_txt.val())+1);
+					price();
+					return false;
+				});
+			});
+			$('.cancel').click(function(){
+				if($('.checkbox').hasClass('select')){
+					$('.select').parent().remove();
+				}
+			});
+			function price(){
+				by={:F('baoyou_sum')};
+				ban={:F('banze_num')};
+				if({$cart}){
+					var price_=0;
+					var num=0;
+					$(".res").each(function(){
+						var e=$(this);
+						var a=parseInt(e.find(".num").html());
+						var b=parseFloat(e.attr('price')).toFixed(2);
+						price_+=a*b;
+						num+=a;
+					});
+				}else{
+					var num=parseInt($(".in").val());
+					var price_=(num*{$data[0]['goods']['price']}).toFixed(2);			
+				}
+
+				if({$user['groupid']}==3||num>=ban){
+					price_=price_/2;
+					$(".hahahah").each(function(){
+						$(this).html("￥"+(parseFloat(this.id)/2).toFixed(2));
+					});
+				}else{
+					price_=price_*85/100;
+					$(this).html("￥"+(parseFloat(this.id)*85/100).toFixed(2));
+				}
+				if(price_>=by && {$bubaoyou}==0){
+					$(".total").html("￥"+price_.toFixed(2));
+					$(".freight").html("包邮");
+				}else{
+					$(".total").html("￥"+(parseFloat(price_)+{$freight}).toFixed(2));
+					$(".freight").html({$freight});
+				}
+				$(".all").html("￥"+price_.toFixed(2));
+				$(".num").html($(".in").val());	
+			}
+			price();
+			$(".refer").click(function(){
+				<if condition="$addr">
+				$a=$(".way li"); 
+		    	if($a.eq(0).find(".checkbox").hasClass("select")){
+		    		$("#pay_type").val('weixin');
+		    	}else{
+		    		$("#pay_type").val('yue');
+		    	}
+				$.post("{:U('/Home/Pay')}",$("form").serialize(),function(e){
+					if(e.state==1){
+						location.href=e.url;
+					}else{
+						layer.alert(e.msg);
+					}
+				});
+				<else/>
+				layer.alert("请选择收货地址");
+				</if>
+			});
+		</script>
+	</body>
+</html>

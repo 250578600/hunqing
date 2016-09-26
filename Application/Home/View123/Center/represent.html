@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>代言人</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<script src="js/jquery-1.11.0.js"></script>
+		<script src="js/layout.js"></script>
+		<style type="text/css">
+			html{
+				height:100%;
+			}
+			body{
+				margin:0;
+				background-color:#000;
+				height: 100%;
+				font-size:16px;
+			}
+			ul,li{
+				margin: 0;
+				padding: 0;
+				list-style-type:none;
+			}
+			a{
+				text-decoration:none;
+			}
+			.bei{
+				background:url(img/daiyanrenbeijing.png) 0px 0px no-repeat;
+				background-size:100% 100%;
+				height:100%;
+			}
+			.to{
+				width: 100%;
+				height:100px;
+				background: url(img/beijin.png) no-repeat;
+				background-size:100% ;
+				background-color:#000;
+				margin-top:20px;
+			}
+			.to img{
+				float:left;
+				display:block;
+				width:80px;
+				height:80px;
+				border-radius: 50%;
+				margin:0 20px;
+			}
+			.name{
+				color:#fff;
+			}
+			.name li{
+				line-height:19px;
+			}
+			.name li a{
+				color:#fff;
+			}
+			.rank{
+				height:40px;
+				line-height:40px;
+				color:#D6BE80;
+				background-color:#171717;
+				text-align: center;
+			}
+			.back{
+				padding:10px;
+			}
+			.back input{
+				border:1px solid #D6BE80;
+				border-radius: 8px;
+				background:rgba(0,0,0,0.5);
+				padding-left:10px;
+				color: #D6BE80;
+				height:25px;
+				width:150px;
+				font-size:14px;
+			}
+			input::-webkit-input-placeholder{
+				color:#D6BE80;
+			}
+			.back  a{
+				display: inline-block;
+				width:40px;
+				height:30px;
+				line-height:31px;
+				background-color: #D6BE80;
+				border-radius:8px;
+				text-align: center;
+				color:#181818;
+			}
+			.figure{
+				height:50px;
+				padding:10px 10px 0;
+				font-size:16px;
+				background:url(img/touxiang.png)10px 7px no-repeat;
+				background-size:45px;
+				background-color:rgb(53,53,53);
+				line-height:21px;
+				overflow: hidden;
+			}
+			.fi_left{
+				padding-left:50px;
+				overflow: hidden;
+				float:left;
+				color:#fff;
+				color: rgb(255,255,255);
+			}
+			.fi_right{
+				float:right;
+				color:rgb(179,179,179);
+			}
+			.fi_right div{
+				text-align: right;
+				
+			}
+			.join{
+				color:rgb(153,153,153);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bei">
+			<div  class="to">
+				<img src="img/touxiang.png" />
+				<ul class="name">
+					<li>用户名 : 张三</li>
+					<li>ID : 49199</li> 
+					<li>会员 : 我还不是代言人</li>
+					<li><a href="#">点击链接成为会员</a></li>
+				</ul>
+			</div>
+			<div class="rank">我是代言人 : 一级代言人(3)人</div>
+			<div class="back">
+				<input  placeholder="请输入会员ID" class="layout" layout="w:<100%-60>"/>
+				<a href="#">搜索</a>
+			</div>
+			<div class="figure">
+				<div class="fi_left layout" layout="w:<100%-200>">
+					<div>代言人昵称</div>
+					<div>ID:45648976</div>
+				</div>
+				<div class="fi_right">
+					<div>非会员</div>
+					<div class="join">加入时间:2016.06.01</div>
+				</div>
+			</div>
+		</div>
+		<table id="bottom">
+			<tr>
+				<td>
+					<a href="#">
+						<img src="img/che.png" />
+						<div>首页</div>
+					</a>
+				</td>
+				<td>
+					<a href="#">
+						<img src="img/bottom-2.png" />
+						<div>我的订单</div>
+					</a>
+				</td>
+				<td>
+					<a href="#">
+						<img src="img/bottom-3.png" />
+						<div>个人中心</div>
+					</a>
+				</td>
+				<td>
+					<a href="#">
+						<img src="img/bottom-4.png" />
+						<div>我的二维码</div>
+					</a>
+				</td>
+				
+			</tr>
+		</table>
+		<script>
+			layout(".layout");
+		</script>
+	</body>
+</html>

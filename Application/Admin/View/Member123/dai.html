@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> 管理中心 - 经销商列表 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script src="/Public/plugin/layer/layer.js"></script>
+<script type="text/javascript" src="/Public/koko.js"></script>
+
+</head>
+<body>
+
+<h1>
+<!-- 
+<span class="action-span"><a href="{:U('add')}">添加会员</a></span> -->
+<span class="action-span1"><a href="index.php?act=main"> 管理中心</a> </span><span id="search_id" class="action-span1"> -经销商列表 </span>
+<div style="clear:both"></div>
+</h1>
+<div class="form-div">
+	<form>
+		<img src="/admin/images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+		
+		<input type="text" name="keyword" value="{$_GET['keyword']}" placeholder="用户ID/手机号/会员昵称" />
+		<input type="submit" value=" 搜索 " />
+	</form>
+</div>
+	<!-- start users list -->
+	<div class="list-div" id="listDiv">
+				<!--用户列表部分-->
+		<table cellpadding="3" cellspacing="1">
+			<tr>
+				<th>
+					<input onclick='$("input:checkbox").attr("checked",this.checked)' type="checkbox">
+					<a>ID</a>
+					<img src="/admin/images/sort_desc.gif">				</th>
+				<th><a>会员昵称</a></th>
+				<th><a>姓名</a></th>
+				<th><a>手机</a></th>
+				<th>性别</th>
+				<th>注册日期</th>
+			</tr>
+			<foreach name="data['list']" item="r" key="k">
+			<tr>
+				<td>
+					<input id="{$r['id']}" type="checkbox" value="24" notice="0" />
+					{$r[id]}	</td>
+				<td class="first-cell">
+					<span style="margin-bottom: 2px; line-height: 14px; display: block;">{:$r['nickname']}</span>
+				</td>
+				<td><span>{$r['name']}</span></td>
+				<td><span>{$r['telephone']}</span></td>
+				<td>{$sex[$r['sex']]}</td>
+				<td align="center">{:date('Y-m-d H:i:s',$r['time_register'])}</td>
+			</tr>
+			</foreach>
+			<tr>
+				<td colspan="2">
+  				<form>
+					<span class="zhou"><label for="z0">提成比例：</label><input type="text" name="bili"  value="{$bili}" id="z0" />%</span>
+				</form>
+				</td>
+				<td align="right" nowrap="true" colspan="14">     
+            <div id="turn-page">
+        总计  <span id="totalRecords">{$data['pagesInfo']['total']}</span>
+        个记录分为 <span id="totalPages">{$data['pagesInfo']['pages_total']}</span>
+        页当前第 <span id="pageCurrent">{$data['pagesInfo']['now']}</span>
+        页，每页 {$data['pagesInfo']['gap']}条
+        <span id="page-link">
+          <a href="{$data['pagesInfo']['url']['first']}">第一页</a>
+          <a href="{$data['pagesInfo']['url']['up']}">上一页</a>
+          <a href="{$data['pagesInfo']['url']['down']}">下一页</a>
+          <a href="{$data['pagesInfo']['url']['last']}">最末页</a>
+          <select id="gotoPage" onchange="location.href=this.value">
+			<for start="1" end="$data['pagesInfo']['pages_total']" comparison="elt">
+				<option value="{:U('listing').'?p='.$i}">{$i}</option>
+			</for>
+		 </select>
+        </span>
+      </div>
+</td>
+			</tr>
+		</table>
+			</div>
+<script>
+$(".zhou input").change(function(){
+	$.post(document.URL,$(this).parents('form').serialize(),function(e){
+		layer.msg(e.msg);
+	}); 
+});
+</script>
+ <div id="footer">
+</div>
+</body>
+</html> 

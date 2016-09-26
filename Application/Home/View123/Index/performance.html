@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>业绩</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="/Public/m/css/public.css" />
+		<link rel="stylesheet" href="/Public/m/css/com.css">
+		<link rel="stylesheet" href="/Public/m/css/ng.css" />
+		<script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="/Public/m/js/ng.js" ></script>
+		<style type="text/css">
+			.map{
+				position:relative;
+				color:#fff;
+				font-size:12px;
+				height:140px;
+				background:url(/Public/m/images/background2.png) no-repeat;
+				background-size:100%;
+				padding-top:25px;
+			}
+			.drawing{
+				width:150px;
+				height:70px;
+				margin: auto;
+				
+			}
+			.drawing img{
+				display: inline-block;
+				width:44px;
+				height:44px;
+				margin-right:10px;
+			}
+			.drawing span{
+				display: inline-block;
+				height:35px;
+				color:#ffff00;
+				font-size:30px;
+			}
+			.expense{
+				position:absolute;
+				bottom:0;
+				width:100%;
+				text-align: center;
+				height:30px;
+				background:rgba(210, 238, 140, 0.6);
+			}
+			.expense span{
+				color:#ffff00;
+				font-size:18px;
+			}
+			.table{
+				margin-top:10px;
+			}
+			.table li{
+				border-top:1px solid #ddd;
+				padding:0 12px;
+				color:#737373;
+				height:41px;
+				line-height:41px;
+				background-color:#fff;
+			}
+			.table li:nth-child(1){
+				color:#B6D957;
+				background-color:#fafafa !important;
+			}
+			.boss{
+			}
+			.share{
+				float:left;
+			}
+			.share:nth-child(1){
+				width:40%;
+			}
+			.share:nth-child(2){
+				width:22%;
+			}
+			
+			.share:nth-child(3){
+				width:23%;
+			}
+			.share:nth-child(4){
+				width:15%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="map">
+			<div class="drawing">
+				<img src="/Public/m/images/income.png" />
+				<span>605</span>元
+				<div>累计金额</div>
+			</div>
+			<div class="expense">我经销商的会员消费金额  <span>8000元</span></div>
+		</div>
+		<div class="boss">
+			<ul class="table">
+				<li>
+					<div class="share">昵称</div>
+					<div class="share">身份</div>
+					<div class="share">消费金额</div>
+					<div class="share">提成</div>
+				</li>
+				<li>
+					<div class="share">蜂鸟科技有限公司</div>
+					<div class="share">经销商</div>
+					<div class="share">3000元</div>
+					<div class="share">300元</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>用户列表 - 发送信息 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script src="/Public/plugin/layer/layer.js"></script>
+<script type="text/javascript" src="/Public/koko.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="/Public/plugin/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/Public/plugin/ueditor/ueditor.all.min.js"> </script>
+</head>
+<body>
+<h1>
+<span class="action-span1"><span id="search_id" class="action-span1"> 发送信息 </span>
+<div style="clear:both"></div>
+</h1>
+
+
+<div id="tabbody-div">
+<form onsubmit="return sub()">
+  <table width="100%" id="general-table" align="center">
+    <tr>
+      <td>收件人</td>
+      <td><input name="name" type="text" readonly value="{$data['nickname']}" size="100" />
+	  <input type="hidden" name="id" value="{$data['id']}">
+	  <input type="hidden" name="send" value="1">
+    </tr>
+    <tr>
+      <td>主题</td>
+      <td><input name="title" type="text" size="100" /></td>
+    </tr>
+    <tr>
+      <td>邮件正文</td>
+      <td>
+    <textarea name="msg" id="content" style="width:100%;"></textarea>
+    <script type="text/javascript">
+    UE.getEditor("content",{
+    theme:"default", //皮肤
+    lang:"zh-cn",    //语言
+    initialFrameWidth:1000,  //初始化编辑器宽度,默认650
+    initialFrameHeight:350  //初始化编辑器高度,默认180
+    });
+    </script>	  </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align="center">
+        <input name="submit" type="submit" class="button" value="发送" />
+        <input type="hidden" name="act" value="send_act">
+      </td>
+    </tr>
+  </table>
+</form>
+</div>
+<include file="index/msg"/>
+<script>
+function sub(){
+$.post(document.URL,$("#tabbody-div form").serialize(),function(e){
+	e=JSON.parse(e);
+	if(e.state==1){
+		layer.alert("发送成功",function(){
+			history.go(-1);
+		});
+	}else{
+		layer.alert(e.msg);
+	}
+});
+return false;
+}
+</script>
+</body></html>

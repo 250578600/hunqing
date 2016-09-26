@@ -1,0 +1,149 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/html5.js"></script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/respond.min.js"></script>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="{$ADMIN_RES_PATH}static/h-ui/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>{$pageName}管理</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理 <span class="c-gray en">&gt;</span>{$pageName}管理<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+	<div class="cl pd-5 bg-1 bk-gray"> <span class="l"> <a  class="btn btn-danger radius kokoDel" selStr="td .checkbox"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加{$pageName}')"><i class="Hui-iconfont">&#xe600;</i> 添加{$pageName}</a> </span> 
+	 
+	 </div>
+	<table class="table table-border table-bordered table-hover table-bg">
+		<thead>
+			<tr>
+				<th scope="col" colspan="9">{$pageName}列表</th>
+			</tr>
+			<tr class="text-c">
+				<th width="25"><input type="checkbox" value="" name=""></th>
+				<th width="40">ID</th>
+				<th width="200">{$pageName}名</th>
+				<th width="200">输入类型</th>
+				<th width="200">输入限制</th>
+				<th width="70">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<foreach name="data" item="r" key="k">
+			<tr class="text-c">
+				<td><input type="checkbox" value="" name="" id="{$r.id}" class="checkbox"></td>
+				<td>{$r.id}</td>
+				<td>{$r.name}</td>
+				<td>{:$info['type'][$r['type']]}</td>
+				<td>{$r.values}</td>
+				<td class="f-14">
+				<a title="编辑" href="javascript:;" onclick="admin_role_add('{$pageName}编辑',{$r.id})" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+				<a title="删除" href="javascript:;"  class="ml-5 kokoDel" id="{$r.id}" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+				</td>
+			</tr>
+			</foreach>
+		</tbody>
+	</table>
+<include file="Index::page"/>
+</div>
+<style>
+label,input[type=check]{cursor:pointer}
+</style>
+<div id="quan" style="display:none">
+<div style="height:100%">
+		<form id="tijiao" style="height:100%">
+		<input type="hidden" name="id" id="action_id" value="">
+	<div style="width:100%;">
+	<table class="table table-border table-bordered table-hover table-bg">
+		<tr><th>{$pageName}名称</th><td><input type="text" name="data[name]" id="name" class="input-text" style="width:200px"></td></tr>
+		<tr><th>输入类型</th><td><select name="data[type]" id="type">
+			<foreach name="info['type']" item="r" key="k">
+				<option value="{$k}">{$r}</option>
+			</foreach>
+		</select></td></tr>
+		<tr><th>可选值</th><td>
+		<textarea id="values" placeholder ="一行一条数据" style="width:70%;height:100px"></textarea>
+		<input type="hidden" name="data[values]" value="">
+		</td></tr>
+	</table>
+		<div style="text-align:center">
+		<a style="margin:5px" class="btn-primary btn kokoSave" ajax="{$ajax.add}" before="check_data" form="#tijiao">提交</a>
+		</div>
+	</div>
+		</form>
+</div>
+</div>
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="{$ADMIN_RES_PATH}static/h-ui/js/H-ui.admin.js"></script> 
+<script type="text/javascript" src="/Public/koko2.js" ></script>
+<script type="text/javascript">
+data_arr={:json_encode($data)};
+data={};
+$.each(data_arr,function(){
+	data[this.id]=this;
+});
+$(function(){
+	new kokoAPI({switcher:{off:"label-success",on:"label-defaunt",'html-off':'已启用','html-on':'已停用',ajax:'{$ajax.switcher}'},del:{ajax:"{$ajax.del}"}},'{:U("ajax")}');
+	new kokoAPI({switcher:{on:"label-success",off:"label-defaunt",'html-on':'已启用','html-off':'已停用',ajax:'{$ajax.switcher}',class:'kokoSwitch2'}},'{:U("ajax")}');
+});
+/*管理员-角色-添加*/
+var html=$("#quan").html();
+function admin_role_add(title,id){
+	$("#quan").html('');
+	layer_show_html(title,html,'500px','400px');
+	new kokoAPI({save:{}},'{:U("ajax")}');
+	if(id!=null){
+		var d=data[id];
+		$("#type option").each(function(i,e){
+			if(e.value==d.type){
+				$("#type")[0].selectedIndex=i;
+				return false;
+			}
+		});
+		$("#action_id").val(id);
+		$("#name").val(d.name);
+		$("#values").val(JSON.parse(d.values).join("\n"));
+	}
+}
+function check_data(){
+	$("#values").next().val(JSON.stringify($("#values").val().split("\n")));
+	if($("#name").val().length==0){
+		layer.alert("请输入{$pageName}名称");
+		return false;
+	}
+}
+/*管理员-角色-编辑*/
+function admin_role_edit(title,url,id,w,h){
+	layer_show(title,url,w,h);
+}
+/*管理员-角色-删除*/
+function admin_role_del(obj,id){
+	layer.confirm('角色删除须谨慎，确认要删除吗？',function(index){
+		//此处请求后台程序，下方是成功后的前台处理……
+		
+		
+		$(obj).parents("tr").remove();
+		layer.msg('已删除!',{icon:1,time:1000});
+	});
+}
+</script>
+</body>
+</html>

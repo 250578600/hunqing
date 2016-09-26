@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>确认订单</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="/Public/m/css/public.css" />
+		<link rel="stylesheet" href="/Public/m/css/mui.min.css" />
+		<script type="text/javascript" src="/Public/m/js/jquery-1.11.0.js" ></script>
+		<script type="text/javascript" src="/Public/m/js/mui.min.js" ></script>
+		<script type="text/javascript" src="/Public/plugin/layer/layer.js" ></script>
+		<style type="text/css">
+			body{
+				font-size:18px;
+				font-family: "[FZLTHJW]";
+				background-color:#000;
+				margin-bottom:50px
+			}
+		
+			.message{
+				position:relative;
+				padding:10px 30px 14px;
+				color:#c3ad75;
+				border-bottom:1px dashed #c3ad75;
+				background:url(/Public/m/img/liangjiedingweitu.png)8px 39px no-repeat;
+				background-size:13px;
+				background-color:#171717;
+				
+			}
+			.name{
+				margin-bottom:7px;
+				height:21px;
+			}
+			.mae{
+				float:left;
+			}
+			.number{
+				float:left;
+				margin-left:40px;
+			}
+			.mo{
+				
+				float:left;
+				margin-left:20px;
+				color:#fff;
+				padding:0 7px;
+				background-color:#16c460;
+				font-size: 14px;
+			}
+			.site{
+				font-size:16px;
+				line-height:22px;
+			}
+			.commodity{
+				height:40px;
+				line-height: 40px;
+				padding-left:10px;
+				color:#c3ad75;
+				font-size:16px;
+			}
+			.table{
+				background-color:#171717;
+				padding:10px 15px;
+				color:#c3ad75;
+				font-size:14px;
+			}
+			.table img{
+				float:left;
+				width:65px;
+				display: block;
+			}
+			.font{
+				margin-top:13px;
+				float:left;
+				width:165px;
+				margin-left:5px;
+				line-height:20px;
+			}
+			.right{
+				margin-top:13px;
+				float:right;
+				text-align:right;
+				line-height:20px;
+			}
+			.bottom{
+				background-color:#171717;
+				color:#fff;
+				height:50px;
+				line-height:50px;
+				position:fixed;
+				bottom:0;
+				width:100%;
+			}
+			.bottom div{
+				float:right;
+			}
+			.should{
+				font-size:13px;
+			}
+			.money{
+				color:#c3ad75;
+				margin-left:10px;
+			}
+			.refer{
+				background-color:#c3ad75;
+				padding:0 15px;
+				margin-left:15px;
+			}
+			.way{
+				line-height:45px;
+				background-color:#171717;
+				color:#c3ad75;
+			}
+			.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{
+				color:#16c460 !important;
+				
+			}
+			.mui-radio input[type=radio]:before{
+				font-size: 26px !important;
+			}
+			.mui-radio input[type=radio]{
+				top:9px !important;
+			}
+			.arrows{
+				position:absolute;
+				top:30px;
+				right:10px;
+				font-size:30px;
+			}
+		
+		</style>
+	</head>
+	<body>
+		<form>
+		<div class="message">
+			<div class="name">
+				<div class="mae">{$addr.name}</div>
+				<div class="number">{$addr.telephone}</div>
+				<if condition="$addr.selected">
+				<div class="mo">默认</div>
+				</if>
+			</div>
+			<div class="site">{$addr.province_}{$addr.city_}{$addr.county_}{$addr.address}</div>
+			<div class="arrows">></div>
+		</div>
+		<input type="hidden" name="addr_id" value="{$addr.id}"/>
+		<div class="commodity">商品信息</div>
+		<foreach name="data" item="r" key="k">
+		<div class="table">
+			<img src="{:$r['goods']['ex'][$r['goods_ex_id']]['thumb']?:$r['goods']['thumb']}" />
+			<div class="font">{$r.goods.title}-{$r['goods']['ex'][$r['goods_ex_id']]['name']}</div>
+			<div class="right">￥<price>{$r['goods']['ex'][$r['goods_ex_id']]['price']}</price></br>X<num>{$r.num}</num></div>
+			<div style="clear: both;"></div>
+		</div>
+		</foreach>
+		<!-- 
+		 -->
+		<div class="commodity">配送方式</div>
+		<div class="way">
+		<php>$a=0;</php>
+		<foreach name="kuaidi" item="r" key="k">
+			<div class="mui-input-row mui-radio mui-left woman">
+				<label>{$r}:<?php echo $freight[$k];?>元</label>
+				<input class="kuaidi" price="<?php echo $freight[$k];?>" name="kuaidi" {:$a++==0?'checked':''} value="{$k}" type="radio"/>
+			</div>
+		</foreach>
+		</div>
+		<div class="commodity">支付方式</div>
+		<div class="way">
+			<div class="mui-input-row mui-radio mui-left woman">
+				<label>微信支付</label>
+				<input class="" name="pay_type" checked value="xingye" type="radio"/>
+			</div>
+			<div class="mui-input-row mui-radio mui-left woman">
+				<label>银行卡支付</label>
+				<input class="" name="pay_type" value="xingye_bank" type="radio"/>
+				<input type="hidden" name="redirect_type" value="gp_pay"/>
+			</div>
+		</div>
+		</form>
+		<div class="bottom">
+			<div class="refer">提交订单</div>
+			<div class="money">￥367.00</div>
+			<div class="should">应付总额:</div>
+		</div>
+		<script>
+		$(".mui-radio").click(function(){
+			set();
+		});
+		function set(){
+			a=0;
+			$(".table").each(function(){
+				a+=parseFloat($(this).find('price').html())*parseInt($(this).find('num').html());
+			});
+			$(".kuaidi").each(function(){
+				if(this.checked)a+=parseFloat($(this).attr('price'));
+			});
+			$(".money").html("￥"+a);
+		}
+		set();
+		$(".refer").click(function(){
+			$.post("{:U('/Home/Pay')}",$("form").serialize(),function(e){
+				if(e.state==1){
+					location.href=e.url;
+				}else{
+					layer.alert(e.msg);
+				}
+			});
+		});
+		$(".arrows").click(function(){
+			location.href="{:U('/Home/Address')}?url="+encodeURIComponent(document.URL);
+		});
+		</script>
+	</body>
+</html>

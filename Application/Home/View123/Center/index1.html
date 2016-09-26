@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人中心</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="/Public/m/css/mui.min.css"/>
+		<link rel="stylesheet" href="/Public/m/css/public.css" />
+		<script src="/Public/m/js/jquery-1.11.0.js"></script>
+		<script src="/Public/m/js/mui.min.js"></script>
+		<style type="text/css">
+			body{
+				margin:0;
+				background-color:#000;
+			}
+			ul,li{
+				margin: 0;
+				padding: 0;
+				list-style-type:none;
+			}
+			a{
+				text-decoration:none;
+			}
+			.to{
+				margin-top:10px;
+				width: 100%;
+				height:100px;
+				background: url(/Public/m/img/beijin.png) no-repeat;
+				background-size:100% ;
+				background-color:#000;
+			}
+			.to img{
+				float:left;
+				display:block;
+				width:80px;
+				height:80px;
+				border-radius: 50%;
+				margin:0 20px;
+			}
+			.name{
+				color:#fff;
+			}
+			.name li{
+				line-height:19px;
+			}
+			.name li:nth-child(1){
+				padding-top: 3px;
+			}
+			.name li a{
+				color:#ececec;
+			}
+			.menu{
+				height:45px;
+				margin-bottom:10px;
+			}
+			.menu li{
+				float:left;
+				width:50%;
+				height:45px;
+				background-color:#171717;
+				color:#fff;
+				text-align: center;
+				
+			}
+			.menu li span{
+				color:#D6BE80;
+			}
+			.option{
+				display: block;
+				padding:0 10px;
+				color:#ececec;
+				height:45px;
+				line-height:45px;
+				background-color:#171717 ;
+				margin-bottom:5px;
+			}
+			.opti1{
+				float:left;
+				background:url(/Public/m/img/sign-01.png) left 3px top 6px no-repeat ;
+				background-size:27px;
+				padding-left:40px;
+			}
+			.opti2{
+				float:left;
+				background:url(/Public/m/img/sign-02.png) left 3px top 6px no-repeat ;
+				background-size:27px;
+				padding-left:40px;
+			}
+			.opti3{
+				float:left;
+				background:url(/Public/m/img/sign-03.png) left 3px top 6px no-repeat ;
+				background-size:27px;
+				padding-left:40px;
+			}
+			.opti4{
+				float:left;
+				background:url(/Public/m/img/sign-04.png) left 3px top 6px no-repeat ;
+				background-size:27px;
+				padding-left:40px;
+			}
+			.opti5{
+				float:left;
+				background:url(/Public/m/img/sign-05.png) left 3px top 6px no-repeat ;
+				background-size:27px;
+				padding-left:40px;
+			}
+			.option_right{
+				float: right;
+				color:#D6BE80;
+			}
+			.panel{
+				color:#ececec;
+				margin-bottom:5px;
+			}
+			.select{
+				background-color:#171717;
+			}
+			.select img{
+				display: block;
+				width:27px;
+				position: absolute;
+				left:13px;
+				top:6px;
+			}
+			.son{
+				background-color:#353535 !important;
+				
+				border-bottom:1px solid #6f6f6f;
+			}
+			.son:last-child{
+				border: none;
+			}
+			.mui-table-view:after{
+				background-color: transparent !important;
+			}
+			.mui-table-view:before {
+				background-color: transparent !important;
+			}
+			.mui-navigate-right:after, .mui-push-right:after{
+				right:6px;
+			}
+			.mui-navigate-right:after{
+				color:#D6BE80 !important;
+				font-size:17px !important;
+				font-weight:600;
+			}
+			.mui-table-view-cell>a:not(.mui-btn){
+				padding-left:50px;
+			}
+			.son p{
+				color:#ececec !important;
+			}
+			.front{
+				position:absolute;
+				left:10px;
+				font-size:18px;
+				top:8px;
+			}
+			.front span{
+				color:#FF0000;
+				margin:0 5px;
+			}
+			a:active{
+				color:#fff !important;
+			}
+			.so{
+				color: #D6BE80;
+				display: block;
+				padding-left:35px;
+				padding-right:15px;
+			}
+			.head{
+				display: block;
+				position: ;
+				width:27px;
+			}
+			.mui-table-view-cell.mui-collapse .mui-collapse-content
+			{
+				padding:11.5px 15px !important;
+			}
+			.son span{
+				float:right;
+			}
+			.po{
+				margin-bottom:70px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div  class="to">
+			<img src="{$user.thumb}"  onclick="location.href='{:U('ziliao')}'"/>
+			<ul class="name">
+				<li>用户名 : {$user.nickname}</li>
+				<li>ID : {$user.id}</li>
+				<li>会员 :{:$user['groupid']==1?'我还不是代言人':'代言人'} </li>
+				<if condition="$user['groupid'] eq 1">
+				<li><a href="{:U('apply')}">点击链接成为会员</a></li>
+				</if>
+			</ul>
+		</div>
+		<ul class="menu">
+			<li>
+				<div><span>{$user.withdraw}</span>元</div>
+				<div>累计提现财富</div>
+			</li>
+			<li>
+				<div><span>{$user.balance}</span>元</div>
+				<div>可提现财富</div>
+			</li>
+		</ul>
+		<div class="po">
+			<a href="{:U('/Home/Cart')}" class="option">
+				<div class="opti1">购物车</div>
+				<div class="option_right">></div>
+			</a>
+			<a href="{:U('/Home/Address')}" class="option">
+				<div class="opti2">收货地址</div>
+				<div class="option_right">></div>
+			</a>
+			<!--<a href="#" class="option">
+				<div class="opti3">我是代言人</div>
+				<div class="option_right">></div>
+			</a>
+			-->
+			<ul class="mui-table-view panel"> 
+			        <li class="mui-table-view-cell mui-collapse ">
+			            <a class="mui-navigate-right select" href="#">
+			            	<img src="/Public/m/img/sign-03.png" />
+			            	我是代言人
+			            </a>
+			            <div class="mui-collapse-content son">
+			                <p>
+			                	<a href="{:U('xia')}?type=0"class="so">一级代言人 <span> {$user.xia0} (0)</span></a>
+			                </p>
+			            </div>
+			            <div class="mui-collapse-content son">
+			                <p>
+			                	<a href="{:U('xia')}?type=1"class="so">二级代言人 <span> {$user.xia1} (0)</span></a>
+			                </p>
+			            </div>
+			            <div class="mui-collapse-content son">
+			                <p>
+			                	<a href="{:U('xia')}?type=2"class="so">三级代言人 <span> {$user.xia2} (0)</span></a>
+			                </p>
+			            </div>
+			        </li>
+			    </ul>
+			<a href="{:U('cai')}" class="option">
+				<div class="opti4">我的财富</div>
+				<div class="option_right">></div>
+			</a>
+			<a href="{:U('withdraw')}" class="option">
+				<div class="opti5">申请提现</div>
+				<div class="option_right">></div>
+			</a>
+		</div>
+		<include file="Index:footer" style="line-height:18px"/>
+	</body>
+</html>

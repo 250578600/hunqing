@@ -1,0 +1,9 @@
+﻿sql/
+ThinkPHP/
+Public/H-ui.admin_v2.4/
+Public/admin/
+Public/images/
+Public/plugin/
+Application/Runtime/
+Application/Common/Conf
+!ThinkPHP/Common/

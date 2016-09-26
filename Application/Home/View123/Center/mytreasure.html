@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的财富</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="/Public/m/css/public.css"/>
+		<style type="text/css">
+			body{
+				margin:0;
+				background-color:#000;
+			}
+			ul,li{
+				margin: 0;
+				padding: 0;
+				list-style-type:none;
+			}
+			a{
+				text-decoration:none;
+			}
+			
+			.to{
+				width: 100%;
+				height:100px;
+				background: url(/Public/m/img/beijin.png) no-repeat;
+				background-size:100%;
+				background-color:#000;
+				margin-top:10px;
+			}
+			.to img{
+				float:left;
+				display:block;
+				width:80px;
+				height:80px;
+				border-radius: 50%;
+				margin:0 20px;
+			}
+			.name{
+				color:#fff;
+			}
+			.name li{
+				line-height:19px;
+			}
+			.name li a{
+				color:#fff;
+			}
+			.treasure{
+				height:80px;
+				background-color:#171717;
+			}
+			.treasure li{
+				width:50%;
+				float: left;
+			}
+			.add{
+				color:#c6c6c6;
+				margin-left:10px;
+				padding:10px 0;
+			}
+			.mo{
+				margin-left:10px;
+				font-size:22px;
+				font-weight:600;
+				color: #D6BE80;
+			}
+			.surface{
+				background-color:#171717;
+				padding:0 10px;	
+				padding-bottom:20px;	
+				margin-bottom:70px;	
+				margin-top:10px;
+			}
+			.xian{
+				height:40px;
+				line-height:40px;
+				color:#cbcbcb;
+				border-bottom:1px solid #474747 ;
+			}
+			.xian span{
+				color:#D6BE80;
+				float:right;
+				font-weight: 600;
+			}
+			</style>
+	</head>
+	<body>
+		<div class="to">
+			<img src="/Public/m/img/touxiang.png" />
+			<ul class="name">
+				<li>用户名 : 张三</li>
+				<li>ID : 49199</li>
+				<li>会员 : 我还不是代言人</li>
+				<li><a href="#">点击链接成为会员</a></li>
+			</ul>
+		</div>
+		<ul class="treasure">
+			<li>
+				<div class="add">累计提现财富</div>
+				<div class="mo">￥1000.00</div>
+			</li>
+			<li>
+				<div class="add">可提现财富</div>
+				<div class="mo">￥1000.00</div>
+			</li>
+		</ul>
+		<div class="surface">
+			<div class="xian">未付款订单财富<span>0</span></div>
+			<div class="xian">已付款订单财富<span>0</span></div>
+			<div class="xian">已收货订单财富<span>0</span></div>
+			<div class="xian">已完成订单财富<span>0</span></div>
+			<div class="xian">已提现财富<span>0</span></div>
+			<div class="xian">可提现财富<span>0</span></div>
+		</div>
+
+<include file="index:footer" />
+	</body>
+</html>

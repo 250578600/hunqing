@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二维码</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <style>
+        .main{
+            width:100%;
+            background-image:url(/Public/m/images/qrimg.png);
+            background-size:100% 100%;
+            background-repeat:no-repeat;
+        }
+        .qrText{
+            width:80%;
+            position: absolute;
+            top:-25px;
+            left:0;
+            right:0;
+            bottom:0;
+            margin:auto;
+        }
+        .qrImg{
+            width:150px;
+            height:150px;
+            position: absolute;
+            left:0;
+            right:0;
+            bottom:40px;
+            margin:auto;
+        }
+        .hint{
+            width:150px;
+            text-align:center;
+            margin:auto;
+            color:#fff;
+            position: absolute;
+            left:0;
+            right:0;
+            bottom:10px;
+        }
+        .userImg{
+            height:80px;
+            width:80px;
+        	border-radius:50%;
+        }
+        .user{
+            /*width:200px;*/
+        }
+        .userName,.userHint{
+            margin-bottom: 0;
+            color:#abd141;
+            margin-left:15px;;
+        }
+        .userName{
+            margin-top:20px;
+        }
+        .topBox{
+            margin-top:70px;
+            /*width:295px;*/
+            /*margin:auto;*/
+        }
+    </style>
+</head>
+<body>
+        <div class="main">
+             <div class="z topBox">
+                <img src="{$user.thumb}" class="userImg z" alt="">
+                 <div class="z user">
+                     <p class="userName ellipsis">{$user.nickname}</p>
+                     <p class="userHint ellipsis">我一直用私颜卫生巾</p>
+                 </div>
+            </div>
+
+            <img src="/Public/m/images/qrtext.png" alt="" class="qrText">
+            <img src="{:U('qrcode')}?img=1" class="qrImg" alt="">
+            <p class="hint">长按识别二维码</p>
+        </div>
+</body>
+<script>
+    $(function(){
+        $(".main").css({
+           height:$(window).height() 
+        });
+        $(".topBox").css({
+           marginLeft:($(window).width()-$(".topBox").width())/2
+        });
+    });
+</script>
+</html>

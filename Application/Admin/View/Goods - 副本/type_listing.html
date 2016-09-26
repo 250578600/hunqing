@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>商品列表 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script src="/Public/plugin/layer/layer.js"></script>
+<script type="text/javascript" src="/Public/koko.js"></script>
+<script type="text/javascript" src="/Public/location.js"></script>
+</head>
+<body>
+
+<h1>
+<span class="action-span"><a href="javascript:add()">添加新分类</a></span>
+<span class="action-span1"> </span><span id="search_id" class="action-span1"> 分类列表 </span>
+<div style="clear:both"></div>
+</h1>
+
+<!-- 商品列表 -->
+  <!-- start goods list -->
+  <div class="list-div" id="listDiv">
+<table cellpadding="3" cellspacing="1" class="kokoTable" table="{:$table}">
+  <tr>
+    <th>
+      <input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox" />
+      <a>编号</a><img src="/admin/images/sort_desc.gif"/>    </th>
+	<th><a>分类名称</a></th>
+	<th><a>子分类名称</a></th>
+    <th><a>是否显示</a></th>
+	<th><a>推荐排序</a></th>
+    <!-- <th><a>库存</a></th>-->
+    <!-- <th>标签</th>-->
+    <th>操作</th>
+  </tr>
+	<foreach name="data" item="r" key="k">
+    <tr class="kokoId" id="{$r[id]}">
+    <td><input type="checkbox" name="checkboxes[]" value="{$r['id']}" />{$r['id']}</td>
+	<td class="first-cell" style=""><span class="kokoEdit" name="name">{$r['name']}</span></td>
+	<td class="first-cell" style=""><span class="kokoEdit" name="name"></span></td>
+    <td align="center"><img cur="{:$r['freeze']==0?'on':'off'}" on="/admin/images/yes.gif" off="/admin/images/no.gif" class="kokoSwitcher" key="freeze" callback="jia"/></td>
+    <td align="center"><span class="kokoEdit2">{$r['paixu']}</span></td>
+    <td align="center">
+<!--     <a href="javascript:add(id)" title="添加"><img src="/admin/images/icon_edit.gif" width="16" height="16" border="0" /></a>-->
+      <a href="javascript:del({$r['id']});" title="删除"><img src="/admin/images/icon_trash.gif" width="16" height="16" border="0" /></a>
+      <a href="javascript:add({$r['id']});" title="添加子分类">添加子分类</a>
+      <a href="javascript:void 0" onclick="zankai(this,{$r['id']});">合并</a>
+    </td>
+  </tr>
+  <foreach name="r['list']" item="r2" key="k2">
+    <tr class="kokoId parent{$r[id]}" id="{$r2[id]}">
+    <td><input type="checkbox" name="checkboxes[]" value="{$r2['id']}" />{$r2['id']}</td>
+	<td class="first-cell" style=""><span class="kokoEdit" name="name"></span></td>
+	<td class="first-cell" style=""><span class="kokoEdit" name="name">{$r2['name']}</span></td>
+    <td align="center"><img cur="{:$r2['freeze']==0?'on':'off'}" on="/admin/images/yes.gif" off="/admin/images/no.gif" class="kokoSwitcher" key="freeze" callback="jia"/></td>
+    <td align="center"><span class="kokoEdit2">{$r2['paixu']}</span></td>
+    <td align="center">
+<!--     <a href="javascript:add(id)" title="添加"><img src="/admin/images/icon_edit.gif" width="16" height="16" border="0" /></a>-->
+      <a href="javascript:del({$r2['id']});" title="删除"><img src="/admin/images/icon_trash.gif" width="16" height="16" border="0" /></a>
+    </td>
+  </tr>
+  </foreach>
+  </foreach>
+  </table>
+<!-- end goods list -->
+
+
+</div>
+
+<div>
+
+<!--  include file="index/msg"/ > -->
+<script language="JavaScript">
+ids=$(".kokoId");
+for(var i=0;i<ids.length;i++){
+	if(ids.eq(i)[0].id==<?php echo BDS_ID;?>){
+		ids.eq(i).find('.kokoEdit').attr('class','');
+		ids.eq(i).find('a').attr('href','javascript:void:0');
+	}
+}
+$(function(){
+	kokoAPI({edit:{url:'{:U("/Admin/index/ajax")}'},switch:{}});
+	kokoAPI({edit:{url:'{:U("/Admin/goods/type")}',s:'kokoEdit2'}});
+});
+function add(id){
+	if(typeof id=='undefined')id=0;
+	layer.prompt({
+		title:'请输入分类名称'
+	},function(name){
+		$.post(document.URL,{action:'insert',parent_id:id,name:name},function(e){
+			if(e.state==1){
+				layer.msg("操作成功");
+				setTimeout(function(){
+					location.reload();
+				},1000);
+			}else{
+				layer.alert(e.msg);
+			}
+		});
+	});
+//	
+}
+function del(id){
+	$.post("{:U('/admin/goods/ajax')}",{action:'del',to:'fenlei','where':id},function(e){
+		if(e.state==1){
+			location.reload();
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+}
+function zankai(a,id){
+	if($(a).text()=="展开"){
+		$(".parent"+id).show();
+		$(a).html("合并");
+	}else{
+		$(".parent"+id).hide();
+		$(a).html("展开");
+	}
+}
+function jia(this_){
+	$.ajaxSetup({async:false});
+	$ret=true;
+	$.post("{:U('/admin/goods/ajax')}",{id:this_.parents(".kokoId").attr("id"),to:'fenlei',action:'lei_switcher',key:$(this_).attr("key"),value:$(this_).attr("cur")=='on'?'0':'1'},function(e){
+		if(e.state==1){
+			layer.msg("操作成功");
+		}else{
+			layer.alert(e.msg);
+			$ret=false;
+		}
+	});
+	$.ajaxSetup({async:true});
+	return $ret;
+}
+</script>
+</body>
+</html>

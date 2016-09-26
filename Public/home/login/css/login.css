@@ -1,0 +1,54 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	margin: 0;
+	background-color: #fff !important;
+	overflow-x: hidden;
+}
+#popup-login-box{
+	position: absolute !important;
+	left: 20px !important;
+	top: 190px !important;
+	margin: 0 !important;
+	background-color: rgba(255, 255, 255, .5) !important;
+}
+#login-children-close{
+	display: none !important;
+}
+#footer-box{
+	position: absolute !important;
+	left: 0 !important;
+	top: 830px !important;
+	border: 0 !important;
+}
+.main-box{
+	position: relative;
+	width: 1000px;
+	height: 1175px;
+	margin: 0 auto;
+}
+.bg-box{
+	position: absolute;
+	display: block;
+	left: -460px;
+	top: 0;
+	width: 1920px;
+	height: 830px;
+}
+.logo{
+	position: absolute;
+	left: 0;
+	top: 25px;
+	
+}
+.register{
+	position: absolute;
+	right: 0;
+	top: 30px;
+	text-decoration: none;
+	color: #2E8AE5;
+	font-size: 18px;
+	
+}
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/personalCenter.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/personalCenter.js"></script>
+</head>
+<body>
+<div class="main">
+    <div class="mainTop">
+        <div class="headBox">
+            <img src="/Public/m/images/center/headImg.jpg" class="paAuto" alt="">
+        </div>
+        <div class="userBox">
+            <div class="userLv">
+                会员
+            </div>
+            <div class="userName">
+                areyoukidd
+            </div>
+        </div>
+        <div class="mainTopBottom cl">
+            <a href="accountDetails.html" class="z moneyBox">
+                <div class="z">
+                    <img src="/Public/m/images/center/save.png" class="moneyIcon" alt="">
+                    <div class="moneyText">钱包余额</div>
+                </div>
+                <div class="z money">
+                    <span>405</span>
+                    元
+                </div>
+            </a>
+            <input type="button" class="y withdrawal" value="提现" >
+        </div>
+        <a class="email" href="newList.html">
+            <img src="/Public/m/images/center/xiaoxi.png" alt="">
+            <div class="red"></div>
+        </a>
+        <img src="/Public/m/images/center/qr.png" class="qrImg" alt="">
+    </div>
+    <div class="mainList">
+        <a href="javascript:void(0)"  class="messageTemplate cl">
+            <img src="/Public/m/images/center/icon1.png" class="z icon" alt="">
+            <div class="z">我的订单</div>
+            <img src="/Public/m/images/index/right.png" class="y rightImg" alt="">
+        </a>
+        <a href="wanshan.html"  class="messageTemplate cl">
+            <img src="/Public/m/images/center/icon2.png" class="z icon" alt="">
+            <div class="z">账户安全</div>
+            <img src="/Public/m/images/index/right.png" class="y rightImg" alt="">
+        </a>
+        <a href="recommendPeople.html"  class="messageTemplate cl">
+            <img src="/Public/m/images/center/icon3.png" class="z icon" alt="">
+            <div class="z">我的推广</div>
+            <img src="/Public/m/images/index/right.png" class="y rightImg" alt="">
+        </a>
+        <a href="results.html"  class="messageTemplate cl">
+            <img src="/Public/m/images/center/icon4.png" class="z icon" alt="">
+            <div class="z">我的业绩</div>
+            <img src="/Public/m/images/index/right.png" class="y rightImg" alt="">
+        </a>
+        <a href="bindBank.html"  class="messageTemplate cl">
+            <!--绑定了银行卡进入BankChange.html-->
+            <!--没绑定了银行卡进入bindBank.html-->
+            <img src="/Public/m/images/center/icon5.png" class="z icon" alt="">
+            <div class="z">银行卡</div>
+            <img src="/Public/m/images/index/right.png" class="y rightImg" alt="">
+        </a>
+        <a href="address.html"  class="messageTemplate cl">
+            <img src="/Public/m/images/center/icon6.png" class="z icon" alt="">
+            <div class="z">收货地址</div>
+            <img src="/Public/m/images/index/right.png" class="y rightImg" alt="">
+        </a>
+        <a href="photo.html"  class="messageTemplate cl">
+            <img src="/Public/m/images/center/icon7.png" class="z icon" alt="">
+            <div class="z">营业执照</div>
+            <img src="/Public/m/images/index/right.png" class="y rightImg" alt="">
+        </a>
+    </div>
+</div>
+<div class="verifyMasking none">
+    <div class="verify paAuto">
+        <div class="verifyTitle cl">
+            <img src="/Public/m/images/center/x.png" class="y closeVerify" alt="">
+        </div>
+        <div class="hintOne">
+            对不起，您还不是经销商
+        </div>
+        <div class="hintTwo">
+            一次性购买200包产品，成为即可成为
+            经销商。
+        </div>
+    </div>
+</div>
+
+
+<div class="messageMasking none">
+    <div class="message paAuto">
+         <div class="messageHint">
+             为了您的资金安全，<br>
+             请先完善“账户安全”的信息
+         </div>
+         <a href="javascript:void(0)" class="goMessage">
+                去完善
+         </a>
+    </div>
+</div>
+
+     <footer class="cl"></footer>
+</body>
+<script>
+    addFooter(3);
+    $(".withdrawal").click(function(){
+        $(".verifyMasking").show();
+    });
+    $(".verifyMasking,.messageMasking").css({
+        height:$(window).height()
+    });
+    $(".closeVerify").click(function(){
+      $(".verifyMasking").hide();
+    });
+</script>
+</html>

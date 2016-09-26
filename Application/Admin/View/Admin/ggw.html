@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  <head>
+    <title>
+       广告位
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/admin/styles/general.css" rel="stylesheet" type="text/css"/>
+    <link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/Public/koko.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/Public/plugin/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/Public/plugin/ueditor/ueditor.all.min.js"> </script>
+	
+	<script src="/Public/location.js"></script>
+	
+	<link href="/Public/plugin/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css">
+	<script src="/Public/plugin/datetimepicker/jquery.datetimepicker.js"></script>
+	
+	<script src="/Public/plugin/layer/layer.js"></script>
+	<script src="/Public/plugin/smartMenu/jquery-smartMenu-min.js"></script>
+    <link href="/Public/plugin/smartMenu/smartMenu.css" rel="stylesheet" type="text/css" />
+    <script language="JavaScript">
+	$(function(){
+		kokoAPI({tab:{cur:'tab-front',curOld:'tab-back',hover:'css'},upload:{url:'upload2',multiple:1}});
+		
+	});
+    </script>
+	<style>
+	.date table{border-collapse:collapse;border-spacing:0;border-left:1px solid #888;border-top:1px solid #888;background:#efefef;}
+	.date th{border-right:1px solid #888;border-bottom:1px solid #888;padding:5px 15px;font-weight:bold;background:#ccc;}
+	.date td{border-right:1px solid #888;border-bottom:1px solid #888;padding:0}
+	.project-add{padding-top:10px}
+	.project-add span{padding: 6px;background: #D7D7D7;cursor:pointer}
+	</style>
+  </head>
+  
+  <body>
+    <h1>
+      <span class="action-span">
+        <a href="{:U('sai')}">
+         赛事列表
+        </a>
+      </span>
+      <span id="search_id" class="action-span1">
+         广告位
+      </span>
+      <div style="clear:both">
+      </div>
+    </h1>
+    <!-- start goods form -->
+    <div class="tab-div">
+      <!-- tab bar -->
+      <!-- tab body -->
+      <div id="" style="padding:0">
+        <form id="form" onsubmit="return false">
+		<input type="hidden" name="id" value="{:$data['id']}"/>
+		<input type="hidden" name="goods_id" value="{:$data['saishi']['id']}">
+          <div class="tabTo" style="height:0">
+              	<div class="modelA" style="float:left;margin:20px;width:180px;">
+				<img src="" id="thumb" style="width:180px;height:120px;"/>
+              	<input type="hidden" id="src" name="data[src][]"/>
+              	<input type="text" id="img_name" onchange="http(this)" name="data[href][]" value="" style="width:180px;margin-top: 10px" />
+				</div>
+				<foreach name="data['ggw']" item="r" key="k">
+              		<div class="model" style="float:left;margin:20px;width:180px;">
+					<img src="{$r['src']}" id="thumb" style="width:180px;height:120px;"/>
+              	 	 <input type="hidden" id="src" name="data[src][]" value="{$r['src']}"/>
+              	 	 <input type="text" id="img_name" onchange="http(this)" name="data[href][]" value="{$r['href']}" style="width:180px;margin-top: 10px" />
+					</div>
+				</foreach>
+              	<div class="kokoUpload insertA" style="float:left;margin:20px;cursor:pointer"  callback="bindme" model="modelA" insertBefore=".insertA" img="#thumb" input="#src">
+				<img src="/admin/images/imageAdd.png" id="thumb" style="width:180px;height:120px;"/>
+				</div>
+          </div>
+		  <div class="button-div" style="width: 100%;float: left;">
+        <input id="goods_info_submit" type="submit" value=" 确定 " class="button" style="margin-left:50px;">
+       </div>
+        </form>
+      </div>
+	  
+<include file="index/msg"/>
+    </div>
+
+	<script>
+ function http(e){
+	 if(e.value.substr(0,4)!='http'){
+		 layer.alert("跳转链接的格式错误");
+		 e.value='';
+	 }
+ }
+$('.Date').datetimepicker({value:'{$data['sale_time']}',step:1});
+$(".project-add span").click(function(){
+	var a=$(this).parent().prev().find(".line").eq(0).clone();
+	a.find('input:text').val('');
+	a.find('.hiddenID').val('');
+	$(this).parent().prev().append(a);
+});
+$("#goods_info_submit").click(function(){
+	$.post(document.URL,$("#form").serialize(),function(e){
+		if(e.state==1){
+			layer.alert("操作成功");
+			setTimeout(function(){
+				location.href="{:U('sai')}";
+			},2000);
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+});
+$menuData=[[{text:"删除",func:function(){
+	var e=$(this);
+	e.remove();
+}}]];
+function bindme(e){
+	e.smartMenu($menuData);
+}
+$(".model").smartMenu($menuData);
+	</script>
+
+  </body>
+
+</html>

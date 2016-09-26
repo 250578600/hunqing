@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<title>用户列表 - 收货地址 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script src="/Public/plugin/layer/layer.js"></script>
+<script type="text/javascript" src="/Public/koko.js"></script>
+
+</head>
+<body>
+<h1>
+<span class="action-span"><a href="users.php?act=list&amp;uselastfilter=1">会员列表</a></span>
+<span class="action-span1"><a href="index.php?act=main"> 管理中心</a> </span><span id="search_id" class="action-span1"> - 收货地址 </span>
+<div style="clear:both"></div>
+</h1>
+<div class="list-div">
+  <table width="100%" cellpadding="3" cellspacing="1">
+     <tbody><tr>
+      <th>收货人</th>
+      <th>地址</th>
+      <th>联系方式</th>
+    </tr>
+	<if condition="$list">
+		<foreach name="list" item="r" key="k">
+			<tr><td>{$r['name']}</td><td>{$r['province_']} {$r['city_']} {$r['county_']} {$r['address']}</td><td>{$r['telephone']}</td></tr>
+		</foreach>
+	<else/>
+      <tr><td class="no-records" colspan="4">没有找到任何记录</td></tr>
+	</if>
+    </tbody></table>
+</div>
+</body></html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单详情—{:$state[$data['state']]}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/order2_D.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/order2_D.js"></script>
+		<script src="/Public/plugin/layer/layer.js"></script>
+</head>
+<body>
+<style>
+.footer .btn {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    padding: 0 3px;
+    background-color: #b6d957;
+    min-width: 50px;
+    margin: 5px 6px;
+}
+</style>
+    <div class="main">
+            <div class="state allGreen">
+               {:$state[$data['state']]}
+            </div>
+        <div class="orderTemplate vip cl">
+				<foreach name="data['ex']" item="r2" key="k2">
+            <div class="goodsTemplate cl">
+                <div class="z goodsImg pr">
+                    <img src="{$r2.goods.thumb}" alt="" class="paAuto" onclick="location.href='{:U('/Home/Index/detail')}?id={$r2.goods_id}'">
+                </div>
+                <div class="z goodsName">
+                    {$r2.goods.title}
+                </div>
+                <div class="y goodsPrice">
+                    <div class="vipPrice">
+                        <img src="/Public/m/images/all/v.png" alt="">
+                        <span>{$r2.goods.price_}</span>
+                    </div>
+                    <div class="price">
+                        原<span>{$r2.goods.price}</span>
+                    </div>
+                    <div class="number">
+                        x<span>{$r2.num}</span>
+                    </div>
+                </div>
+            </div>
+				</foreach>
+            <div class="conclusionTemplate cl">
+                 合计:<span class="money">￥<span >{:$data['sum']}</span></span>（含运费:￥<span class="postage">{$data['freight']}</span>）
+            </div>
+        </div>
+        <div class="orderBox">
+            <div class="orderNum">
+                订单编号:<span>{$data.order_sn}</span>
+            </div>
+            <div class="orderTime">
+                下单时间:<span> {:date('Y-m-d H:i:s',$data['create_time'])}</span>
+            </div>
+            <if condition="$data['state'] gt 0">
+            <div class="orderTime">
+                付款时间:<span> {:date('Y-m-d H:i:s',$data['pay_time'])}</span>
+            </div>
+            </if>
+            <if condition="$data['state'] gt 1">
+            <div class="orderTime">
+                发货时间:<span> {:date('Y-m-d H:i:s',$data['fahuo_time'])}</span>
+            </div>
+            </if>
+            <if condition="$data['state'] gt 2">
+            <div class="orderTime">
+                收货时间:<span> {:date('Y-m-d H:i:s',$data['shouhuo_time'])}</span>
+            </div>
+            </if>
+        </div>
+        <div class="orderAddres cl">
+            <div class="z name">
+                收件人:<span>{$data.name}</span>
+            </div>
+            <div class="z phone" style="margin-left:10px">
+                <span>{$data.telephone}</span>
+            </div><br/>
+            <div class="z addres">
+                收货地址:<span>{$data.privince}{$data.city}{$data.county}{$data.address}</span>
+            </div>
+        </div>
+    </div>
+    <div class="Mask none">
+            <div class="cancel paAuto">
+                <div class="title allGreen">
+                    请选择取消订单的原因
+                </div>
+                <div class="selectBox paAuto">
+                    <div class="select cl selectClick">
+                        <div class="z selectState">
+                            <div class="click paAuto">
+
+                            </div>
+                        </div>
+                        <div>
+                            不想买了
+                        </div>
+                    </div>
+                    <div class="select cl">
+                        <div class="z selectState">
+                            <div class="click paAuto">
+
+                            </div>
+                        </div>
+                        <div>
+                            信息填错，重新下单
+                        </div>
+                    </div>
+                    <div class="select cl">
+                        <div class="z selectState">
+                            <div class="click paAuto">
+
+                            </div>
+                        </div>
+                        <div>
+                            其他原因
+                        </div>
+                    </div>
+                </div>
+                <div class="yes">
+                        确定
+                </div>
+                <div class="no">
+                        取消
+                </div>
+            </div>
+    </div>
+
+    <div class="moneyMask none">
+        <div class="moneyBox">
+            <div class="moneyTitle cl">
+                    付款详情
+            </div>
+            <img src="/Public/m/images/center/x.png" class="closeMoney" alt="">
+            <div class="payStyle cl">
+                <div class="payStyleTitle">
+                    付款方式
+                </div>
+                <div class="styleTemplate z">
+                    <img src="/Public/m/images/qian3.png" class="z fangshi" alt="">
+                    <p class="z">微信支付</p>
+                    <img src="/Public/m/images/all/choose2_green.png" class="y xuan" alt="">
+                </div>
+                <div class="styleTemplate z">
+                    <!--如果钱包金额足够支付显示下面的-->
+                    <img src="/Public/m/images/qian2.png" class="z fangshi" alt="">
+                    <p class="z">钱包支付</p>
+                    <!--如果钱包金额不足显示下面的-->
+                    <!--<img src="/Public/m/images/qian1.png"  class="z fangshi buzu" alt="">-->
+                    <!--<p class="z" style="color:#b2b2b2">钱包支付(余额不足）</p>-->
+                    <img src="/Public/m/images/all/choose2_gray.png" class="y xuan" alt="">
+                </div>
+                <div class="moneySum z">
+                    <p class="z">付款金额</p>
+                    <p class="y">{$data.sum}</p>
+                </div>
+                <input type="button" class="z payConfirm" value="去付款" onclick="pay()">
+            </div>
+        </div>
+
+    </div>
+    <div class="footer">
+    <if condition="$data['state'] eq 0">
+        <input type="button" class="y cancelBtn" value="取消订单">
+        <input type="button" class="y payBtn" value="付款">
+    <elseif condition="$data['state'] eq 2"/>
+        <input type="button" class="y btn" value="收货" onclick="shouhuo()">
+    <elseif condition="$data['state'] eq 3"/>
+        <input type="button" class="y btn" value="评价" onclick="judge()">
+        <input type="button" class="y btn" value="申请退货" onclick="tui()">
+    <elseif condition="$data['state'] eq 5"/>
+        <input type="button" class="y btn" value="填写运单号" onclick="yundan()">
+    <elseif condition="$data['state'] eq 6"/>
+        <input type="button" class="y btn" value="查看原因" onclick="layer.alert('{$data['tuihuo']['reason_refuse']}')">
+    </if>
+    <if condition="$data['state'] gt 1 and $data['state'] lt 4">
+        <input type="button" class="y btn" value="查看物流" onclick="location.href='http://m.kuaidi100.com/result.jsp?nu={$data.waybill}'">
+    </if>
+	<if condition="$data['state'] eq 8 or $data['state'] eq 7">
+        <input type="button" class="y btn" value="查看退货物流" onclick="location.href='http://m.kuaidi100.com/result.jsp?nu={$data.tuihuo.waybill}'">
+	</if>
+    </div>
+
+</body>
+<script>
+    $(function(){
+       $(".styleTemplate").click(function(){
+           if($(this).find(".fangshi").hasClass("buzu")){
+
+           }else {
+               $(".styleTemplate").find(".xuan").attr("src","/Public/m/images/all/choose2_gray.png");
+               $(this).find(".xuan").attr("src","/Public/m/images/all/choose2_green.png");
+           }
+       });
+    });
+    function pay(){
+    	var obj={sn:'{$data.order_sn}'};
+    	$a=$(".styleTemplate"); 
+    	if($a.eq(0).find(".xuan")[0].src.indexOf("green")>0){
+    		obj.pay_type='weixin';
+    	}else{
+    		obj.pay_type='yue';
+    	}
+    	$.post("{:U('Pay/pay')}",obj,function(e){
+    		if(e.state==1){
+    			location.href=e.url;
+    		}else{
+    			layer.alert(e.msg);
+    		}
+    	});
+    }
+	function shouhuo(){
+		var sn='{$data.order_sn}';
+		$.post("{:U('ajax')}",{action:'shouhuo',sn:sn},function(e){
+			if(e.state==1){
+				layer.msg(e.msg,function(){
+					location.reload();
+				});
+			}else{
+				layer.alert(e.msg);
+			}
+		});
+	}
+	function judge(){
+		var sn='{$data.order_sn}';
+		layer.prompt({
+			formType:2,
+			title:'请输入您的评价',
+		},function(e){
+			if(e.length){
+				$.post("{:U('ajax')}",{action:'judge',msg:e,sn:sn},function(r){
+					layer.msg(r.msg,function(){
+						if(r.state==1){
+							location.reload();
+						}else{
+							layer.alert(e.msg);
+						}
+					});
+				});
+			}else{
+				layer.alert("请输入内容");
+			}
+		});
+	}
+	function tui(){
+		var sn='{$data.order_sn}';
+		layer.prompt({
+			formType:2,
+			title:'请输入退货理由',
+		},function(e){
+			if(e.length){
+				$.post("{:U('tuihuo')}",{reason:e,sn:sn},function(r){
+					layer.msg(r.msg,function(){
+						if(r.state==1){
+							location.reload();
+						}else{
+							layer.alert(e.msg);
+						}
+					});
+				});
+			}else{
+				layer.alert("请输入内容");
+			}
+		});
+	}
+	function yundan(){
+		var sn='{$data.order_sn}';
+		layer.prompt({
+			formType:2,
+			title:'请输入你退货发出的快递运单号',
+		},function(e){
+			if(e.length){
+				$.post("{:U('yundan')}",{waybill:e,sn:sn},function(r){
+					layer.msg(r.msg,function(){
+						if(r.state==1){
+							location.reload();
+						}else{
+							layer.alert(e.msg);
+						}
+					});
+				});
+			}else{
+				layer.alert("请输入内容");
+			}
+		});
+	}
+    //点击确定
+    $(".yes").click(function(){
+        $.post("{:U('ajax')}",{action:'del','where':'{$data.id}'},function(e){
+			if(e.state==1){
+				layer.msg(e.msg,function(){
+					location.href=document.referrer;
+				});
+			}else{
+				layer.alert(e.msg);
+			}
+		});
+    });
+</script>
+</html>

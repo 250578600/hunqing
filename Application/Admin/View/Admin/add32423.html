@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> 管理中心 - 会员列表 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link href="/admin/styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+<script src="/Public/plugin/layer/layer.js"></script>
+<script type="text/javascript" src="/Public/koko.js"></script>
+	<link href="/Public/plugin/jcDate/css/jcDate.css" rel="stylesheet" type="text/css">
+	<script src="/Public/plugin/jcDate/js/jQuery-jcDate.js"></script>
+
+</head>
+<body>
+<h1>
+<span class="action-span"><a href="{:U('listing')}">会员列表</a></span>
+<span class="action-span1"><span id="search_id" class="action-span1"> 添加账号 </span>
+<div style="clear:both"></div>
+</h1>
+<div class="main-div">
+<form onsubmit="return sub()">
+<table width="100%">
+  <tbody><tr>
+    <td class="label">用户名:</td>
+    <td><input type="text" name="username" maxlength="60" value="{$data['username']}"><span class="require-field">*</span></td>
+  </tr>
+    <tr>
+    <td class="label">邮件地址:</td>
+    <td><input type="text" id="email" name="email" maxlength="60" size="40" value="{$data['email']}"><span class="require-field">*</span></td>
+  </tr>
+  <tr>
+    <td class="label">手机:</td>
+    <td><input type="text" id="mobile_phone" name="telephone" maxlength="60" size="40" value="{$data['telephone']}"><span class="require-field">*</span></td>
+  </tr>
+    <tr>
+    <td class="label">登录密码:</td>
+    <td><input type="password" name="password" maxlength="20" size="20"><span class="require-field">*</span></td>
+  </tr>
+  <tr>
+    <td class="label">确认密码:</td>
+    <td><input type="password" name="confirm_password" maxlength="20" size="20"><span class="require-field">*</span></td>
+  </tr>
+
+      <tr>
+    <td colspan="2" align="center">
+      <input type="submit" value=" 确定 " class="button">
+      <input type="hidden" name="action" value="{:isset($data)?'edit':'add'}">
+      <input type="hidden" name="groupid" value="1">
+      <input type="hidden" name="id" value="{$data['id']}">    </td>
+  </tr>
+</tbody></table>
+
+</form>
+</div>
+
+
+<include file="index/msg"/>
+<script language="JavaScript">
+	$(".jcDate").jcDate({					       
+			IcoClass : "jcDateIco",
+			Event : "click",
+			Speed : 100,
+			Left : 0,
+			Top : 28,
+			format : "-",
+			Timeout : 100
+	});
+	function sub(){
+		$.post(document.URL,$(".main-div form").serialize(),function(e){
+			if(e.state==1){
+				layer.alert("操作成功",function(){
+					location.href="{:U('listing')}";
+				});
+			}else{
+				layer.alert(e.msg);
+			}
+		});
+		return false;
+	}
+</script>
+</body>
+</html> 

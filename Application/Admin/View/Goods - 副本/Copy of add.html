@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  <head>
+    <title>
+       添加新商品
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/admin/styles/general.css" rel="stylesheet" type="text/css"/>
+    <link href="/admin/styles/main.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Public/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/Public/koko.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/Public/plugin/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/Public/plugin/ueditor/ueditor.all.min.js"> </script>
+	
+	<script src="/Public/location.js"></script>
+	
+	<link href="/Public/plugin/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css">
+	<script src="/Public/plugin/datetimepicker/jquery.datetimepicker.js"></script>
+	
+	<script src="/Public/plugin/layer/layer.js"></script>
+	<script src="/Public/plugin/smartMenu/jquery-smartMenu-min.js"></script>
+    <link href="/Public/plugin/smartMenu/smartMenu.css" rel="stylesheet" type="text/css" />
+    <script language="JavaScript">
+	$(function(){
+		kokoAPI({tab:{cur:'tab-front',curOld:'tab-back',hover:'css'},upload:{}});
+		var ue = UE.getEditor('editor');
+		setTimeout(function(){
+			ue.execCommand('insertHtml', $('#info').html());
+		},1000);
+		showLocation("{$data['province']},{$data['city']}");
+	});
+    </script>
+	<style>
+	.date table{border-collapse:collapse;border-spacing:0;border-left:1px solid #888;border-top:1px solid #888;background:#efefef;}
+	.date th{border-right:1px solid #888;border-bottom:1px solid #888;padding:5px 15px;font-weight:bold;background:#ccc;}
+	.date td{border-right:1px solid #888;border-bottom:1px solid #888;padding:0}
+	</style>
+  </head>
+  
+  <body>
+    <h1>
+      <span class="action-span">
+        <a href="{:U('listing')}">
+          商品列表
+        </a>
+      </span>
+      <span class="action-span1">
+        <a href="/">
+          管理中心
+        </a>
+      </span>
+      <span id="search_id" class="action-span1">
+        - 添加新商品
+      </span>
+      <div style="clear:both">
+      </div>
+    </h1>
+    <!-- start goods form -->
+    <div class="tab-div">
+      <!-- tab bar -->
+      <div id="tabbar-div">
+        <p>
+          <span class="tabFrom tab-front" id="general-tab">
+            通用信息
+          </span>
+          <span class="tabFrom tab-back" id="detail-tab">
+            详细描述
+          </span>
+		  <!--
+          <span class="tab-back" id="mix-tab">
+            其他信息
+          </span>
+          <span class="tab-back" id="properties-tab">
+            商品属性
+          </span>
+          <span class="tab-back" id="gallery-tab">
+            商品相册
+          </span>
+          <span class="tab-back" id="linkgoods-tab">
+            关联商品
+          </span>
+          <span class="tab-back" id="groupgoods-tab">
+            配件
+          </span>
+          <span class="tab-back" id="article-tab">
+            关联文章
+          </span>-->
+        </p>
+      </div>
+      <!-- tab body -->
+      <div id="tabbody-div">
+        <form id="form" onsubmit="return false">
+		<input type="hidden" name="action" value="{:$data?'edit':'add'}">
+		<input type="hidden" name="id" value="{:$data['id']}">
+          <table class="tabTo" width="100%" id="general-table" align="center">
+            <tr>
+              <td class="label">
+                标题：
+              </td>
+              <td>
+                <input type="text" name="title" value="{$data['title']}" style="float:left;;" size="60" />
+                <span class="require-field">*</span>
+              </td>
+            </tr> 
+			<tr>
+              <td class="label">
+                分类：
+              </td>
+              <td>
+                <select name="type" style="width:200px;">
+					<foreach name="type" item="r" key="k">
+					<option value="{$r['id']}" {:$data['type']==$r['id']?'selected': ''}>{$r['name']}</option>
+					</foreach>
+				</select>
+                <span class="require-field">*</span>
+              </td>
+            </tr>
+		     <tr>
+              <td class="label">
+               报名时间：
+              </td>
+              <td>
+                <input type="text" name="enroll_time_start" class="Date"  value="{$data['enroll_time_start']}" readonly style="float:left;" size="30" /><span style="float:left;margin: 10px 15px;font-weight: bold;">到</span>
+                <input type="text" name="enroll_time_end" class="Date"  value="{$data['enroll_time_end']}" readonly style="float:left;" size="30" />
+                <span class="require-field">*</span>
+              </td>
+            </tr> 
+		     <tr>
+              <td class="label">
+               比赛时间：
+              </td>
+              <td>
+                <input type="text" name="play_time_start" class="Date"  value="{$data['play_time_start']}" readonly style="float:left;" size="30" /><span style="float:left;margin: 10px 15px;font-weight: bold;">到</span>
+                <input type="text" name="play_time_end" class="Date"  value="{$data['play_time_end']}" readonly style="float:left;" size="30" />
+                <span class="require-field">*</span>
+              </td>
+            </tr> 
+		     <tr>
+              <td class="label">
+                比赛地点：
+              </td>
+              <td>
+                <input type="text" name="address" value="{$data['address']}" style="float:left;;" size="30" />
+                <span class="require-field">*</span>
+              </td>
+            </tr> 
+		     <tr>
+              <td class="label">
+                宣传海报：
+              </td>
+              <td>
+				<img src="{$data['thumb']}" id="thumb" style="width:150px;height:200px;">
+                <input type="hidden" name="thumb" value="{$data['thumb']}" style="float:left;" />
+                <span class="require-field">*</span>
+				<a class="kokoUpload" img="#thumb" input="input[name=thumb]" style="cursor:pointer">立即上传</a>
+              </td>
+            </tr>
+		     <tr>
+              <td class="label">
+                banner图：
+              </td>
+              <td>
+				<img src="{$data['banner']}" id="banner" style="width:350px;height:200px;">
+                <input type="hidden" name="banner" value="{$data['banner']}" style="float:left;" />
+                <span class="require-field">*</span>
+				<a class="kokoUpload" img="#banner" input="input[name=banner]" style="cursor:pointer">立即上传</a>
+              </td>
+            </tr>
+		     <tr>
+              <td class="label">
+                日期、价格、库存：
+              </td>
+              <td class="date">
+				<table border=1 cellpadding=20 id="date">
+					<tr>
+						<th>库存</th>
+						<th class="addPrice" style="cursor:pointer">添加价格</th>
+					</tr>
+					<tr>
+						<th class="addDate jcDate" style="position:relative;cursor:pointer">添加日期
+						</th>
+					</tr>
+				</table>
+              </td>
+            </tr>
+		   <!--   <tr>
+              <td class="label">
+                日期、价格、库存：
+              </td>
+              <td class="date">
+				
+				<table border=1 cellpadding=20 id="date">
+					<tr>
+						<th>库存</th>
+						<th class="addPrice" style="cursor:pointer">添加价格</th>
+					</tr>
+					<tr>
+						<th class="addDate jcDate" style="position:relative;cursor:pointer">添加日期
+						</th>
+					</tr>
+				</table>
+              </td>
+            </tr> -->
+          </table>
+		  <table class="tabTo" width="100%" id="detail-table" style="display:none">
+			<tr>
+			<td><script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+			<div style="display:none" id="info">{$data['info']}</div>
+			</td>
+			</tr>
+		</table>
+		  <div class="button-div">
+        <input id="goods_info_submit" type="submit" value=" 确定 " class="button">
+        <input id="goods_info_reset" type="reset" value=" 重置 " class="button">
+        
+       </div>
+        </form>
+      </div>
+	  
+<include file="index/msg"/>
+    </div>
+
+	<script>
+$(function (){
+/*
+	$(".jcDate").jcDate({					       
+			IcoClass : "jcDateIco",
+			Event : "click",
+			Speed : 100,
+			Left : 0,
+			Top : 28,
+			format : "-",
+			Timeout : 100
+	});
+*/
+$('.jcDate').datetimepicker({value:'-1',step:1});
+$('.Date').datetimepicker({value:'{$data['sale_time']}',step:1});
+
+});
+tdE="<td style='text-align: center;'><input name type='text' value='0' style='width:50px;margin:0;padding:0;height:auto;line-height: normal;min-width:inherit;text-align:center' onchange='if(isNaN(this.value))this.value=0;else this.value=parseFloat(this.value)'></td>";
+$(".addDate").click(function(){
+	e=$(".jcDate");
+	if(typeof tt!='undefined')clearInterval(tt);
+	tt=setInterval(function(){
+		if($(".xdsoft_datetimepicker").css("display")=='none'){
+			clearInterval(tt);
+			if(e[0].value!=-1){
+				addLine(e[0].value);
+				setName();			
+			}
+
+		}
+	},100);
+	
+});
+$(".addPrice").click(function(){
+	layer.prompt({
+		type:0,
+		title:'请输入价格(单位:元)'
+	},function(text){
+		if(isNaN(text)==false){
+			addVer(text);
+			setName();
+			layer.closeAll();
+		}else{
+			layer.alert("请输入数字");
+		}
+	});
+});
+function addLine(date){
+	if(!find($dates,date)){	
+		var w=$("#date").find("tr").eq(0).find("th").length-2;
+		var td='';
+		for(var i=0;i<w;i++)td+=tdE;
+		$dates[$dates.length]=date;
+		$(".addDate").parent().before("<tr><th key='date'>"+date+"</th>"+td+"</tr>");
+		addMenu($(".addDate").parent().prev().children().first());
+	}
+}
+function addVer(price,first){
+	if(!find($prices,price)){	
+		$prices[$prices.length]=price;
+		var tr=$("#date").find("tr");
+		$(".addPrice").before("<th key='price'>"+price+"元</th>");
+		if(typeof first=='undefined')$("#yuanjia").append("<div><input style='min-width:80px;' type='text' name='yuanjia"+price+"'>卖"+price+"</div>");
+		addMenu($(".addPrice").prev());
+		for(var i=1;i<tr.length-1;i++){
+			tr.eq(i).append(tdE);
+		}
+	}
+}
+function setName(){
+	var inputs=$("#date input:text");
+	for(var i=0;i<inputs.length;i++){
+		var e=inputs.eq(i);
+		if(e.hasClass("jcDate"))continue;
+		var th=$("#date").find("tr").eq(0).find("th");
+		var riqi=e.parents("tr").find("th").html();
+		var price=th.eq(e.parent().index()).html();
+		e.attr("name","{$ex}[num]["+riqi+"]["+parseFloat(price)+"]");
+	}
+}
+$("#goods_info_submit").click(function(){
+	$.post(document.URL,$("#form").serialize(),function(e){
+		if(e.state==1){
+			layer.alert("操作成功");
+			setTimeout(function(){
+				location.href="{:U(listing)}";
+			},2000);
+		}else{
+			layer.alert(e.msg);
+		}
+	});
+});
+function find(d,f){
+	for(var i=0;i<d.length;i++){
+		if(d[i]==f)return true;
+	}
+	return false;
+}
+$menuData=[[{text:"删除",func:function(){
+	var e=$(this);
+	var n=e.index();
+	if(e.attr("key")=='price'){
+		var tr=$("#date").find("tr");
+		for(var i=1;i<tr.length-1;i++){
+			tr.eq(i).children().eq(n).remove();
+		}
+		e.remove();
+		$("#yuanjia>div").eq(n-1).remove();
+	}else if(e.attr("key")=='date'){
+		e.parent().remove();
+	}
+	
+}}]];
+function addMenu(e){
+	e.smartMenu($menuData);
+}
+$dates=[];
+$prices=[];
+<if condition="isset($data)&&is_array($data['ex'])">
+ex=JSON.parse('{:json_encode($data["ex"])}');
+dates=[];
+prices=[];
+for(var i=0;i<ex.length;i++){
+	if(!find(dates,ex[i].date)){
+		dates[dates.length]=ex[i].date;
+	}
+	if(!find(prices,ex[i].price)){
+		prices[prices.length]=ex[i].price;
+	}
+}
+dates.sort();
+prices.sort();
+for(var j=0;j<dates.length;j++){
+	addLine(dates[j],true);
+}
+for(var j=0;j<prices.length;j++){
+	addVer(prices[j],true);
+}
+setName();
+$date=$(".date");
+for(var i=0;i<ex.length;i++){
+	$date.find("input[name='ex[num]["+ex[i].date+"]["+ex[i].price+"]']").val(ex[i].num);
+}
+</if>
+	</script>
+
+  </body>
+
+</html>

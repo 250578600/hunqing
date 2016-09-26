@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width,initial-scale=1,
+    minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>收货地址</title>
+    <link rel="stylesheet" href="/Public/m/css/common.css"/>
+    <link rel="stylesheet" href="/Public/m/css/address.css"/>
+    <script src="/Public/m/js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <!--<script src="/Public/m/js/com.js" type="text/javascript"></script>-->
+    <script src="/Public/koko.js" type="text/javascript"></script>
+    <script src="/Public/location.js" type="text/javascript"></script>
+    <script src="/Public/m/js/address.js" type="text/javascript"></script>
+    <script src="/Public/plugin/layer.m/layer.js" type="text/javascript"></script>
+</head>
+<body>
+<style>
+ 
+</style>
+<form onsubmit="return false">
+			<if condition="$data">
+	<input type="hidden" name="action" value="edit">
+	<input type="hidden" name="where" value="{$data['id']}">
+	<else/>
+	<input type="hidden" name="action" value="add">
+	</if>
+     <div class="addBox">
+         <div class="addBoxSmall cl">
+               <p class="z addText">收货人</p>
+               <input type="text" class="z addInput" placeholder="请输入收货人"  name="data[name]" id="name" value="{$data.name}"/>
+           </div>
+         <div class="addBoxSmall cl">
+             <p class="z addText">联系电话</p>
+             <input type="text" class="z addInput" placeholder="请输入联系电话" name="data[telephone]" id="telephone" value="{$data.telephone}"/>
+         </div>
+         <div class="addBoxSmall cl">
+             <p class="z addText">收货地区</p>
+             <!--<input type="text" class="z addInput"  placeholder="请输入收货地区"/>-->
+             <select  name="data[province]" id="loc_province" style='margin-left:15px;'></select>
+             <select  name="data[city]" id="loc_city"></select>
+             <select name="data[county]" id="loc_county"></select>
+         </div>
+         <div class="addBoxSmall cl">
+             <p class="z addText">详细街道</p>
+              <textarea class="z addTextarea" name="data[address]" id="address" placeholder="请填写详细地址">{$data.address}</textarea>
+         </div>
+         <div class="settingMain cl {:$data['selected']?'settingMainClick':''}">
+            <span class="z">设为常用地址</span>
+			<input type="hidden" name="data[selected]" id="selected" value="{$data.selected}">
+            <img src="/Public/m/images/yuanClick.png" class="y" alt=""/>
+         </div>
+         <button class="savaBtn savaBtn2">保存</button>
+         <if condition="$data">
+         <button class="savaBtn savaBtn3" style="background:gray">删除</button>
+         </if>
+     </div>
+     </form>
+</body>
+<script>
+	$(".settingMain").click(function(){
+		setTimeout(function(){
+			$("#selected").val($(".settingMain").hasClass("settingMainClick")?1:0);
+		},100);
+	});
+	$(".addBox").show();
+	showLocation("{$data.province},{$data.city},{$data.county}");
+	tools=new kokoTools();
+	$(".savaBtn2").click(function(){
+		tools.checkEmpty("#name","姓名不能为空")&&
+		tools.checkTel("#telephone")&&
+		tools.checkEmpty("#loc_province","请选择省份")&&
+		tools.checkEmpty("#loc_city","请选择城市")&&
+		tools.checkEmpty("#loc_county","请选择区域")&&
+		tools.checkEmpty("#address","请输入详细地址")&&
+		$.post("{:U('ajax')}",$("form").serialize(),function(e){
+			if(e.state==1){
+				layer.alert("操作成功",function(){
+					location.href=document.referrer;
+				});
+			}
+		});
+	});
+
+    <if condition="$data">
+	$(".savaBtn3").click(function(){
+		$.post("{:U('ajax')}",{action:'del',where:{$data.id}},function(e){
+			if(e.state==1){
+				location.href=document.referrer;
+			}else{
+				layer.msg(e.msg);
+			}
+		});
+	});
+	</if>
+</script>
+</html>

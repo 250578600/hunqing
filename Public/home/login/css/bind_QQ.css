@@ -1,0 +1,105 @@
+#header-inform{
+	display: none !important;
+}
+#header-login{
+	display: none !important;
+}
+body{
+	overflow-x: hidden;
+	background-color: #fff;
+}
+.bg-box{
+	position: relative;
+	width: 1000px;
+	margin: 0 auto 0;
+	
+}
+.bg{
+	display: block;
+	margin-left: -475px;
+	width: 1920px;
+	height: 950px;
+	
+}
+.float-box{
+	position: absolute;
+	top: 130px;
+	background-color: rgba(255,255,255,.5);
+	border-radius: 6px;
+	width: 415px;
+	height: 380px;
+	
+	
+}
+.register-box{
+	left: 40px;
+	
+}
+.bind-box{
+	left: 545px;
+}
+.register-title, .bind-title{
+	color: #F2499D;
+	font-size: 20px;
+	margin: 0 18px;
+	padding-left: 28px;
+    height: 64px;
+    line-height: 64px;
+    border-bottom: 1px solid #f2499d;
+}
+.register-prompt{
+	color: #666;
+	font-size: 14px;
+	line-height: 30px;
+	margin: 16px 0 0 46px;
+}
+.register-but{
+	color: #FFF5FA;
+	font-size: 18px;
+	background-color: #F2499D;
+	font-weight: 600;
+	width: 320px;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	border-radius: 4px;
+	margin: 120px auto 0;
+}
+.bind-prompt{
+	color: #666;
+	font-size: 14px;
+	font-size: 14px;
+    margin: 16px 0 0 46px;
+}
+.account, .password{
+	display: block;
+	border: 1px solid #b3b3b3;
+	color: #333;
+	font-size: 16px;
+	border-radius: 4px;
+	width: 320px;
+	height: 42px;
+	margin: 15px auto 0;
+	padding-left: 10px;
+	
+	
+}
+.bind-but{
+	display: block;
+	color: #fff5fa;
+	border: none;
+	font-size: 16px;
+	font-weight: 600;
+	width: 320px;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	border-radius: 4px;
+    margin: 47px auto 0;
+    background-color: #f2499d;
+    cursor: pointer;
+}
+
+
+
+

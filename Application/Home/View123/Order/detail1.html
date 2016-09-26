@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>订单详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="/Public/m/css/public.css"/>
+		<script src="/Public/m/js/jquery-1.11.0.js"></script>
+		<script src="/Public/m/js/layout.js"></script>
+		<script src="/Public/plugin/layer/layer.js"></script>
+		<style type="text/css">
+			body{
+				margin: 0;
+				font-size: 14px;
+				background-color: #000;
+			}
+			a{
+				text-decoration: none;
+			}
+			ul,li{
+				margin:0;
+				padding:0;
+				list-style-type: none;
+			}
+			.number{
+				background-color:#171717;
+				height:90px;
+				color:#FFF;
+				padding:10px;
+				margin-bottom:10px;
+			}
+			.num{
+				float:left;
+				margin-top:5px;
+				line-height:22px;
+			}
+			.already{
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				width:80px;
+				height:24px;
+				text-align: center;
+				line-height:24px;
+				background-color:#d6be80;
+				color:#171717;
+				font-weight:bold;
+				font-size: 14px;
+			}
+			.delivery{
+				background-color:#171717;;
+				padding:0 10px;
+				margin-bottom:10px;
+			}
+			.nei{
+				position:relative;
+				padding:8px 0 8px 40px;
+				background:url(/Public/m/img/wuliuche.png)8px no-repeat;
+				background-size:25px;
+				border-bottom: 1px solid #474747;
+				line-height:25px;
+			}
+			.ne{
+				padding:8px 0 8px 30px;
+				background:url(/Public/m/img/dizhi.png)12px 39px no-repeat;
+				background-size:12px;
+			}
+			.nei span{
+				color:#d6be80;
+				font-size:17px;
+			}
+			.nei p{
+				color:#a2a2a2;
+				margin:0;
+			}
+			.ne span{
+				color: #fff;
+				line-height:25px;
+				font-size:14px;
+				overflow: hidden;
+			}
+			.font-right{
+				float: right;
+			}
+			
+			.money{
+				padding:10px;
+				background-color:#171717;
+			}
+			.money img{
+				width:80px;
+			}
+			.list {
+				float:right;
+				font-size:17px;
+			}
+			.yellow{
+				color:#D6BE80;
+				margin-bottom:5px;
+			}
+			.yellow span{
+				float:right;
+			}
+			.chu{
+				color:#b4b1b1;
+			}
+			.quit{
+				float:right;
+				height:30px;
+				width:80px;
+				color:#B4B1B1;
+				line-height:30px;
+				text-align: center;
+				border:1px solid #D6BE80;
+				margin-bottom:6px;
+			}
+			.carry{
+				border-top:1px solid #474747;
+				color:#fff;
+				line-height:26px;
+				background-color:#171717;
+				padding:10px 10px 0;
+			}
+			#bottom{
+				position:fixed;
+				width:100%;
+				bottom:0;
+				background-color:#171717;
+				height:45px;
+			}
+			#bottom li{
+				float:right;
+				margin-right:10px;
+				margin-top:7px;
+				width:90px;
+				height:30px;
+				text-align: center;
+				line-height:30px;
+				color:#B4B1B1;
+				border:1px solid #d4d4d4;
+			
+			}
+			.check{
+				background-color:#D6BE80;
+				color:#171717 !important;
+				border:1px solid #D6BE80 !important;
+			}
+			.ca{
+				margin-bottom:70px;
+			}
+			.fu{
+				float:right;
+				position:absolute;
+				right:0;
+				color:#1c1c20;
+				top:22px;
+				font-size:26px;
+			}
+			.yel{
+				float:right;
+				color:#D6BE80;
+			}
+			.car span{
+				float:right;
+			}
+			.car{
+				padding-bottom:5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="number">
+			<div class="num">
+				<div>订单编号:{$data.order_sn}</div>
+				<div>创建时间:{:date('Y-m-d H:i:s',$data['create_time'])}</div>
+				<div>付款时间:{:$data['state']>0?date('Y-m-d H:i:s',$data['pay_time']):''}</div>
+				<div>发货时间:{:$data['state']>1?date('Y-m-d H:i:s',$data['fahuo_time']):''}</div>
+			</div>
+			<div class="already">{:$state[$data['state']]}</div>
+		</div>
+		<div class="delivery"> 
+			<div class="nei" style="display:none">
+				<span>【成都市】成都快递公司已发出</span>
+				<p> 2016-05-26 01:18:22</p>
+				<div class="fu">></div>
+			</div>
+			<div class="ne">
+				<span>收货人:{$data.name}</span><span class="font-right">{$data.telephone}</span>
+				</br>
+				<span>收货地址:{$data.province}{$data.city}{$data.county}{$data.address}</span>
+			</div>
+		</div>
+		<ul class="ca listBox" sn="{$data.order_sn}">
+			<li>
+				<foreach name="data['ex']" item="r2" key="k2">
+				<div class="money">
+					<img src="{:$r2['goods']['thumb']}"  onclick="location.href='{:U('/Home/Index/detail')}?id={$r2.goods_id}'"/>
+					<div class="list layout" layout="w:<100%-90>">
+						<div class="yellow">{:$r2['goods']['title']} X {$r2.num}<span>￥{:$r2['goods']['ex'][$r2['goods_ex_id']]['price']}</span></div>
+						<span class="chu">尺寸规格:{:$r2['goods']['ex'][$r2['goods_ex_id']]['name']}</span>
+					</div>
+				</div>
+				</foreach>
+				<div class="carry">
+					<div class="car">
+						运费<span>￥{$data.freight}</span>
+					</div>
+					<div class="car">
+						实付款(含运费)<span class="yel">￥{$data.sum}</span>
+					</div>
+				</div>
+				<ul id="bottom">
+					<if condition="$data['state'] eq 0">
+					<li class="check" onclick="pay(this)">立即付款</li>
+					<li onclick="del(this)" >取消订单</li>
+					<elseif condition="$data['state'] eq 2"/>
+					<li class="check" onclick="shouhuo(this)">确认收货</li>
+					<li onclick="yanchang(this)" >延长收货</li>
+					<elseif condition="$data['state'] eq 3"/>
+					<li class="check" onclick="judge(this)">立即评价</li>
+					<li class="check" onclick="tui(this)">申请退货</li>
+					<elseif condition="$data[state] eq 5"/>
+					<li class="check" onclick="yundan(this)">填写运单号</li>
+					<elseif condition="$data['state'] eq 6"/>
+					<li class="check" onclick="layer.alert('{$data['tuihuo']['reason_refuse']}')">查看原因</li>
+					</if>
+					<if condition="$data['state'] gt 1 and $data['state'] lt 4">
+					<li ><a  href="http://m.kuaidi100.com/result.jsp?nu={$data.waybill}">查看物流</a></li>
+					</if>
+					<if condition="$data['state'] eq 8 or $data['state'] eq 7">
+					<li ><a  href="http://m.kuaidi100.com/result.jsp?nu={$data.tuihuo.waybill}">查看退货物流</a></li>
+					</if>
+				</ul>
+			</li>
+		</ul>
+		<script>
+			layout(".layout");
+			function pay(a){
+				var sn=$(a).parents(".listBox").attr('sn');
+				$.get("{:U('Pay/pay')}",{sn:sn},function(e){
+					if(e.state==1){
+						layer.msg(e.msg,function(){
+							location.href=e.url;
+						});
+					}else{
+						layer.alert(e.msg);
+					}
+				});
+			}
+			function yanchang(a){
+				var sn=$(a).parents(".listBox").attr('sn');
+				$.get("{:U('ajax')}",{action:'call',func:'yanchang','where[order_sn]':sn},function(e){
+					if(e.state==1){
+						layer.msg(e.msg,function(){
+							location.href=e.url;
+						});
+					}else{
+						layer.alert(e.msg);
+					}
+				});
+			}
+			function del(a){
+				var sn=$(a).parents(".listBox").attr('sn');
+				$.post("{:U('ajax')}",{action:'del','where[order_sn]':sn},function(e){
+					if(e.state==1){
+						layer.msg(e.msg,function(){
+							location.reload();
+						});
+					}else{
+						layer.alert(e.msg);
+					}
+				});
+			}
+			function shouhuo(a){
+				var sn=$(a).parents(".listBox").attr('sn');
+				$.post("{:U('ajax')}",{action:'shouhuo',sn:sn},function(e){
+					if(e.state==1){
+						layer.msg(e.msg,function(){
+							location.reload();
+						});
+					}else{
+						layer.alert(e.msg);
+					}
+				});
+			}
+			function judge(a){
+				var sn=$(a).parents(".listBox").attr('sn');
+				layer.prompt({
+					formType:2,
+					title:'请输入您的评价',
+				},function(e){
+					if(e.length){
+						$.post("{:U('ajax')}",{action:'judge',msg:e,sn:sn},function(r){
+							layer.msg(r.msg,function(){
+								if(r.state==1){
+									location.reload();
+								}else{
+									layer.alert(e.msg);
+								}
+							});
+						});
+					}else{
+						layer.alert("请输入内容");
+					}
+				});
+			}
+			function tui(a){
+				var sn=$(a).parents(".listBox").attr('sn');
+				layer.prompt({
+					formType:2,
+					title:'请输入退货理由',
+				},function(e){
+					if(e.length){
+						$.post("{:U('tuihuo')}",{reason:e,sn:sn},function(r){
+							layer.msg(r.msg,function(){
+								if(r.state==1){
+									location.reload();
+								}else{
+									layer.alert(e.msg);
+								}
+							});
+						});
+					}else{
+						layer.alert("请输入内容");
+					}
+				});
+			}
+			function yundan(a){
+				var sn=$(a).parents(".listBox").attr('sn');
+				layer.prompt({
+					formType:2,
+					title:'请输入你退货发出的快递运单号',
+				},function(e){
+					if(e.length){
+						$.post("{:U('yundan')}",{waybill:e,sn:sn},function(r){
+							layer.msg(r.msg,function(){
+								if(r.state==1){
+									location.reload();
+								}else{
+									layer.alert(e.msg);
+								}
+							});
+						});
+					}else{
+						layer.alert("请输入内容");
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+2016-09-23 16:49:19: -- Analysis Started by User
+2016-09-23 16:49:21: 右侧: State file does not exist: F:/PHPnow/hunqing/_gsdata_/_file_state_v4._gs
+2016-09-23 16:49:22: Right to Left: Copy State: 40 
+2016-09-23 16:49:22: ----- ：分析已结束。 历时 00:00:03， 速度： 2,158 个文件/秒 -----
+2016-09-23 16:49:22: 
+2016-09-23 16:49:24: New _gsdata_ folder(s) created, so rescan all job folders for their ghosts
+2016-09-23 16:49:24: == Sync Started by User
+2016-09-23 16:49:24: FTP: Listing one file of class 0 became not supported (more than one file returned): Server says: Failed to change directory.
+2016-09-23 16:49:25: ===== ：同步完毕。时间：00:00:01，速度： 36.3 KB/s =====, 项目同步未必： 40，错误： 
+2016-09-23 16:49:25: 

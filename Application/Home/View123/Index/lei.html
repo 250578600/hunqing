@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>产品分类</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="/Public/m/css/mui.min.css">
+    <link rel="stylesheet" href="/Public/m/css/com.css">
+    <link rel="stylesheet" href="/Public/m/css/classifyCenter.css">
+    <script src="/Public/m/js/jquery-1.8.3.min.js"></script>
+    <script src="/Public/m/js/mui.min.js"></script>
+    <script src="/Public/m/js/com.js"></script>
+    <script src="/Public/m/js/classifyCenter.js"></script>
+</head>
+<body>
+    <div class="main">
+          <div class="allClassify cl">
+                <div class="z name">
+                    全部产品
+                </div>
+              <a href="{:U('search')}" class="y more">
+                <img src="/Public/m/images/index/right.png" class="y" alt="">
+              </a>
+          </div>
+         <foreach name="data" item="r" key="k">
+         	<if condition="$r['list']">
+         	<div class="classifyTemplate2 cl" onclick="location.href='{:U('search')}?type={$r.id}'">
+            <div class="z name">
+                {$r.name}
+            </div>
+            <a href="{:U('search')}?type={$r.id}" class="y more">
+               查看全部
+            </a>
+            <div class="classifyList cl ">
+            	<foreach name="r.list" item="r2" key="k2">
+                <a href="{:U('search')}?type={$r2.id}" class="classifyName">
+                   {$r2.name}
+                </a>
+                </foreach>
+            </div>
+        </div>
+        <else/>
+        <div class="classifyTemplate cl"  onclick="location.href='{:U('search')}?type={$r.id}'">
+            <div class="z name">
+               {$r.name}
+            </div>
+            <a href="{:U('search')}?type={$r.id}" class="y more">
+                <img src="/Public/m/images/index/right.png" class="y" alt="">
+            </a>
+        </div>
+         	</if>
+         </foreach>
+
+
+    </div>
+    <include file="footer"/>
+</body>
+</html>

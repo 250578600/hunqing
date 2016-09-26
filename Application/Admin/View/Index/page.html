@@ -1,0 +1,30 @@
+<if condition="1">
+<style>
+.koko-page,.koko-page-prev,.koko-page-next{
+	border: 1px solid #ccc;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none;
+    height: 26px;
+    line-height: 26px;
+    text-decoration: none;
+    margin: 0 0 6px 6px;
+    padding: 0 10px;
+    font-size: 14px;
+}
+.koko-page:hover,.koko-page-cur{
+	background: #5a98de;color: #fff;
+    text-decoration: none;		
+}
+</style>
+	<div style="margin-top:10px">
+		<div style="float:left;padding-top: 10px;font-size: 14px;color: #666;">
+		显示 {:$data['pagesInfo']['gap']*($data['pagesInfo']['now']-1)+1} 到 
+		{:$data['pagesInfo']['now'] < $data['pagesInfo']['pages_total']?$data['pagesInfo']['gap']*($data['pagesInfo']['now']) : $data['pagesInfo']['total']} ，共{$data.pagesInfo.total} 条</div>
+		<div style="float:right">
+				{$data.pages}
+		</div>
+	</div>
+</if>

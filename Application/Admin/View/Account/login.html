@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+		 <link rel="stylesheet" href="/Public/admin/css/common.css" type="text/css"/>
+		 <link rel="stylesheet" type="text/css" href="/Public/admin/css/register_start.css">
+		<title>后台登录界面</title>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box_title">
+				<img src="/Public/admin/images/index_logo.png" />
+			</div>
+			<div class="main">
+			<form onsubmit="return sub()">
+				<div class="content">
+					<div class="content_small">
+						<div class="content_small_one">
+							<img src='/Public/admin/images/index_use.png'/>
+						</div>
+						<input type="text" name="key" class="username" maxlength="25"/>
+						<img src="/Public/admin/images/index_close.png"  class="index_close"/>
+					</div>
+					<div class="content_small">
+						<div class="content_small_one">
+							<img src='/Public/admin/images/index_suo.png'/>
+						</div>
+						<input type="password" name="password" class="suo" maxlength="25"/>
+						<img src="/Public/admin/images/index_close.png"  class="index_close"/>
+					</div>
+					<div class="yzm_input cl">
+						<div class="yzm_input_small z">
+							<div class="content_small_one">
+							    <img src='/Public/admin/images/index_gougou.png'/>
+						    </div>
+						    <input type="text" class="yzm_input_one" name="code" id="code" maxlength="10"/>
+							<img src="/Public/admin/images/index_close.png"  class="index_close" onclick="$('#code').val('')"/>
+						</div>
+						<img src="{:U('code')}" height="44" width="160" class="z yzm_img" onclick="this.src=this.src.split('?')[0]+'?t='+Math.random()"/>
+						<span class="y" onclick="$('.yzm_img').click()">换一张</span>
+						<input type="button" class="input_botton" onclick="sub()"  value="登 录"/>
+						<div class="forget_password">
+							<label><input type="checkbox" />
+							<span>记住密码</span></label>
+							<a class="found_passaword" href="">忘记密码，点我</a>
+						</div>
+					</div>
+				</div>
+				</form>
+				
+			</div>
+			<div class="box_bottom">技术支持：蜂鸟智库    电话：400-0000-8888</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="/Public/admin/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="/Public/admin/js/com.js"></script>
+<script type="text/javascript" src="/Public/plugin/layer/layer.js"></script> 
+	<script>
+	if(top!=window){
+		top.location.href=document.URL;
+	}
+	function sub(){
+		if($("input[name=username]").val()==''){
+			alert("请输入用户名");
+		}else if($("input[name=password]").val().length<6){
+			alert("密码长度至少为6位");
+		}else{
+			$.post(document.URL,$("form").serialize(),function(e){
+				if(e.state==1){
+					layer.alert("登陆成功");
+					setTimeout(function(){
+						location.href=e.url;
+					},1000);
+				}else{
+					layer.alert(e.msg);
+				}
+			});
+		}
+	return false;
+	}
+	</script>
+</html>
