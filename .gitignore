@@ -5,7 +5,6 @@ Public/admin/
 Public/images/
 Public/plugin/
 Application/Runtime/
-Application/Common/Conf
 !ThinkPHP/Common/
 *alipay*
 *weixin*
