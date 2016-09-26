@@ -153,8 +153,8 @@ $(function(){
 		$.kokoTool.checkEmail("#email")&&
 		$.kokoTool.checkPassword("#password","#password2",edit);
 	},callback:function(){
-		parent.$('.btn-refresh').click();
-		return false;
+		parent.location.reload();
+		return true;
 	}}},'{:U('ajax')}');
 	$('.skin-minimal input').iCheck({
 		checkboxClass: 'icheckbox-blue',

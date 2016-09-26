@@ -10,6 +10,7 @@ class IndexController extends TopController {
 		return $result;
 	}
 	public function index() {
+		print_r(session());
 		$this->user->getDbEx ( 'cart' );
 		$this->user->getDbEx ( 'address' );
 		$this->getLoction ();

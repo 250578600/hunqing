@@ -37,7 +37,7 @@
 				</div>
 				
 				<div class="list">
-					<input type="hidden" name="ex[birthday]" id="birthday">
+					<input type="hidden" name="ex[birthday][]" id="birthday">
 					<div class="list-title">生日</div>
 					<div class="dll-select">
 						<div class="dll-select-val after1">请选择</div>
@@ -155,7 +155,7 @@
 				
 				<div class="list">
 					<div class="list-title">身高</div>
-					<select class="select-height" name="ex[height]">
+					<select class="select-height" name="ex[height][]">
 						<option value="0">请选择</option>
 						<foreach name='height' item="r" key="k">
 						<option value="{$k}">{$r}</option>
@@ -166,7 +166,7 @@
 				
 				<div class="list">
 					<div class="list-title">学历</div>
-					<select class="select-xueli" name="ex[xueli]">
+					<select class="select-xueli" name="ex[xueli][]">
 						<option value="0">请选择</option>
 						<foreach name='xueli' item="r" key="k">
 						<option value="{$k}">{$r}</option>
@@ -177,7 +177,7 @@
 				
 				<div class="list">
 					<div class="list-title">年薪</div>
-					<select class="select-nianxin" name="ex[nianxin]">
+					<select class="select-nianxin" name="ex[nianxin][]">
 						<option value="0">请选择</option>
 						<foreach name='nianxin' item="r" key="k">
 						<option value="{$k}">{$r}</option>

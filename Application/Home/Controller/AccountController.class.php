@@ -35,15 +35,26 @@ class AccountController extends MemberController {
 		};
 	}
 
-	public function login(){
-		$this->display();
-	}
-
 	public function bind_qq(){
 		$this->display();
 	}
 
-	public function password_reset(){
+	public function password(){
+		// if(IS_POST){
+		// 	$pd = D('user');
+		// 	$id = I('post.id');
+		// 	$c = $pd->find($id);
+		// 	if($this->create(I('post.'))){
+		// 		if($this->save()){
+		// 			$this->access('密码重置成功');
+		// 		}
+		// 	}	
+
+		// }
+		$this->display();
+	}
+
+	public function setPassword(){
 		$this->display();
 	}
 

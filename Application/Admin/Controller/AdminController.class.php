@@ -54,7 +54,7 @@ class AdminController extends TopController {
 						"require" => "username,telephone,password",
 						"function" => array (
 								"this.pwdJiami" => "password" 
-						) 
+						)
 				) 
 		);
 		if ($id) {
