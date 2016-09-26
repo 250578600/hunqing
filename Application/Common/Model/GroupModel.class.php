@@ -17,6 +17,9 @@ class GroupModel extends kokoModel {
 		parent::__construct ( $name, $tablePrefix, $connection, $config );
 	}
 	public function dispose(&$data) {
+		if (empty ( $data ['power_ids'] )) {
+			return;
+		}
 		$power = new PowerModel ();
 		$a = $power->getList ( "id in ({$data['power_ids']})" );
 		$m = array ();

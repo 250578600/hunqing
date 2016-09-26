@@ -52,7 +52,7 @@ class ForumModel extends kokoModel {
 				"class" => "\Common\Model\CollectionModel" 
 		);
 		$config ['table'] ['tables'] ['fenlei'] = array (
-				"class" => "\Common\Model\TreeModel" 
+				"class" => "\Common\Model\Section" 
 		);
 		parent::__construct ( $name, $tablePrefix, $connection, $config );
 	}
