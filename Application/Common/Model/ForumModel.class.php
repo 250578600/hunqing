@@ -44,6 +44,7 @@ class ForumModel extends kokoModel {
 						) 
 				) 
 		);
+		$config ['addition'] ['ex'] = 'post_id';
 		$config ['table'] ['tables'] ['zan'] = array (
 				"class" => "\Common\Model\CollectionModel" 
 		);
