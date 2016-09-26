@@ -7,3 +7,6 @@ Public/plugin/
 Application/Runtime/
 Application/Common/Conf
 !ThinkPHP/Common/
+*alipay*
+*weixin*
+*xingyebank*

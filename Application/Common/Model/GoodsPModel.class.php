@@ -79,6 +79,7 @@ class GoodsPModel extends KokoModel {
 												"@constraint `constraint_name` foreign key (goods_id) references @parent_table(id) on delete cascade on update cascade" 
 										) 
 								),
+								"transpose"=>true,
 								'json_keys' => array (
 										"specs" 
 								),

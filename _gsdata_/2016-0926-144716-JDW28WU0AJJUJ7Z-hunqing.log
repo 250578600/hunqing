@@ -1,0 +1,210 @@
+2016-09-26 14:47:16: -- Analysis Started by User
+2016-09-26 14:47:18: Do Not Propagate Deletions: 1-way deletions reverted: 2
+2016-09-26 14:47:18: /Application/Common/Common/function.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Common/index.html: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Controller/KokoController.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Controller/MemberController.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/index.html: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/AddressModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/AdverExModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/AdverModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/ApplicationModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/ArticleModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/AttributeModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/CartModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/CheckinModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/ClassModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/CollectionModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/CommentModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/CouponModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/ForumModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/FreightModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/GroupModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/ImagesModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/inter/OrderInterface.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/KokoModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/LimitModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/LogModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/NotifyModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/OrderPModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/OrderReturnModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/PaymentModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/PowerModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/SalesLogModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/SettingModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/TreeModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/ValueModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/weixin/cert/apiclient_cert.pem: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/weixin/cert/apiclient_key.pem: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/weixin/doc/README: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/weixin/doc/README.doc: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/weixin/index.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/weixin/lib/WxPay.Api.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/weixin/lib/WxPay.Config.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/weixin/lib/WxPay.Data.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/weixin/lib/WxPay.Exception.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/weixin/lib/WxPay.Notify.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/weixin/show.html: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/weixin/show2.html: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/weixin/weixin.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/weixin/weixin2.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/WithdrawModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/WxMenuModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/wxmsg.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/xingyebank/epay.config.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/xingyebank/epay_notify.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/xingyebank/epay_redirect.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/xingyebank/example.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/xingyebank/index.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/xingyebank/key/appsvr_client.pfx: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/xingyebank/key/appsvr_server_prod.pem: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/xingyebank/key/appsvr_server_test.pem: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/xingyebank/lib/ca-bundle.crt: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/xingyebank/lib/epay_core.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/xingyebank/lib/epay_util.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/xingyebank/Readme.txt: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Application/Common/Model/ZhangDanModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/-λ++-亮.txt: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/jquery-1.8.3.min.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/jquery-1.9.1.min.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/jquery-2.1.0.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/jquery.cookie.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/jquery.nstSlider.css: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/jquery.nstSlider.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/jquery.nstSlider.min.css: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/jquery.nstSlider.min.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/koko.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/koko2 - 副本.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/koko2.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/layout.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/location.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/mui.ttf: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/ng.min.css: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/ng.min.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/README.md: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/swiper.jquery.min.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/upload - │Ε.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/upload - 副本.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/upload.js: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: /Public/使用文档.txt: 警告：旧文件将替换新文件
+2016-09-26 14:47:18: Right to Left: Copy File: 114 
+2016-09-26 14:47:18: ----- ：分析已结束。 历时 00:00:02， 速度： 310 个文件/秒 -----
+2016-09-26 14:47:18: 
+2016-09-26 14:47:43: == Sync Started by User
+2016-09-26 14:47:44: 创建文件夹 'ftp://www.fengniaozhiku.com/4/mine/Public/home'
+2016-09-26 14:47:44: 创建文件夹 'ftp://www.fengniaozhiku.com/4/mine/Public/home/css'
+2016-09-26 14:47:44: 创建文件夹 'ftp://www.fengniaozhiku.com/4/mine/Public/home/img'
+2016-09-26 14:47:44: 创建文件夹 'ftp://www.fengniaozhiku.com/4/mine/Public/home/img/input'
+2016-09-26 14:47:44: 创建文件夹 'ftp://www.fengniaozhiku.com/4/mine/Public/home/js'
+2016-09-26 14:47:44: 创建文件夹 'ftp://www.fengniaozhiku.com/4/mine/Public/home/login'
+2016-09-26 14:47:44: 创建文件夹 'ftp://www.fengniaozhiku.com/4/mine/Public/home/login/css'
+2016-09-26 14:47:44: 创建文件夹 'ftp://www.fengniaozhiku.com/4/mine/Public/home/login/img'
+2016-09-26 14:47:44: 创建文件夹 'ftp://www.fengniaozhiku.com/4/mine/Public/home/meta'
+2016-09-26 14:47:44: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Common/function.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Common/function.php'
+2016-09-26 14:47:44: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Common/index.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Common/index.html'
+2016-09-26 14:47:44: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Controller/KokoController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Controller/KokoController.class.php'
+2016-09-26 14:47:44: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Controller/MemberController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Controller/MemberController.class.php'
+2016-09-26 14:47:44: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/index.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/index.html'
+2016-09-26 14:47:44: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/AddressModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/AddressModel.class.php'
+2016-09-26 14:47:44: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/AdverExModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/AdverExModel.class.php'
+2016-09-26 14:47:44: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/AdverModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/AdverModel.class.php'
+2016-09-26 14:47:44: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/ApplicationModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/ApplicationModel.class.php'
+2016-09-26 14:47:44: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/ArticleModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/ArticleModel.class.php'
+2016-09-26 14:47:45: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/AttributeModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/AttributeModel.class.php'
+2016-09-26 14:47:45: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/CartModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/CartModel.class.php'
+2016-09-26 14:47:45: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/CheckinModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/CheckinModel.class.php'
+2016-09-26 14:47:45: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/ClassModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/ClassModel.class.php'
+2016-09-26 14:47:45: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/CollectionModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/CollectionModel.class.php'
+2016-09-26 14:47:45: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/CommentModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/CommentModel.class.php'
+2016-09-26 14:47:45: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/CouponModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/CouponModel.class.php'
+2016-09-26 14:47:45: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/ForumModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/ForumModel.class.php'
+2016-09-26 14:47:45: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/FreightModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/FreightModel.class.php'
+2016-09-26 14:47:45: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/GoodsPModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/GoodsPModel.class.php'
+2016-09-26 14:47:45: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/GroupModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/GroupModel.class.php'
+2016-09-26 14:47:45: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/ImagesModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/ImagesModel.class.php'
+2016-09-26 14:47:45: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/inter/OrderInterface.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/inter/OrderInterface.class.php'
+2016-09-26 14:47:46: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/KokoModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/KokoModel.class.php'
+2016-09-26 14:47:46: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/LimitModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/LimitModel.class.php'
+2016-09-26 14:47:46: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/LogModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/LogModel.class.php'
+2016-09-26 14:47:46: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/MemberModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/MemberModel.class.php'
+2016-09-26 14:47:46: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/NotifyModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/NotifyModel.class.php'
+2016-09-26 14:47:46: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/OrderPModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/OrderPModel.class.php'
+2016-09-26 14:47:46: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/OrderReturnModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/OrderReturnModel.class.php'
+2016-09-26 14:47:46: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/PaymentModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/PaymentModel.class.php'
+2016-09-26 14:47:46: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/PowerModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/PowerModel.class.php'
+2016-09-26 14:47:46: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/SalesLogModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/SalesLogModel.class.php'
+2016-09-26 14:47:46: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/SettingModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/SettingModel.class.php'
+2016-09-26 14:47:46: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/TreeModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/TreeModel.class.php'
+2016-09-26 14:47:46: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/ValueModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/ValueModel.class.php'
+2016-09-26 14:47:46: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/weixin/cert/apiclient_cert.pem' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/weixin/cert/apiclient_cert.pem'
+2016-09-26 14:47:47: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/weixin/cert/apiclient_key.pem' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/weixin/cert/apiclient_key.pem'
+2016-09-26 14:47:47: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/weixin/doc/README' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/weixin/doc/README'
+2016-09-26 14:47:47: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/weixin/doc/README.doc' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/weixin/doc/README.doc'
+2016-09-26 14:47:47: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/weixin/index.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/weixin/index.php'
+2016-09-26 14:47:47: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/weixin/lib/WxPay.Api.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/weixin/lib/WxPay.Api.php'
+2016-09-26 14:47:47: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/weixin/lib/WxPay.Config.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/weixin/lib/WxPay.Config.php'
+2016-09-26 14:47:47: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/weixin/lib/WxPay.Data.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/weixin/lib/WxPay.Data.php'
+2016-09-26 14:47:47: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/weixin/lib/WxPay.Exception.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/weixin/lib/WxPay.Exception.php'
+2016-09-26 14:47:47: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/weixin/lib/WxPay.Notify.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/weixin/lib/WxPay.Notify.php'
+2016-09-26 14:47:47: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/weixin/show.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/weixin/show.html'
+2016-09-26 14:47:47: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/weixin/show2.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/weixin/show2.html'
+2016-09-26 14:47:47: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/weixin/weixin.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/weixin/weixin.php'
+2016-09-26 14:47:48: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/weixin/weixin2.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/weixin/weixin2.php'
+2016-09-26 14:47:48: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/WithdrawModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/WithdrawModel.class.php'
+2016-09-26 14:47:48: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/WxMenuModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/WxMenuModel.class.php'
+2016-09-26 14:47:48: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/wxmsg.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/wxmsg.class.php'
+2016-09-26 14:47:48: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/xingyebank/epay.config.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/xingyebank/epay.config.php'
+2016-09-26 14:47:48: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/xingyebank/epay_notify.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/xingyebank/epay_notify.php'
+2016-09-26 14:47:48: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/xingyebank/epay_redirect.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/xingyebank/epay_redirect.php'
+2016-09-26 14:47:48: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/xingyebank/example.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/xingyebank/example.php'
+2016-09-26 14:47:48: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/xingyebank/index.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/xingyebank/index.php'
+2016-09-26 14:47:48: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/xingyebank/key/appsvr_client.pfx' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/xingyebank/key/appsvr_client.pfx'
+2016-09-26 14:47:48: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/xingyebank/key/appsvr_server_prod.pem' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/xingyebank/key/appsvr_server_prod.pem'
+2016-09-26 14:47:48: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/xingyebank/key/appsvr_server_test.pem' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/xingyebank/key/appsvr_server_test.pem'
+2016-09-26 14:47:49: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/xingyebank/lib/ca-bundle.crt' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/xingyebank/lib/ca-bundle.crt'
+2016-09-26 14:47:49: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/xingyebank/lib/epay_core.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/xingyebank/lib/epay_core.class.php'
+2016-09-26 14:47:49: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/xingyebank/lib/epay_util.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/xingyebank/lib/epay_util.class.php'
+2016-09-26 14:47:49: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/xingyebank/Readme.txt' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/xingyebank/Readme.txt'
+2016-09-26 14:47:49: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/ZhangDanModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/ZhangDanModel.class.php'
+2016-09-26 14:47:49: 覆盖复制 'F:/PHPnow/hunqing/Public/-λ++-亮.txt' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/-λ++-亮.txt'
+2016-09-26 14:47:49: FTP: Listing one file of class 0 became not supported (more than one file returned): Server says: Failed to change directory.
+2016-09-26 14:47:49: 新建复制 'F:/PHPnow/hunqing/Public/home/css/ng.css' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/css/ng.css'
+2016-09-26 14:47:49: 新建复制 'F:/PHPnow/hunqing/Public/home/css/public.css' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/css/public.css'
+2016-09-26 14:47:49: 新建复制 'F:/PHPnow/hunqing/Public/home/css/show_login.css' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/css/show_login.css'
+2016-09-26 14:47:49: 新建复制 'F:/PHPnow/hunqing/Public/home/js/dll_select.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/js/dll_select.js'
+2016-09-26 14:47:49: 新建复制 'F:/PHPnow/hunqing/Public/home/js/jquery-1.11.0.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/js/jquery-1.11.0.js'
+2016-09-26 14:47:49: 新建复制 'F:/PHPnow/hunqing/Public/home/js/ng.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/js/ng.js'
+2016-09-26 14:47:50: 新建复制 'F:/PHPnow/hunqing/Public/home/js/public.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/js/public.js'
+2016-09-26 14:47:50: 新建复制 'F:/PHPnow/hunqing/Public/home/js/swiper-3.3.1.jquery.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/js/swiper-3.3.1.jquery.js'
+2016-09-26 14:47:50: 新建复制 'F:/PHPnow/hunqing/Public/home/login/css/bind_QQ.css' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/login/css/bind_QQ.css'
+2016-09-26 14:47:50: 新建复制 'F:/PHPnow/hunqing/Public/home/login/css/full-register.css' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/login/css/full-register.css'
+2016-09-26 14:47:50: 新建复制 'F:/PHPnow/hunqing/Public/home/login/css/login.css' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/login/css/login.css'
+2016-09-26 14:47:50: 新建复制 'F:/PHPnow/hunqing/Public/home/login/css/password_reset.css' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/login/css/password_reset.css'
+2016-09-26 14:47:50: 新建复制 'F:/PHPnow/hunqing/Public/home/login/css/popup_login.css' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/login/css/popup_login.css'
+2016-09-26 14:47:50: 新建复制 'F:/PHPnow/hunqing/Public/home/login/css/popup_password_reset.css' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/login/css/popup_password_reset.css'
+2016-09-26 14:47:50: 新建复制 'F:/PHPnow/hunqing/Public/home/login/css/show_login.css' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/login/css/show_login.css'
+2016-09-26 14:47:50: 新建复制 'F:/PHPnow/hunqing/Public/home/meta/meta.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/home/meta/meta.html'
+2016-09-26 14:47:50: 覆盖复制 'F:/PHPnow/hunqing/Public/jquery-1.8.3.min.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/jquery-1.8.3.min.js'
+2016-09-26 14:47:50: 覆盖复制 'F:/PHPnow/hunqing/Public/jquery-1.9.1.min.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/jquery-1.9.1.min.js'
+2016-09-26 14:47:50: 覆盖复制 'F:/PHPnow/hunqing/Public/jquery-2.1.0.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/jquery-2.1.0.js'
+2016-09-26 14:47:51: 覆盖复制 'F:/PHPnow/hunqing/Public/jquery.cookie.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/jquery.cookie.js'
+2016-09-26 14:47:51: 覆盖复制 'F:/PHPnow/hunqing/Public/jquery.nstSlider.css' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/jquery.nstSlider.css'
+2016-09-26 14:47:51: 覆盖复制 'F:/PHPnow/hunqing/Public/jquery.nstSlider.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/jquery.nstSlider.js'
+2016-09-26 14:47:51: 覆盖复制 'F:/PHPnow/hunqing/Public/jquery.nstSlider.min.css' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/jquery.nstSlider.min.css'
+2016-09-26 14:47:51: 覆盖复制 'F:/PHPnow/hunqing/Public/jquery.nstSlider.min.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/jquery.nstSlider.min.js'
+2016-09-26 14:47:51: 覆盖复制 'F:/PHPnow/hunqing/Public/koko.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/koko.js'
+2016-09-26 14:47:51: 覆盖复制 'F:/PHPnow/hunqing/Public/koko2 - 副本.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/koko2 - 副本.js'
+2016-09-26 14:47:51: 覆盖复制 'F:/PHPnow/hunqing/Public/koko2.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/koko2.js'
+2016-09-26 14:47:51: 覆盖复制 'F:/PHPnow/hunqing/Public/layout.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/layout.js'
+2016-09-26 14:47:51: 覆盖复制 'F:/PHPnow/hunqing/Public/location.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/location.js'
+2016-09-26 14:47:51: 覆盖复制 'F:/PHPnow/hunqing/Public/mui.ttf' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/mui.ttf'
+2016-09-26 14:47:52: 覆盖复制 'F:/PHPnow/hunqing/Public/ng.min.css' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/ng.min.css'
+2016-09-26 14:47:52: 覆盖复制 'F:/PHPnow/hunqing/Public/ng.min.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/ng.min.js'
+2016-09-26 14:47:52: 覆盖复制 'F:/PHPnow/hunqing/Public/README.md' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/README.md'
+2016-09-26 14:47:52: 覆盖复制 'F:/PHPnow/hunqing/Public/swiper.jquery.min.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/swiper.jquery.min.js'
+2016-09-26 14:47:52: 覆盖复制 'F:/PHPnow/hunqing/Public/upload - │Ε.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/upload - │Ε.js'
+2016-09-26 14:47:52: 覆盖复制 'F:/PHPnow/hunqing/Public/upload - 副本.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/upload - 副本.js'
+2016-09-26 14:47:52: 覆盖复制 'F:/PHPnow/hunqing/Public/upload.js' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/upload.js'
+2016-09-26 14:47:52: 覆盖复制 'F:/PHPnow/hunqing/Public/使用文档.txt' -> 'ftp://www.fengniaozhiku.com/4/mine/Public/使用文档.txt'
+2016-09-26 14:47:52: ===== ：同步完毕。时间：00:00:09，速度： 206 KB/s =====, 项目同步未必： 114，错误： 
+2016-09-26 14:47:52: 
