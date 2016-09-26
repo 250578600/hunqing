@@ -106,6 +106,7 @@ class UserModel extends MemberModel {
 		//		"telephone_code" => true 
 		);
 		$config ['loginType'] = array (
+				"id",
 				"username",
 				"telephone",
 				"email" 
@@ -121,7 +122,7 @@ class UserModel extends MemberModel {
 						"point" => 9 
 				) 
 		);
-		$config ["ex"]=true;
+//		$config ["ex"]=true;
 		$config ["table"] ["tables"] ['ex'] = array (
 				"table" => array (
 						"keys" => array (

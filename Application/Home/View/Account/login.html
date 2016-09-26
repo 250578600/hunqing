@@ -6,6 +6,10 @@
 		<link rel="stylesheet" href="/Public/home/css/public.css" />
 		<link rel="stylesheet" href="/Public/home/login/css/popup_login.css" />
 		<link rel="stylesheet" href="/Public/home/login/css/login.css" />
+		<link rel="stylesheet" href="/Public/home/login/css/popup_password_reset.css" />
+		<style type="text/css">
+			.none{display: none;}
+		</style>
 	</head>
 	<body>
 		<div class="main-box">
@@ -13,14 +17,35 @@
 			<img class="logo" src="/Public/home/img/logo.png" />
 			<a class="register" href="">免费注册</a>
 			
-			<if condition="ACTION_NAME eq 'login_'">
+			
 			<!--此处输出 popup_login.html-->
-				<include file="login_"/>
-			<elseif condition="ACTION_NAME eq 'password'"/>
-				<include file="password"/>
-			<elseif condition="ACTION_NAME eq 'setPassword'"/>
-				<include file="setPassword"/>
-			</if>
+			<div id='popup-login-box' onselectstart="return false;">
+				<form action="" method="post" id="login" onsubmit="return sub()">
+					<img id="login-children-close" src="/Public/home/login/img/close.png" />
+					<div id="login-children-title">登录绅士名媛</div>
+					<!--onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')"-->
+					<input id="login-children-account" type="text" name="key" placeholder="ID/邮箱/手机" style="margin-top: 35px;" />
+					<input id="login-children-password" type="password" placeholder="密码" name="password" />
+					<div style="height: 56px; margin: 0 48px;">
+						<label id="login-children-gou"><input type="checkbox" />自动登录</label>
+						<a href="javascript:void 0" id="login-children-zh" onclick="pd()" id="pd">忘记密码？</a>
+					</div>
+					<input id="login-children-login" type="submit" value="立即登录"/>
+				</form>
+				<div id="login-children-restsLogin">
+					<span>其他登录</span>
+					<a href="" class="login-children-loginIco">
+						<img src="/Public/home/img/ico_QQ.png" />
+					</a>
+					<a href="" class="login-children-loginIco">
+						<img src="/Public/home/img/ico_WX.png"/>
+					</a>
+					<a href="" class="login-children-loginIco">
+						<img src="/Public/home/img/ico_SH.png"/>
+					</a>
+					<a id="login-children-register" href="">免费注册</a>
+				</div>
+			</div>
 
 			<div id="footer-box">
 				<div id="footer-center">
@@ -49,9 +74,45 @@
 					</div>
 				</div>
 			</div>
-				
+
+			<div class="none" id="cc">
+				<form id="popup-password-reset" action="" method="post">
+					<img src="/Public/home/login/img/close.png" class="children-close" onclick="$(this).parents('#cc').hide()" />
+					<div class="children-title">重置密码</div>
+					<input type="password" class="children-password" placeholder="请输入密码" value="" name="password" />
+					<input type="password" class="children-password" placeholder="请再次输入密码" value="" name="" />
+					<input type="submit" class="children-reset" value="确认修改" />
+				</form>
+			</div>
+			
 			
 		</div>
 	</body>
 </html>
-
+<script type="text/javascript" src="/Public/home/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="/Public/layout.js"></script>
+<script type="text/javascript" src="/Public/plugin/layer/layer.js"></script>
+<script type="text/javascript">
+	function sub(){
+		if($("input[name=id]").val()==''){
+			alert("请输入ID");
+		}else if($("input[name=password]").val().length<6){
+			alert("密码长度至少为6位");
+		}else{
+			$.post(document.URL,$("#login").serialize(),function(e){
+				if(e.state==1){
+					layer.alert("登陆成功");
+					setTimeout(function(){
+						location.href="{:U('Index/index')}";
+					},1000);
+				}else{
+					layer.alert(e.msg);
+				}
+			});
+		}
+		return false;
+	}
+	function pd(){
+		$('#cc').show();
+	}
+</script>

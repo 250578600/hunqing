@@ -113,14 +113,18 @@ class MemberController extends TopController {
 		}
 		$option = array (
 				"add" => array (
-						"keys" => "username,nickname,name,telephone,password,group,sex,email,province,city,county,address,balance,freeze",
-						"require" => "nickname,telephone",
-						"no_edit" => "username" 
+						"keys" => "username,nickname,name,telephone,password,group,sex,email,province,city,county,address,balance,freeze,groupid",
+						"require" => "nickname,telephone,groupid",
+						"no_edit" => "username" ,
+						"function" => array (
+								"this.pwdJiami" => "password" 
+						) ,
 				) 
 		);
 		if ($id) {
 			$this->assign ( "data", $data );
 			$option ['add'] ['edit'] = $id;
+			$option ['add'] ['ignore'] = "password";
 		}
 		$this->option ( $option );
 		$this->assign ( "group", $this->db->getGroupName () );
