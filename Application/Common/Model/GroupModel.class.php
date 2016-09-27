@@ -10,11 +10,19 @@ class GroupModel extends kokoModel {
 				"id int not null primary key auto_increment",
 				"name varchar(100) not null",
 				"description varchar(500) not null",
-				"power_ids varchar(256)",
+				"power_ids varchar(500)",
 				"point int default 0",
 				"`default` tinyint default 0" 
 		);
 		parent::__construct ( $name, $tablePrefix, $connection, $config );
+		if ($this->db && $this->count () == 0) {
+			$this->add ( array (
+					"name" => "默认分组",
+					"description" => "默认分组",
+					"default" => 1,
+					"power_ids" => "" 
+			) );
+		}
 	}
 	public function dispose(&$data) {
 		if (empty ( $data ['power_ids'] )) {
