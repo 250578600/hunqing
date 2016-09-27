@@ -82,7 +82,7 @@
 				<if condition="$r['state'] eq $state['dfh'][0]">
 					<a class="kokoWaybill" sn="{$r.order_sn}">立即发货</a>
 				</if>
-				<a  href="javascript:;"  onclick="member_add('订单详情','{:U('detail')}?sn={$r.order_sn}','900','600')" class="ml-5" style="text-decoration:none">
+				<a  href="javascript:;"  onclick="member_add('订单详情','{:U('detail')}?sn={$r.order_sn}','100%','100%')" class="ml-5" style="text-decoration:none">
 				<i class="Hui-iconfont">订单详情</i>
 				</a>
 			    <a title="删除"  class="ml-5 kokoDel" id="{$r.id}" style="text-decoration:none">
@@ -109,7 +109,8 @@ $(function(){
 });
 /*用户-添加*/
 function member_add(title,url,w,h){
-	layer_show(title,url,w,h);
+	var index=layer_show(title,url,w,h);
+	layer.full(index);
 }
 /*用户-查看*/
 function member_show(title,url,id,w,h){

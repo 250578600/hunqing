@@ -125,7 +125,11 @@ $(function(){
 		$.kokoTool.checkEmail("#email")&&
 		$.kokoTool.checkPassword("#password","#password2",edit);
 	},callback:function(){
-		parent.location.reload();
+		if(edit==0&&e.state==1){
+			setTimeout(function(){
+				parent.location.reload();
+			},3000);
+		}
 	}}},"{:U('ajax')}");
 
 });

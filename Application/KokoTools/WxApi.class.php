@@ -5,6 +5,7 @@
  *
  *
  *
+ *
  * ******************************************************
  *
  * @author Kyler You <QQ:2444756311>
@@ -27,8 +28,10 @@ class WxApi {
 	// const privatekey = ""; //私钥
 	public $parameters = array ();
 	public function __construct() {
-		$this->appId = \koko::setting ( 'wx_appid' );
-		$this->appSecret = \koko::setting ( 'wx_appsecret' );
+		if (! isset ( $GLOBALS ['no_database'] )) {
+			$this->appId = \koko::setting ( 'wx_appid' );
+			$this->appSecret = \koko::setting ( 'wx_appsecret' );
+		}
 	}
 	
 	/**

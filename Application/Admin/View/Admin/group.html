@@ -22,6 +22,99 @@
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
 <title>管理员用户组</title>
+		<style type="text/css">
+			.authority-box{
+				display: block;
+				width: 775px;
+				margin: 145px 0 0 145px;
+			}
+			.authority-name{
+				height: 23px;
+			}
+			.authority-name div{
+				float: left;
+				color: #333;
+				font-size: 14px;
+				font-weight: 600;
+				height: 23px;
+				line-height: 24px;
+			}
+			.authority-name input{
+				display: block;
+				float: left;
+				width: 200px;
+				height: 23px;
+				line-height: 23px;
+				font-size: 14px;
+				margin-left: 6px;
+				outline: none;
+				border: 1px solid #ccc;
+				padding-left: 5px;
+				-moz-transition: all .6s ease;
+				-webkit-transition: all .6s ease;
+				transition: all .6s ease;
+			}
+			.authority-name input:focus{
+				border: 1px solid #7E97DE;
+			}
+			.authority-select{
+				margin-top: 25px;
+			}
+			.authority-select:after{
+				content: ' ';
+				display: block;
+				clear: both;
+			}
+			.authority-select span{
+				float: left;
+				color: #333;
+				font-size: 14px;
+				font-weight: 600;
+			}
+			.authority-right{
+				float: right;
+				width: 710px;
+				padding-top: 2px;
+			}
+			.authority-right:after{
+				content: ' ';
+				display: block;
+				clear: both;
+			}
+			.authority-right label{
+				display: block;
+				float: left;
+				margin: 0 28px 16px 0;
+				height: 15px;
+			}
+			.authority-right input{
+				display: block;
+				float: left;
+				margin: 0 5px 0 0;
+			}
+			.authority-right div{
+				float: left;
+				color: #333;
+				font-size: 13px;
+				height: 15px;
+				line-height: 15px;
+			}
+			.authority-submit{
+				width: 100px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				color: #fff;
+				font-size: 14px;
+				font-weight: 600;
+				background-color: #333;
+				border-radius: 2px;
+				cursor: pointer;
+				margin: 40px 0 0 65px;
+				outline: none;
+				border: none;
+			}
+		</style>
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 管理员用户组<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
@@ -63,24 +156,30 @@
 label,input[type=check]{cursor:pointer}
 </style>
 <div id="quan" style="display:none">
-<div style="height:100%">
-		<form id="tijiao" style="height:100%">
-		<input type="hidden" name="id" id="action_id" value="">
-		<input type="hidden" name="data[description]" id="description" value="">
-		<input type="hidden" name="data[power_ids]" id="power_ids" value="">
-	<div style="width:100%;">
-		<div style="margin:0 5px">用户组名称<input type="text" name="data[name]" id="name" class="input-text" style="width:500px"></div>
-		<php>$a=0;</php>
-		<foreach name="power" item="r" key="k">
-		<php>$a++;</php>
-		<div style="margin:0px 10px">
-			<div><label for="a{$k}" class="model-z">{$a}. {$r.name}({$r.description})</label><input id="a{$k}"  type="checkbox" desc="{$r.name}" class="class-title"></div>
-		</div>
-		</foreach>
-		<div style="text-align:center">
-		<a style="margin:5px" class="btn-primary btn kokoSave" ajax="{$ajax.add}" before="check_data" form="#tijiao">提交</a>
-		</div>
-	</div>
+<div>
+		<form id="tijiao" class="authority-box" onsubmit="return false">
+			<input type="hidden" name="id" id="action_id" value="">
+			<input type="hidden" name="data[description]" id="description" value="">
+			<input type="hidden" name="data[power_ids]" id="power_ids" value="">
+			<div class="authority-name">
+				<div>分组名称</div>
+				<input type="text" name="data[name]" id="name" />
+			</div>
+			<div class="authority-select">
+				<span class="">选择权限</span>
+				<div class="authority-right">
+					<php>$a=0;</php>
+					<foreach name="power" item="r" key="k">
+						<php>$a++;</php>
+						<label>
+							<input type="checkbox"  id="a{$k}" name="authority" desc="{$r.name}" class="class-title" />
+							<div>{$a}. {$r.name}({$r.description})</div>
+						</label>
+					</foreach>
+					
+				</div>
+			</div>
+			<input class="authority-submit kokoSave" ajax="{$ajax.add}" before="check_data" form="#tijiao" type="submit" value="提交" />
 		</form>
 </div>
 </div>

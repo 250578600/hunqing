@@ -1,0 +1,10 @@
+2016-09-26 20:41:35: -- Analysis Started by User
+2016-09-26 20:41:37: Right to Left: Copy File: 3 
+2016-09-26 20:41:37: ----- ：分析已结束。 历时 00:00:04， 速度： 158 个文件/秒 -----
+2016-09-26 20:41:37: 
+2016-09-26 20:41:43: == Sync Started by User
+2016-09-26 20:41:43: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member/group.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member/group.html'
+2016-09-26 20:41:43: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/ForumModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/ForumModel.class.php'
+2016-09-26 20:41:43: 新建复制 'F:/PHPnow/hunqing/Application/Common/Model/SectionModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/SectionModel.class.php'
+2016-09-26 20:41:43: ===== ：同步完毕。时间：00:00:01，速度： 27.1 KB/s =====, 项目同步未必： 3，错误： 
+2016-09-26 20:41:43: 

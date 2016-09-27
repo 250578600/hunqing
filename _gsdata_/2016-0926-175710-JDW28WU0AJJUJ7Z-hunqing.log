@@ -1,0 +1,329 @@
+2016-09-26 17:57:10: -- Analysis Started by User
+2016-09-26 17:57:13: /Application/Admin/Common/index.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Conf/config.php: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Conf/index.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Controller/AccountController.class.php: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Controller/AdverController.class.php: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Controller/ArticleController.class.php: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Controller/GoodsController.class.php: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Controller/index.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Controller/IndexController.class.php: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Controller/OrderController.class.php: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Controller/PromotionController.class.php: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Controller/TopController.class.php: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Controller/WechatController.class.php: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/index.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Model/AdminMenuModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Model/AdminModel.class.php: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/Model/index.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Account/login.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Account/login2.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Admin/add32423.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Admin/admin-permission.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Admin/admin-role-add.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Admin/admin-role.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Admin/ggw.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Admin/imagesAdd.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Admin/listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Admin/listing33333333.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Admin/power.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Admin/sai.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Admin/type.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Adver/banner.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Adver/ex.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Adver/imagesAdd.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Adver/listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Article/add.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Article/category.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Article/comment.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Article/listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods/add.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods/add2.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods/attr.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods/depot.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods/fenlei.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods/freight.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods/judge.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods/listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods/product-brand.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods/product-category-add.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods/product-category.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/add - │Ε.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/add - 副本.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/add2.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/brand_listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/city_listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/Copy of add.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/Copy of listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/Copy of process.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/Copy of type_listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/judge.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/listing——old.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/listing憩憩old.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/parameter_listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Goods - 副本/type_listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/404.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/_footer.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/_header.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/_menu.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/_meta.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/admin-add.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/admin-list.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/admin-permission.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/admin-role-add.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/admin-role.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/article-add.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/article-list.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/charts-1.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/charts-2.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/charts-3.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/charts-4.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/charts-5.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/charts-6.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/charts-7.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/codeing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/feedback-list.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/index.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/menu.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/message.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/page.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/picture-add.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/picture-list.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/picture-show.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/setting.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/system-category-add.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/system-category.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/system-data.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/system-log.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/system-shielding.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index/welcome.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/add.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/export.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/fenxiao.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/forget.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/index.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/login.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/login.m.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/main.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/menu.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/msg.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/password.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/profile.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/qrcode.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/qrcode1.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/register.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/sign.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/top.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Index - 副本/webset.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/index.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member/coupon.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member/deleted.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member/detail.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member/listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member/member-record-browse.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member/member-record-download.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member/member-record-share.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member/password.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member123/add.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member123/address.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member123/dai.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member123/listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member123/listing_fenxiao.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member123/listing_jingxiao.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member123/listing_money.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member123/listing_tixian.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member123/msg.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member123/type.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member123/xia.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Member123/ziliao.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Order/tuihuo.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Other/add - │Ε.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Other/add - 副本.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Other/add.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Other/lei.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Other/listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Promotion/bdbxf.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Promotion/jing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Promotion/xsms.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Wechat/add.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Wechat/add_sucai.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Wechat/listing.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Wechat/listing_sucai.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Wechat/menu.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: /Application/Admin/View/Wechat/menu2.html: 警告：旧文件将替换新文件
+2016-09-26 17:57:13: Right to Left: Copy File: 169 Copy State: 37 
+2016-09-26 17:57:13: ----- ：分析已结束。 历时 00:00:03， 速度： 210 个文件/秒 -----
+2016-09-26 17:57:13: 
+2016-09-26 17:57:22: == Sync Started by User
+2016-09-26 17:57:22: 创建文件夹 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Forum'
+2016-09-26 17:57:22: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Common/index.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Common/index.html'
+2016-09-26 17:57:22: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Conf/config.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Conf/config.php'
+2016-09-26 17:57:22: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Conf/index.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Conf/index.html'
+2016-09-26 17:57:22: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Controller/AccountController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Controller/AccountController.class.php'
+2016-09-26 17:57:22: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Controller/AdminController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Controller/AdminController.class.php'
+2016-09-26 17:57:23: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Controller/AdverController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Controller/AdverController.class.php'
+2016-09-26 17:57:23: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Controller/ArticleController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Controller/ArticleController.class.php'
+2016-09-26 17:57:23: 新建复制 'F:/PHPnow/hunqing/Application/Admin/Controller/ForumController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Controller/ForumController.class.php'
+2016-09-26 17:57:23: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Controller/GoodsController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Controller/GoodsController.class.php'
+2016-09-26 17:57:23: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Controller/index.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Controller/index.html'
+2016-09-26 17:57:23: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Controller/IndexController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Controller/IndexController.class.php'
+2016-09-26 17:57:23: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Controller/MemberController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Controller/MemberController.class.php'
+2016-09-26 17:57:23: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Controller/OrderController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Controller/OrderController.class.php'
+2016-09-26 17:57:23: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Controller/PromotionController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Controller/PromotionController.class.php'
+2016-09-26 17:57:23: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Controller/ServerController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Controller/ServerController.class.php'
+2016-09-26 17:57:23: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Controller/TopController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Controller/TopController.class.php'
+2016-09-26 17:57:23: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Controller/WechatController.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Controller/WechatController.class.php'
+2016-09-26 17:57:23: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/index.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/index.html'
+2016-09-26 17:57:23: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Model/AdminMenuModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Model/AdminMenuModel.class.php'
+2016-09-26 17:57:24: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Model/AdminModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Model/AdminModel.class.php'
+2016-09-26 17:57:24: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/Model/index.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/Model/index.html'
+2016-09-26 17:57:24: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Account/login.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Account/login.html'
+2016-09-26 17:57:24: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Account/login2.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Account/login2.html'
+2016-09-26 17:57:24: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Admin/add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Admin/add.html'
+2016-09-26 17:57:24: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Admin/add32423.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Admin/add32423.html'
+2016-09-26 17:57:24: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Admin/admin-permission.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Admin/admin-permission.html'
+2016-09-26 17:57:24: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Admin/admin-role-add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Admin/admin-role-add.html'
+2016-09-26 17:57:24: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Admin/admin-role.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Admin/admin-role.html'
+2016-09-26 17:57:24: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Admin/ggw.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Admin/ggw.html'
+2016-09-26 17:57:24: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Admin/group.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Admin/group.html'
+2016-09-26 17:57:24: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Admin/imagesAdd.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Admin/imagesAdd.html'
+2016-09-26 17:57:24: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Admin/listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Admin/listing.html'
+2016-09-26 17:57:25: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Admin/listing33333333.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Admin/listing33333333.html'
+2016-09-26 17:57:25: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Admin/power.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Admin/power.html'
+2016-09-26 17:57:25: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Admin/sai.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Admin/sai.html'
+2016-09-26 17:57:25: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Admin/type.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Admin/type.html'
+2016-09-26 17:57:25: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Adver/banner.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Adver/banner.html'
+2016-09-26 17:57:25: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Adver/ex.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Adver/ex.html'
+2016-09-26 17:57:25: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Adver/imagesAdd.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Adver/imagesAdd.html'
+2016-09-26 17:57:25: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Adver/listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Adver/listing.html'
+2016-09-26 17:57:25: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Article/add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Article/add.html'
+2016-09-26 17:57:25: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Article/category.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Article/category.html'
+2016-09-26 17:57:25: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Article/comment.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Article/comment.html'
+2016-09-26 17:57:25: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Article/listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Article/listing.html'
+2016-09-26 17:57:26: 新建复制 'F:/PHPnow/hunqing/Application/Admin/View/Forum/listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Forum/listing.html'
+2016-09-26 17:57:26: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods/add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods/add.html'
+2016-09-26 17:57:26: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods/add2.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods/add2.html'
+2016-09-26 17:57:26: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods/attr.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods/attr.html'
+2016-09-26 17:57:26: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods/depot.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods/depot.html'
+2016-09-26 17:57:26: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods/fenlei.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods/fenlei.html'
+2016-09-26 17:57:26: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods/freight.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods/freight.html'
+2016-09-26 17:57:26: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods/judge.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods/judge.html'
+2016-09-26 17:57:26: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods/listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods/listing.html'
+2016-09-26 17:57:26: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods/product-brand.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods/product-brand.html'
+2016-09-26 17:57:26: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods/product-category-add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods/product-category-add.html'
+2016-09-26 17:57:26: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods/product-category.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods/product-category.html'
+2016-09-26 17:57:26: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/add - │Ε.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/add - │Ε.html'
+2016-09-26 17:57:27: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/add - 副本.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/add - 副本.html'
+2016-09-26 17:57:27: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/add2.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/add2.html'
+2016-09-26 17:57:27: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/brand_listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/brand_listing.html'
+2016-09-26 17:57:27: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/city_listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/city_listing.html'
+2016-09-26 17:57:27: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/Copy of add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/Copy of add.html'
+2016-09-26 17:57:27: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/Copy of listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/Copy of listing.html'
+2016-09-26 17:57:27: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/Copy of process.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/Copy of process.html'
+2016-09-26 17:57:27: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/Copy of type_listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/Copy of type_listing.html'
+2016-09-26 17:57:27: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/judge.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/judge.html'
+2016-09-26 17:57:27: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/listing.html'
+2016-09-26 17:57:27: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/listing——old.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/listing——old.html'
+2016-09-26 17:57:28: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/listing憩憩old.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/listing憩憩old.html'
+2016-09-26 17:57:28: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/parameter_listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/parameter_listing.html'
+2016-09-26 17:57:28: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Goods - 副本/type_listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Goods - 副本/type_listing.html'
+2016-09-26 17:57:28: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/404.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/404.html'
+2016-09-26 17:57:28: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/_footer.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/_footer.html'
+2016-09-26 17:57:28: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/_header.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/_header.html'
+2016-09-26 17:57:28: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/_menu.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/_menu.html'
+2016-09-26 17:57:28: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/_meta.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/_meta.html'
+2016-09-26 17:57:28: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/admin-add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/admin-add.html'
+2016-09-26 17:57:28: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/admin-list.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/admin-list.html'
+2016-09-26 17:57:28: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/admin-permission.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/admin-permission.html'
+2016-09-26 17:57:28: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/admin-role-add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/admin-role-add.html'
+2016-09-26 17:57:28: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/admin-role.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/admin-role.html'
+2016-09-26 17:57:29: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/article-add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/article-add.html'
+2016-09-26 17:57:29: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/article-list.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/article-list.html'
+2016-09-26 17:57:29: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/charts-1.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/charts-1.html'
+2016-09-26 17:57:29: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/charts-2.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/charts-2.html'
+2016-09-26 17:57:29: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/charts-3.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/charts-3.html'
+2016-09-26 17:57:29: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/charts-4.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/charts-4.html'
+2016-09-26 17:57:29: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/charts-5.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/charts-5.html'
+2016-09-26 17:57:29: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/charts-6.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/charts-6.html'
+2016-09-26 17:57:29: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/charts-7.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/charts-7.html'
+2016-09-26 17:57:29: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/codeing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/codeing.html'
+2016-09-26 17:57:29: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/feedback-list.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/feedback-list.html'
+2016-09-26 17:57:29: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/index.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/index.html'
+2016-09-26 17:57:30: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/menu.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/menu.html'
+2016-09-26 17:57:30: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/message.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/message.html'
+2016-09-26 17:57:30: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/page.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/page.html'
+2016-09-26 17:57:30: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/picture-add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/picture-add.html'
+2016-09-26 17:57:30: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/picture-list.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/picture-list.html'
+2016-09-26 17:57:30: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/picture-show.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/picture-show.html'
+2016-09-26 17:57:30: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/setting.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/setting.html'
+2016-09-26 17:57:30: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/system-category-add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/system-category-add.html'
+2016-09-26 17:57:30: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/system-category.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/system-category.html'
+2016-09-26 17:57:30: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/system-data.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/system-data.html'
+2016-09-26 17:57:30: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/system-log.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/system-log.html'
+2016-09-26 17:57:30: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/system-shielding.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/system-shielding.html'
+2016-09-26 17:57:30: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index/welcome.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index/welcome.html'
+2016-09-26 17:57:31: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/add.html'
+2016-09-26 17:57:31: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/export.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/export.html'
+2016-09-26 17:57:31: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/fenxiao.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/fenxiao.html'
+2016-09-26 17:57:31: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/forget.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/forget.html'
+2016-09-26 17:57:31: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/index.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/index.html'
+2016-09-26 17:57:31: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/login.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/login.html'
+2016-09-26 17:57:31: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/login.m.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/login.m.html'
+2016-09-26 17:57:31: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/main.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/main.html'
+2016-09-26 17:57:31: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/menu.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/menu.html'
+2016-09-26 17:57:31: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/msg.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/msg.html'
+2016-09-26 17:57:31: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/password.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/password.html'
+2016-09-26 17:57:31: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/profile.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/profile.html'
+2016-09-26 17:57:31: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/qrcode.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/qrcode.html'
+2016-09-26 17:57:32: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/qrcode1.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/qrcode1.html'
+2016-09-26 17:57:32: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/register.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/register.html'
+2016-09-26 17:57:32: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/sign.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/sign.html'
+2016-09-26 17:57:32: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/top.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/top.html'
+2016-09-26 17:57:32: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Index - 副本/webset.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Index - 副本/webset.html'
+2016-09-26 17:57:32: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/index.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/index.html'
+2016-09-26 17:57:32: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member/add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member/add.html'
+2016-09-26 17:57:32: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member/coupon.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member/coupon.html'
+2016-09-26 17:57:32: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member/deleted.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member/deleted.html'
+2016-09-26 17:57:32: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member/detail.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member/detail.html'
+2016-09-26 17:57:32: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member/group.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member/group.html'
+2016-09-26 17:57:32: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member/listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member/listing.html'
+2016-09-26 17:57:32: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member/member-record-browse.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member/member-record-browse.html'
+2016-09-26 17:57:32: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member/member-record-download.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member/member-record-download.html'
+2016-09-26 17:57:33: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member/member-record-share.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member/member-record-share.html'
+2016-09-26 17:57:33: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member/password.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member/password.html'
+2016-09-26 17:57:33: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member123/add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member123/add.html'
+2016-09-26 17:57:33: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member123/address.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member123/address.html'
+2016-09-26 17:57:33: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member123/dai.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member123/dai.html'
+2016-09-26 17:57:33: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member123/listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member123/listing.html'
+2016-09-26 17:57:33: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member123/listing_fenxiao.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member123/listing_fenxiao.html'
+2016-09-26 17:57:33: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member123/listing_jingxiao.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member123/listing_jingxiao.html'
+2016-09-26 17:57:33: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member123/listing_money.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member123/listing_money.html'
+2016-09-26 17:57:33: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member123/listing_tixian.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member123/listing_tixian.html'
+2016-09-26 17:57:33: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member123/msg.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member123/msg.html'
+2016-09-26 17:57:33: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member123/type.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member123/type.html'
+2016-09-26 17:57:33: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member123/xia.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member123/xia.html'
+2016-09-26 17:57:34: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Member123/ziliao.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Member123/ziliao.html'
+2016-09-26 17:57:34: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Order/detail.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Order/detail.html'
+2016-09-26 17:57:34: 新建复制 'F:/PHPnow/hunqing/Application/Admin/View/Order/detail2.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Order/detail2.html'
+2016-09-26 17:57:34: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Order/index.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Order/index.html'
+2016-09-26 17:57:34: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Order/tuihuo.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Order/tuihuo.html'
+2016-09-26 17:57:34: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Other/add - │Ε.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Other/add - │Ε.html'
+2016-09-26 17:57:34: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Other/add - 副本.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Other/add - 副本.html'
+2016-09-26 17:57:34: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Other/add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Other/add.html'
+2016-09-26 17:57:34: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Other/lei.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Other/lei.html'
+2016-09-26 17:57:34: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Other/listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Other/listing.html'
+2016-09-26 17:57:34: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Promotion/bdbxf.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Promotion/bdbxf.html'
+2016-09-26 17:57:34: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Promotion/jing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Promotion/jing.html'
+2016-09-26 17:57:35: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Promotion/xsms.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Promotion/xsms.html'
+2016-09-26 17:57:35: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Wechat/add.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Wechat/add.html'
+2016-09-26 17:57:35: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Wechat/add_sucai.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Wechat/add_sucai.html'
+2016-09-26 17:57:35: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Wechat/listing.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Wechat/listing.html'
+2016-09-26 17:57:35: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Wechat/listing_sucai.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Wechat/listing_sucai.html'
+2016-09-26 17:57:35: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Wechat/menu.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Wechat/menu.html'
+2016-09-26 17:57:35: 覆盖复制 'F:/PHPnow/hunqing/Application/Admin/View/Wechat/menu2.html' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Admin/View/Wechat/menu2.html'
+2016-09-26 17:57:35: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Common/function.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Common/function.php'
+2016-09-26 17:57:35: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/ForumModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/ForumModel.class.php'
+2016-09-26 17:57:35: 覆盖复制 'F:/PHPnow/hunqing/Application/Common/Model/GroupModel.class.php' -> 'ftp://www.fengniaozhiku.com/4/mine/Application/Common/Model/GroupModel.class.php'
+2016-09-26 17:57:35: ===== ：同步完毕。时间：00:00:13，速度： 71.1 KB/s =====, 项目同步未必： 210，错误： 
+2016-09-26 17:57:36: 

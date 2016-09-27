@@ -136,7 +136,7 @@ class AdminController extends TopController {
 								if (is_file ( $path )) {
 									$class = str_replace ( "/", "\\", substr ( $path, 13, strlen ( $path ) - 23 ) );
 									if (class_exists ( $class )) {
-										file_put_contents ( "123vv.txt", $class . "\r\n", FILE_APPEND );
+										file_put_contents ( "123vv.txt", $class . " in\r\n", FILE_APPEND );
 										$obj = new $class ();
 										if (is_subclass_of ( $obj, "Think\Model" ) == false && is_subclass_of ( $obj, "Think\Controller" ) == false) {
 											continue;
